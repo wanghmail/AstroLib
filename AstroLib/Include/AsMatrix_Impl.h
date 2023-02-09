@@ -247,7 +247,7 @@ inline _CMatrix_base<_Type>::operator const _Type* const *() const
 
 //get the buffer of CMatrix
 template <class _Type>
-inline _Type** _CMatrix_base<_Type>::Buffer()
+inline _Type** _CMatrix_base<_Type>::Data()
 {
 	return m_pp;
 }
@@ -255,7 +255,7 @@ inline _Type** _CMatrix_base<_Type>::Buffer()
 
 //get the buffer of CMatrix
 template <class _Type>
-inline const _Type* const* _CMatrix_base<_Type>::Buffer() const
+inline const _Type* const* _CMatrix_base<_Type>::Data() const
 {
 	return m_pp;
 }
@@ -589,7 +589,7 @@ inline const CMatrix<_Type> CMatrix<_Type>::operator*(const CMatrix<_Type>& othe
 	// construct the object we are going to return
 	CMatrix<_Type>	result(m_Row, other.GetSizeCol()) ;
 
-	DP	value ;
+	double	value ;
 	for (int i=0 ; i<result.GetSizeRow(); ++i)
 	{
 		for (int j=0 ; j<other.GetSizeCol(); ++j)
@@ -611,7 +611,7 @@ inline const CMatrix<_Type> CMatrix<_Type>::operator*(const CMatrix<_Type>& othe
 // 重载运算符*，实现矩阵和矢量的乘法
 //
 // 参数：
-// 1. const DP& vec - 与指定矩阵相乘的矢量
+// 1. const double& vec - 与指定矩阵相乘的矢量
 //
 // 返回值：相乘之积
 //////////////////////////////////////////////////////////////////////
@@ -623,7 +623,7 @@ inline const CVector<_Type>	CMatrix<_Type>::operator*(const CVector<_Type>& vec)
 	// construct the object we are going to return
 	CVector<_Type>	result(m_Col);
 
-	DP	value ;
+	double	value ;
 	for (int i = 0 ; i < m_Row; ++i)
 	{
 		value = 0.0 ;
@@ -688,7 +688,7 @@ template <class _Type>
 inline const CMatrix<_Type>& CMatrix<_Type>::operator/=(const CMatrix<_Type>& m)
 {
 	assert(m.m_Col==1 && m.m_Row==1);
-	DP dNum = m.m_pp[0][0];
+	double dNum = m.m_pp[0][0];
 	return operator/=(dNum);
 }
 
@@ -696,7 +696,7 @@ template <class _Type>
 inline const CMatrix<_Type> CMatrix<_Type>::operator/(const CMatrix<_Type>& m) const
 {
 	assert(m.m_Col==1 && m.m_Row==1);
-	DP dNum = m.m_pp[0][0];
+	double dNum = m.m_pp[0][0];
 	return operator/(dNum);
 }
 
@@ -704,10 +704,10 @@ inline const CMatrix<_Type> CMatrix<_Type>::operator/(const CMatrix<_Type>& m) c
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//TEMPLATE CLASS CMatrix<DP>
+//TEMPLATE CLASS CMatrix<double>
 
 
-inline const CMatrix<DP>& CMatrix<DP>::operator+=(const CMatrix<DP>& other)
+inline const CMatrix<double>& CMatrix<double>::operator+=(const CMatrix<double>& other)
 {
 	assert (m_Col == other.GetSizeCol() && m_Row == other.GetSizeRow());
 
@@ -728,16 +728,16 @@ inline const CMatrix<DP>& CMatrix<DP>::operator+=(const CMatrix<DP>& other)
 //
 // 返回值：CMatrix型，指定矩阵与other相加之和
 //////////////////////////////////////////////////////////////////////
-inline const CMatrix<DP> CMatrix<DP>::operator+(const CMatrix<DP>& other) const
+inline const CMatrix<double> CMatrix<double>::operator+(const CMatrix<double>& other) const
 {
 	assert (m_Col == other.GetSizeCol() && m_Row == other.GetSizeRow());
 
-	CMatrix<DP> result = *this;
+	CMatrix<double> result = *this;
 	result += other;
 	return result ;
 }
 
-inline const CMatrix<DP>& CMatrix<DP>::operator-=(const CMatrix<DP>& other)
+inline const CMatrix<double>& CMatrix<double>::operator-=(const CMatrix<double>& other)
 {
 	assert (m_Col == other.GetSizeCol() && m_Row == other.GetSizeRow());
 
@@ -751,11 +751,11 @@ inline const CMatrix<DP>& CMatrix<DP>::operator-=(const CMatrix<DP>& other)
 }
 
 // 重载运算符-，实现矩阵的减法
-inline const CMatrix<DP> CMatrix<DP>::operator-(const CMatrix<DP>& other) const
+inline const CMatrix<double> CMatrix<double>::operator-(const CMatrix<double>& other) const
 {
 	assert (m_Col == other.GetSizeCol() && m_Row == other.GetSizeRow());
 
-	CMatrix<DP> result = *this;
+	CMatrix<double> result = *this;
 	result -= other;
 	return result ;
 }
@@ -763,9 +763,9 @@ inline const CMatrix<DP> CMatrix<DP>::operator-(const CMatrix<DP>& other) const
 //********************************************************************
 //重载运算符-，实现求矩阵的负
 //********************************************************************
-inline const CMatrix<DP> CMatrix<DP>::operator-() const
+inline const CMatrix<double> CMatrix<double>::operator-() const
 {
-	CMatrix<DP> m = *this;
+	CMatrix<double> m = *this;
 	for (int i=0; i<m_Row ; ++i)
 	{
 		for (int j=0; j<m_Col; ++j)
@@ -775,12 +775,12 @@ inline const CMatrix<DP> CMatrix<DP>::operator-() const
 }
 
 
-inline const CMatrix<DP>& CMatrix<DP>::operator*=(const _MyT& other)
+inline const CMatrix<double>& CMatrix<double>::operator*=(const _MyT& other)
 {
 	assert (m_Col == other.GetSizeRow() && m_Row==m_Col && m_Row==other.GetSizeCol());
 
-	CMatrix<DP> result(m_Row, m_Row) ;
-	DP	value ;
+	CMatrix<double> result(m_Row, m_Row) ;
+	double	value ;
 
 	for (int i=0 ; i<m_Row; ++i)
 	{
@@ -799,13 +799,13 @@ inline const CMatrix<DP>& CMatrix<DP>::operator*=(const _MyT& other)
 
 
 // 重载运算符*，实现矩阵的乘法
-inline const CMatrix<DP> CMatrix<DP>::operator*(const CMatrix<DP>& other) const
+inline const CMatrix<double> CMatrix<double>::operator*(const CMatrix<double>& other) const
 {
 	assert (m_Col == other.GetSizeRow());
 
 	// construct the object we are going to return
-	CMatrix<DP> result(m_Row, other.GetSizeCol()) ;
-	DP	value ;
+	CMatrix<double> result(m_Row, other.GetSizeCol()) ;
+	double	value ;
 
 	for (int i=0 ; i<m_Row; ++i)
 	{
@@ -823,16 +823,16 @@ inline const CMatrix<DP> CMatrix<DP>::operator*(const CMatrix<DP>& other) const
 
 
 // 重载运算符*，实现矩阵和矢量的乘法
-inline const CVector<DP> CMatrix<DP>::operator*(const CVector<DP>& vec) const
+inline const CVector<double> CMatrix<double>::operator*(const CVector<double>& vec) const
 {
 	assert (m_Col == vec.GetSize());
 
 	// construct the object we are going to return
-	CVector<DP>	result(m_Row);
+	CVector<double>	result(m_Row);
 
 	for (int i = 0 ; i < m_Row; ++i)
 	{
-		DP value = 0.0 ;
+		double value = 0.0 ;
 		for (int j = 0 ; j < m_Col; ++j)
 			value += m_pp[i][j] * vec[j];			
 		result[i] = value;
@@ -842,7 +842,7 @@ inline const CVector<DP> CMatrix<DP>::operator*(const CVector<DP>& vec) const
 }
 
 
-inline const CMatrix<DP>& CMatrix<DP>::operator*=(DP other)
+inline const CMatrix<double>& CMatrix<double>::operator*=(double other)
 {
 	for (int i=0 ; i<m_Row ; ++i)
 	{
@@ -854,15 +854,15 @@ inline const CMatrix<DP>& CMatrix<DP>::operator*=(DP other)
 
 
 //矩阵乘数
-inline const CMatrix<DP>  CMatrix<DP>::operator*(DP dNum) const
+inline const CMatrix<double>  CMatrix<double>::operator*(double dNum) const
 {
-	CMatrix<DP> result = *this;
+	CMatrix<double> result = *this;
 	result *= dNum;
 	return result;
 }
 
 
-inline const CMatrix<DP>&  CMatrix<DP>::operator/=(DP dNum)					
+inline const CMatrix<double>&  CMatrix<double>::operator/=(double dNum)					
 {
 	for(int i=0; i<m_Row; i++)
 		for(int j=0; j<m_Col; j++)
@@ -872,25 +872,25 @@ inline const CMatrix<DP>&  CMatrix<DP>::operator/=(DP dNum)
 }
 
 //矩阵除数
-inline const CMatrix<DP>  CMatrix<DP>::operator/(DP dNum) const						
+inline const CMatrix<double>  CMatrix<double>::operator/(double dNum) const						
 {
-	CMatrix<DP> result = *this;
+	CMatrix<double> result = *this;
 	result /= dNum;
 	return result;
 
 }
 
-inline const CMatrix<DP>& CMatrix<DP>::operator/=(CMatrix<DP> m)
+inline const CMatrix<double>& CMatrix<double>::operator/=(CMatrix<double> m)
 {
 	assert(m.m_Col==1 && m.m_Row==1);
-	DP dNum = m.m_pp[0][0];
+	double dNum = m.m_pp[0][0];
 	return operator/=(dNum);
 }
 
-inline const CMatrix<DP> CMatrix<DP>::operator/(CMatrix<DP> m) const
+inline const CMatrix<double> CMatrix<double>::operator/(CMatrix<double> m) const
 {
 	assert(m.m_Col==1 && m.m_Row==1);
-	DP dNum = m.m_pp[0][0];
+	double dNum = m.m_pp[0][0];
 	return operator/(dNum);
 }
 
@@ -907,7 +907,7 @@ inline const CMatrix<DP> CMatrix<DP>::operator/(CMatrix<DP> m) const
 /// Return	
 //********************************************************************
 template <class _Type>
-void AsMNamespace AsMtxMergeRow(const CMatrix<_Type>& mtxA, const CMatrix<_Type>& mtxB,
+void  AsMtxMergeRow(const CMatrix<_Type>& mtxA, const CMatrix<_Type>& mtxB,
 								CMatrix<_Type>& mtxAB)
 {
 	assert(mtxA.GetSizeRow()==mtxB.GetSizeRow());
@@ -944,7 +944,7 @@ void AsMNamespace AsMtxMergeRow(const CMatrix<_Type>& mtxA, const CMatrix<_Type>
 /// Return	
 //********************************************************************
 template <class _Type>
-void AsMNamespace AsMtxMergeCol(const CMatrix<_Type>& mtxA, const CMatrix<_Type>& mtxB,
+void  AsMtxMergeCol(const CMatrix<_Type>& mtxA, const CMatrix<_Type>& mtxB,
 								CMatrix<_Type>& mtxAB)
 {
 	assert(mtxA.GetSizeCol()==mtxB.GetSizeCol());

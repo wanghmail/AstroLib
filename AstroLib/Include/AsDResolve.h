@@ -19,7 +19,7 @@
 #include "AsMatrix.h"
 
 
-AsMBeginNamespace
+
 
 
 //
@@ -48,7 +48,7 @@ void	AsODERungeKutta4 (
 
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASDRESOLVE_H_)

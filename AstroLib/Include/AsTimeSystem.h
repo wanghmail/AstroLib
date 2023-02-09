@@ -18,10 +18,10 @@
 #include <time.h>
 
 
-AsMBeginNamespace
 
 
-class CWhTimeSpan;
+
+class CCTimeSpan;
 
 
 //
@@ -48,18 +48,18 @@ const double AsCEarthSiderealYear = 365.25636;
 //
 //Gregorian calendar time.
 //
-class CWhTime
+class CCTime
 {
 	//
 	//operation.
 	//
 public:
-	CWhTime();
-	CWhTime(int year, int mon, int day, int hour, int min, double sec);
-	CWhTime(const CWhTime& time);
-	explicit CWhTime(time_t time);
-	explicit CWhTime(const tm* ptm);
-	virtual ~CWhTime();
+	CCTime();
+	CCTime(int year, int mon, int day, int hour, int min, double sec);
+	CCTime(const CCTime& time);
+	explicit CCTime(time_t time);
+	explicit CCTime(const tm* ptm);
+	virtual ~CCTime();
 	
 	//
 	//Attribute.
@@ -77,15 +77,15 @@ public:
 //
 //Time span class.
 //
-class CWhTimeSpan
+class CCTimeSpan
 {
 	//
 	//operation.
 	//
 public:
-	CWhTimeSpan();
-	CWhTimeSpan(int day,int hour,int min,double sec);
-	virtual ~CWhTimeSpan();
+	CCTimeSpan();
+	CCTimeSpan(int day,int hour,int min,double sec);
+	virtual ~CCTimeSpan();
 	//********************************************************************
 	/// Get total Days.
 	/// @Author	Wang Hua
@@ -146,19 +146,30 @@ public:
 
 
 //********************************************************************
+/// 判断是否闰年
 /// According Gregorian Calendar determine if the year is leap year.
 /// @Author	Wang Hua
 /// @Date	2004.9.21
+/// @Input
+/// @Param  year    年
+/// @Return         true=闰年; false=不是闰年
 //********************************************************************
 bool	AsIsLeapYear  (int year);
 
+//********************************************************************
+/// 根据时间计算儒略日
+/// @Author	Wang Hua
+/// @Date	2004.9.16
+/// @Input	t       date in CCTime format
+/// @Output	JD		Julian Date
+//********************************************************************
+void    AsTimeToJD(const CCTime& t, double& JD);
 
 
 
-AsMEndNamespace
+
 
 
 #endif //_ASTIMESYSTEM_H_
 
-//JED is the Julian Date representation of Terrestrial Dynamical Time (TDT).
 

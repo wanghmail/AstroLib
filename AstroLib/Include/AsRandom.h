@@ -16,9 +16,11 @@
 
 
 #include "AsCommon.h"
+#include <time.h>
+#include <cmath>
 
 
-AsMBeginNamespace
+
 
 
 //
@@ -45,16 +47,34 @@ public:
 	//
 	double	Rand0 ();
 
-
+    double  Gauss();		///< 生成均值为0方差为1的Gauss分布随机数
 
 	//
 	//Attribute.
 	//
 private:
-	int		m_Seed;		///< seed of random
+	int		m_Seed;		    ///< seed of random
 
+	//Gauss().
+    int		m_iset;
+    double	m_gset;
 
 };
+
+
+//***********************************************************************
+/// 获取随机数种子
+/// @Author	Wang Hua
+/// @Date	2007.4.29
+/// @Input	
+/// @Return	    	随机数种子，负整数
+//***********************************************************************
+inline int AsRandomSeed()
+{
+    time_t ltime;
+    time(& ltime);
+    return static_cast<int>(-ltime-rand());
+}
 
 
 //
@@ -86,7 +106,7 @@ inline int CRandom::GetSeed()
 }
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASRANDOM_H_)

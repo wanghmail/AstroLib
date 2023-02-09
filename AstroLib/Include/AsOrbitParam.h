@@ -15,8 +15,6 @@
 #include "AsCoordinate.h"
 
 
-AsMBeginNamespace
-
 
 //
 //Cartesian state elements
@@ -26,7 +24,7 @@ class CCartState
 {
 public:
 	CCartState();
-	CCartState(const CCoord3& pos, const CCoord3& vel);
+	CCartState(const CCoord& pos, const CCoord& vel);
 	CCartState(double xPos, double yPos, double zPos, double xVel, double yVel, double zVel);
 
 	const CCartState	operator -() const;
@@ -36,8 +34,8 @@ public:
 	const CCartState	operator -(const CCartState& state) const;
 
 public:
-	CCoord3	m_Pos;		///< 位置 position(m)
-	CCoord3	m_Vel;		///< 速度 velocity(m/s)
+	CCoord	m_Pos;		///< 位置 position(m)
+	CCoord	m_Vel;		///< 速度 velocity(m/s)
 };
 
 
@@ -79,9 +77,67 @@ public:
 };
 
 
+//********************************************************************
+/// 从位置和速度矢量得到飞行器的轨道角速度
+/// @Author	Wang Hua
+/// @Date	2005.3.4
+/// @Input
+/// @Param	pos			飞行器位置(m)
+/// @Param	vel			飞行器速度(m/s)
+/// @Output
+/// @Param	orbAngVel	orbit angular velocity			
+/// @Return			
+//********************************************************************
+bool	AsCartStateToOrbAngVel(
+			const CCoord& pos,
+			const CCoord& vel, 
+			CCoord& orbAngVel);
+
+//********************************************************************
+/// 由惯性系中的绝对速度和位置计算目标VVLH坐标系(z指向地心，x垂直z指向前，
+///   y垂直轨道面指向负法向)中的相对位置坐标和速度矢量
+/// @author	Wang Hua
+/// @Date	2005.12.22
+/// @Input
+/// @Param	assocPos	绝对位置，即追踪飞行器位置(m)
+/// @Param	assocVel	绝对速度，即追踪飞行器速度(m/s)
+/// @Param	basePos		参考飞行器位置，即目标飞行器位置(m)
+/// @Param	baseVel		参考飞行器速度，即目标飞行器速度(m/s)
+/// @Output
+/// @Param	relPos		目标轨道坐标系中的相对位置(m)
+/// @Param	relVel		目标轨道坐标系中的相对速度(m/s)
+//********************************************************************
+void	AsStateToVVLHRelState(
+			const CCoord& assocPos, 
+			const CCoord& assocVel, 
+			const CCoord& basePos, 
+			const CCoord& baseVel, 
+			CCoord& relPos, 
+			CCoord& relVel);
+
+//********************************************************************
+/// 由目标VVLH坐标系(x指向前，z指向地心，y垂直轨道面)中的相对位置坐标和
+///    速度矢量计算惯性系中的绝对速度和位置
+/// @author	Wang Hua
+/// @Date	2005.12.22
+/// @Input
+/// @Param	relPos		目标轨道坐标系中的相对位置
+/// @Param	relVel		目标轨道坐标系中的相对速度
+/// @Param	basePos		参考飞行器位置，即目标飞行器位置
+/// @Param	baseVel		参考飞行器速度，即目标飞行器速度
+/// @Output
+/// @Param	assocPos	绝对位置，即追踪飞行器位置
+/// @Param	assocVel	绝对速度，即追踪飞行器速度
+//********************************************************************
+void AsVVLHRelStateToState(
+            const CCoord& relPos, 
+            const CCoord& relVel,
+            const CCoord& basePos, 
+            const CCoord& baseVel,
+            CCoord& assocPos, 
+            CCoord& assocVel);
 
 
-AsMEndNamespace
 
 
 #endif //_ASORBITPARAM_H_

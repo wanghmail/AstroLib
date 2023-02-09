@@ -21,7 +21,7 @@
 #include "AsMath.h"
 
 
-AsMBeginNamespace
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -46,8 +46,8 @@ public:
 	void				GetData (int n, _Type *value) const;///< 将矢量数据写入一维数组
 	void				SetDataAll(const _Type& value);		///< 设置所有矢量元素值
 
-	inline _Type*		Buffer  ();							///< 得到数据指针
-	inline const _Type*	Buffer  () const;					///< 得到数据指针
+	inline _Type*		Data  ();							///< 得到数据指针
+	inline const _Type*	Data  () const;					///< 得到数据指针
 	inline   operator _Type*();								///< 转换类型为指针型
 	inline   operator const _Type*() const;					///< 转换类型为指针型
 
@@ -91,12 +91,12 @@ protected:
 
 
 //////////////////////////////////////////////////////////////////////
-//TEMPLATE CLASS CVector<DP>
+//TEMPLATE CLASS CVector<double>
 template<>
-class CVector<DP>
+class CVector<double>
 {
-	typedef DP _Type;
-	typedef CVector<DP> _MyT;
+	typedef double _Type;
+	typedef CVector<double> _MyT;
 
 public:
 
@@ -113,8 +113,8 @@ public:
 	void				GetData (int n, _Type *value) const;///< 将矢量数据写入一维数组
 	void				SetDataAll(const _Type& value);		///< 设置所有矢量元素值
 
-	inline _Type*		Buffer  ();							///< 得到数据指针
-	inline const _Type*	Buffer  () const;					///< 得到数据指针
+	inline _Type*		Data  ();							///< 得到数据指针
+	inline const _Type*	Data  () const;					    ///< 得到数据指针103645259
 	inline   operator _Type*();								///< 转换类型为指针型
 	inline   operator const _Type*() const;					///< 转换类型为指针型
 
@@ -146,9 +146,9 @@ public:
 	double		Norm() const;								///< 矢量范数，也就是矢量模
 	double		SqrNorm() const;							///< 矢量范数的平方
 	void		Unit();										///< 单位化矢量
-	double		Dot(const CVector<DP>& vec) const;			///< 点乘
-	const _MyT	Cross(const CVector<DP>& vec) const;		///< 叉乘
-	double		AngBetween(const CVector<DP>& vec) const;	///< 两个矢量的夹角[0,PI]
+	double		Dot(const CVector<double>& vec) const;			///< 点乘
+	const _MyT	Cross(const CVector<double>& vec) const;		///< 叉乘
+	double		AngBetween(const CVector<double>& vec) const;	///< 两个矢量的夹角[0,PI]
 
 protected:
 	void	Construct(int n);
@@ -167,8 +167,8 @@ protected:
 //
 //Global function.
 //
-const CVector<DP> operator *  (DP num, const CVector<DP>& vec);			///< 数乘矢量
-double	AsAngBetween(const CVector<DP>& vec1, const CVector<DP>& vec2);	///< 两个矢量的夹角[0,PI]
+const CVector<double> operator *  (double num, const CVector<double>& vec);			///< 数乘矢量
+double	AsAngBetween(const CVector<double>& vec1, const CVector<double>& vec2);	///< 两个矢量的夹角[0,PI]
 template <class _Type>
 std::ostream& operator<<(std::ostream &s, const CVector<_Type> &v);		///< 输出
 template <class _Type>
@@ -288,7 +288,7 @@ inline int CVector<_Type>::Size() const
 
 //get the buffer of CVector
 template <class _Type>
-inline _Type* CVector<_Type>::Buffer()
+inline _Type* CVector<_Type>::Data()
 {
 	return m_p;
 }
@@ -296,7 +296,7 @@ inline _Type* CVector<_Type>::Buffer()
 
 //get the buffer of CVector
 template <class _Type>
-inline const _Type* CVector<_Type>::Buffer() const 
+inline const _Type* CVector<_Type>::Data() const 
 {
 	return m_p;
 }
@@ -583,68 +583,68 @@ inline const CVector<_Type>  CVector<_Type>::operator /(const _Type& dNum) const
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//TEMPLATE CLASS CVector<DP>
+//TEMPLATE CLASS CVector<double>
 
 //得到矢量的维数
-inline int CVector<DP>::GetSize() const
+inline int CVector<double>::GetSize() const
 {
 	return m_Size;
 };
 
 
 //得到矢量的维数
-inline int CVector<DP>::Size() const
+inline int CVector<double>::Size() const
 {
 	return m_Size;
 };
 
 
 //get the buffer of CVector
-inline DP* CVector<DP>::Buffer()
+inline double* CVector<double>::Data()
 {
 	return m_p;
 }
 
 
 //get the buffer of CVector
-inline const DP* CVector<DP>::Buffer() const 
+inline const double* CVector<double>::Data() const 
 {
 	return m_p;
 }
 
 
-inline CVector<DP>::operator DP*()
+inline CVector<double>::operator double*()
 {
 	return m_p;
 }
 
 
-inline CVector<DP>::operator const DP*() const
+inline CVector<double>::operator const double*() const
 {
 	return m_p;
 }
 
 //引用矢量的元素，从0开始
-inline DP & CVector<DP>::operator[](int i)
+inline double & CVector<double>::operator[](int i)
 {
 	assert(i>=0 && i<m_Size); //Exceed the size of vector.
 	return m_p[i];
 }
 
-inline const DP& CVector<DP>::operator[](int i) const
+inline const double& CVector<double>::operator[](int i) const
 {
 	assert((i>=0) && (i<m_Size));
 	return m_p[i];
 }
 
 //重载矢量求正运算
-inline const CVector<DP> CVector<DP>::operator +() const
+inline const CVector<double> CVector<double>::operator +() const
 {
 	return *this;
 }
 
 //矢量累加
-inline const CVector<DP>& CVector<DP>::operator +=(const CVector<DP> &v)
+inline const CVector<double>& CVector<double>::operator +=(const CVector<double> &v)
 {
 	assert(v.m_Size==m_Size);
 	for(int i=0; i<m_Size; i++)
@@ -653,16 +653,16 @@ inline const CVector<DP>& CVector<DP>::operator +=(const CVector<DP> &v)
 }
 
 //矢量加
-inline const CVector<DP> CVector<DP>::operator +(const CVector<DP>& v2) const
+inline const CVector<double> CVector<double>::operator +(const CVector<double>& v2) const
 {
 	assert(m_Size==v2.m_Size);
-	CVector<DP> v = *this;
+	CVector<double> v = *this;
 	v += v2;
 	return v;
 }
 
 //矢量累差
-inline const CVector<DP>& CVector<DP>::operator-=(const CVector<DP>& v)
+inline const CVector<double>& CVector<double>::operator-=(const CVector<double>& v)
 {
 	assert(v.m_Size==m_Size);
 	for(int i=0; i<m_Size; i++)
@@ -671,24 +671,24 @@ inline const CVector<DP>& CVector<DP>::operator-=(const CVector<DP>& v)
 }
 
 //矢量差
-inline const CVector<DP> CVector<DP>::operator -(const CVector<DP>& v2) const
+inline const CVector<double> CVector<double>::operator -(const CVector<double>& v2) const
 {
 	assert(m_Size==v2.m_Size);
-	CVector<DP> v = *this;
+	CVector<double> v = *this;
 	v -= v2;
 	return v;
 }
 
 //重载矢量求负运算
-inline const CVector<DP> CVector<DP>::operator -() const
+inline const CVector<double> CVector<double>::operator -() const
 {
-	CVector<DP> v = *this;
+	CVector<double> v = *this;
 	for(int i=0; i<m_Size; i++)
 		v.m_p[i] = -m_p[i];
 	return v;
 }
 
-inline const CVector<DP>& CVector<DP>::operator *=(const CVector<DP>& v2)
+inline const CVector<double>& CVector<double>::operator *=(const CVector<double>& v2)
 {
 	assert(m_Size==3 && 3==v2.m_Size);
 	double v[3];
@@ -700,40 +700,40 @@ inline const CVector<DP>& CVector<DP>::operator *=(const CVector<DP>& v2)
 }
 
 //三维矢量叉积
-inline const CVector<DP> CVector<DP>::operator *(const CVector<DP>& v2) const
+inline const CVector<double> CVector<double>::operator *(const CVector<double>& v2) const
 {
 	assert(m_Size==3 && 3==v2.m_Size);
-	CVector<DP> Out = *this;
+	CVector<double> Out = *this;
 	Out *= v2;
 	return Out;
 }
 
 //矢量数乘
-inline const CVector<DP> CVector<DP>::operator *(DP Num) const
+inline const CVector<double> CVector<double>::operator *(double Num) const
 {
-	CVector<DP> Out = *this;
+	CVector<double> Out = *this;
 	Out *= Num;
 	return Out;
 }
 
 //矢量累乘数
-inline const CVector<DP>& CVector<DP>::operator*=(DP Num)
+inline const CVector<double>& CVector<double>::operator*=(double Num)
 {
 	for(int i=0; i<m_Size; i++)
 		m_p[i] *= Num;
 	return *this;
 }
 
-inline const CVector<DP>& CVector<DP>::operator/=(DP Num)
+inline const CVector<double>& CVector<double>::operator/=(double Num)
 {
 	for(int i=0; i<m_Size; i++)
 		m_p[i] /= Num;
 	return *this;
 }
 
-inline const CVector<DP>  CVector<DP>::operator /(_Type dNum) const
+inline const CVector<double>  CVector<double>::operator /(_Type dNum) const
 {
-	CVector<DP> Out = *this;
+	CVector<double> Out = *this;
 	Out /= dNum;
 	return Out;
 }
@@ -774,7 +774,7 @@ std::istream & operator>>(std::istream &s, CVector<_Type> &v)
 
 
 
-AsMEndNamespace
+
 
 
 #endif	//_ASVECTOR_H_

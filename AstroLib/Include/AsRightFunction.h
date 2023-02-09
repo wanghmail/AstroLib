@@ -17,7 +17,7 @@
 #include "AsVector.h"
 
 
-AsMBeginNamespace
+
 
 
 //
@@ -60,7 +60,7 @@ public:
 };
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASRIGHTFUNCTION_H_)

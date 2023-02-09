@@ -19,7 +19,7 @@
 #include "AsVector.h"
 
 
-AsMBeginNamespace
+
 
 
 #define AsCAxisX 1;
@@ -27,7 +27,7 @@ AsMBeginNamespace
 #define AsCAxisZ 3;
 
 
-class CCoord3;
+class CCoord;
 class CQuaternion;
 
 
@@ -151,7 +151,7 @@ public:
 	/// @Param	axis	旋转轴矢量
 	/// @Param	angle	旋转角
 	///***********************************************************************
-	void	FromAxAng  (const CCoord3& axis, double angle);
+	void	FromAxAng  (const CCoord& axis, double angle);
 
 	///***********************************************************************
 	/// 方向余弦矩阵转换成四元数
@@ -170,7 +170,7 @@ public:
 	/// @Param	angle	旋转角度
 	/// @Param	axFlag	旋转轴
 	///***********************************************************************
-	void	ToAxAng    (CCoord3& axis, double& angle) const;
+	void	ToAxAng    (CCoord& axis, double& angle) const;
 
 	///***********************************************************************
 	/// 四元数转换成方向余弦矩阵
@@ -233,8 +233,6 @@ inline double& CQuaternion::operator [](int i)
 //
 ///***********************************************************************
 /// 根据旋转角度和旋转轴计算坐标转移矩阵
-///   <<航空航天器运动的建模>>P10
-///   <<理论力学教程>>P101
 /// @Author	Wang Hua
 /// @Date	2004.3
 /// @Input
@@ -291,7 +289,7 @@ void	AsEulerToMtx  (
 /// @Param	mtx		转移矩阵
 ///***********************************************************************
 void	AsAxAngToMtx  (
-			const CCoord3& axis, 
+			const CCoord& axis, 
 			double angle, 
 			CMatrix<double>& mtx);
 
@@ -306,7 +304,7 @@ void	AsAxAngToMtx  (
 /// @Param	quat	四元数
 ///***********************************************************************
 void	AsAxAngToQuat (
-			const CCoord3& axis, 
+			const CCoord& axis, 
 			double angle, 
 			CQuaternion& quat);
 
@@ -365,7 +363,7 @@ void	AsMtxToQuat   (
 ///***********************************************************************
 void	AsQuatToAxAng (
 			const CQuaternion& quat, 
-			CCoord3& axis, 
+			CCoord& axis, 
 			double& angle);
 
 ///***********************************************************************
@@ -404,7 +402,7 @@ inline const CEuler AsRadToDeg(CEuler rad)
 
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASATTITUDEPARAM_H_)

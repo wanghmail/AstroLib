@@ -1,7 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//                       Copyright (c) 2003-2010                          //
+//                       Copyright (c) 2003-2022                          //
 //                              Wang Hua                                  //
+//                                                                        //
+////////////////////////////////////////////////////////////////////////////
+//                                                                        //
+//                   程序或文档中有任何问题，欢迎告知。                      //
+//                             13973104555                                //
+//                         wanghmail@qq.com                               //
+//                             QQ: 3062881                                //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
@@ -23,25 +30,31 @@
 //
 //Library.
 //
-#ifdef _DEBUG
-	#pragma comment(lib, "./Lib/AstroLibD.lib")
-	#pragma message("AstroLib (Debug "AstroLib_Version") has been successfully linked.")
-#else
-	#pragma comment(lib, "./Lib/AstroLib.lib")
-	#pragma message("AstroLib ("AstroLib_Version") has been successfully linked.")
+#if defined(_WIN64) && defined(_DEBUG)
+#	pragma comment(lib, "./Lib/AstroLibD64.lib")
+#	pragma message("AstroLib (Debug Version 1.0) has been successfully linked.")
+#	define WIN32_LEAN_AND_MEAN
+#elif defined(_WIN64)
+#	pragma comment(lib, "./Lib/AstroLib64.lib")
+#	pragma message("AstroLib (Release Version 1.0) has been successfully linked.")
+#	define WIN32_LEAN_AND_MEAN
+#elif defined(WIN32) && defined(_DEBUG)
+#	pragma comment(lib, "./Lib/AstroLibD.lib")
+#	pragma message("AstroLib (Debug Version 1.0) has been successfully linked.")
+#	define WIN32_LEAN_AND_MEAN
+#elif defined(WIN32)
+#	pragma comment(lib, "./Lib/AstroLib.lib")
+#	pragma message("AstroLib (Release Version 1.0) has been successfully linked.")
+#	define WIN32_LEAN_AND_MEAN
 #endif
-#ifndef __cplusplus
-	#error AstroLib requires C++ compilation
-#endif
-//#ifndef _AFXDLL
-//	#error AstroLib requires use MFC in a shared DLL.
-//#endif
 #pragma warning( disable : 4786 )  // Disable warning messages
 
 
 //
 //Include file.
 //
+#include "./Include/AsAtmosphere.h"
+#include "./Include/AsAttitude.h"
 #include "./Include/AsAttitudeParam.h"
 #include "./Include/AsCommon.h"
 #include "./Include/AsCoordinate.h"
@@ -49,14 +62,16 @@
 #include "./Include/AsInterpolation.h"
 #include "./Include/AsMatrix.h"
 #include "./Include/AsMath.h"
+#include "./Include/AsOrbit.h"
 #include "./Include/AsOrbitParam.h"
+#include "./Include/AsPlanetProp.h"
 #include "./Include/AsRandom.h"
 #include "./Include/AsRightFunction.h"
 #include "./Include/AsTimeSystem.h"
 #include "./Include/AsVector.h"
 
 
-AsMUsingNamespace
+
 
 
 #endif //_ASTROLIB_H_
@@ -64,10 +79,8 @@ AsMUsingNamespace
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//                       Copyright (c) 2003-2008                          //
+//                       Copyright (c) 2003-2022                          //
 //                              Wang Hua                                  //
-//             College of Aerospace and Material Engineering              //
-//               National University of Defense Technology                //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 

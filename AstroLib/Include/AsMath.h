@@ -22,7 +22,7 @@
 #include "AsCommon.h"
 
 
-AsMBeginNamespace
+
 
 
 template<class>
@@ -252,6 +252,15 @@ inline double AsRound (double num, int order)
 }
 
 
+//¿ª·½
+inline double AsSqrt(double x)
+{
+    if (x<0)
+        return 0;
+
+    return sqrt(x);
+}
+
 inline double AsSqr(double x)
 {
 	return x*x;
@@ -267,7 +276,7 @@ inline double AsCube(double x)
 
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASMATH_H_)

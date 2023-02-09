@@ -19,7 +19,7 @@
 #include "AsVector.h"
 
 
-AsMBeginNamespace
+
 
 
 //////////////////////////////////////////////////////////////////////
@@ -47,8 +47,8 @@ public:
 	inline   operator _Type**();
 	inline   operator const _Type* const *() const;
 
-	inline _Type**				Buffer();
-	inline const _Type*const*	Buffer() const ;
+	inline _Type**				Data();
+	inline const _Type*const*	Data() const ;
 
 	void	Resize(int nRow, int nCol);
 
@@ -129,11 +129,11 @@ public:
 
 
 //////////////////////////////////////////////////////////////////////
-//TEMPLATE CLASS CMatrix<DP>
+//TEMPLATE CLASS CMatrix<double>
 template <>
-class CMatrix<DP> : public _CMatrix_base<DP>
+class CMatrix<double> : public _CMatrix_base<double>
 {
-	typedef DP _Type;
+	typedef double _Type;
 	typedef CMatrix<_Type> _MyT;
 
 public:
@@ -144,7 +144,7 @@ public:
 			_Type d31, _Type d32, _Type d33);
 	explicit CMatrix(int nRows, int nCols);
 	CMatrix(const _MyT& other);
-	CMatrix(const _CMatrix_base<DP>& mat);
+	CMatrix(const _CMatrix_base<double>& mat);
 	virtual ~CMatrix();
 
 
@@ -212,7 +212,7 @@ inline const CMatrix<_Type> operator*(const _Type& dNum, const CMatrix<_Type>& m
 #include "AsMatrix_Impl.h"
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASMATRIX_H_)

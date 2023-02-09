@@ -17,7 +17,7 @@
 #include "AsMatrix.h"
 
 
-AsMBeginNamespace
+
 
 
 class	CQuaternion;
@@ -25,22 +25,18 @@ class	COrbElem;
 class	CCartState;
 class	CEuler;
 
-//
-//Macro define.
-//
-#define CCoord				CCoord3
 
 
 //
 //Three dimension coordinate.
 //
-class CCoord3 : public CVector<double>
+class CCoord : public CVector<double>
 {
 public:
-	CCoord3();
-	CCoord3(double x, double y, double z);
-	CCoord3(const CVector<double> &vec);
-	virtual ~CCoord3();
+	CCoord();
+	CCoord(double x, double y, double z);
+	CCoord(const CVector<double> &vec);
+	virtual ~CCoord();
 
 	//
 	//坐标旋转函数
@@ -107,7 +103,7 @@ public:
 	/// @Param	axis	the axis of rotation
 	/// @Param	angle	the angle of rotation
 	//********************************************************************
-	void			Rotate  (const CCoord3& axis, double angle);
+	void			Rotate  (const CCoord& axis, double angle);
 
 	//********************************************************************
 	/// 根据转移矩阵转移
@@ -127,7 +123,7 @@ public:
 	/// @Param	flag	坐标轴标志数组(1,2,3-X,Y,Z)
 	/// @Return	转移后的坐标
 	//********************************************************************
-	const CCoord3	RotateTo(const CVector<double>& angle, const CVector<int>& flag) const;
+	const CCoord	RotateTo(const CVector<double>& angle, const CVector<int>& flag) const;
 
 	//********************************************************************
 	/// 按四元数转移
@@ -136,7 +132,7 @@ public:
 	/// @Input
 	/// @Param	quaternion		旋转四元数
 	//********************************************************************
-	const CCoord3	RotateTo(const CQuaternion& quaternion) const;
+	const CCoord	RotateTo(const CQuaternion& quaternion) const;
 
 	//********************************************************************
 	/// 单一角度的转移
@@ -146,7 +142,7 @@ public:
 	/// @Param	angle	转移角
 	/// @Param	axFlag	坐标轴标志(1,2,3-X,Y,Z)
 	//********************************************************************
-	const CCoord3	RotateTo(double angle, int axFlag) const;
+	const CCoord	RotateTo(double angle, int axFlag) const;
 
 	//********************************************************************
 	/// 根据Euler角转移
@@ -156,7 +152,7 @@ public:
 	/// @Param	angle	转移角
 	/// @Param	seqFlag	坐标轴标志(1,2,3-X,Y,Z)
 	//********************************************************************
-	const CCoord3	RotateTo(const CEuler& angle, int seqFlag) const;
+	const CCoord	RotateTo(const CEuler& angle, int seqFlag) const;
 
 	//********************************************************************
 	/// 根据轴和角转移
@@ -166,7 +162,7 @@ public:
 	/// @Param	axis	the axis of rotation
 	/// @Param	angle	the angle of rotation
 	//********************************************************************
-	const CCoord3	RotateTo(const CCoord3& axis, double angle) const;
+	const CCoord	RotateTo(const CCoord& axis, double angle) const;
 
 	//********************************************************************
 	/// 根据转移矩阵转移
@@ -175,7 +171,7 @@ public:
 	/// @Input
 	/// @Param	quaternion		旋转四元数
 	//********************************************************************
-	const CCoord3	RotateTo(const CMatrix<double>& mtx) const;
+	const CCoord	RotateTo(const CMatrix<double>& mtx) const;
 	
 };
 
@@ -269,7 +265,7 @@ public:
 /// @Param	polar	polar.m_Theta [-pi/2,pi/2]
 //***********************************************************
 void	AsCartToPolar(
-			const CCoord3& cart, 
+			const CCoord& cart, 
 			CPolar3& polar);
 
 //***********************************************************
@@ -283,7 +279,7 @@ void	AsCartToPolar(
 //***********************************************************
 void	AsPolarToCart(
 			const CPolar3& polar, 
-			CCoord3& cart);
+			CCoord& cart);
 
 
 //////////////////////////////////////////////////////////////////////
@@ -304,7 +300,7 @@ void	AsPolarToCart(
 /// @Param	llr		llr.m_Lat [-pi/2, pi/2]
 ///					llr.m_Lon [-pi,pi]
 //***********************************************************
-void	AsCartToLLR (const CCoord3& cart, CLatLonRad& llr);
+void	AsCartToLLR (const CCoord& cart, CLatLonRad& llr);
 
 //***********************************************************
 /// convension of latitude longitude radius(spherical coordinate) 
@@ -314,7 +310,51 @@ void	AsCartToLLR (const CCoord3& cart, CLatLonRad& llr);
 //***********************************************************
 void	AsLLRToCart (
 			const CLatLonRad& llr, 
-			CCoord3& cart);
+			CCoord& cart);
+
+//***********************************************************
+/// 直角坐标转换为经度、地心纬度和半径
+/// determines the "centric" latitude, longitude, and 
+///   radius and rates given the cartesian position and velocity.  The input 
+///   cartesian vectors can be in any coordinate system and the output will 
+///   represent the corresponding spherical coordinates. 
+/// @Author	Wang Hua
+/// @Date	2004.9.12 10.11 2006.8.10
+//			2006.12.26北京修改，好像计算llrRate.m_Lat的公式原来不对！！！
+/// @Input	
+/// @Param	cartPos
+/// @Param	cartVel
+/// @Output	
+/// @Param	llrPos	llr.m_Lat从xy平面转到z轴为正,[-pi/2, pi/2]
+///					llr.m_Lon从x轴转到y轴为正,[-pi,pi]
+/// @Param	llrRate	
+//***********************************************************
+void	AsCartToLLR (
+			const CCoord& cartPos, 
+			const CCoord& cartVel, 
+			CLatLonRad& llrPos, 
+			CLatLonRad& llrRate);
+
+//***********************************************************
+/// converts the "centric" latitude, longitude, and 
+///   radius and rates to the cartesian position and velocity.  The  
+///   cartesian vectors will be in the same coordinate system as the input  
+///   spherical coordinates. 
+/// @Author	Wang Hua
+/// @Date	2004.9.12 10.11
+/// @Input	
+/// @Param	llrPos	llr.m_Lat从xy平面转到z轴为正
+///					llr.m_Lon从x轴转到y轴为正
+/// @Param	llrRate	
+/// @Output	
+/// @Param	cartPos
+/// @Param	cartVel
+//***********************************************************
+void	AsLLRToCart (
+			const CLatLonRad& llrPos, 
+			const CLatLonRad& llrRate, 
+			CCoord& cartPos, 
+			CCoord& cartVel);
 
 
 //////////////////////////////////////////////////////////////////////
@@ -336,7 +376,7 @@ void	AsLLRToCart (
 /// @Return	
 //********************************************************************
 void	AsSphCartToLLA (
-			const CCoord3& cart, 
+			const CCoord& cart, 
 			double radius, 
 			CLatLonAlt& lla);
 
@@ -354,7 +394,7 @@ void	AsSphCartToLLA (
 void	AsSphLLAToCart (
 			const CLatLonAlt& lla, 
 			double radius, 
-			CCoord3& cart);
+			CCoord& cart);
 
 //********************************************************************
 /// Convert latitude longitude and radius to planetodetic latitude,
@@ -398,7 +438,7 @@ void	AsSphLLAToLLR  (
 /// @Param	lla			m_Lon[-PI,PI], m_Lat[-PI/2,PI/2]
 //********************************************************************
 void	AsOblCartToLLA (
-			const CCoord3& cart,  
+			const CCoord& cart,  
 			double radius, 
 			double flatFact, 
 			CLatLonAlt& lla);
@@ -420,7 +460,7 @@ void	AsOblLLAToCart (
 			const CLatLonAlt& lla,  
 			double radius, 
 			double flatFact, 
-			CCoord3& cart);
+			CCoord& cart);
 
 //********************************************************************
 /// Convert latitude, longitude and altitude to planetodetic latitude,
@@ -452,11 +492,45 @@ void	AsOblLLAToLLR  (
 			double flatFact, 
 			CLatLonRad& llr);
 
+//********************************************************************
+/// 计算从输入直角坐标系（地心惯性系或地固系）到VVLH坐标系的转换矩阵
+///  VVLH定义为：z轴指向地心，x轴与z轴垂直指向速度方向，y轴与其它两轴成右手坐标系.
+/// @Author	Wang Hua
+/// @Date	2004.10.19
+/// @Input	
+/// @Param	pos		the position of vehicle 地心惯性系或地固系中的飞行器位置[m]
+/// @Param	vel		velocity of vehicle 地心惯性系或地固系中的飞行器速度[m/s]
+/// @Output	
+/// @Param	mtx		ICS至VVLH转移矩阵
+///					pos为0，vel为0，pos与vel方向相同时，均无法计算转换矩阵，此时mtx输出单位矩阵
+/// @Return			true=计算正确; false=输入数据异常
+//********************************************************************
+bool	AsICSToVVLHMtx (
+			const CCoord& pos, 
+			const CCoord& vel, 
+			CMatrix<double>& mtx);
+
+//********************************************************************
+/// 计算从VVLH坐标系到输入直角坐标系（地心惯性系或地固系）的转换矩阵
+///  VVLH定义为：z轴指向地心，x轴与z轴垂直指向速度方向，y轴与其它两轴成右手坐标系.
+/// Return transformation matrix from VVLH(Vehicle Velocity Local Horizontal) to ICS.
+/// @Author	Wang Hua
+/// @Date	2004.10.19
+/// @Input	
+/// @Param	pos		the position of vehicle 地心惯性系或地固系中的飞行器位置[m]
+/// @Param	vel		velocity of vehicle 地心惯性系或地固系中的飞行器速度[m/s]
+/// @Output	
+/// @Param	mtx		VVLH到ICS的转移矩阵
+///					pos为0，vel为0，pos与vel方向相同时，均无法计算转换矩阵，此时mtx输出单位矩阵
+/// @Return			true=计算正确; false=输入数据异常
+//********************************************************************
+bool	AsVVLHToICSMtx (
+			const CCoord& pos, 
+			const CCoord& vel, 
+			CMatrix<double>& mtx);
 
 
 
-
-AsMEndNamespace
 
 
 #endif // !defined(_ASCOORDINATE_H_)

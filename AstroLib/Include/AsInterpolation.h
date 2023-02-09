@@ -16,7 +16,7 @@
 #include "AsCommon.h"
 
 
-AsMBeginNamespace
+
 
 
 template<class>
@@ -31,7 +31,6 @@ class CMatrix;
 
 //*********************************************************************
 /// Hermite interpolation.
-/// <<计算方法引论>>
 /// @Author	Wang Hua
 /// @Input
 /// @Param	x		the point of interpolation
@@ -101,7 +100,7 @@ void	AsInterp2Ord (
 			double& y);
 
 
-AsMEndNamespace
+
 
 
 #endif // !defined(_ASINTERPOLATION_H_)
