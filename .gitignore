@@ -31,3 +31,6 @@
 *.out
 *.app
 /AstroLib.opensdf
+/Debug
+/Release
+/x64
