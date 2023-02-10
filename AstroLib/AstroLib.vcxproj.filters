@@ -67,11 +67,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="AstroLib_ReadMe.txt">
-      <Filter>Header Files</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Src\AsAtmosphere.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -120,5 +115,8 @@
     <ClCompile Include="Src\AsAttitude.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="AstroLib_ReadMe.txt" />
   </ItemGroup>
 </Project>
