@@ -31,6 +31,34 @@
 *.out
 *.app
 /AstroLib.opensdf
-/Debug
-/Release
-/x64
+
+#Build results
+Debug/
+Release/
+x64/
+x86/
+*.tlog/
+
+#Visual Studio 2015/2017 cache/options directory
+.vs/
+
+#files built by Visual Studio
+*.sbr
+*.obj
+*.ilk
+*.log
+*.ipdb
+*.pdb
+*.idb
+*.opt
+*.iobj
+*.ipdb
+
+#Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.sdf
+*.cachefile
+*.VC.db
