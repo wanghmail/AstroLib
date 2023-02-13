@@ -53,6 +53,7 @@ x86/
 *.opt
 *.iobj
 *.ipdb
+*.tlog
 
 #Visual C++ cache files
 ipch/

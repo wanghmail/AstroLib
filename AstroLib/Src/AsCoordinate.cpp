@@ -430,11 +430,11 @@ void AsCartToLLR(
 
     if (llrPos.m_Rad==0)
     {
-        llrPos.m_Lat = llrPos.m_Lon = 0;	//三分量全为零表示输入错误，下面0/0会出错误结果
+        llrPos.m_Lat = llrPos.m_Lon = 0;
     }
     else
     {
-        llrPos.m_Lat = atan(cartPos[2] / sqrt(xy2));	//atan函数内的数为无穷大没关系，正常计算返回
+        llrPos.m_Lat = atan(cartPos[2] / sqrt(xy2));
         llrPos.m_Lon = atan2(cartPos[1], cartPos[0]);
     }
 
