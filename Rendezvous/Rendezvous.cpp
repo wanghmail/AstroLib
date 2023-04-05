@@ -159,8 +159,12 @@ void CRendezvous::ReportGeneration()
     for (int i=0; i<n; i++)
     {
         oss <<m_HistoryData.m_TimeList[i]<<"	"
-            <<m_HistoryData.m_RelPosList[i][0]<<"	"<<m_HistoryData.m_RelPosList[i][1]<<"	"<<m_HistoryData.m_RelPosList[i][2]<<"	"
-            <<m_HistoryData.m_RelVelList[i][0]<<"	"<<m_HistoryData.m_RelVelList[i][1]<<"	"<<m_HistoryData.m_RelVelList[i][2]<<endl;
+            <<m_HistoryData.m_RelPosList[i][0]<<"	"
+			<<m_HistoryData.m_RelPosList[i][1]<<"	"
+			<<m_HistoryData.m_RelPosList[i][2]<<"	"
+            <<m_HistoryData.m_RelVelList[i][0]<<"	"
+			<<m_HistoryData.m_RelVelList[i][1]<<"	"
+			<<m_HistoryData.m_RelVelList[i][2]<<endl;
     }
     oss.close();
 

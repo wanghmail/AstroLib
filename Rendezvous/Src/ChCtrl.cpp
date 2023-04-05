@@ -201,11 +201,6 @@ void CChCtrl::TimeAdvance(double step,
 		m_FlyTime  = 0;
 
         GuidanceImpulse1(chPos, chVel, tgPos, tgVel, endPos, flyTimeApproach, impulse);
-
-		//直接加冲量，impulse 要转为追踪VVLH系
-		//AsVVLHToICSMtx(tgPos, tgVel, mtxTgVVLhToICS);
-		//AsICSToVVLHMtx(chPos, chVel, mtxChICSToVVLH);
-		//impulse = mtxChICSToVVLH*mtxTgVVLhToICS*impulse;
 	}
 	//终端冲量
 	else if (m_PulseNum==1 && m_FlyTime>=flyTimeApproach)
@@ -214,11 +209,6 @@ void CChCtrl::TimeAdvance(double step,
 		m_FlyTime  = 0;
 
         GuidanceImpulse2(chPos, chVel, tgPos, tgVel, CCoord(0,0,0), impulse);
-
-		//直接加冲量，impulse 要转为追踪VVLH系
-		//AsVVLHToICSMtx(tgPos, tgVel, mtxTgVVLhToICS);
-		//AsICSToVVLHMtx(chPos, chVel, mtxChICSToVVLH);
-		//impulse = mtxChICSToVVLH*mtxTgVVLhToICS*impulse;
 	}
 	else if (m_PulseNum==2)
 	{

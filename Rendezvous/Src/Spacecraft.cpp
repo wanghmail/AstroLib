@@ -111,8 +111,12 @@ void CSpacecraft::ReportGeneration()
     for (int i=0; i<n; i++)
     {
         oss <<m_HistoryData.m_ElapsedSec[i]<<"	"
-            <<m_HistoryData.m_Pos[i][0]<<"	"<<m_HistoryData.m_Pos[i][1]<<"	"<<m_HistoryData.m_Pos[i][2]<<"	"
-            <<m_HistoryData.m_Vel[i][0]<<"	"<<m_HistoryData.m_Vel[i][1]<<"	"<<m_HistoryData.m_Vel[i][2]<<endl;
+            <<m_HistoryData.m_Pos[i][0]<<"	"
+			<<m_HistoryData.m_Pos[i][1]<<"	"
+			<<m_HistoryData.m_Pos[i][2]<<"	"
+            <<m_HistoryData.m_Vel[i][0]<<"	"
+			<<m_HistoryData.m_Vel[i][1]<<"	"
+			<<m_HistoryData.m_Vel[i][2]<<endl;
     }
     oss.close();
 }
