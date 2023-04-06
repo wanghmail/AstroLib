@@ -70,20 +70,24 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(ProjectDir)</OutDir>
     <IntDir>$(ProjectDir)</IntDir>
+    <ExecutablePath>.\Lib;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)</OutDir>
     <IntDir>$(ProjectDir)</IntDir>
     <TargetName>$(ProjectName)</TargetName>
+    <ExecutablePath>.\Lib;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)</OutDir>
     <IntDir>$(ProjectDir)</IntDir>
+    <ExecutablePath>.\Lib;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)</OutDir>
     <IntDir>$(ProjectDir)</IntDir>
     <TargetName>$(ProjectName)</TargetName>
+    <ExecutablePath>.\Lib;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -203,6 +207,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AsAttitudeParam_2023.h" />
     <ClInclude Include="AstroLib.h" />
     <ClInclude Include="Include\AsAtmosphere.h" />
     <ClInclude Include="Include\AsAttitude.h" />
@@ -226,6 +231,7 @@
     <Text Include="AstroLib_ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AsAttitudeParam_2023.cpp" />
     <ClCompile Include="Src\AsAtmosphere.cpp" />
     <ClCompile Include="Src\AsAttitude.cpp" />
     <ClCompile Include="Src\AsAttitudeParam.cpp" />
