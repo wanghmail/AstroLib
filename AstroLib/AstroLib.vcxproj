@@ -207,11 +207,11 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AsAttitudeParam_2023.h" />
     <ClInclude Include="AstroLib.h" />
     <ClInclude Include="Include\AsAtmosphere.h" />
     <ClInclude Include="Include\AsAttitude.h" />
     <ClInclude Include="Include\AsAttitudeParam.h" />
+    <ClInclude Include="Include\AsAttitudeParam_2023.h" />
     <ClInclude Include="Include\AsCommon.h" />
     <ClInclude Include="Include\AsCoordinate.h" />
     <ClInclude Include="Include\AsDResolve.h" />
@@ -231,10 +231,10 @@
     <Text Include="AstroLib_ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AsAttitudeParam_2023.cpp" />
     <ClCompile Include="Src\AsAtmosphere.cpp" />
     <ClCompile Include="Src\AsAttitude.cpp" />
     <ClCompile Include="Src\AsAttitudeParam.cpp" />
+    <ClCompile Include="Src\AsAttitudeParam_2023.cpp" />
     <ClCompile Include="Src\AsCommon.cpp" />
     <ClCompile Include="Src\AsCoordinate.cpp" />
     <ClCompile Include="Src\AsDResolve.cpp" />

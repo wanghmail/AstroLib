@@ -68,7 +68,7 @@
     <ClInclude Include="Include\AsAttitude.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AsAttitudeParam_2023.h">
+    <ClInclude Include="Include\AsAttitudeParam_2023.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -121,7 +121,7 @@
     <ClCompile Include="Src\AsAttitude.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AsAttitudeParam_2023.cpp">
+    <ClCompile Include="Src\AsAttitudeParam_2023.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
