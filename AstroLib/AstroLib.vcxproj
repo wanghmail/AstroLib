@@ -214,6 +214,8 @@
     <ClInclude Include="Include\AsAttitudeParam_2023.h" />
     <ClInclude Include="Include\AsCommon.h" />
     <ClInclude Include="Include\AsCoordinate.h" />
+    <ClInclude Include="Include\AsCoordinate_2023.h" />
+    <ClInclude Include="Include\AsCoordSystem_2023.h" />
     <ClInclude Include="Include\AsDResolve.h" />
     <ClInclude Include="Include\AsInterpolation.h" />
     <ClInclude Include="Include\AsMath.h" />
@@ -237,6 +239,8 @@
     <ClCompile Include="Src\AsAttitudeParam_2023.cpp" />
     <ClCompile Include="Src\AsCommon.cpp" />
     <ClCompile Include="Src\AsCoordinate.cpp" />
+    <ClCompile Include="Src\AsCoordinate_2023.cpp" />
+    <ClCompile Include="Src\AsCoordSystem_2023.cpp" />
     <ClCompile Include="Src\AsDResolve.cpp" />
     <ClCompile Include="Src\AsInterpolation.cpp" />
     <ClCompile Include="Src\AsMath.cpp" />

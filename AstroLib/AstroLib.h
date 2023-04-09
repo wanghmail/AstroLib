@@ -69,6 +69,9 @@
 #include "./Include/AsRightFunction.h"
 #include "./Include/AsTimeSystem.h"
 #include "./Include/AsVector.h"
+#include "./Include/AsAttitudeParam_2023.h"
+#include "./Include/AsCoordinate_2023.h"
+#include "./Include/AsCoordSystem_2023.h"
 
 
 

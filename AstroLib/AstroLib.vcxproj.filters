@@ -71,6 +71,12 @@
     <ClInclude Include="Include\AsAttitudeParam_2023.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\AsCoordinate_2023.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\AsCoordSystem_2023.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AsAtmosphere.cpp">
@@ -122,6 +128,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\AsAttitudeParam_2023.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AsCoordinate_2023.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AsCoordSystem_2023.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
