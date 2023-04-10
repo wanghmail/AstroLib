@@ -223,6 +223,7 @@
     <ClInclude Include="Include\AsMatrix_Impl.h" />
     <ClInclude Include="Include\AsOrbit.h" />
     <ClInclude Include="Include\AsOrbitParam.h" />
+    <ClInclude Include="Include\AsOrbitParam_2023.h" />
     <ClInclude Include="Include\AsPlanetProp.h" />
     <ClInclude Include="Include\AsRandom.h" />
     <ClInclude Include="Include\AsRightFunction.h" />
@@ -247,6 +248,7 @@
     <ClCompile Include="Src\AsMatrix.cpp" />
     <ClCompile Include="Src\AsOrbit.cpp" />
     <ClCompile Include="Src\AsOrbitParam.cpp" />
+    <ClCompile Include="Src\AsOrbitParam_2023.cpp" />
     <ClCompile Include="Src\AsPlanetProp.cpp" />
     <ClCompile Include="Src\AsRandom.cpp" />
     <ClCompile Include="Src\AsRightFunction.cpp" />

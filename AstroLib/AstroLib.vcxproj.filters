@@ -77,6 +77,9 @@
     <ClInclude Include="Include\AsCoordSystem_2023.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\AsOrbitParam_2023.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AsAtmosphere.cpp">
@@ -134,6 +137,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\AsCoordSystem_2023.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AsOrbitParam_2023.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

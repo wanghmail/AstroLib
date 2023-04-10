@@ -14,17 +14,19 @@
 
 
 using namespace std;
+
+
 //********************************************************************
-/// åœ°å›ºç³»åˆ°å‘å°„åæ ‡ç³»çš„è½¬æ¢çŸ©é˜µ
-/// å‘å°„åæ ‡ç³»ï¼šxè½´å¹³è¡Œåœ°é¢æŒ‡å‘å‘å°„æ–¹å‘,yåž‚ç›´åœ°é¢é“…é”¤å‘ä¸Š,zæˆå³æ‰‹ç›´è§’åæ ‡ç³»
+/// µØ¹ÌÏµµ½·¢Éä×ø±êÏµµÄ×ª»»¾ØÕó
+/// ·¢Éä×ø±êÏµ£ºxÖáÆ½ÐÐµØÃæÖ¸Ïò·¢Éä·½Ïò,y´¹Ö±µØÃæÇ¦´¸ÏòÉÏ,z³ÉÓÒÊÖÖ±½Ç×ø±êÏµ
 /// @author	fangxuankun
 /// @Date	2023.4.5
 /// @Input
-/// @Param	A0			å‘å°„æ–¹ä½è§’A0ï¼Œå®šä¹‰ä¸ºå‘å°„æ–¹å‘ä¸Žå½“åœ°æ­£åŒ—çš„å¤¹è§’ï¼Œé¡ºæ—¶é’ˆåº¦é‡ä¸ºæ­£ï¼ˆradï¼‰
-/// @Param	Lon	        å‘å°„ç‚¹çš„ç»åº¦ï¼ˆradï¼‰
-/// @Param	Lan	        å‘å°„ç‚¹çš„çº¬åº¦ï¼ˆradï¼‰
+/// @Param	A0			·¢Éä·½Î»½ÇA0£¬¶¨ÒåÎª·¢Éä·½ÏòÓëµ±µØÕý±±µÄ¼Ð½Ç£¬Ë³Ê±Õë¶ÈÁ¿ÎªÕý£¨rad£©
+/// @Param	Lon	        ·¢ÉäµãµÄ¾­¶È£¨rad£©
+/// @Param	Lan	        ·¢ÉäµãµÄÎ³¶È£¨rad£©
 /// @Output
-/// @Param	mtx			åœ°å›ºç³»åˆ°å‘å°„åæ ‡ç³»çš„è½¬æ¢çŸ©é˜µ
+/// @Param	mtx			µØ¹ÌÏµµ½·¢Éä×ø±êÏµµÄ×ª»»¾ØÕó
 //********************************************************************
 void	AsCBFToLCMtx(double A0,double Lon,double Lat,CMatrix<double>& mtx)
 {

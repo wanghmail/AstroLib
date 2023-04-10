@@ -247,7 +247,7 @@ inline _CMatrix_base<_Type>::operator const _Type* const *() const
 
 //get the buffer of CMatrix
 template <class _Type>
-inline _Type** _CMatrix_base<_Type>::Buffer()
+inline _Type** _CMatrix_base<_Type>::Data()
 {
 	return m_pp;
 }
@@ -255,7 +255,7 @@ inline _Type** _CMatrix_base<_Type>::Buffer()
 
 //get the buffer of CMatrix
 template <class _Type>
-inline const _Type* const* _CMatrix_base<_Type>::Buffer() const
+inline const _Type* const* _CMatrix_base<_Type>::Data() const
 {
 	return m_pp;
 }

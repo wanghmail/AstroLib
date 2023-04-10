@@ -2,19 +2,22 @@
 #include "AsOrbitParam.h"
 #include "AsCoordinate.h"
 #include "AsMath.h"
-/// ä¿®æ­£è½¨é“æ ¹æ•°è½¬æ¢ä¸ºä½ç½®é€Ÿåº¦/modified orbit element to cartesian state element.
+
+
+//********************************************************************
+/// ĞŞÕı¹ìµÀ¸ùÊı×ª»»ÎªÎ»ÖÃËÙ¶È/modified orbit element to cartesian state element.
 /// @Author	Zhang Yu
 /// @Date	2023/4/2
 /// @Input
-/// @Param	modOrb	ä¿®æ­£è½¨é“æ ¹æ•°
-/// @Param	gm		ä¸­å¿ƒä½“å¼•åŠ›å¸¸æ•°
+/// @Param	modOrb	ĞŞÕı¹ìµÀ¸ùÊı
+/// @Param	gm		ÖĞĞÄÌåÒıÁ¦³£Êı
 /// @Output
-/// @Param	pos		ä½ç½®
-/// @Param	vel		é€Ÿåº¦
-/// @Return			true=æˆåŠŸ; false=è¾“å…¥é”™è¯¯
+/// @Param	pos		Î»ÖÃ
+/// @Param	vel		ËÙ¶È
+/// @Return			true=³É¹¦; false=ÊäÈë´íÎó
 //********************************************************************
 bool	AsModOrbElemToCart(
 	const CModOrbElem& modOrb,
 	double gm,
-	CCoord3& pos,
-	CCoord3& vel);
+	CCoord& pos,
+	CCoord& vel);

@@ -61,9 +61,14 @@ private:
 
 };
 
-//
-//Generate the seed of random according current system time.
-//
+
+//***********************************************************************
+/// 获取随机数种子
+/// @Author	Wang Hua
+/// @Date	2007.4.29
+/// @Input	
+/// @Return	    	随机数种子，负整数
+//***********************************************************************
 inline int AsRandomSeed()
 {
     time_t ltime;
