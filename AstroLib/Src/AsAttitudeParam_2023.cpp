@@ -14,17 +14,17 @@ using namespace std;
 /// @Author	Xiao Yao
 /// @Date	2023.4.4
 /// @Input
-/// @Param	mtx	    ×ø±ê×ª»»¾ØÕó
+/// @Param	mtx	    åæ ‡è½¬æ¢çŸ©é˜µ
 /// @Output
-/// @Param	axis	Ğı×ªÖáÊ¸Á¿
-/// @Param	angle	Ğı×ª½Ç[0, pi]
+/// @Param	axis	æ—‹è½¬è½´çŸ¢é‡
+/// @Param	angle	æ—‹è½¬è§’[0, pi]
 ///***********************************************************************
 void AsMtxToAxAng(const CMatrix<double>& mtx,
 	CCoord& axis, double& angle)
 {
 
 	CMatrix<double> mm = mtx;
-	/************** ÅĞ¶ÏÊÇ·ñÎªÕı½»¾ØÕó ******************/
+	/************** åˆ¤æ–­æ˜¯å¦ä¸ºæ­£äº¤çŸ©é˜µ ******************/
 	double p1 = mm[0][0] * mm[0][1] + mm[1][0] * mm[1][1] + mm[2][0] * mm[2][1];
 	double p2 = mm[0][0] * mm[0][2] + mm[1][0] * mm[1][2] + mm[2][0] * mm[2][2];
 	double p3 = mm[0][2] * mm[0][1] + mm[1][2] * mm[1][1] + mm[2][2] * mm[2][1];
@@ -41,7 +41,7 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 		return;
 	}
 
-	// ¾ØÕóµÄ¼£
+	// çŸ©é˜µçš„è¿¹
 	double T = mm[0][0] + mm[1][1] + mm[2][2];
 
 	if (abs(T - 3) > 1e-9 && abs(T + 1) > 1e-9) {
@@ -53,8 +53,8 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 		axis[2] = 0.5 * (mm[0][1] - mm[1][0]) / ss;
 	}
 	else if (abs(T + 1) < 1e-9) {
-		// ×ªÖáÓĞÁ½¸ö½â£¬Ö¸ÏòÏà²î180¡ã,ÇÒ½Ç¶È²»Ó°Ïì, ±¾³ÌĞò½öÊä³öÒ»¸ö
-		// sin(angle) = 0£¬ angle=pi+2k*pi,kÎªÕûÊı
+		// è½¬è½´æœ‰ä¸¤ä¸ªè§£ï¼ŒæŒ‡å‘ç›¸å·®180Â°,ä¸”è§’åº¦ä¸å½±å“, æœ¬ç¨‹åºä»…è¾“å‡ºä¸€ä¸ª
+		// sin(angle) = 0ï¼Œ angle=pi+2k*pi,kä¸ºæ•´æ•°
 		angle = AsCPI;
 
 		double a12 = mm[0][1] / 2.0;
@@ -64,32 +64,32 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 		double aa2 = sqrt((1.0 + mm[1][1]) / 2.0);
 		double aa3 = sqrt((1.0 + mm[2][2]) / 2.0);
 		if (a12 > 0 && a23 > 0 && a31 > 0) {
-			// a1 a2 a3Í¬ºÅ
+			// a1 a2 a3åŒå·
 			axis[0] = aa1;
 			axis[1] = aa2;
 			axis[2] = aa3;
 		}
 		else if (a12 > 0) {
-			// a1 a2 Í¬ºÅ
+			// a1 a2 åŒå·
 			axis[0] = aa1;
 			axis[1] = aa2;
 			axis[2] = -aa3;
 		}
 		else if (a23 > 0) {
-			// a2 a3 Í¬ºÅ
+			// a2 a3 åŒå·
 			axis[0] = aa1;
 			axis[1] = -aa2;
 			axis[2] = -aa3;
 		}
 		else {
-			// a1 a3Í¬ºÅ
+			// a1 a3åŒå·
 			axis[0] = aa1;
 			axis[1] = -aa2;
 			axis[2] = aa3;
 		}
 	}
 	else {
-		// ×ªÖá²»È·¶¨
+		// è½¬è½´ä¸ç¡®å®š
 		angle = 0;
 		axis[0] = 1;
 		axis[1] = 0;
@@ -99,32 +99,32 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 
 
 //************************************************
-//*½«ËÄÔªÊı×ª»¯³ÉÅ·À­½Ç_123×ªĞò£¨Å·À­½Çµ¥Î»Îª¶È£©*
+//*å°†å››å…ƒæ•°è½¬åŒ–æˆæ¬§æ‹‰è§’_123è½¬åºï¼ˆæ¬§æ‹‰è§’å•ä½ä¸ºåº¦ï¼‰*
 //************************************************
-//ÊäÈë£º
-//		±ê×¼»¯ËÄÔªÊı£ºq
-//		´úÇóÅ·À­½Ç£º  Ang
-//		ÎÀĞÇÀàĞÍÑ¡Ôñ£ºcho (cho=1£º×ÔĞıÎÀĞÇ£»cho=3£º·Ç×ÔĞıÎÀĞÇ)
+//è¾“å…¥ï¼š
+//		æ ‡å‡†åŒ–å››å…ƒæ•°ï¼šq
+//		ä»£æ±‚æ¬§æ‹‰è§’ï¼š  Ang
+//		å«æ˜Ÿç±»å‹é€‰æ‹©ï¼šcho (cho=1ï¼šè‡ªæ—‹å«æ˜Ÿï¼›cho=3ï¼šéè‡ªæ—‹å«æ˜Ÿ)
 //************************************************
 bool AsQuatToEuler_123(const CQuaternion& q, CEuler& Ang, const int cho)
 {
-	//ÉèÖÃÄ¬ÈÏ²ÎÊı
-	double pi = acos(-1);   //¼ÆËãpiÖµ
-	double deg = 180 / pi;    //»¡¶È->¶ÈµÄ×ª»»
-	double epsilon = 1e-6;  //¾«È·¶È
+	//è®¾ç½®é»˜è®¤å‚æ•°
+	double pi = acos(-1);   //è®¡ç®—piå€¼
+	double deg = 180 / pi;    //å¼§åº¦->åº¦çš„è½¬æ¢
+	double epsilon = 1e-6;  //ç²¾ç¡®åº¦
 	Ang = { 0, 0, 0 };
-	//q0, q1, q2, q3·Ö±ğ¶ÔÓ¦q.m_Qs, q.m_Qx, q.m_Qy, q.m_Qz
+	//q0, q1, q2, q3åˆ†åˆ«å¯¹åº”q.m_Qs, q.m_Qx, q.m_Qy, q.m_Qz
 	double q0q0 = q.m_Qs*q.m_Qs;
 	double q1q1 = q.m_Qx*q.m_Qx;
 	double q2q2 = q.m_Qy*q.m_Qy;
 	double q3q3 = q.m_Qz*q.m_Qz;
 	double q_norm2 = q0q0 + q1q1 + q2q2 + q3q3;
-	if (abs(q_norm2 - 1) > epsilon)   //ÅĞ¶ÏÊäÈëµÄËÄÔªÊıÊÇ·ñ±ê×¼»¯
+	if (abs(q_norm2 - 1) > epsilon)   //åˆ¤æ–­è¾“å…¥çš„å››å…ƒæ•°æ˜¯å¦æ ‡å‡†åŒ–
 	{
-		cout << "ÇëÊäÈë±ê×¼»¯ËÄÔªÊı£¡£¡£¡" << endl;
+		cout << "è¯·è¾“å…¥æ ‡å‡†åŒ–å››å…ƒæ•°ï¼ï¼ï¼" << endl;
 		return false;
 	}
-	else if (abs(q0q0 - 1) < epsilon) {}   //Ã»ÓĞĞı×ªÊ±£¬Ö±½ÓÊä³ö
+	else if (abs(q0q0 - 1) < epsilon) {}   //æ²¡æœ‰æ—‹è½¬æ—¶ï¼Œç›´æ¥è¾“å‡º
 	else
 	{
 		double q0q1 = q.m_Qs*q.m_Qx;
@@ -136,16 +136,16 @@ bool AsQuatToEuler_123(const CQuaternion& q, CEuler& Ang, const int cho)
 
 		double a02 = q0q0 - q2q2;
 		double a13 = q1q1 - q3q3;
-		double sy = 2 * (q1q3 + q0q2);   //¸©Ñö½Ç angle.y µÄÕıÏÒÖµ
+		double sy = 2 * (q1q3 + q0q2);   //ä¿¯ä»°è§’ angle.y çš„æ­£å¼¦å€¼
 
-										 //ÅĞ¶ÏÊÇ·ñ³öÏÖÆæÒì£¬µ±³öÏÖÆæÒìÊ±£¬Áî Angle3»òAngle1 Îª 0£¬È·±£³ÌĞò¿ÉÒÔ¼ÌĞøÔËĞĞ
-		if (sy - 1 >= 0)   //ÅĞ¶Ï¸©Ñö½ÇÎªpi/2
+										 //åˆ¤æ–­æ˜¯å¦å‡ºç°å¥‡å¼‚ï¼Œå½“å‡ºç°å¥‡å¼‚æ—¶ï¼Œä»¤ Angle3æˆ–Angle1 ä¸º 0ï¼Œç¡®ä¿ç¨‹åºå¯ä»¥ç»§ç»­è¿è¡Œ
+		if (sy - 1 >= 0)   //åˆ¤æ–­ä¿¯ä»°è§’ä¸ºpi/2
 		{
 			Ang.m_Angle2 = 90;
 			Ang.m_Angle1 = (3 - cho)*atan(q.m_Qx / q.m_Qy)*deg;
 			Ang.m_Angle3 = (cho - 1)*atan(q.m_Qx / q.m_Qy)*deg;
 		}
-		else if (sy + 1 <= 0)   //ÅĞ¶Ï¸©Ñö½ÇÎª-pi/2
+		else if (sy + 1 <= 0)   //åˆ¤æ–­ä¿¯ä»°è§’ä¸º-pi/2
 		{
 			Ang.m_Angle2 = -90;
 			Ang.m_Angle1 = -(3 - cho)*atan(q.m_Qx / q.m_Qy)*deg;
@@ -163,17 +163,17 @@ bool AsQuatToEuler_123(const CQuaternion& q, CEuler& Ang, const int cho)
 
 
 ///***********************************************************************
-/// ·½ÏòÓàÏÒÕó×ª321×ªĞòÅ·À­½Ç
+/// æ–¹å‘ä½™å¼¦é˜µè½¬321è½¬åºæ¬§æ‹‰è§’
 /// @Author	Li Sibei
 /// @Date	2023.04.06
 /// @Input
-/// @Param	mtx		·½ÏòÓàÏÒÕó
+/// @Param	mtx		æ–¹å‘ä½™å¼¦é˜µ
 /// @Output
-/// @Param	euler	Å·À­½Ç
+/// @Param	euler	æ¬§æ‹‰è§’
 ///***********************************************************************
 void AsMtxToEuler321(const CMatrix<double>& mtx, CEuler& euler)
 {
-	/*Òì³£Êı¾İ´¦Àí1£ºÊäÈë·ÇÕı½»¾ØÕó*/
+	/*å¼‚å¸¸æ•°æ®å¤„ç†1ï¼šè¾“å…¥éæ­£äº¤çŸ©é˜µ*/
 	CMatrix<double> MTX1(mtx);
 	CMatrix<double> mtx1 = MTX1.Transpose();
 	CMatrix<double> mtx2 = MTX1.Inv();
@@ -184,12 +184,12 @@ void AsMtxToEuler321(const CMatrix<double>& mtx, CEuler& euler)
 		{
 			if (mtx3[i][j] > 1e-15 || mtx3[i][j] < -1e-15)
 			{
-				printf("Error: ·½ÏòÓàÏÒÕó·ÇÕı½»¾ØÕó!\n");
+				printf("Error: æ–¹å‘ä½™å¼¦é˜µéæ­£äº¤çŸ©é˜µ!\n");
 				return;
 			}
 		}
 	}
-	/*Òì³£Êı¾İ´¦Àí2£ºÆæÒì*/
+	/*å¼‚å¸¸æ•°æ®å¤„ç†2ï¼šå¥‡å¼‚*/
 	if (mtx[0][2] == 1)
 	{
 		euler.m_Angle1 = -atan2(mtx[2][1], mtx[1][1]);
@@ -204,7 +204,7 @@ void AsMtxToEuler321(const CMatrix<double>& mtx, CEuler& euler)
 		euler.m_Angle3 = 0;
 		return;
 	}
-	/*Ò»°ãÇé¿öÇó½â*/
+	/*ä¸€èˆ¬æƒ…å†µæ±‚è§£*/
 	else
 	{
 		euler.m_Angle1 = atan2(mtx[0][1], mtx[0][0]);
@@ -213,4 +213,37 @@ void AsMtxToEuler321(const CMatrix<double>& mtx, CEuler& euler)
 	}
 }
 
-
+///***********************************************************************
+/// æ–¹å‘ä½™å¼¦çŸ©é˜µè½¬ä¸º313è½¬åºEulerè§’
+/// @Author	Wang Weili
+/// @Date	2023.4
+/// @Input
+/// @Param	mtx åæ ‡è½¬ç§»çŸ©é˜µ
+/// @Output
+/// @Param	euler æ¬§æ‹‰è§’
+///***********************************************************************
+#include"AstroLib.h"
+void AsMtxToEuler313(const CMatrix<double>& mtx, CEuler& euler)
+{
+	if (mtx[2][2] < +1)
+	{
+		if (mtx[2][2] > -1)
+		{
+			euler.m_Angle1 = atan2(mtx[2][0], -mtx[2][1]);
+			euler.m_Angle2 = acos(mtx[2][2]);
+			euler.m_Angle3 = atan2(mtx[0][2], mtx[1][2]);
+		}
+		else //mtx[2][2]==-1
+		{
+			euler.m_Angle1 = atan2(mtx[0][1], mtx[0][0]);
+			euler.m_Angle2 = AsCPI;
+			euler.m_Angle3 = 0;
+		}
+	}
+	else //mtx[2][2]==+1
+	{
+		euler.m_Angle1 = atan2(mtx[0][1], mtx[0][0]);
+		euler.m_Angle2 = 0;
+		euler.m_Angle3 = 0;
+	}
+}
