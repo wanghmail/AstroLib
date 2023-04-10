@@ -46,8 +46,8 @@ public:
 	void				GetData (int n, _Type *value) const;///< 将矢量数据写入一维数组
 	void				SetDataAll(const _Type& value);		///< 设置所有矢量元素值
 
-	inline _Type*		Buffer  ();							///< 得到数据指针
-	inline const _Type*	Buffer  () const;					///< 得到数据指针
+	inline _Type*		Data  ();							///< 得到数据指针
+	inline const _Type*	Data  () const;					///< 得到数据指针
 	inline   operator _Type*();								///< 转换类型为指针型
 	inline   operator const _Type*() const;					///< 转换类型为指针型
 
@@ -113,8 +113,8 @@ public:
 	void				GetData (int n, _Type *value) const;///< 将矢量数据写入一维数组
 	void				SetDataAll(const _Type& value);		///< 设置所有矢量元素值
 
-	inline _Type*		Buffer  ();							///< 得到数据指针
-	inline const _Type*	Buffer  () const;					///< 得到数据指针
+	inline _Type*		Data  ();							///< 得到数据指针
+	inline const _Type*	Data  () const;					    ///< 得到数据指针103645259
 	inline   operator _Type*();								///< 转换类型为指针型
 	inline   operator const _Type*() const;					///< 转换类型为指针型
 
@@ -288,7 +288,7 @@ inline int CVector<_Type>::Size() const
 
 //get the buffer of CVector
 template <class _Type>
-inline _Type* CVector<_Type>::Buffer()
+inline _Type* CVector<_Type>::Data()
 {
 	return m_p;
 }
@@ -296,7 +296,7 @@ inline _Type* CVector<_Type>::Buffer()
 
 //get the buffer of CVector
 template <class _Type>
-inline const _Type* CVector<_Type>::Buffer() const 
+inline const _Type* CVector<_Type>::Data() const 
 {
 	return m_p;
 }
@@ -600,14 +600,14 @@ inline int CVector<double>::Size() const
 
 
 //get the buffer of CVector
-inline double* CVector<double>::Buffer()
+inline double* CVector<double>::Data()
 {
 	return m_p;
 }
 
 
 //get the buffer of CVector
-inline const double* CVector<double>::Buffer() const 
+inline const double* CVector<double>::Data() const 
 {
 	return m_p;
 }

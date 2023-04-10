@@ -47,8 +47,8 @@ public:
 	inline   operator _Type**();
 	inline   operator const _Type* const *() const;
 
-	inline _Type**				Buffer();
-	inline const _Type*const*	Buffer() const ;
+	inline _Type**				Data();
+	inline const _Type*const*	Data() const ;
 
 	void	Resize(int nRow, int nCol);
 

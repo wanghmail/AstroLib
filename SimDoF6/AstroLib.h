@@ -54,6 +54,7 @@
 //Include file.
 //
 #include "./Include/AsAtmosphere.h"
+#include "./Include/AsAttitude.h"
 #include "./Include/AsAttitudeParam.h"
 #include "./Include/AsCommon.h"
 #include "./Include/AsCoordinate.h"
@@ -63,10 +64,15 @@
 #include "./Include/AsMath.h"
 #include "./Include/AsOrbit.h"
 #include "./Include/AsOrbitParam.h"
+#include "./Include/AsPlanetProp.h"
 #include "./Include/AsRandom.h"
 #include "./Include/AsRightFunction.h"
 #include "./Include/AsTimeSystem.h"
 #include "./Include/AsVector.h"
+#include "./Include/AsAttitudeParam_2023.h"
+#include "./Include/AsCoordinate_2023.h"
+#include "./Include/AsCoordSystem_2023.h"
+#include "./Include/AsOrbitParam_2023.h"
 
 
 
@@ -77,10 +83,8 @@
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//                       Copyright (c) 2003-2008                          //
+//                       Copyright (c) 2003-2022                          //
 //                              Wang Hua                                  //
-//             College of Aerospace and Material Engineering              //
-//               National University of Defense Technology                //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
