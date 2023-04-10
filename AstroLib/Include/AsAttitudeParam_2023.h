@@ -44,3 +44,16 @@ bool AsQuatToEuler_123(const CQuaternion& q, CEuler& Ang, const int cho);
 void AsMtxToEuler321(
 	const CMatrix<double>& mtx,
 	CEuler& euler);
+
+///***********************************************************************
+/// 方向余弦矩阵转为313转序Euler角
+/// @Author	Wang Weili
+/// @Date	2023.4
+/// @Input
+/// @Param	mtx 坐标转移矩阵
+/// @Output
+/// @Param	euler 欧拉角
+///***********************************************************************
+void AsMtxToEuler313(const CMatrix<double>& mtx, CEuler& euler);
+
+
