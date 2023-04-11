@@ -5,16 +5,16 @@
 
 
 //********************************************************************
-/// ĞŞÕı¹ìµÀ¸ùÊı×ª»»ÎªÎ»ÖÃËÙ¶È/modified orbit element to cartesian state element.
+/// ä¿®æ­£è½¨é“æ ¹æ•°è½¬æ¢ä¸ºä½ç½®é€Ÿåº¦/modified orbit element to cartesian state element.
 /// @Author	Zhang Yu
 /// @Date	2023/4/2
 /// @Input
-/// @Param	modOrb	ĞŞÕı¹ìµÀ¸ùÊı
-/// @Param	gm		ÖĞĞÄÌåÒıÁ¦³£Êı
+/// @Param	modOrb	ä¿®æ­£è½¨é“æ ¹æ•°
+/// @Param	gm		ä¸­å¿ƒä½“å¼•åŠ›å¸¸æ•°
 /// @Output
-/// @Param	pos		Î»ÖÃ
-/// @Param	vel		ËÙ¶È
-/// @Return			true=³É¹¦; false=ÊäÈë´íÎó
+/// @Param	pos		ä½ç½®
+/// @Param	vel		é€Ÿåº¦
+/// @Return			true=æˆåŠŸ; false=è¾“å…¥é”™è¯¯
 //********************************************************************
 bool	AsModOrbElemToCart(
 	const CModOrbElem& modOrb,

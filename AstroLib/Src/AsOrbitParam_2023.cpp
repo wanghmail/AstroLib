@@ -18,32 +18,32 @@ using namespace std;
 
 
 //********************************************************************
-/// ĞŞÕı¹ìµÀ¸ùÊı×ª»»ÎªÎ»ÖÃËÙ¶È/modified orbit element to cartesian state element.
+/// ä¿®æ­£è½¨é“æ ¹æ•°è½¬æ¢ä¸ºä½ç½®é€Ÿåº¦/modified orbit element to cartesian state element.
 /// @Author	Zhang Yu
 /// @Date	2023/4/2
 /// @Input
-/// @Param	modOrb	ĞŞÕı¹ìµÀ¸ùÊı
-/// @Param	gm		ÖĞĞÄÌåÒıÁ¦³£Êı
+/// @Param	modOrb	ä¿®æ­£è½¨é“æ ¹æ•°
+/// @Param	gm		ä¸­å¿ƒä½“å¼•åŠ›å¸¸æ•°
 /// @Output
-/// @Param	pos		Î»ÖÃ
-/// @Param	vel		ËÙ¶È
-/// @Return			true=³É¹¦; false=ÊäÈë´íÎó
+/// @Param	pos		ä½ç½®
+/// @Param	vel		é€Ÿåº¦
+/// @Return			true=æˆåŠŸ; false=è¾“å…¥é”™è¯¯
 //********************************************************************
 bool AsModOrbElemToCart(const CModOrbElem& modOrb, double gm, CCoord& pos, CCoord& vel)
 {
-	double m_PeriRad = modOrb.m_PeriRad;		///<½ü¹°µã°ë¾¶ periapsis radius in m   
-	double m_Ecc = modOrb.m_Ecc;				///<Æ«ĞÄÂÊ eccentricity   
-	double m_I = modOrb.m_I;					///<¹ìµÀÇã½Ç inclination in radians 
-	double m_RAAN = modOrb.m_RAAN;				///<Éı½»µã³à¾­ right ascension of ascending node  
-	double m_ArgPeri = modOrb.m_ArgPeri;		///<½ü¹°µã½Ç arg of periapsis in rad   
-	double m_TrueA = modOrb.m_TrueA;			///<Õæ½üµã½Ç true anomaly in radians   
+	double m_PeriRad = modOrb.m_PeriRad;		///<è¿‘æ‹±ç‚¹åŠå¾„ periapsis radius in m   
+	double m_Ecc = modOrb.m_Ecc;				///<åå¿ƒç‡ eccentricity   
+	double m_I = modOrb.m_I;					///<è½¨é“å€¾è§’ inclination in radians 
+	double m_RAAN = modOrb.m_RAAN;				///<å‡äº¤ç‚¹èµ¤ç» right ascension of ascending node  
+	double m_ArgPeri = modOrb.m_ArgPeri;		///<è¿‘æ‹±ç‚¹è§’ arg of periapsis in rad   
+	double m_TrueA = modOrb.m_TrueA;			///<çœŸè¿‘ç‚¹è§’ true anomaly in radians   
 	if (gm <= 0 || m_PeriRad <= 0 || m_Ecc < 0 || m_I<0 || m_I>AsCPI || m_RAAN < -AsCPI || m_RAAN>2 * AsCPI || m_ArgPeri < 0 || m_ArgPeri>2 * AsCPI || m_TrueA < -AsCPI || m_TrueA>2 * AsCPI||(m_Ecc>=1&& m_TrueA>=AsCPI-acos(1.0/m_Ecc)&& m_TrueA<= AsCPI + acos(1.0 / m_Ecc)))
 	{
 		return 0;
 	}
 	else {
-		double p = m_PeriRad * (1 + m_Ecc);		///<°ëÍ¨¾¶ 
-		double miudh = sqrt(gm / p);			///<³£Êı
+		double p = m_PeriRad * (1 + m_Ecc);		///<åŠé€šå¾„ 
+		double miudh = sqrt(gm / p);			///<å¸¸æ•°
 
 		double sinf = sin(m_TrueA);
 		double cosf = cos(m_TrueA);
@@ -58,7 +58,7 @@ bool AsModOrbElemToCart(const CModOrbElem& modOrb, double gm, CCoord& pos, CCoor
 		double cosRAcosAr = cosRA * cosAr;
 		double sinRAcosAr = sinRA * cosAr;
 
-		double r = p / (1 + m_Ecc * cosf);		///<µØĞÄ¾à´óĞ¡
+		double r = p / (1 + m_Ecc * cosf);		///<åœ°å¿ƒè·å¤§å°
 		double rcosf = r * cosf;
 		double rsinf = r * sinf;
 
