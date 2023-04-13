@@ -99,20 +99,18 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 
 
 ///***********************************************************************
-///将四元数转化成欧拉角_123转序（欧拉角单位为度）*
+///将四元数转化成欧拉角_123转序
 ///		卫星类型选择：cho (cho=1：自旋卫星；cho=3：非自旋卫星)
 /// @Author	Liu Tianqing
 /// @Date	2023.04.06
 /// @Input
 /// @Param	q		标准化四元数
 /// @Output
-/// @Param	Ang		欧拉角
+/// @Param	Ang		欧拉角(rad)
 ///***********************************************************************
 bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang, const int cho)
 {
 	//设置默认参数
-	double pi = acos(-1);		//计算pi值
-	double deg = 180 / pi;		//弧度->度的转换
 	double epsilon = 1e-6;		//精确度
 	Ang = { 0, 0, 0 };
 	//q0, q1, q2, q3分别对应q.m_Qs, q.m_Qx, q.m_Qy, q.m_Qz
@@ -143,21 +141,21 @@ bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang, const int cho)
 										 //判断是否出现奇异，当出现奇异时，令 Angle3或Angle1 为 0，确保程序可以继续运行
 		if (sy - 1 >= 0)		//判断俯仰角为pi/2
 		{
-			Ang.m_Angle2 = 90;
-			Ang.m_Angle1 = (3 - cho)*atan(q.m_Qx / q.m_Qy)*deg;
-			Ang.m_Angle3 = (cho - 1)*atan(q.m_Qx / q.m_Qy)*deg;
+			Ang.m_Angle2 = AsCHalfPI;
+			Ang.m_Angle1 = (3 - cho)*atan(q.m_Qx / q.m_Qy);
+			Ang.m_Angle3 = (cho - 1)*atan(q.m_Qx / q.m_Qy);
 		}
 		else if (sy + 1 <= 0)   //判断俯仰角为-pi/2
 		{
-			Ang.m_Angle2 = -90;
-			Ang.m_Angle1 = -(3 - cho)*atan(q.m_Qx / q.m_Qy)*deg;
-			Ang.m_Angle3 = -(cho - 1)*atan(q.m_Qx / q.m_Qy)*deg;
+			Ang.m_Angle2 = -AsCHalfPI;
+			Ang.m_Angle1 = -(3 - cho)*atan(q.m_Qx / q.m_Qy);
+			Ang.m_Angle3 = -(cho - 1)*atan(q.m_Qx / q.m_Qy);
 		}
 		else
 		{
-			Ang.m_Angle2 = asin(2 * (q1q3 + q0q2))*deg;
-			Ang.m_Angle1 = atan2(2 * (q0q1 - q2q3), a02 - a13)*deg;
-			Ang.m_Angle3 = atan2(2 * (q0q3 - q1q2), a02 + a13)*deg;
+			Ang.m_Angle2 = asin(2 * (q1q3 + q0q2));
+			Ang.m_Angle1 = atan2(2 * (q0q1 - q2q3), a02 - a13);
+			Ang.m_Angle3 = atan2(2 * (q0q3 - q1q2), a02 + a13);
 		}
 	}
 	return true;
@@ -221,9 +219,9 @@ void AsMtxToEuler321(const CMatrix<double>& mtx, CEuler& euler)
 /// @Author	Wang Weili
 /// @Date	2023.4
 /// @Input
-/// @Param	mtx 坐标转移矩阵
+/// @Param	mtx		坐标转移矩阵
 /// @Output
-/// @Param	euler 欧拉角
+/// @Param	euler	欧拉角(rad)
 ///***********************************************************************
 void AsMtxToEuler313(const CMatrix<double>& mtx, CEuler& euler)
 {
@@ -250,4 +248,48 @@ void AsMtxToEuler313(const CMatrix<double>& mtx, CEuler& euler)
 	}
 }
 
+
+///***********************************************************************
+/// 方向余弦矩阵转为312转序Euler角
+/// @Author	Zhang Xuaying
+/// @Date	2023.04.01
+/// @Input  
+/// @Param	mtx  		方向余弦矩阵
+/// @Output	
+/// @Param	euler		欧拉角(rad)
+///***********************************************************************
+void AsMtxToEuler312(const CMatrix<double>& mtx, CEuler& euler)
+{
+	bool singular = mtx(1, 2) > 1 - 1e-8;//判断是否出现欧拉角奇异问题	
+	if (!singular)
+	{
+		euler.m_Angle2 = asin(mtx(1, 2));
+		//偏航
+		if (mtx(1, 0) == 0)
+		{
+			euler.m_Angle1 = 0;
+		}
+		else
+		{
+			euler.m_Angle1 = -atan2(mtx(1, 0), mtx(1, 1));
+		}
+
+		//俯仰
+		if (mtx(0, 2) == 0)
+		{
+			euler.m_Angle3 = 0;
+		}
+		else
+		{
+			euler.m_Angle3 = -atan2(mtx(0, 2), mtx(2, 2));
+		}
+	}
+	else
+	{
+		cout << "出现欧拉角数值奇异问题 " << endl;
+		euler.m_Angle1 = 0;
+		euler.m_Angle2 = AsCHalfPI;
+		euler.m_Angle3 = atan2(mtx(2, 0), mtx(0, 0));
+	}
+}
 

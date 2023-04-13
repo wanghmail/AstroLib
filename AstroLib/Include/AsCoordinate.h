@@ -25,6 +25,7 @@ class	COrbElem;
 class	CCartState;
 class	CEuler;
 
+#define CCoord3 CCoord
 
 
 //

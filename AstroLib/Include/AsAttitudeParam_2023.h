@@ -17,9 +17,7 @@
 /// @Param	axis	旋转轴矢量
 /// @Param	angle	旋转角[0, pi]
 ///***********************************************************************
-void AsMtxToAxAng(const CMatrix<double>& mtx,
-	CCoord& axis, double& angle);
-
+void AsMtxToAxAng(const CMatrix<double>& mtx, CCoord& axis, double& angle);
 
 ///***********************************************************************
 ///将四元数转化成欧拉角_123转序（欧拉角单位为度）*
@@ -33,7 +31,6 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 ///***********************************************************************
 bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang, const int cho);
 
-
 ///***********************************************************************
 /// 方向余弦阵转321转序欧拉角
 /// @Author	Li Sibei
@@ -43,9 +40,7 @@ bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang, const int cho);
 /// @Output
 /// @Param	euler	欧拉角
 ///***********************************************************************
-void AsMtxToEuler321(
-	const CMatrix<double>& mtx,
-	CEuler& euler);
+void AsMtxToEuler321(const CMatrix<double>& mtx, CEuler& euler);
 
 ///***********************************************************************
 /// 方向余弦矩阵转为313转序Euler角
@@ -58,4 +53,14 @@ void AsMtxToEuler321(
 ///***********************************************************************
 void AsMtxToEuler313(const CMatrix<double>& mtx, CEuler& euler);
 
+///***********************************************************************
+/// 方向余弦矩阵转为312转序Euler角
+/// @Author	Zhang Xuaying
+/// @Date	2023.04.01
+/// @Input  
+/// @Param	mtx  		方向余弦矩阵
+/// @Output	
+/// @Param	euler		欧拉角(rad)
+///***********************************************************************
+void AsMtxToEuler312(const CMatrix<double>& mtx, CEuler& euler);
 
