@@ -38,3 +38,17 @@ bool	AsModOrbElemToCart(
 /// @Return			true=成功; false=输入错误
 //********************************************************************
 bool	AsCartToModOrbElem(const CCoord3& pos, const CCoord3& vel, double gm, CModOrbElem& modOrb);
+
+///***********************************************************************
+/// 轨道六根数变换位置速度
+/// 在参考坐标系下，物体坐标为(r*cos(trueA), r*sin(trueA), 0)
+/// 统一单位 m kg rad
+/// @Author	Guan Yuming
+/// @Date	2023.04.06
+/// @Input
+/// @Param  Orb					轨道根数
+/// @Output
+/// @Param  cartPos;            地心坐标系中位置矢量 
+/// @Param  cartVel				地心坐标系中速度矢量 
+///***********************************************************************
+bool	AsOrbElemToCart(const COrbElem& Orb, double gm, CCoord& cartPos, CCoord & cartVel);
