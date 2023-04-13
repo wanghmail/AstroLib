@@ -64,3 +64,14 @@ void AsMtxToEuler313(const CMatrix<double>& mtx, CEuler& euler);
 ///***********************************************************************
 void AsMtxToEuler312(const CMatrix<double>& mtx, CEuler& euler);
 
+///******************************************************
+/// 根据转序和坐标转移矩阵计算Euler角，转序为2-3-1
+/// @author Sun Fengyan
+/// @data   2023.4
+/// @Version    1.0
+/// @Input  
+/// @Param  mtx       坐标转移矩阵
+/// @Output
+/// @Param  euler     欧拉角返回值(单位：rad）
+///******************************************************
+void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler); 
