@@ -421,3 +421,91 @@ bool AsOrbElemToCart(const COrbElem& Orb, double gm, CCoord& cartPos, CCoord & c
 	}
 }
 
+//********************************************************************
+/// 由位置坐标s.m_Pos和速度矢量s.m_Vel计算经典轨道根数
+/// @Author	Zhang Zhongneng
+/// @Date	2023.04.06
+/// @Input
+/// @Param	pos		位置
+/// @Param	vel		速度
+/// @Param	gm		中心体引力常数
+/// @Output
+/// @Param	elem	飞行器轨道根数
+/// @Return			true=成功; false=输入错误
+//********************************************************************
+bool	AsCartToOrbElem(const CCoord& pos, const CCoord& vel, double gm, COrbElem& elem) {
+
+	if (pos.Norm() == 0)
+	{
+		cout << " 位置输入值不合理!\n ";
+		cout << "请重新输入!\n";
+		system("PAUSE");
+		return 0;
+	}
+
+	else if (vel.Norm() == 0)
+	{
+		cout << " 速度输入值不合理!\n ";
+		cout << "请重新输入!\n";
+		system("PAUSE");
+		return 0;
+	}
+	CCoord h = pos.Cross(vel);//动量矩矢量：h=r×v
+	double hh = h.Norm();//h的大小
+	double i = acos(h[2] / hh);//轨道倾角
+	CCoord e = 1.0 / gm * vel.Cross(h) - 1.0 / pos.Norm() * pos;//偏心率矢量
+	double ee = e.Norm();//偏心率e大小
+	double a = hh * hh / gm / (1 - ee * ee);//半长轴a
+	double Omiga;//升交点赤经Ω
+	if (h[1] == 0)
+	{
+		cout << " 为赤道轨道!\n ";
+		cout << "无升交点!\n";
+		cout << setprecision(15) << a << endl;
+		cout << setprecision(15) << ee << endl;
+		cout << setprecision(15) << i << endl;
+		system("PAUSE");
+		return 0;
+	}
+	else
+		Omiga = atan(-h[0] / h[1]);
+	if (h[0] > 0)
+	{
+		if (Omiga < 0)
+			Omiga = AsCPI + Omiga;
+	}
+	if (h[0] < 0)
+	{
+		if (Omiga < 0)
+			Omiga = 2 * AsCPI + Omiga;
+		else if (Omiga > 0)
+			Omiga = AsCPI + Omiga;
+	}
+	CCoord n(-h[1], h[0], 0);//升交点矢量
+	double w = acos(n.Dot(e) / (ee * n.Norm()));//近地点幅角
+	if (e[2] < 0)
+	{
+		w = -w;
+		if (w < 0)
+		{
+			w = 2 * AsCPI + w;
+		}
+	}
+
+	double temp1 = n.Dot(pos);
+	double temp2 = n.Norm() * pos.Norm();
+	double u = acos(temp1 / temp2);//升交点角距
+	if (pos[2] < 0)
+		u = 2 * AsCPI - u;
+	double f = u - w;//真近点角
+	if (f < 0)
+		f = 2 * AsCPI + f;
+
+	elem.m_SMajAx = a;//半长轴a，单位m
+	elem.m_Ecc = ee;//偏心率e
+	elem.m_I = i;//轨道倾角i，弧度
+	elem.m_ArgPeri = w;//近地点纬度幅角w，弧度
+	elem.m_RAAN = Omiga;//升交点赤经Ω，弧度
+	elem.m_TrueA = f;//真近点角f，弧度
+	return 1;
+}

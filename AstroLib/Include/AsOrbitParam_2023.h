@@ -52,3 +52,21 @@ bool	AsCartToModOrbElem(const CCoord3& pos, const CCoord3& vel, double gm, CModO
 /// @Param  cartVel				地心坐标系中速度矢量 
 ///***********************************************************************
 bool	AsOrbElemToCart(const COrbElem& Orb, double gm, CCoord& cartPos, CCoord & cartVel);
+
+//********************************************************************
+/// 由位置坐标s.m_Pos和速度矢量s.m_Vel计算经典轨道根数
+/// @Author	Zhang Zhongneng
+/// @Date	2023.04.06
+/// @Input
+/// @Param	pos		位置
+/// @Param	vel		速度
+/// @Param	gm		中心体引力常数
+/// @Output
+/// @Param	elem	飞行器轨道根数
+/// @Return			true=成功; false=输入错误
+//********************************************************************
+bool	AsCartToOrbElem(
+	const CCoord& pos,
+	const CCoord& vel,
+	double gm,
+	COrbElem& elem);
