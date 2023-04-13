@@ -100,7 +100,6 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 
 ///***********************************************************************
 ///将四元数转化成欧拉角_123转序
-///		卫星类型选择：cho (cho=1：自旋卫星；cho=3：非自旋卫星)
 /// @Author	Liu Tianqing
 /// @Date	2023.04.06
 /// @Input
@@ -108,7 +107,7 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 /// @Output
 /// @Param	Ang		欧拉角(rad)
 ///***********************************************************************
-bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang, const int cho)
+bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang)
 {
 	//设置默认参数
 	double epsilon = 1e-6;		//精确度
@@ -138,18 +137,16 @@ bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang, const int cho)
 		double a13 = q1q1 - q3q3;
 		double sy = 2 * (q1q3 + q0q2);   //俯仰角 angle.y 的正弦值
 
-										 //判断是否出现奇异，当出现奇异时，令 Angle3或Angle1 为 0，确保程序可以继续运行
+		//判断是否出现奇异，当出现奇异时，令 Angle3或Angle1 为 0，确保程序可以继续运行，这里默认 Angle3为0
 		if (sy - 1 >= 0)		//判断俯仰角为pi/2
 		{
 			Ang.m_Angle2 = AsCHalfPI;
-			Ang.m_Angle1 = (3 - cho)*atan(q.m_Qx / q.m_Qy);
-			Ang.m_Angle3 = (cho - 1)*atan(q.m_Qx / q.m_Qy);
+			Ang.m_Angle1 = 2*atan(q.m_Qx / q.m_Qy);
 		}
 		else if (sy + 1 <= 0)   //判断俯仰角为-pi/2
 		{
 			Ang.m_Angle2 = -AsCHalfPI;
-			Ang.m_Angle1 = -(3 - cho)*atan(q.m_Qx / q.m_Qy);
-			Ang.m_Angle3 = -(cho - 1)*atan(q.m_Qx / q.m_Qy);
+			Ang.m_Angle1 = -2*atan(q.m_Qx / q.m_Qy);
 		}
 		else
 		{
