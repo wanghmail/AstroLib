@@ -38,6 +38,30 @@ void	AsCBFToLCMtx(double A0,double Lon,double Lat,CMatrix<double>& mtx)
 	CMatrix<double>Mx(1, 0, 0, 0, cos(b), sin(b), 0, -sin(b), cos(b));
 	CMatrix<double>My(cos(c), 0, -sin(c), 0, 1, 0, sin(c), 0, cos(c));
 	CMatrix<double>Mz(cos(a), sin(a), 0, -sin(a), cos(a), 0, 0, 0, 1);
-	CMatrix<double>M = My*Mx*Mz;
-	mtx = M;
+	mtx = My*Mx*Mz;;
 }
+
+
+///******************************************************
+/// J2000系转到LVLH系转换矩阵
+/// @author Zhou Ruiyi
+/// @data   2023.4
+/// @Version    1.0
+/// @Input  
+/// @Param  pos       位置
+/// @Param  vel       速度
+/// @Output
+/// @Param  mtx       坐标转移矩阵
+///******************************************************
+void AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx)
+{
+	CCoord h   =  pos* vel;
+	CCoord e_z = h/h.Norm();
+	CCoord e_x = pos/pos.Norm();
+	CCoord e_y = e_z * e_x;
+
+	mtx[0][0] = e_x[0]; mtx[0][1] = e_x[1]; mtx[0][2] = e_x[2];
+	mtx[1][0] = e_y[0]; mtx[1][1] = e_y[1]; mtx[1][2] = e_y[2];
+	mtx[2][0] = e_z[0]; mtx[2][1] = e_z[1]; mtx[2][2] = e_z[2];
+}
+

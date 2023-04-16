@@ -21,3 +21,15 @@ void	AsCBFToLCMtx(
 	double Lat,
 	CMatrix<double>& mtx);
 
+///******************************************************
+/// J2000系转到LVLH系转换矩阵
+/// @author Zhou Ruiyi
+/// @data   2023.4
+/// @Version    1.0
+/// @Input  
+/// @Param  pos       位置
+/// @Param  vel       速度
+/// @Output
+/// @Param  mtx       坐标转移矩阵
+///******************************************************
+void 	AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx);
