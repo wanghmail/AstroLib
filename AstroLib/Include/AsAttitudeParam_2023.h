@@ -75,3 +75,14 @@ void AsMtxToEuler312(const CMatrix<double>& mtx, CEuler& euler);
 /// @Param  euler     欧拉角返回值(单位：rad）
 ///******************************************************
 void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler); 
+
+///***********************************************************************
+/// 方向余弦阵转123转序欧拉角
+/// @Author	Gong he
+/// @Date	2023.04.14
+/// @Input
+/// @Param	mtx		方向余弦阵
+/// @Output
+/// @Param	angle	欧拉角
+///***********************************************************************
+void AsMtxToEuler123(const CMatrix<double>& mtx, CEuler& angle);
