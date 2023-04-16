@@ -324,4 +324,50 @@ void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler)
 }
 
 
+///***********************************************************************
+/// The conversion from matrix to angle123.
+/// @Author	gong he
+/// @Date	2023.4.4
+/// @Input
+/// @Param	mtx	    坐标转换矩阵
+/// @Output
+/// @Param	eular	旋转角[0, pi]
+///***********************************************************************
+void AsMtxtoEuler123(const CMatrix<double>& mtx,
+	CEuler& euler)
+{
+
+	CMatrix<double> mm = mtx;
+	/**************  ******************/
+	float theta = 0, psi = 0, pfi = 0;
+	if (abs(mm[2][0]) != 1) {
+		if (cos(-asin(mm(2, 0)) >= 0)) {
+			theta = -asin(mm(2, 0));
+			psi = atan2(mm(2, 1) / cos(theta), mm(2, 2) / cos(theta));
+			pfi = atan2(mm(1, 0) / cos(theta), mm(0, 0) / cos(theta));
+		}
+		else {
+			theta = AsCPI - theta;
+			psi = atan2(mm(2, 0) / cos(theta), mm(2, 2) / cos(theta));
+			pfi = atan2(mm(1, 0) / cos(theta), mm(0, 0) / cos(theta));
+		}
+	}
+	else {
+		float pfi = 0;
+		float delta = atan2(mm(0, 1), mm(0, 2));
+		if (mm[2][0] == -1) {
+			theta = AsCPI / 2;
+			psi = pfi + delta;
+		}
+		else {
+			theta = -AsCPI / 2;
+			psi = -pfi + delta;
+		}
+	}
+	euler.m_Angle1 = pfi;
+	euler.m_Angle2 = theta;
+	euler.m_Angle3 = psi;
+
+
+}
 
