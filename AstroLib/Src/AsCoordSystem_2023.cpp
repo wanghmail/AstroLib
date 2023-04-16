@@ -11,6 +11,7 @@
 
 
 #include "AsCoordSystem_2023.h"
+#include "LVLHtoICS_2023.h"
 
 
 using namespace std;
@@ -65,3 +66,106 @@ void AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx)
 	mtx[2][0] = e_z[0]; mtx[2][1] = e_z[1]; mtx[2][2] = e_z[2];
 }
 
+
+
+
+/// LVLH到J2000的坐标转换矩阵
+/// @Author	Duan Yu
+/// @Date	2023/4/15
+/// @Input :
+/// @Param	pos			参考航天器位置
+/// @Param	vel         参考航天器速度
+/// @Output :
+/// @Param	mtx		    LVLH到ICS的坐标转换矩阵
+/// @Return			    true=成功; false=输入错误
+//********************************************************************
+void AsLVLHtoICSMtx(CCoord3& pos, CCoord3& vel, CMatrix<double> & mtx)
+{
+	double Temp2_idx_0;
+	double Temp2_idx_1;
+	double Temp2_idx_2;
+	double Temp_idx_0;
+	double Temp_idx_1;
+	double Temp_idx_2;
+	double norm_Temp;
+	double norm_Temp2;
+	double norm_pos;
+	norm_pos = sqrt((pos[0] * pos[0] + pos[1] * pos[1]) + pos[2] * pos[2]);
+	Temp_idx_0 = pos[1] * vel[2] - vel[1] * pos[2];
+	Temp_idx_1 = vel[0] * pos[2] - pos[0] * vel[2];
+	Temp_idx_2 = pos[0] * vel[1] - vel[0] * pos[1];
+	norm_Temp = sqrt((Temp_idx_0 * Temp_idx_0 + Temp_idx_1 * Temp_idx_1) +
+		Temp_idx_2 * Temp_idx_2);
+
+	Temp2_idx_0 = Temp_idx_1 * pos[2] - pos[1] * Temp_idx_2;
+	Temp2_idx_1 = pos[0] * Temp_idx_2 - Temp_idx_0 * pos[2];
+	Temp2_idx_2 = Temp_idx_0 * pos[1] - pos[0] * Temp_idx_1;
+	norm_Temp2 = sqrt((Temp2_idx_0 * Temp2_idx_0 + Temp2_idx_1 * Temp2_idx_1) +
+		Temp2_idx_2 * Temp2_idx_2);
+
+    if (norm_pos == 0)
+    {
+        mtx[0][0] = 0;
+        mtx[1][0] = 0;
+        mtx[2][0] = 0;
+    }
+    else
+    {
+        mtx[0][0] = pos[0] / norm_pos;
+	    mtx[1][0] = pos[1] / norm_pos;
+	    mtx[2][0] = pos[2] / norm_pos;
+    }
+	if (norm_Temp == 0)
+	{
+		mtx[0][2] = 0;
+		mtx[1][2] = 0;
+		mtx[2][2] = 0;
+	}
+	else
+	{
+		mtx[0][2] = Temp_idx_0 / norm_Temp;
+		mtx[1][2] = Temp_idx_1 / norm_Temp;
+		mtx[2][2] = Temp_idx_2 / norm_Temp;
+	}
+	if (norm_Temp2 == 0)
+	{
+		mtx[0][1] = 0;
+		mtx[1][1] = 0;
+		mtx[2][1] = 0;
+	}
+	else
+	{
+		mtx[0][1] = Temp2_idx_0 / norm_Temp2;
+		mtx[1][1] = Temp2_idx_1 / norm_Temp2;
+		mtx[2][1] = Temp2_idx_2 / norm_Temp2;
+	}
+
+
+
+
+/// LVLH到J2000的转换
+/// @Author	Duan Yu
+/// @Date	2023/4/15
+/// @Input :
+/// @Param	rSr         LVLH系目标航天器位置
+/// @Param	rSv         LVLH系目标航天器速度
+/// @Param	RefSr       J2000系参考航天器位置
+/// @Param	RefSv       J2000系参考航天器速度
+/// @Output :
+/// @Param	S1r		    J2000系目标航天器位置
+/// @Param	S1v		    J2000系目标航天器速度
+/// @Return			    true=成功; false=输入错误
+//********************************************************************
+void AsLVLHtoICS(CCoord3& rSr, CCoord3& rSv, CCoord3& RefSr, CCoord3& RefSv, CCoord3& S1r, CCoord3& S1v)
+{
+    CMatrix<double> mtx;
+	CCoord3  S1pos;
+	CCoord3  angle;
+	double r2;
+	AsLVLHtoICSMtx( RefSr, RefSv, mtx);
+	S1pos = mtx * rSr;
+	r2 = RefSr[0] * RefSr[0] + RefSr[1] * RefSr[1] + RefSr[2] * RefSr[2];
+	angle = RefSr.Cross(RefSv)/r2;
+	S1r = RefSr + S1pos;
+	S1v = RefSv + mtx * rSv + angle.Cross(S1pos);
+}
