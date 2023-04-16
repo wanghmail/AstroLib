@@ -323,3 +323,158 @@ void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler)
 	}
 }
 
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Vector
+{
+public:
+	double x, y, z;
+
+	Vector(double x_, double y_, double z_)
+	{
+		x = x_;
+		y = y_;
+		z = z_;
+	}
+
+	Vector operator-(const Vector& vec) const
+	{
+		return Vector(x - vec.x, y - vec.y, z - vec.z);
+	}
+
+	Vector operator*(const Vector& vec) const
+	{
+		return Vector(y * vec.z - z * vec.y, z * vec.x - x * vec.z, x * vec.y - y * vec.x);
+	}
+
+	double dot(const Vector& vec) const
+	{
+		return x * vec.x + y * vec.y + z * vec.z;
+	}
+
+	double norm() const
+	{
+		return sqrt(x * x + y * y + z * z);
+	}
+
+	Vector normalize() const
+	{
+		double length = norm();
+		return Vector(x / length, y / length, z / length);
+	}
+};
+
+class Matrix
+{
+public:
+	double data[3][3];
+
+	Matrix()
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				data[i][j] = 0.0;
+			}
+		}
+	}
+
+	Vector operator*(const Vector& vec) const
+	{
+		return Vector(data[0][0] * vec.x + data[0][1] * vec.y + data[0][2] * vec.z,
+			data[1][0] * vec.x + data[1][1] * vec.y + data[1][2] * vec.z,
+			data[2][0] * vec.x + data[2][1] * vec.y + data[2][2] * vec.z);
+	}
+
+	Matrix operator*(const Matrix& mat) const
+	{
+		Matrix result;
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				for (int k = 0; k < 3; k++)
+				{
+					result.data[i][j] += data[i][k] * mat.data[k][j];
+				}
+			}
+		}
+		return result;
+	}
+
+	void alg(double alg[3][3])//矩阵求逆
+	{
+		double a1 = data[0][0] * (data[1][1] * data[2][2] - data[1][2] * data[2][1]);
+		double a2 = data[0][1] * (data[1][2] * data[2][0] - data[1][0] * data[2][2]);
+		double a3 = data[0][2] * (data[1][0] * data[2][1] - data[1][1] * data[2][0]);
+		double det = a1 + a2 + a3;
+		if (det == 0)
+		{
+			cout << "矩阵不可逆";
+		}
+		else
+		{
+			alg[0][0] = (data[1][1] * data[2][2] - data[1][2] * data[2][1]) / det;
+			alg[1][0] = (data[1][2] * data[2][0] - data[1][0] * data[2][2]) / det;
+			alg[2][0] = (data[1][0] * data[2][1] - data[2][0] * data[1][1]) / det;
+			alg[0][1] = (data[0][2] * data[2][1] - data[0][1] * data[2][2]) / det;
+			alg[1][1] = (data[0][0] * data[2][2] - data[2][0] * data[0][2]) / det;
+			alg[2][1] = (data[0][1] * data[2][0] - data[0][0] * data[2][1]) / det;
+			alg[0][2] = (data[0][1] * data[1][2] - data[1][1] * data[0][2]) / det;
+			alg[1][2] = (data[1][0] * data[0][2] - data[0][0] * data[1][2]) / det;
+			alg[2][2] = (data[0][0] * data[1][1] - data[1][0] * data[0][1]) / det;
+		}
+	}
+};
+
+void LvlhToInertial(const Vector& pos, const Vector& vel, double s[3][3])
+{
+	Vector r(pos.x, pos.y, pos.z);
+	Vector v(vel.x, vel.y, vel.z);
+	Vector h = r * v;
+	Vector e_z = h.normalize();
+	Vector e_x = r.normalize();
+	Vector e_y = e_z * e_x;
+
+	Matrix lvlh_to_intertial;
+	lvlh_to_intertial.data[0][0] = e_x.x; lvlh_to_intertial.data[0][1] = e_y.x; lvlh_to_intertial.data[0][2] = e_z.x;
+	lvlh_to_intertial.data[1][0] = e_x.y; lvlh_to_intertial.data[1][1] = e_y.y; lvlh_to_intertial.data[1][2] = e_z.y;
+	lvlh_to_intertial.data[2][0] = e_x.z; lvlh_to_intertial.data[2][1] = e_y.z; lvlh_to_intertial.data[2][2] = e_z.z;
+	lvlh_to_intertial.alg(s);
+}
+
+int main()
+{
+	// 输入卫星的位置和速度
+	Vector pos(0.0, 1.0, 0.0);
+	Vector vel(1.0, 0.0, 0.0);
+	double s[3][3];
+	if (pos.x == 0 )
+		if (pos.y ==0)
+			if (pos.z == 0)
+				cout << "Input position error" << endl;//对错误的位置输入进行报告
+	if (vel.x==0)
+		if (vel.x==0)
+			if (vel.z==0)
+				cout << "Input velocity error" << endl;//对错误的速度输入进行报告
+	
+
+	// 计算从ECI坐标系到LVLH坐标系的旋转矩阵
+	LvlhToInertial(pos, vel, s);
+
+	// 输出旋转矩阵
+	cout << "The transformation matrix from ECI frame to LVLH frame is:" << endl;
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << s[i][j] << "\t";
+		}
+		cout << endl;
+	}
+
+	return 0;
+}
