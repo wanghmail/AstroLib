@@ -31,8 +31,8 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 	double p4 = mm[0][0] * mm[0][0] + mm[1][0] * mm[1][0] + mm[2][0] * mm[2][0];
 	double p5 = mm[0][1] * mm[0][1] + mm[1][1] * mm[1][1] + mm[2][1] * mm[2][1];
 	double p6 = mm[0][2] * mm[0][2] + mm[1][2] * mm[1][2] + mm[2][2] * mm[2][2];
-	if (!(abs(p1)<1e-9 && abs(p2)<1e-9 && abs(p3)<1e-9 && 
-		  abs(p4-1)<1e-9 && abs(p5 - 1)<1e-9 && abs(p6 - 1)<1e-9) ){
+	if (!(fabs(p1)<1e-9 && fabs(p2)<1e-9 && fabs(p3)<1e-9 && 
+		  fabs(p4-1)<1e-9 && fabs(p5 - 1)<1e-9 && fabs(p6 - 1)<1e-9) ){
 		printf("warning! not Orthogonal Matrix\n");
 		angle = 0;
 		axis[0] = 0;
@@ -44,7 +44,7 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 	// 矩阵的迹
 	double T = mm[0][0] + mm[1][1] + mm[2][2];
 
-	if (abs(T - 3) > 1e-9 && abs(T + 1) > 1e-9) {
+	if (fabs(T - 3) > 1e-9 && fabs(T + 1) > 1e-9) {
 		double cc = 0.5 * (T - 1);   // cos(angle)
 		double ss = sin(acos(cc));   // sin(angle)
 		angle = atan2(ss, cc);       // (0, pi)
@@ -52,7 +52,7 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 		axis[1] = 0.5 * (mm[2][0] - mm[0][2]) / ss;
 		axis[2] = 0.5 * (mm[0][1] - mm[1][0]) / ss;
 	}
-	else if (abs(T + 1) < 1e-9) {
+	else if (fabs(T + 1) < 1e-9) {
 		// 转轴有两个解，指向相差180°,且角度不影响, 本程序仅输出一个
 		// sin(angle) = 0， angle=pi+2k*pi,k为整数
 		angle = AsCPI;
@@ -118,12 +118,12 @@ bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang)
 	double q2q2 = q.m_Qy*q.m_Qy;
 	double q3q3 = q.m_Qz*q.m_Qz;
 	double q_norm2 = q0q0 + q1q1 + q2q2 + q3q3;
-	if (abs(q_norm2 - 1) > epsilon)			//判断输入的四元数是否标准化
+	if (fabs(q_norm2 - 1) > epsilon)			//判断输入的四元数是否标准化
 	{
 		cout << "请输入标准化四元数！！！" << endl;
 		return false;
 	}
-	else if (abs(q0q0 - 1) < epsilon) {}	//没有旋转时，直接输出
+	else if (fabs(q0q0 - 1) < epsilon) {}	//没有旋转时，直接输出
 	else
 	{
 		double q0q1 = q.m_Qs*q.m_Qx;
@@ -305,12 +305,12 @@ void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler)
 {
 	euler.m_Angle2 = asin(mtx[0][1]); 
 
-	if (abs(mtx[0][1] - 1) < 1e-8 ) //euler.m_Angle2 = pi/2
+	if (fabs(mtx[0][1] - 1) < 1e-8 ) //euler.m_Angle2 = pi/2
 	{
 		euler.m_Angle1 = atan2(mtx[1][2], mtx[2][2]);
 		euler.m_Angle3 = 0;
 	}
-	else if (abs(mtx[0][1] + 1) < 1e-8 ) //euler.m_Angle2 = -pi/2
+	else if (fabs(mtx[0][1] + 1) < 1e-8 ) //euler.m_Angle2 = -pi/2
 	{
 		euler.m_Angle1 = -atan2(mtx[1][2], mtx[2][2]);
 		euler.m_Angle3 = 0;
@@ -336,11 +336,9 @@ void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler)
 void AsMtxtoEuler123(const CMatrix<double>& mtx,
 	CEuler& euler)
 {
-
 	CMatrix<double> mm = mtx;
-	/**************  ******************/
-	float theta = 0, psi = 0, pfi = 0;
-	if (abs(mm[2][0]) != 1) {
+	double theta = 0, psi = 0, pfi = 0;
+	if (fabs(mm[2][0]) != 1) {
 		if (cos(-asin(mm(2, 0)) >= 0)) {
 			theta = -asin(mm(2, 0));
 			psi = atan2(mm(2, 1) / cos(theta), mm(2, 2) / cos(theta));
@@ -367,7 +365,5 @@ void AsMtxtoEuler123(const CMatrix<double>& mtx,
 	euler.m_Angle1 = pfi;
 	euler.m_Angle2 = theta;
 	euler.m_Angle3 = psi;
-
-
 }
 

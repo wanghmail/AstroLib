@@ -11,7 +11,6 @@
 
 
 #include "AsCoordSystem_2023.h"
-#include "LVLHtoICS_2023.h"
 
 
 using namespace std;
@@ -67,8 +66,7 @@ void AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx)
 }
 
 
-
-
+//********************************************************************
 /// LVLH到J2000的坐标转换矩阵
 /// @Author	Duan Yu
 /// @Date	2023/4/15
@@ -79,7 +77,7 @@ void AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx)
 /// @Param	mtx		    LVLH到ICS的坐标转换矩阵
 /// @Return			    true=成功; false=输入错误
 //********************************************************************
-void AsLVLHtoICSMtx(CCoord3& pos, CCoord3& vel, CMatrix<double> & mtx)
+void AsLVLHtoICSMtx(const CCoord3& pos, const CCoord3& vel, CMatrix<double> & mtx)
 {
 	double Temp2_idx_0;
 	double Temp2_idx_1;
@@ -103,18 +101,18 @@ void AsLVLHtoICSMtx(CCoord3& pos, CCoord3& vel, CMatrix<double> & mtx)
 	norm_Temp2 = sqrt((Temp2_idx_0 * Temp2_idx_0 + Temp2_idx_1 * Temp2_idx_1) +
 		Temp2_idx_2 * Temp2_idx_2);
 
-    if (norm_pos == 0)
-    {
-        mtx[0][0] = 0;
-        mtx[1][0] = 0;
-        mtx[2][0] = 0;
-    }
-    else
-    {
-        mtx[0][0] = pos[0] / norm_pos;
-	    mtx[1][0] = pos[1] / norm_pos;
-	    mtx[2][0] = pos[2] / norm_pos;
-    }
+	if (norm_pos == 0)
+	{
+		mtx[0][0] = 0;
+		mtx[1][0] = 0;
+		mtx[2][0] = 0;
+	}
+	else
+	{
+		mtx[0][0] = pos[0] / norm_pos;
+		mtx[1][0] = pos[1] / norm_pos;
+		mtx[2][0] = pos[2] / norm_pos;
+	}
 	if (norm_Temp == 0)
 	{
 		mtx[0][2] = 0;
@@ -139,11 +137,11 @@ void AsLVLHtoICSMtx(CCoord3& pos, CCoord3& vel, CMatrix<double> & mtx)
 		mtx[1][1] = Temp2_idx_1 / norm_Temp2;
 		mtx[2][1] = Temp2_idx_2 / norm_Temp2;
 	}
+}
 
 
-
-
-/// LVLH到J2000的转换
+//********************************************************************
+	/// LVLH到J2000的转换
 /// @Author	Duan Yu
 /// @Date	2023/4/15
 /// @Input :
@@ -156,7 +154,9 @@ void AsLVLHtoICSMtx(CCoord3& pos, CCoord3& vel, CMatrix<double> & mtx)
 /// @Param	S1v		    J2000系目标航天器速度
 /// @Return			    true=成功; false=输入错误
 //********************************************************************
-void AsLVLHtoICS(CCoord3& rSr, CCoord3& rSv, CCoord3& RefSr, CCoord3& RefSv, CCoord3& S1r, CCoord3& S1v)
+void AsLVLHtoICS(const CCoord3& rSr, const CCoord3& rSv, 
+	const CCoord3& RefSr, const CCoord3& RefSv, 
+	CCoord3& S1r, CCoord3& S1v)
 {
     CMatrix<double> mtx;
 	CCoord3  S1pos;
