@@ -105,13 +105,13 @@ void AsMtxToAxAng(const CMatrix<double>& mtx,
 /// @Input
 /// @Param	q		标准化四元数
 /// @Output
-/// @Param	Ang		欧拉角(rad)
+/// @Param	euler		欧拉角(rad)
 ///***********************************************************************
-bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang)
+bool AsQuatToEuler123(const CQuaternion& q, CEuler& euler)
 {
 	//设置默认参数
 	double epsilon = 1e-6;		//精确度
-	Ang = { 0, 0, 0 };
+	euler = { 0, 0, 0 };
 	//q0, q1, q2, q3分别对应q.m_Qs, q.m_Qx, q.m_Qy, q.m_Qz
 	double q0q0 = q.m_Qs*q.m_Qs;
 	double q1q1 = q.m_Qx*q.m_Qx;
@@ -140,19 +140,19 @@ bool AsQuatToEuler123(const CQuaternion& q, CEuler& Ang)
 		//判断是否出现奇异，当出现奇异时，令 Angle3或Angle1 为 0，确保程序可以继续运行，这里默认 Angle3为0
 		if (sy - 1 >= 0)		//判断俯仰角为pi/2
 		{
-			Ang.m_Angle2 = AsCHalfPI;
-			Ang.m_Angle1 = 2*atan(q.m_Qx / q.m_Qy);
+			euler.m_Angle2 = AsCHalfPI;
+			euler.m_Angle1 = 2*atan(q.m_Qx / q.m_Qy);
 		}
 		else if (sy + 1 <= 0)   //判断俯仰角为-pi/2
 		{
-			Ang.m_Angle2 = -AsCHalfPI;
-			Ang.m_Angle1 = -2*atan(q.m_Qx / q.m_Qy);
+			euler.m_Angle2 = -AsCHalfPI;
+			euler.m_Angle1 = -2*atan(q.m_Qx / q.m_Qy);
 		}
 		else
 		{
-			Ang.m_Angle2 = asin(2 * (q1q3 + q0q2));
-			Ang.m_Angle1 = atan2(2 * (q0q1 - q2q3), a02 - a13);
-			Ang.m_Angle3 = atan2(2 * (q0q3 - q1q2), a02 + a13);
+			euler.m_Angle2 = asin(2 * (q1q3 + q0q2));
+			euler.m_Angle1 = atan2(2 * (q0q1 - q2q3), a02 - a13);
+			euler.m_Angle3 = atan2(2 * (q0q3 - q1q2), a02 + a13);
 		}
 	}
 	return true;
@@ -333,7 +333,7 @@ void  AsMtxToEuler231(const CMatrix<double>& mtx, CEuler& euler)
 /// @Output
 /// @Param	eular	旋转角[0, pi]
 ///***********************************************************************
-void AsMtxtoEuler123(const CMatrix<double>& mtx,
+void AsMtxToEuler123(const CMatrix<double>& mtx,
 	CEuler& euler)
 {
 	CMatrix<double> mm = mtx;
@@ -351,8 +351,8 @@ void AsMtxtoEuler123(const CMatrix<double>& mtx,
 		}
 	}
 	else {
-		float pfi = 0;
-		float delta = atan2(mm(0, 1), mm(0, 2));
+		double pfi = 0;
+		double delta = atan2(mm(0, 1), mm(0, 2));
 		if (mm[2][0] == -1) {
 			theta = AsCPI / 2;
 			psi = pfi + delta;

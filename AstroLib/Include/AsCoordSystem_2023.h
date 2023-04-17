@@ -33,7 +33,7 @@ void	AsCBFToLCMtx(
 ///******************************************************
 void 	AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx);
 
-
+//********************************************************************
 /// LVLH到J2000的坐标转换矩阵
 /// @Author	Duan Yu
 /// @Date	2023/4/15
@@ -44,7 +44,7 @@ void 	AsICSToLVLHMtx(const CCoord& pos, const CCoord& vel, CMatrix<double>& mtx)
 /// @Param	mtx		    LVLH到ICS的坐标转换矩阵
 /// @Return			    true=成功; false=输入错误
 //********************************************************************
-void AsLVLHtoICSMtx(const CCoord3& pos, const CCoord3& vel, CMatrix<double>& mtx);
+void	AsLVLHtoICSMtx(const CCoord3& pos, const CCoord3& vel, CMatrix<double>& mtx);
 
 //********************************************************************
 /// LVLH到J2000的转换
@@ -60,6 +60,6 @@ void AsLVLHtoICSMtx(const CCoord3& pos, const CCoord3& vel, CMatrix<double>& mtx
 /// @Param	S1v		    J2000系目标航天器速度
 /// @Return			    true=成功; false=输入错误
 //********************************************************************
-void AsLVLHtoICS(const CCoord3& rSr, const CCoord3& rSv, 
+void	AsLVLHtoICS(const CCoord3& rSr, const CCoord3& rSv, 
 	const CCoord3& RefSr, const CCoord3& RefSv, 
 	CCoord3& S1r, CCoord3& S1v);

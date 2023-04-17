@@ -141,7 +141,7 @@ void AsLVLHtoICSMtx(const CCoord3& pos, const CCoord3& vel, CMatrix<double> & mt
 
 
 //********************************************************************
-	/// LVLH到J2000的转换
+/// LVLH到J2000的转换
 /// @Author	Duan Yu
 /// @Date	2023/4/15
 /// @Input :
@@ -169,3 +169,4 @@ void AsLVLHtoICS(const CCoord3& rSr, const CCoord3& rSv,
 	S1r = RefSr + S1pos;
 	S1v = RefSv + mtx * rSv + angle.Cross(S1pos);
 }
+
