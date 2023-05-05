@@ -42,31 +42,31 @@ public:
 	virtual ~CEuler();
 
 	///***********************************************************************
-	/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËã×ø±ê×ªÒÆ¾ØÕó
+	/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—åæ ‡è½¬ç§»çŸ©é˜µ
 	/// @Author	Wang Hua
 	/// @Date	2004.11.24
 	/// @Input
-	/// @Param	seqFlag	Ğı×ªsequence
+	/// @Param	seqFlag	æ—‹è½¬sequence
 	/// @Output
-	/// @Param	mtx		·µ»ØµÄ×ªÒÆ¾ØÕó
+	/// @Param	mtx		è¿”å›çš„è½¬ç§»çŸ©é˜µ
 	///***********************************************************************
 	void	ToMtx      (int seqFlag, CMatrix<double>& mtx) const;
 
 	///***********************************************************************
-	/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËãquaternion
+	/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—quaternion
 	/// @Author	Wang Hua
 	/// @Date	2004.11.24
 	/// @Input
-	/// @Param	seqFlag	Ğı×ªsequence
+	/// @Param	seqFlag	æ—‹è½¬sequence
 	/// @Output
-	/// @Param	quat	ËÄÔªÊı
+	/// @Param	quat	å››å…ƒæ•°
 	///***********************************************************************
 	void	ToQuat     (int seqFlag, CQuaternion& quat) const;
 
 public:
-	double	m_Angle1;	///< µÚÒ»¸ö½Ç
-	double	m_Angle2;	///< µÚ¶ş¸ö½Ç
-	double	m_Angle3;	///< µÚÈı¸ö½Ç
+	double	m_Angle1;	///< ç¬¬ä¸€ä¸ªè§’
+	double	m_Angle2;	///< ç¬¬äºŒä¸ªè§’
+	double	m_Angle3;	///< ç¬¬ä¸‰ä¸ªè§’
 };
 
 
@@ -99,86 +99,86 @@ public:
 	bool	operator==(const CQuaternion& q) const;
 	bool	operator!=(const CQuaternion& q) const;
 
-	///µÃµ½ËÄÔªÊıµÄ¹²éîËÄÔªÊı
+	///å¾—åˆ°å››å…ƒæ•°çš„å…±è½­å››å…ƒæ•°
 	const CQuaternion	Conjugate() const;
 
-	///µÃµ½ËÄÔªÊıµÄÄæÔªÊı
+	///å¾—åˆ°å››å…ƒæ•°çš„é€†å…ƒæ•°
 	const CQuaternion	Invert   () const;
 
-	///µÃµ½ËÄÔªÊıµÄ·¶Êı
+	///å¾—åˆ°å››å…ƒæ•°çš„èŒƒæ•°
 	double				Norm     () const;
 
-	///µ¥Î»»¯
+	///å•ä½åŒ–
 	void				Unit     ();
 
 	///***********************************************************************
-	/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ª×ø±êÖá¼ÆËãËÄÔªÊı
+	/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬åæ ‡è½´è®¡ç®—å››å…ƒæ•°
 	/// @Author	Wang Hua
 	/// @Date	2004.3
 	/// @Input
-	/// @Param	angle	Ğı×ª½Ç¶È
-	/// @Param	axFlag	Ğı×ªÖá(1,2,3-X,Y,Z)
+	/// @Param	angle	æ—‹è½¬è§’åº¦
+	/// @Param	axFlag	æ—‹è½¬è½´(1,2,3-X,Y,Z)
 	/// @Output	
 	///***********************************************************************
 	void	FromEuler  (double angle, int axFlag);
 
 	///***********************************************************************
-	/// ¸ù¾İEuler½ÇºÍĞı×ª×ø±êÖá¼ÆËãËÄÔªÊı
+	/// æ ¹æ®Eulerè§’å’Œæ—‹è½¬åæ ‡è½´è®¡ç®—å››å…ƒæ•°
 	/// @Author	Wang Hua
 	/// @Date	2004.11.24
 	/// @Input
-	/// @Param	euler	Ğı×ªEuler½Ç
-	/// @Param	seqFlag	Ğı×ªÖá(1,2,3-X,Y,Z)
+	/// @Param	euler	æ—‹è½¬Eulerè§’
+	/// @Param	seqFlag	æ—‹è½¬è½´(1,2,3-X,Y,Z)
 	/// @Output	
 	///***********************************************************************
 	void	FromEuler  (const CEuler& euler, int seqFlag);
 
 	///***********************************************************************
-	/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ª×ø±êÖá¼ÆËãËÄÔªÊı
+	/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬åæ ‡è½´è®¡ç®—å››å…ƒæ•°
 	/// @Author	Wang Hua
 	/// @Date	2004.10.22
 	/// @Input
-	/// @Param	angle	Ğı×ª½Ç
-	/// @Param	seqFlag	Ğı×ªÖá(1,2,3-X,Y,Z)
+	/// @Param	angle	æ—‹è½¬è§’
+	/// @Param	seqFlag	æ—‹è½¬è½´(1,2,3-X,Y,Z)
 	///***********************************************************************
 	void	FromEuler  (const CVector<double>& angle, const CVector<int>& seqFlag);
 
 	///***********************************************************************
-	/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËãËÄÔªÊı
+	/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—å››å…ƒæ•°
 	/// @Author	Wang Hua
 	/// @Date	2004.10.12
 	/// @Input
-	/// @Param	axis	Ğı×ªÖáÊ¸Á¿
-	/// @Param	angle	Ğı×ª½Ç
+	/// @Param	axis	æ—‹è½¬è½´çŸ¢é‡
+	/// @Param	angle	æ—‹è½¬è§’
 	///***********************************************************************
 	void	FromAxAng  (const CCoord& axis, double angle);
 
 	///***********************************************************************
-	/// ·½ÏòÓàÏÒ¾ØÕó×ª»»³ÉËÄÔªÊı
+	/// æ–¹å‘ä½™å¼¦çŸ©é˜µè½¬æ¢æˆå››å…ƒæ•°
 	/// @Author	Wang Hua
 	/// @Date	2004.4
 	/// @Input
-	/// @Param	mtx		Ğı×ª¾ØÕó
+	/// @Param	mtx		æ—‹è½¬çŸ©é˜µ
 	///***********************************************************************
 	void	FromMtx    (const CMatrix<double>& mtx);
 
 	///***********************************************************************
-	/// ¸ù¾İËÄÔªÊı¼ÆËãĞı×ª½Ç¶ÈºÍĞı×ªÖá
+	/// æ ¹æ®å››å…ƒæ•°è®¡ç®—æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´
 	/// @Author	Wang Hua
 	/// @Date	2004.10.26
 	/// @Output
-	/// @Param	angle	Ğı×ª½Ç¶È
-	/// @Param	axFlag	Ğı×ªÖá
+	/// @Param	angle	æ—‹è½¬è§’åº¦
+	/// @Param	axFlag	æ—‹è½¬è½´
 	///***********************************************************************
 	void	ToAxAng    (CCoord& axis, double& angle) const;
 
 	///***********************************************************************
-	/// ËÄÔªÊı×ª»»³É·½ÏòÓàÏÒ¾ØÕó
+	/// å››å…ƒæ•°è½¬æ¢æˆæ–¹å‘ä½™å¼¦çŸ©é˜µ
 	/// @Author	Wang Hua
 	/// @Date	2004.4
 	/// @Output
-	/// @Param	axis	Ğı×ªÖáÊ¸Á¿
-	/// @Param	angle	Ğı×ª½Ç
+	/// @Param	axis	æ—‹è½¬è½´çŸ¢é‡
+	/// @Param	angle	æ—‹è½¬è§’
 	///***********************************************************************
 	void	ToMtx      (CMatrix<double>& mtx) const;
 
@@ -232,14 +232,14 @@ inline double& CQuaternion::operator [](int i)
 //Rotation function.
 //
 ///***********************************************************************
-/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËã×ø±ê×ªÒÆ¾ØÕó
+/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—åæ ‡è½¬ç§»çŸ©é˜µ
 /// @Author	Wang Hua
 /// @Date	2004.3
 /// @Input
-/// @Param	angle	Ğı×ª½Ç¶È
-/// @Param	axFlag	Ğı×ªÖá
+/// @Param	angle	æ—‹è½¬è§’åº¦
+/// @Param	axFlag	æ—‹è½¬è½´
 /// @Output
-/// @Param	mtx		·µ»ØµÄ×ªÒÆ¾ØÕó
+/// @Param	mtx		è¿”å›çš„è½¬ç§»çŸ©é˜µ
 ///***********************************************************************
 void	AsEulerToMtx  (
 			double angle, 
@@ -247,15 +247,15 @@ void	AsEulerToMtx  (
 			CMatrix<double>& mtx);
 
 ///***********************************************************************
-/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËã×ø±ê×ªÒÆ¾ØÕó
+/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—åæ ‡è½¬ç§»çŸ©é˜µ
 /// @Author	Wang Hua
 /// @Date	2004.9.7
 /// @Input
-/// @Param	angle	Ğı×ª½Ç¶È(»¡¶È)
-/// @Param	seqFlag	Ğı×ªÖá±êÖ¾:1=x,2=y,3=z
-/// @Param	n		ÊäÈëµÄ½ÇµÄ¸öÊı
+/// @Param	angle	æ—‹è½¬è§’åº¦(å¼§åº¦)
+/// @Param	seqFlag	æ—‹è½¬è½´æ ‡å¿—:1=x,2=y,3=z
+/// @Param	n		è¾“å…¥çš„è§’çš„ä¸ªæ•°
 /// @Output	
-/// @Param	mtx		×ªÒÆ¾ØÕó
+/// @Param	mtx		è½¬ç§»çŸ©é˜µ
 ///***********************************************************************
 void	AsEulerToMtx  (
 			const double angle[], 
@@ -264,14 +264,14 @@ void	AsEulerToMtx  (
 			CMatrix<double>& mtx);
 
 ///***********************************************************************
-/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËã×ø±ê×ªÒÆ¾ØÕó
+/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—åæ ‡è½¬ç§»çŸ©é˜µ
 /// @Author	Wang Hua
 /// @Date	2004.9.7
 /// @Input
-/// @Param	angle	Ğı×ª½Ç¶È(»¡¶È)
-/// @Param	seqFlag	Ğı×ªÖá±êÖ¾:1=x,2=y,3=z
+/// @Param	angle	æ—‹è½¬è§’åº¦(å¼§åº¦)
+/// @Param	seqFlag	æ—‹è½¬è½´æ ‡å¿—:1=x,2=y,3=z
 /// @Output
-/// @Param	mtx		×ªÒÆ¾ØÕó
+/// @Param	mtx		è½¬ç§»çŸ©é˜µ
 ///***********************************************************************
 void	AsEulerToMtx  (
 			const CVector<double>& angle, 
@@ -283,10 +283,10 @@ void	AsEulerToMtx  (
 /// @Author	Wang Hua
 /// @Date	2004.10.13
 /// @Input
-/// @Param	axis	Ğı×ªÖáÊ¸Á¿
-/// @Param	angle	Ğı×ª½Ç
+/// @Param	axis	æ—‹è½¬è½´çŸ¢é‡
+/// @Param	angle	æ—‹è½¬è§’
 /// @Output
-/// @Param	mtx		×ªÒÆ¾ØÕó
+/// @Param	mtx		è½¬ç§»çŸ©é˜µ
 ///***********************************************************************
 void	AsAxAngToMtx  (
 			const CCoord& axis, 
@@ -298,10 +298,10 @@ void	AsAxAngToMtx  (
 /// @Author	Wang Hua
 /// @Date	2004.11.24
 /// @Input
-/// @Param	axis	Ğı×ªÖáÊ¸Á¿
-/// @Param	angle	Ğı×ª½Ç
+/// @Param	axis	æ—‹è½¬è½´çŸ¢é‡
+/// @Param	angle	æ—‹è½¬è§’
 /// @Output
-/// @Param	quat	ËÄÔªÊı
+/// @Param	quat	å››å…ƒæ•°
 ///***********************************************************************
 void	AsAxAngToQuat (
 			const CCoord& axis, 
@@ -309,14 +309,14 @@ void	AsAxAngToQuat (
 			CQuaternion& quat);
 
 ///***********************************************************************
-/// ¸ù¾İĞı×ª½Ç¶ÈºÍĞı×ªÖá¼ÆËã×ø±ê×ªÒÆ¾ØÕó
+/// æ ¹æ®æ—‹è½¬è§’åº¦å’Œæ—‹è½¬è½´è®¡ç®—åæ ‡è½¬ç§»çŸ©é˜µ
 /// @Author	Wang Hua
 /// @Date	2004.11.24
 /// @Input
-/// @Param	euler	Euler½Ç
-/// @Param	seqFlag	Ğı×ªsequence
+/// @Param	euler	Eulerè§’
+/// @Param	seqFlag	æ—‹è½¬sequence
 /// @Output	
-/// @Param	mtx		·µ»ØµÄ×ªÒÆ¾ØÕó
+/// @Param	mtx		è¿”å›çš„è½¬ç§»çŸ©é˜µ
 ///***********************************************************************
 void	AsEulerToMtx  (
 			const CEuler& euler, 
@@ -324,14 +324,14 @@ void	AsEulerToMtx  (
 			CMatrix<double>& mtx);
 
 ///***********************************************************************
-/// ¸ù¾İEuler½Ç¼ÆËãquaternion
+/// æ ¹æ®Eulerè§’è®¡ç®—quaternion
 /// @Author	Wang Hua
 /// @Date	2004.11.24
 /// @Input
-/// @Param	euler	Euler½Ç
-/// @Param	seqFlag	Ğı×ªsequence
+/// @Param	euler	Eulerè§’
+/// @Param	seqFlag	æ—‹è½¬sequence
 /// @Output
-/// @Param	quat	ËÄÔªÊı
+/// @Param	quat	å››å…ƒæ•°
 ///***********************************************************************
 void	AsEulerToQuat (
 			const CEuler& euler, 
@@ -343,9 +343,9 @@ void	AsEulerToQuat (
 /// @Author	Wang Hua
 /// @Date	2004.11.24
 /// @Input
-/// @Param	mtx		×ªÒÆ¾ØÕó
+/// @Param	mtx		è½¬ç§»çŸ©é˜µ
 /// @Output
-/// @Param	quat	ËÄÔªÊı
+/// @Param	quat	å››å…ƒæ•°
 ///***********************************************************************
 void	AsMtxToQuat   (
 			const CMatrix<double>& mtx, 
@@ -356,10 +356,10 @@ void	AsMtxToQuat   (
 /// @Author	Wang Hua
 /// @Date	2004.11.24
 /// @Input
-/// @Param	quat	ËÄÔªÊı
+/// @Param	quat	å››å…ƒæ•°
 /// @Output
-/// @Param	axis	Ğı×ªÖáÊ¸Á¿
-/// @Param	angle	Ğı×ª½Ç[0, pi]
+/// @Param	axis	æ—‹è½¬è½´çŸ¢é‡
+/// @Param	angle	æ—‹è½¬è§’[0, pi]
 ///***********************************************************************
 void	AsQuatToAxAng (
 			const CQuaternion& quat, 
@@ -371,9 +371,9 @@ void	AsQuatToAxAng (
 /// @Author	Wang Hua
 /// @Date	2004.11.24
 /// @Input
-/// @Param	quat	ËÄÔªÊı
+/// @Param	quat	å››å…ƒæ•°
 /// @Output
-/// @Param	mtx		×ªÒÆ¾ØÕó
+/// @Param	mtx		è½¬ç§»çŸ©é˜µ
 ///***********************************************************************
 void	AsQuatToMtx   (
 			const CQuaternion& quat, 

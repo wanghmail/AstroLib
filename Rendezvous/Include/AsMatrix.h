@@ -151,27 +151,27 @@ public:
 	void			Resize(int nRow, int nCol);
 	const	_MyT	Transpose() const;
 
-	_MyT&				operator= (const _MyT& other);				//ÓÃ¾ØÕó¸³Öµ
+	_MyT&				operator= (const _MyT& other);				//ç”¨çŸ©é˜µèµ‹å€¼
 
-	inline const _MyT&			operator+=(const _MyT& other);				//¾ØÕó¼Ó·¨
-	inline const _MyT			operator+ (const _MyT& other) const;		//¾ØÕó¼Ó·¨
-	inline const _MyT&			operator-=(const _MyT& other);				//¾ØÕó¼õ·¨
-	inline const _MyT			operator- (const _MyT& other) const;		//¾ØÕó¼õ·¨
-	inline const _MyT			operator- () const;							//¾ØÕóÇó¸º
-	inline const _MyT&			operator*=(const _MyT& other);				//¾ØÕó³Ë¾ØÕó
-	inline const _MyT			operator* (const _MyT& other) const;		//¾ØÕó³Ë¾ØÕó
-	inline const CVector<_Type>	operator* (const CVector<_Type>& v) const;	//¾ØÕó³ËÊ¸Á¿
+	inline const _MyT&			operator+=(const _MyT& other);				//çŸ©é˜µåŠ æ³•
+	inline const _MyT			operator+ (const _MyT& other) const;		//çŸ©é˜µåŠ æ³•
+	inline const _MyT&			operator-=(const _MyT& other);				//çŸ©é˜µå‡æ³•
+	inline const _MyT			operator- (const _MyT& other) const;		//çŸ©é˜µå‡æ³•
+	inline const _MyT			operator- () const;							//çŸ©é˜µæ±‚è´Ÿ
+	inline const _MyT&			operator*=(const _MyT& other);				//çŸ©é˜µä¹˜çŸ©é˜µ
+	inline const _MyT			operator* (const _MyT& other) const;		//çŸ©é˜µä¹˜çŸ©é˜µ
+	inline const CVector<_Type>	operator* (const CVector<_Type>& v) const;	//çŸ©é˜µä¹˜çŸ¢é‡
 	inline const _MyT&			operator*=(_Type other);
-	inline const _MyT			operator* (_Type dNum) const;				//¾ØÕó³ËÊı
+	inline const _MyT			operator* (_Type dNum) const;				//çŸ©é˜µä¹˜æ•°
 	inline const _MyT&			operator/=(_Type dNum);				
-	inline const _MyT			operator/ (_Type dNum) const;				//¾ØÕó³ıÊı
+	inline const _MyT			operator/ (_Type dNum) const;				//çŸ©é˜µé™¤æ•°
 	inline const _MyT&			operator/=(_MyT m);
-	inline const _MyT			operator/ (_MyT m) const;					//¾ØÕó³ıÊı
+	inline const _MyT			operator/ (_MyT m) const;					//çŸ©é˜µé™¤æ•°
 
 	
-	void		MakeUnit();									// ½«·½Õó³õÊ¼»¯Îªµ¥Î»¾ØÕó
+	void		MakeUnit();									// å°†æ–¹é˜µåˆå§‹åŒ–ä¸ºå•ä½çŸ©é˜µ
 	_Type		Det () const;								// calculate the determinant of a matrix
-	_Type		NormM () const;								// µÃµ½¾ØÕóµÄÄ££¬¼´¾ø¶ÔÖµ×î´óµÄÔªËØµÄ¾ø¶ÔÖµ,m normM norm
+	_Type		NormM () const;								// å¾—åˆ°çŸ©é˜µçš„æ¨¡ï¼Œå³ç»å¯¹å€¼æœ€å¤§çš„å…ƒç´ çš„ç»å¯¹å€¼,m normM norm
 	_Type		NormF () const;								// calculate the norm of a matrix, F norm
 	_Type		Cofactor (int row, int col) const;			// calculate the cofactor of a matrix for a given element
 	const _MyT	Adj () const;								// calculate adjoin of a matrix
@@ -187,15 +187,15 @@ public:
 
 
 	//
-	// Ëã·¨
+	// ç®—æ³•
 	//
 
-	const _MyT	Inv() const;											//¾ØÕóÇóÄæ
-	int			RankGauss() const;										//Çó¾ØÕóÖÈµÄÈ«Ñ¡Ö÷Ôª¸ßË¹ÏûÈ¥·¨
+	const _MyT	Inv() const;											//çŸ©é˜µæ±‚é€†
+	int			RankGauss() const;										//æ±‚çŸ©é˜µç§©çš„å…¨é€‰ä¸»å…ƒé«˜æ–¯æ¶ˆå»æ³•
 
 
 	//
-	// ÄÚ²¿º¯Êı
+	// å†…éƒ¨å‡½æ•°
 	//
 private:
 	int			Pivot (int row);		// private partial pivoting method

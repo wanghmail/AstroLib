@@ -21,7 +21,7 @@
 
 
 //
-//ÓÒº¯ÊıÀà£¬ÓÃÓÚÆäËüÓÒº¯Êı¼ÆËãÀàµÄ»ùÀà
+//å³å‡½æ•°ç±»ï¼Œç”¨äºå…¶å®ƒå³å‡½æ•°è®¡ç®—ç±»çš„åŸºç±»
 //
 class CRightFunc
 {
@@ -30,17 +30,17 @@ public:
 	virtual ~CRightFunc(){};
 
 	/// @Input
-	/// @Param	t		×Ô±äÁ¿µÄÖµ
-	/// @Param	x		³õÊ¼º¯ÊıÖµ
+	/// @Param	t		è‡ªå˜é‡çš„å€¼
+	/// @Param	x		åˆå§‹å‡½æ•°å€¼
 	/// @Output
-	/// @Param	result	¼ÆËãµÃµ½µÄº¯ÊıÖµ
+	/// @Param	result	è®¡ç®—å¾—åˆ°çš„å‡½æ•°å€¼
 	virtual	void operator() (double t, const CVector<double>& x, CVector<double>& result) const = 0;
 
 };
 
 
 //
-//ÓÒº¯ÊıÀà£¬ÓÃÓÚÆäËüÓÒº¯Êı¼ÆËãÀàµÄ»ùÀà
+//å³å‡½æ•°ç±»ï¼Œç”¨äºå…¶å®ƒå³å‡½æ•°è®¡ç®—ç±»çš„åŸºç±»
 //double * version
 //
 class AsTRightFunc
@@ -50,11 +50,11 @@ public:
 	virtual ~AsTRightFunc(){};
 
 	/// @Input
-	/// @Param	t		×Ô±äÁ¿µÄÖµ
-	/// @Param	x		³õÊ¼º¯ÊıÖµ
-	/// @Param	n		³õÊ¼º¯ÊıÖµµÄ¸öÊı
+	/// @Param	t		è‡ªå˜é‡çš„å€¼
+	/// @Param	x		åˆå§‹å‡½æ•°å€¼
+	/// @Param	n		åˆå§‹å‡½æ•°å€¼çš„ä¸ªæ•°
 	/// @Output
-	/// @Param	result	¼ÆËãµÃµ½µÄº¯ÊıÖµ
+	/// @Param	result	è®¡ç®—å¾—åˆ°çš„å‡½æ•°å€¼
 	virtual	void operator() (double t, const double* x, int n, double* result) const = 0;
 
 };

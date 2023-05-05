@@ -31,7 +31,7 @@ public:
 	//Attribute.
 	//
 private:
-	//¹ìµÀ×ËÌ¬¼ÆËãÓÒº¯ÊıÀà
+	//è½¨é“å§¿æ€è®¡ç®—å³å‡½æ•°ç±»
 	class CFuncOrbAtt : public CRightFunc  
 	{		
 		//

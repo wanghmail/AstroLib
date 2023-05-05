@@ -10,7 +10,7 @@
 
 
 //
-//×·×ÙÆ÷ÖÆµ¼¿ØÖÆÀà
+//è¿½è¸ªå™¨åˆ¶å¯¼æ§åˆ¶ç±»
 //
 class CChCtrl  
 {
@@ -38,23 +38,23 @@ private:
     void    Engine(CCoord& impulse);
 
 public:
-    //²âÁ¿Îó²î
-    int			m_UseMeasureRandom;			// ÊÇ·ñ¿¼ÂÇ²âÁ¿Îó²î:0=ÎŞËæ»ú;1=Ëæ»ú
-    int			m_UseEngineRandom;			// ÊÇ·ñ¿¼ÂÇÖ´ĞĞÎó²î:0=ÎŞËæ»ú;1=Ëæ»ú
-    double      m_PosStdDev;                // Î»ÖÃ²âÁ¿±ê×¼²î
-    double      m_VelStdDev;                // ËÙ¶È²âÁ¿±ê×¼²î
-    double      m_EngStdDev;                // Ö´ĞĞÎó²î±ê×¼²î
+    //æµ‹é‡è¯¯å·®
+    int			m_UseMeasureRandom;			// æ˜¯å¦è€ƒè™‘æµ‹é‡è¯¯å·®:0=æ— éšæœº;1=éšæœº
+    int			m_UseEngineRandom;			// æ˜¯å¦è€ƒè™‘æ‰§è¡Œè¯¯å·®:0=æ— éšæœº;1=éšæœº
+    double      m_PosStdDev;                // ä½ç½®æµ‹é‡æ ‡å‡†å·®
+    double      m_VelStdDev;                // é€Ÿåº¦æµ‹é‡æ ‡å‡†å·®
+    double      m_EngStdDev;                // æ‰§è¡Œè¯¯å·®æ ‡å‡†å·®
 
 	//
-	//ÄÚ²¿²ÎÊı
+	//å†…éƒ¨å‚æ•°
 	//
 private:
-	double	    m_FlyTime;					// ´ÓÊ©¼ÓµÚÒ»´Î³åÁ¿¿ªÊ¼µÄ·ÉĞĞÊ±¼ä
-	int		    m_PulseNum;					// ³åÁ¿´ÎÊı
+	double	    m_FlyTime;					// ä»æ–½åŠ ç¬¬ä¸€æ¬¡å†²é‡å¼€å§‹çš„é£è¡Œæ—¶é—´
+	int		    m_PulseNum;					// å†²é‡æ¬¡æ•°
 
-    CRandom		m_RandomPos[3];				// Î»ÖÃËæ»úÊı
-    CRandom		m_RandomVel[3];				// ËÙ¶ÈËæ»úÊı
-    CRandom		m_RandomEng[3];				// Ö´ĞĞ»ú¹¹Ëæ»úÊı
+    CRandom		m_RandomPos[3];				// ä½ç½®éšæœºæ•°
+    CRandom		m_RandomVel[3];				// é€Ÿåº¦éšæœºæ•°
+    CRandom		m_RandomEng[3];				// æ‰§è¡Œæœºæ„éšæœºæ•°
 
 	
 };

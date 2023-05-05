@@ -133,10 +133,10 @@ public:
 	//Attribute.
 	//
 public:
-	int		m_Day;		///< ÌìÊı
-	int		m_Hour;		///< Ğ¡Ê±Êı
-	int		m_Min;		///< ·ÖÖÓÊı
-	double	m_Sec;		///< ÃëÊı
+	int		m_Day;		///< å¤©æ•°
+	int		m_Hour;		///< å°æ—¶æ•°
+	int		m_Min;		///< åˆ†é’Ÿæ•°
+	double	m_Sec;		///< ç§’æ•°
 };
 
 
@@ -146,18 +146,18 @@ public:
 
 
 //********************************************************************
-/// ÅĞ¶ÏÊÇ·ñÈòÄê
+/// åˆ¤æ–­æ˜¯å¦é—°å¹´
 /// According Gregorian Calendar determine if the year is leap year.
 /// @Author	Wang Hua
 /// @Date	2004.9.21
 /// @Input
-/// @Param  year    Äê
-/// @Return         true=ÈòÄê; false=²»ÊÇÈòÄê
+/// @Param  year    å¹´
+/// @Return         true=é—°å¹´; false=ä¸æ˜¯é—°å¹´
 //********************************************************************
 bool	AsIsLeapYear  (int year);
 
 //********************************************************************
-/// ¸ù¾İÊ±¼ä¼ÆËãÈåÂÔÈÕ
+/// æ ¹æ®æ—¶é—´è®¡ç®—å„’ç•¥æ—¥
 /// @Author	Wang Hua
 /// @Date	2004.9.16
 /// @Input	t       date in CCTime format

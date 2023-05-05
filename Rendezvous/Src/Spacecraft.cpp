@@ -14,7 +14,7 @@ using namespace std;
 
 CSpacecraft::CSpacecraft()
 {
-	// ³õÊ¼»¯Êı¾İ
+	// åˆå§‹åŒ–æ•°æ®
 	m_Name				 = "Vehicle";
 	m_ElapsedSec         = 0.0;
 	m_Pos[0] = 0.0;	
@@ -30,17 +30,17 @@ CSpacecraft::~CSpacecraft()
 
 
 //********************************************************************
-//³õÊ¼»¯,×´Ì¬ÎÄ¼ş,³õÊ¼»¯¶ÔÏó
+//åˆå§‹åŒ–,çŠ¶æ€æ–‡ä»¶,åˆå§‹åŒ–å¯¹è±¡
 //Author:	Wang Hua
 //Date:		2005.10.22
-//Input:	fileName	ÒªÔØÈëµÄº½ÌìÆ÷Êı¾İÎÄ¼şÃû³Æ
+//Input:	fileName	è¦è½½å…¥çš„èˆªå¤©å™¨æ•°æ®æ–‡ä»¶åç§°
 //********************************************************************
 void CSpacecraft::Init()
 {
-    //±äÁ¿¸³³õÖµ
+    //å˜é‡èµ‹åˆå€¼
     m_ElapsedSec    = 0.0;		//Epoch second set to zero.
 
-    //Çå¿ÕÀúÊ·Êı¾İ
+    //æ¸…ç©ºå†å²æ•°æ®
     m_HistoryData.m_ElapsedSec.resize(0);
     m_HistoryData.m_Pos.resize(0);
     m_HistoryData.m_Vel.resize(0);
@@ -48,13 +48,13 @@ void CSpacecraft::Init()
 
 
 //********************************************************************
-/// ¼ÆËãÊ±¼ästepºóµÄÎ»ÖÃ,ÏÈËã¹ìµÀ,ÔÙËã×ËÌ¬
+/// è®¡ç®—æ—¶é—´stepåçš„ä½ç½®,å…ˆç®—è½¨é“,å†ç®—å§¿æ€
 /// @Author	Wang Hua
 /// @Date	2004.11.19
 /// @Input
-/// @Param	step			Ê±¼ä²½³¤
-/// @Param	burnCoordSys	»ú¶¯×ø±êÏµ: 0=J2000;1=VVLH;2=VNC;3=Ìå×ø±êÏµ
-/// @Param	burnValue		º½ÌìÆ÷ËùÊÜµÄ³åÁ¿
+/// @Param	step			æ—¶é—´æ­¥é•¿
+/// @Param	burnCoordSys	æœºåŠ¨åæ ‡ç³»: 0=J2000;1=VVLH;2=VNC;3=ä½“åæ ‡ç³»
+/// @Param	burnValue		èˆªå¤©å™¨æ‰€å—çš„å†²é‡
 /// @Output	
 /// @Return									
 //********************************************************************
@@ -64,7 +64,7 @@ void CSpacecraft::TimeAdvance(double step, int burnCoordSys,
     CCoord			burnValueInertial, burnValueBody, momentVCF, sunPos;
     CMatrix<double> mtx;
 
-    // ËÙ¶ÈÔöÁ¿
+    // é€Ÿåº¦å¢é‡
     switch (burnCoordSys)
     {
     case 0:
@@ -76,10 +76,10 @@ void CSpacecraft::TimeAdvance(double step, int burnCoordSys,
         break;
     }
 
-    // ¹ìµÀ¼ÆËã
+    // è½¨é“è®¡ç®—
     m_Orbit.OrbitStep(step, m_Pos, m_Vel);
 
-    // µİÍÆÊ±¼ä
+    // é€’æ¨æ—¶é—´
     m_ElapsedSec += step;
 
     UpdateBuffer();
@@ -87,7 +87,7 @@ void CSpacecraft::TimeAdvance(double step, int burnCoordSys,
 
 
 //********************************************************************
-//¸üĞÂÊı¾İ»º³åÇø
+//æ›´æ–°æ•°æ®ç¼“å†²åŒº
 //Author:	Wang Hua
 //Date:		2005.10.22
 //********************************************************************
@@ -100,7 +100,7 @@ void CSpacecraft::UpdateBuffer()
 
 
 //***********************************************************************
-/// ½á¹û±¨¸æÉú³É
+/// ç»“æœæŠ¥å‘Šç”Ÿæˆ
 /// @Author	Wang Hua
 /// @Date	2022-6-30
 //***********************************************************************

@@ -13,7 +13,7 @@
 
 
 //
-//º½ÌìÆ÷¶¯Á¦Ñ§Àà,¶¨ÒåÁËº½ÌìÆ÷µÄ²ÎÊıºÍ²Ù×÷
+//èˆªå¤©å™¨åŠ¨åŠ›å­¦ç±»,å®šä¹‰äº†èˆªå¤©å™¨çš„å‚æ•°å’Œæ“ä½œ
 //
 class CSpacecraft
 {
@@ -26,25 +26,25 @@ public:
 
 
 	//
-	//ÊôĞÔ²Ù×÷º¯Êı
+	//å±æ€§æ“ä½œå‡½æ•°
 	//
-	inline void		SetName (const std::string& name);		// ÉèÖÃº½ÌìÆ÷Ãû³Æ
-	inline void		SetPos (const CCoord& pos);	            // ÉèÖÃº½ÌìÆ÷Î»ÖÃ
-	inline void		SetVel (const CCoord& vel);	            // ÉèÖÃº½ÌìÆ÷ËÙ¶È
-	inline void		SetElapsedSec (double sec);				// ÉèÖÃÀÛ¼ÆÊ±¼ä
-	inline const std::string&	GetName() const;			// µÃµ½º½ÌìÆ÷Ãû³Æ
-	inline const CCoord&		GetPos() const;		        // µÃµ½º½ÌìÆ÷Î»ÖÃ
-	inline const CCoord&		GetVel() const;		        // µÃµ½º½ÌìÆ÷ËÙ¶È
-	inline double				GetElapsedSec() const;		// µÃµ½ÀÛ¼ÆÊ±¼ä
+	inline void		SetName (const std::string& name);		// è®¾ç½®èˆªå¤©å™¨åç§°
+	inline void		SetPos (const CCoord& pos);	            // è®¾ç½®èˆªå¤©å™¨ä½ç½®
+	inline void		SetVel (const CCoord& vel);	            // è®¾ç½®èˆªå¤©å™¨é€Ÿåº¦
+	inline void		SetElapsedSec (double sec);				// è®¾ç½®ç´¯è®¡æ—¶é—´
+	inline const std::string&	GetName() const;			// å¾—åˆ°èˆªå¤©å™¨åç§°
+	inline const CCoord&		GetPos() const;		        // å¾—åˆ°èˆªå¤©å™¨ä½ç½®
+	inline const CCoord&		GetVel() const;		        // å¾—åˆ°èˆªå¤©å™¨é€Ÿåº¦
+	inline double				GetElapsedSec() const;		// å¾—åˆ°ç´¯è®¡æ—¶é—´
 
-	void	Init();                                         // ·ÂÕæ³õÊ¼»¯
+	void	Init();                                         // ä»¿çœŸåˆå§‹åŒ–
 	void	TimeAdvance(double step, int burnCoordSys,
-			const CCoord& burnValue);                       // Ê±¼äÍÆ½ø
-    void    ReportGeneration();                             // ½á¹û±¨¸æÉú³É
+			const CCoord& burnValue);                       // æ—¶é—´æ¨è¿›
+    void    ReportGeneration();                             // ç»“æœæŠ¥å‘Šç”Ÿæˆ
 
 private:
     //
-    //±£´æÖĞ¼äÊı¾İ
+    //ä¿å­˜ä¸­é—´æ•°æ®
     //
     void	UpdateBuffer();
 
@@ -52,26 +52,26 @@ private:
     // Attribute.
     //
 public:
-	std::string		m_Name;				// º½ÌìÆ÷Ãû³Æ
-    CCoord		    m_Pos;		        // º½ÌìÆ÷Î»ÖÃ,µØĞÄ¹ßĞÔ×ø±êÏµ±íÊ¾
-    CCoord		    m_Vel;		        // º½ÌìÆ÷ËÙ¶È,µØĞÄ¹ßĞÔ×ø±êÏµ±íÊ¾
-	double			m_ElapsedSec;		// ÀÛ¼ÆÊ±¼ä(s)
+	std::string		m_Name;				// èˆªå¤©å™¨åç§°
+    CCoord		    m_Pos;		        // èˆªå¤©å™¨ä½ç½®,åœ°å¿ƒæƒ¯æ€§åæ ‡ç³»è¡¨ç¤º
+    CCoord		    m_Vel;		        // èˆªå¤©å™¨é€Ÿåº¦,åœ°å¿ƒæƒ¯æ€§åæ ‡ç³»è¡¨ç¤º
+	double			m_ElapsedSec;		// ç´¯è®¡æ—¶é—´(s)
 
 
 public:
     //
-    //º½ÌìÆ÷Êı¾İ»º³åÇø
+    //èˆªå¤©å™¨æ•°æ®ç¼“å†²åŒº
     //
     struct CHistoryData
     {
-        std::vector<double>		m_ElapsedSec;			// ·ÂÕæ×Ü¹²ÏûºÄÊ±¼ä[s]
-        std::vector<CCoord>		m_Pos;				    // Î»ÖÃ×´Ì¬[m]
-        std::vector<CCoord>		m_Vel;				    // ËÙ¶È×´Ì¬[m/s]
+        std::vector<double>		m_ElapsedSec;			// ä»¿çœŸæ€»å…±æ¶ˆè€—æ—¶é—´[s]
+        std::vector<CCoord>		m_Pos;				    // ä½ç½®çŠ¶æ€[m]
+        std::vector<CCoord>		m_Vel;				    // é€Ÿåº¦çŠ¶æ€[m/s]
     };
-    CHistoryData	m_HistoryData;	    // ÀúÊ·Êı¾İ
+    CHistoryData	m_HistoryData;	    // å†å²æ•°æ®
 
 protected:
-    COrbit			m_Orbit;		    // ¹ìµÀ»ı·ÖÀà
+    COrbit			m_Orbit;		    // è½¨é“ç§¯åˆ†ç±»
 
 };
 
@@ -80,33 +80,33 @@ protected:
 //inline function.
 //
 
-// ÉèÖÃº½ÌìÆ÷Ãû³Æ
+// è®¾ç½®èˆªå¤©å™¨åç§°
  void		CSpacecraft::SetName(const std::string& name)
 {m_Name=name;}			
 
-// ÉèÖÃº½ÌìÆ÷×´Ì¬
+// è®¾ç½®èˆªå¤©å™¨çŠ¶æ€
 inline void		CSpacecraft::SetPos(const CCoord& pos)
 {m_Pos=pos;}	
 
 inline void		CSpacecraft::SetVel(const CCoord& vel)
 {m_Vel=vel;}	
 
-// ÉèÖÃÀÛ¼ÆÊ±¼ä
+// è®¾ç½®ç´¯è®¡æ—¶é—´
 inline void		CSpacecraft::SetElapsedSec(double sec)		             
 {m_ElapsedSec=sec;}	
 
-// µÃµ½º½ÌìÆ÷Ãû³Æ
+// å¾—åˆ°èˆªå¤©å™¨åç§°
 inline const std::string&		CSpacecraft::GetName() const          
 {return m_Name;}			
 
-// µÃµ½º½ÌìÆ÷×´Ì¬
+// å¾—åˆ°èˆªå¤©å™¨çŠ¶æ€
 inline const CCoord&		CSpacecraft::GetPos() const
 {return m_Pos;}		
 
 inline const CCoord&		CSpacecraft::GetVel() const
 {return m_Vel;}		
 
-// µÃµ½ÀÛ¼ÆÊ±¼ä
+// å¾—åˆ°ç´¯è®¡æ—¶é—´
 inline double					CSpacecraft::GetElapsedSec() const    
 {return m_ElapsedSec;}	
 	

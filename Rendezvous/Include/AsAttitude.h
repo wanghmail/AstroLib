@@ -9,7 +9,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 /// @file
-/// @brief	×ËÌ¬º¯Êı£¬Í·ÎÄ¼ş
+/// @brief	å§¿æ€å‡½æ•°ï¼Œå¤´æ–‡ä»¶
 
 #if !defined(_AsAttitude_H__INCLUDED_)
 #define _AsAttitude_H__INCLUDED_
@@ -38,7 +38,7 @@ public:
 	//Attribute.
 	//
 private:
-	//¹ìµÀ×ËÌ¬¼ÆËãÓÒº¯ÊıÀà
+	//è½¨é“å§¿æ€è®¡ç®—å³å‡½æ•°ç±»
 	class CFuncAtt : public CRightFunc  
 	{		
 		//

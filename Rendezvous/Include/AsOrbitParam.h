@@ -34,8 +34,8 @@ public:
 	const CCartState	operator -(const CCartState& state) const;
 
 public:
-	CCoord	m_Pos;		///< Î»ÖÃ position(m)
-	CCoord	m_Vel;		///< ËÙ¶È velocity(m/s)
+	CCoord	m_Pos;		///< ä½ç½® position(m)
+	CCoord	m_Vel;		///< é€Ÿåº¦ velocity(m/s)
 };
 
 
@@ -49,12 +49,12 @@ public:
 	CModOrbElem(double periRad, double ecc, double i, double raan, double argPeri, double trueA);
 
 public:
-	double	m_PeriRad;	///<½ü¹°µã°ë¾¶ periapsis radius in m
-	double	m_Ecc;		///<Æ«ÐÄÂÊ eccentricity
-	double	m_I;		///<¹ìµÀÇã½Ç inclination in radians
-	double	m_RAAN;		///<Éý½»µã³à¾­ right ascension of ascending node
-	double	m_ArgPeri;	///<½ü¹°µã½Ç arg of periapsis in rad
-	double	m_TrueA;	///<Õæ½üµã½Ç true anomaly in radians
+	double	m_PeriRad;	///<è¿‘æ‹±ç‚¹åŠå¾„ periapsis radius in m
+	double	m_Ecc;		///<åå¿ƒçŽ‡ eccentricity
+	double	m_I;		///<è½¨é“å€¾è§’ inclination in radians
+	double	m_RAAN;		///<å‡äº¤ç‚¹èµ¤ç» right ascension of ascending node
+	double	m_ArgPeri;	///<è¿‘æ‹±ç‚¹è§’ arg of periapsis in rad
+	double	m_TrueA;	///<çœŸè¿‘ç‚¹è§’ true anomaly in radians
 };
 
 
@@ -68,22 +68,22 @@ public:
 	COrbElem(double sMajAx, double ecc, double i, double raan, double argPeri, double trueA);
 
 public:
-	double	m_SMajAx;	///< ³¤°ëÖá Semimajor axis
-	double	m_Ecc;		///< Æ«ÐÄÂÊ Eccentricity
-	double	m_I;		///< ¹ìµÀÇã½Ç Inclination
-	double	m_RAAN;		///< Éý½»µã³à¾­ Right Ascension of the ascending node (RAAN)
-	double	m_ArgPeri;	///< ½ü¹°µã½Ç Argument of Perigee
-	double	m_TrueA;	///< Õæ½üµã½Ç True Anomaly
+	double	m_SMajAx;	///< é•¿åŠè½´ Semimajor axis
+	double	m_Ecc;		///< åå¿ƒçŽ‡ Eccentricity
+	double	m_I;		///< è½¨é“å€¾è§’ Inclination
+	double	m_RAAN;		///< å‡äº¤ç‚¹èµ¤ç» Right Ascension of the ascending node (RAAN)
+	double	m_ArgPeri;	///< è¿‘æ‹±ç‚¹è§’ Argument of Perigee
+	double	m_TrueA;	///< çœŸè¿‘ç‚¹è§’ True Anomaly
 };
 
 
 //********************************************************************
-/// ´ÓÎ»ÖÃºÍËÙ¶ÈÊ¸Á¿µÃµ½·ÉÐÐÆ÷µÄ¹ìµÀ½ÇËÙ¶È
+/// ä»Žä½ç½®å’Œé€Ÿåº¦çŸ¢é‡å¾—åˆ°é£žè¡Œå™¨çš„è½¨é“è§’é€Ÿåº¦
 /// @Author	Wang Hua
 /// @Date	2005.3.4
 /// @Input
-/// @Param	pos			·ÉÐÐÆ÷Î»ÖÃ(m)
-/// @Param	vel			·ÉÐÐÆ÷ËÙ¶È(m/s)
+/// @Param	pos			é£žè¡Œå™¨ä½ç½®(m)
+/// @Param	vel			é£žè¡Œå™¨é€Ÿåº¦(m/s)
 /// @Output
 /// @Param	orbAngVel	orbit angular velocity			
 /// @Return			
@@ -94,18 +94,18 @@ bool	AsCartStateToOrbAngVel(
 			CCoord& orbAngVel);
 
 //********************************************************************
-/// ÓÉ¹ßÐÔÏµÖÐµÄ¾ø¶ÔËÙ¶ÈºÍÎ»ÖÃ¼ÆËãÄ¿±êVVLH×ø±êÏµ(zÖ¸ÏòµØÐÄ£¬x´¹Ö±zÖ¸ÏòÇ°£¬
-///   y´¹Ö±¹ìµÀÃæÖ¸Ïò¸º·¨Ïò)ÖÐµÄÏà¶ÔÎ»ÖÃ×ø±êºÍËÙ¶ÈÊ¸Á¿
+/// ç”±æƒ¯æ€§ç³»ä¸­çš„ç»å¯¹é€Ÿåº¦å’Œä½ç½®è®¡ç®—ç›®æ ‡VVLHåæ ‡ç³»(zæŒ‡å‘åœ°å¿ƒï¼Œxåž‚ç›´zæŒ‡å‘å‰ï¼Œ
+///   yåž‚ç›´è½¨é“é¢æŒ‡å‘è´Ÿæ³•å‘)ä¸­çš„ç›¸å¯¹ä½ç½®åæ ‡å’Œé€Ÿåº¦çŸ¢é‡
 /// @author	Wang Hua
 /// @Date	2005.12.22
 /// @Input
-/// @Param	assocPos	¾ø¶ÔÎ»ÖÃ£¬¼´×·×Ù·ÉÐÐÆ÷Î»ÖÃ(m)
-/// @Param	assocVel	¾ø¶ÔËÙ¶È£¬¼´×·×Ù·ÉÐÐÆ÷ËÙ¶È(m/s)
-/// @Param	basePos		²Î¿¼·ÉÐÐÆ÷Î»ÖÃ£¬¼´Ä¿±ê·ÉÐÐÆ÷Î»ÖÃ(m)
-/// @Param	baseVel		²Î¿¼·ÉÐÐÆ÷ËÙ¶È£¬¼´Ä¿±ê·ÉÐÐÆ÷ËÙ¶È(m/s)
+/// @Param	assocPos	ç»å¯¹ä½ç½®ï¼Œå³è¿½è¸ªé£žè¡Œå™¨ä½ç½®(m)
+/// @Param	assocVel	ç»å¯¹é€Ÿåº¦ï¼Œå³è¿½è¸ªé£žè¡Œå™¨é€Ÿåº¦(m/s)
+/// @Param	basePos		å‚è€ƒé£žè¡Œå™¨ä½ç½®ï¼Œå³ç›®æ ‡é£žè¡Œå™¨ä½ç½®(m)
+/// @Param	baseVel		å‚è€ƒé£žè¡Œå™¨é€Ÿåº¦ï¼Œå³ç›®æ ‡é£žè¡Œå™¨é€Ÿåº¦(m/s)
 /// @Output
-/// @Param	relPos		Ä¿±ê¹ìµÀ×ø±êÏµÖÐµÄÏà¶ÔÎ»ÖÃ(m)
-/// @Param	relVel		Ä¿±ê¹ìµÀ×ø±êÏµÖÐµÄÏà¶ÔËÙ¶È(m/s)
+/// @Param	relPos		ç›®æ ‡è½¨é“åæ ‡ç³»ä¸­çš„ç›¸å¯¹ä½ç½®(m)
+/// @Param	relVel		ç›®æ ‡è½¨é“åæ ‡ç³»ä¸­çš„ç›¸å¯¹é€Ÿåº¦(m/s)
 //********************************************************************
 void	AsStateToVVLHRelState(
 			const CCoord& assocPos, 
@@ -116,18 +116,18 @@ void	AsStateToVVLHRelState(
 			CCoord& relVel);
 
 //********************************************************************
-/// ÓÉÄ¿±êVVLH×ø±êÏµ(xÖ¸ÏòÇ°£¬zÖ¸ÏòµØÐÄ£¬y´¹Ö±¹ìµÀÃæ)ÖÐµÄÏà¶ÔÎ»ÖÃ×ø±êºÍ
-///    ËÙ¶ÈÊ¸Á¿¼ÆËã¹ßÐÔÏµÖÐµÄ¾ø¶ÔËÙ¶ÈºÍÎ»ÖÃ
+/// ç”±ç›®æ ‡VVLHåæ ‡ç³»(xæŒ‡å‘å‰ï¼ŒzæŒ‡å‘åœ°å¿ƒï¼Œyåž‚ç›´è½¨é“é¢)ä¸­çš„ç›¸å¯¹ä½ç½®åæ ‡å’Œ
+///    é€Ÿåº¦çŸ¢é‡è®¡ç®—æƒ¯æ€§ç³»ä¸­çš„ç»å¯¹é€Ÿåº¦å’Œä½ç½®
 /// @author	Wang Hua
 /// @Date	2005.12.22
 /// @Input
-/// @Param	relPos		Ä¿±ê¹ìµÀ×ø±êÏµÖÐµÄÏà¶ÔÎ»ÖÃ
-/// @Param	relVel		Ä¿±ê¹ìµÀ×ø±êÏµÖÐµÄÏà¶ÔËÙ¶È
-/// @Param	basePos		²Î¿¼·ÉÐÐÆ÷Î»ÖÃ£¬¼´Ä¿±ê·ÉÐÐÆ÷Î»ÖÃ
-/// @Param	baseVel		²Î¿¼·ÉÐÐÆ÷ËÙ¶È£¬¼´Ä¿±ê·ÉÐÐÆ÷ËÙ¶È
+/// @Param	relPos		ç›®æ ‡è½¨é“åæ ‡ç³»ä¸­çš„ç›¸å¯¹ä½ç½®
+/// @Param	relVel		ç›®æ ‡è½¨é“åæ ‡ç³»ä¸­çš„ç›¸å¯¹é€Ÿåº¦
+/// @Param	basePos		å‚è€ƒé£žè¡Œå™¨ä½ç½®ï¼Œå³ç›®æ ‡é£žè¡Œå™¨ä½ç½®
+/// @Param	baseVel		å‚è€ƒé£žè¡Œå™¨é€Ÿåº¦ï¼Œå³ç›®æ ‡é£žè¡Œå™¨é€Ÿåº¦
 /// @Output
-/// @Param	assocPos	¾ø¶ÔÎ»ÖÃ£¬¼´×·×Ù·ÉÐÐÆ÷Î»ÖÃ
-/// @Param	assocVel	¾ø¶ÔËÙ¶È£¬¼´×·×Ù·ÉÐÐÆ÷ËÙ¶È
+/// @Param	assocPos	ç»å¯¹ä½ç½®ï¼Œå³è¿½è¸ªé£žè¡Œå™¨ä½ç½®
+/// @Param	assocVel	ç»å¯¹é€Ÿåº¦ï¼Œå³è¿½è¸ªé£žè¡Œå™¨é€Ÿåº¦
 //********************************************************************
 void AsVVLHRelStateToState(
             const CCoord& relPos, 
