@@ -16,14 +16,14 @@
 
 
 
-//¹¹Ôìº¯Êı£¬Ä¬ÈÏÊÇÈıÎ¬ÏòÁ¿
+//æ„é€ å‡½æ•°ï¼Œé»˜è®¤æ˜¯ä¸‰ç»´å‘é‡
 CVector<double>::CVector(int n)//n=3
 {
 	Construct(n);
 	memset(m_p, 0, m_Size*sizeof(double));
 }
 
-//ÓÃÈı¸öÊıÖµÀ´³õÊ¼»¯µÄ¹¹Ôìº¯Êı£¬ÈıÎ¬ÏòÁ¿
+//ç”¨ä¸‰ä¸ªæ•°å€¼æ¥åˆå§‹åŒ–çš„æ„é€ å‡½æ•°ï¼Œä¸‰ç»´å‘é‡
 CVector<double>::CVector(double x, double y, double z)
 {
 	Construct(3);
@@ -32,14 +32,14 @@ CVector<double>::CVector(double x, double y, double z)
 	m_p[2] = z;
 }
 
-//¿½±´¹¹Ôìº¯Êı
+//æ‹·è´æ„é€ å‡½æ•°
 CVector<double>::CVector(const CVector<double>& vec)
 {
 	Construct(vec.m_Size);
 	memcpy(m_p, vec.m_p, sizeof(double)*m_Size);
 }
 
-//Îö¹¹º¯Êı
+//ææ„å‡½æ•°
 CVector<double>::~CVector()
 {
 	Destroy();
@@ -93,8 +93,8 @@ void CVector<double>::Resize(int n)
 }
 
 
-//ÉèÖÃÊ¸Á¿µÄÖµ
-//Input  parameter:	value	´æ´¢Ê¸Á¿ÔªËØÖµµÄÒ»Î¬Êı×é£¬³¤¶ÈÎªm_Size
+//è®¾ç½®çŸ¢é‡çš„å€¼
+//Input  parameter:	value	å­˜å‚¨çŸ¢é‡å…ƒç´ å€¼çš„ä¸€ç»´æ•°ç»„ï¼Œé•¿åº¦ä¸ºm_Size
 void CVector<double>::SetData(int n, const double *value)
 {
 	assert (m_Size==n);
@@ -102,8 +102,8 @@ void CVector<double>::SetData(int n, const double *value)
 	memcpy(m_p, value, sizeof(double)*n);
 }
 
-//µÃµ½Ê¸Á¿µÄÖµ
-//Output parameter:	value	·µ»ØÊ¸Á¿ÔªËØÖµµÄÒ»Î¬Êı×é£¬³¤¶ÈÎªm_Size
+//å¾—åˆ°çŸ¢é‡çš„å€¼
+//Output parameter:	value	è¿”å›çŸ¢é‡å…ƒç´ å€¼çš„ä¸€ç»´æ•°ç»„ï¼Œé•¿åº¦ä¸ºm_Size
 void CVector<double>::GetData(int n, double *value) const
 {
 	assert (m_Size==n);
@@ -111,7 +111,7 @@ void CVector<double>::GetData(int n, double *value) const
 	memcpy(value, m_p, sizeof(double)*n);
 }
 
-//ÉèÖÃÊ¸Á¿µÄÖµ
+//è®¾ç½®çŸ¢é‡çš„å€¼
 void CVector<double>::SetDataAll(const double& value)
 {
 	for(int i=0; i<m_Size; i++)
@@ -191,7 +191,7 @@ bool CVector<double>::operator <=(const CVector<double> &v) const
 	return true;
 }
 
-//ÓÃÊ¸Á¿¸³Öµ£¬Èç¹ûµ±Ç°Ê¸Á¿Î¬ÊıÓëÊäÈëÊ¸Á¿²»Í¬£¬Ôò¸Ä±äµ±Ç°Ê¸Á¿Î¬Êı
+//ç”¨çŸ¢é‡èµ‹å€¼ï¼Œå¦‚æœå½“å‰çŸ¢é‡ç»´æ•°ä¸è¾“å…¥çŸ¢é‡ä¸åŒï¼Œåˆ™æ”¹å˜å½“å‰çŸ¢é‡ç»´æ•°
 CVector<double> & CVector<double>::operator =(const CVector<double>& vec)
 {
 	if(this == &vec)
@@ -208,7 +208,7 @@ CVector<double> & CVector<double>::operator =(const CVector<double>& vec)
 }
 
 
-//µÃµ½Ê¸Á¿µÄÄ£
+//å¾—åˆ°çŸ¢é‡çš„æ¨¡
 double CVector<double>::Norm() const 
 {
 	double s = 0;
@@ -218,7 +218,7 @@ double CVector<double>::Norm() const
 }
 
 
-//µÃµ½Ê¸Á¿µÄÄ£µÄÆ½·½
+//å¾—åˆ°çŸ¢é‡çš„æ¨¡çš„å¹³æ–¹
 double CVector<double>::SqrNorm() const 
 {
 	double s = 0;
@@ -228,7 +228,7 @@ double CVector<double>::SqrNorm() const
 }
 
 
-//Ê¸Á¿µ¥Î»»¯
+//çŸ¢é‡å•ä½åŒ–
 void CVector<double>::Unit()
 {
 	double norm = Norm();
@@ -239,7 +239,7 @@ void CVector<double>::Unit()
 }
 
 
-//µã»ı
+//ç‚¹ç§¯
 double CVector<double>::Dot(const CVector<double>& v2) const
 {
 	assert(m_Size==v2.m_Size);
@@ -251,7 +251,7 @@ double CVector<double>::Dot(const CVector<double>& v2) const
 }
 
 
-//ÈıÎ¬Ê¸Á¿²æ»ı
+//ä¸‰ç»´çŸ¢é‡å‰ç§¯
 const CVector<double> CVector<double>::Cross(const CVector<double>& v2) const
 {
 	assert(m_Size==3 && 3==v2.Size());
@@ -263,7 +263,7 @@ const CVector<double> CVector<double>::Cross(const CVector<double>& v2) const
 }
 
 
-//ÈıÎ¬Ê¸Á¿µÄ¼Ğ½Ç(0..PI)
+//ä¸‰ç»´çŸ¢é‡çš„å¤¹è§’(0..PI)
 double CVector<double>::AngBetween(const CVector<double> &v) const
 {
 	double w1 = Norm();
@@ -280,7 +280,7 @@ double CVector<double>::AngBetween(const CVector<double> &v) const
 //////////////////////////////////////////////////////////////////////
 //Global function.
 
-//Êı³ËÊ¸Á¿
+//æ•°ä¹˜çŸ¢é‡
 const CVector<double>  operator *(double num, const CVector<double>& v)
 {
 	CVector<double> out(v);
@@ -289,7 +289,7 @@ const CVector<double>  operator *(double num, const CVector<double>& v)
 }
 
 
-//ÈıÎ¬Ê¸Á¿µÄ¼Ğ½Ç(0..PI)
+//ä¸‰ç»´çŸ¢é‡çš„å¤¹è§’(0..PI)
 double  AsAngBetween(const CVector<double> &v1, const CVector<double> &v2)
 {
 	double w1 = v1.Norm();

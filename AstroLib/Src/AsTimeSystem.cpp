@@ -45,8 +45,8 @@ CCTime::CCTime(const CCTime& time)
 
 
 //********************************************************************
-//ÓÉÓÚtime_t´ú±í the seconds elapsed since midnight (00:00:00), January 1, 1970, 
-//  coordinated universal time (UTC). ËùÒÔÓÉÕâ¸ö¹¹Ôìº¯ÊıµÃµ½µÄÊÇUTCÊ±¼ä.
+//ç”±äºtime_tä»£è¡¨ the seconds elapsed since midnight (00:00:00), January 1, 1970, 
+//  coordinated universal time (UTC). æ‰€ä»¥ç”±è¿™ä¸ªæ„é€ å‡½æ•°å¾—åˆ°çš„æ˜¯UTCæ—¶é—´.
 //Author:	Wang Hua
 //Date:		2005.10.10
 //********************************************************************
@@ -65,8 +65,8 @@ CCTime::CCTime(time_t time)
 
 
 //********************************************************************
-//ÓÉÓÚtime_t´ú±í the seconds elapsed since midnight (00:00:00), January 1, 1970, 
-//  coordinated universal time (UTC). ËùÒÔÓÉÕâ¸ö¹¹Ôìº¯ÊıµÃµ½µÄÊÇUTCÊ±¼ä.
+//ç”±äºtime_tä»£è¡¨ the seconds elapsed since midnight (00:00:00), January 1, 1970, 
+//  coordinated universal time (UTC). æ‰€ä»¥ç”±è¿™ä¸ªæ„é€ å‡½æ•°å¾—åˆ°çš„æ˜¯UTCæ—¶é—´.
 //Author:	Wang Hua
 //Date:		2005.10.10
 //********************************************************************
@@ -185,13 +185,13 @@ void CCTimeSpan::FromDay(double days)
 
 
 //********************************************************************
-/// ÅĞ¶ÏÊÇ·ñÈòÄê
+/// åˆ¤æ–­æ˜¯å¦é—°å¹´
 /// According Gregorian Calendar determine if the year is leap year.
 /// @Author	Wang Hua
 /// @Date	2004.9.21
 /// @Input
-/// @Param  year    Äê
-/// @Return         true=ÈòÄê; false=²»ÊÇÈòÄê
+/// @Param  year    å¹´
+/// @Return         true=é—°å¹´; false=ä¸æ˜¯é—°å¹´
 //********************************************************************
 bool AsIsLeapYear(int year)
 {
@@ -203,7 +203,7 @@ bool AsIsLeapYear(int year)
 
 
 //********************************************************************
-/// ¸ù¾İÀúÔªÊ±¼ä¼ÆËãÈåÂÔÈÕ
+/// æ ¹æ®å†å…ƒæ—¶é—´è®¡ç®—å„’ç•¥æ—¥
 /// @Author	Wang Hua
 /// @Date	2004.9.16
 /// @Input	t       date in CCTime format

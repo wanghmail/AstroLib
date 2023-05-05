@@ -33,16 +33,16 @@ COrbit::CFuncOrbit::~CFuncOrbit()
 
 
 //********************************************************************
-/// ¼ÆËãÔË¶¯·½³ÌµÄÓÒº¯Êı£¬ÓÃÓÚR-K»ı·Ö£¬ÖØÔØ¸¸ÀàµÄ´¿Ğéº¯Êı
+/// è®¡ç®—è¿åŠ¨æ–¹ç¨‹çš„å³å‡½æ•°ï¼Œç”¨äºR-Kç§¯åˆ†ï¼Œé‡è½½çˆ¶ç±»çš„çº¯è™šå‡½æ•°
 /// @author	Wang Hua
 /// @Date	2004.5
 /// @Input
-/// @Param	t			¿ªÊ¼±¾²½¹ìµÀ»ı·ÖµÄÊ±¼ä,³õÊ¼±ØĞëÎª0(s)
-///			x			³õÊ¼º¯ÊıÖµ
-///						[0]~[2]Î»ÖÃ(m)
-///						[3]~[5]ËÙ¶È(m/s)
+/// @Param	t			å¼€å§‹æœ¬æ­¥è½¨é“ç§¯åˆ†çš„æ—¶é—´,åˆå§‹å¿…é¡»ä¸º0(s)
+///			x			åˆå§‹å‡½æ•°å€¼
+///						[0]~[2]ä½ç½®(m)
+///						[3]~[5]é€Ÿåº¦(m/s)
 /// @Output
-/// @Param	result		¼ÆËãµÃµ½µÄº¯ÊıÖµ
+/// @Param	result		è®¡ç®—å¾—åˆ°çš„å‡½æ•°å€¼
 /// @Return	
 //********************************************************************
 void COrbit::CFuncOrbit::operator()(double t, const CVector<double> &x,
@@ -53,7 +53,7 @@ void COrbit::CFuncOrbit::operator()(double t, const CVector<double> &x,
     memcpy((double*)pos, (const double*)x, 3*sizeof(double));
     memcpy((double*)vel, (const double*)x+3, 3*sizeof(double));
 
-    //µØÇòÒıÁ¦
+    //åœ°çƒå¼•åŠ›
     AsBasicGravAccel(AsCEarthGrav, pos, pertAccel);
 
     memcpy((double*)result, (const double*)x+3, 3*sizeof(double));
@@ -62,14 +62,14 @@ void COrbit::CFuncOrbit::operator()(double t, const CVector<double> &x,
 
 
 //********************************************************************
-/// Ã»ÓĞÍâÁ¦»ò³åÁ¿×÷ÓÃÊ±¼ÆËã¹ìµÀ£¬»ı·ÖÒ»²½
+/// æ²¡æœ‰å¤–åŠ›æˆ–å†²é‡ä½œç”¨æ—¶è®¡ç®—è½¨é“ï¼Œç§¯åˆ†ä¸€æ­¥
 /// @author	Wang Hua
 /// @Date	2011-1-14
 /// @Input
-/// @Param	step			·ÂÕæ²½³¤ (sec), ²»ÄÜÌ«´ó£¬Ò»°ã²»ÄÜ³¬¹ı20s
+/// @Param	step			ä»¿çœŸæ­¥é•¿ (sec), ä¸èƒ½å¤ªå¤§ï¼Œä¸€èˆ¬ä¸èƒ½è¶…è¿‡20s
 /// @In/Out
-/// @Param	pos				·ÉĞĞÆ÷Î»ÖÃ(m)
-/// @Param	vel				·ÉĞĞÆ÷ËÙ¶È(m/s)
+/// @Param	pos				é£è¡Œå™¨ä½ç½®(m)
+/// @Param	vel				é£è¡Œå™¨é€Ÿåº¦(m/s)
 /// @Output
 /// @Return	
 //********************************************************************
@@ -94,12 +94,12 @@ void COrbit::OrbitStep(
 
 
 //********************************************************************
-/// ¼ÆËã·ÉĞĞÆ÷ËùÊÜµÄµØĞÄÒıÁ¦ÒıÆğµÄ¼ÓËÙ¶È(²»¿¼ÂÇÉã¶¯)
+/// è®¡ç®—é£è¡Œå™¨æ‰€å—çš„åœ°å¿ƒå¼•åŠ›å¼•èµ·çš„åŠ é€Ÿåº¦(ä¸è€ƒè™‘æ‘„åŠ¨)
 /// @Author	Wang Hua
 /// @Date	2004.3
 /// @Input	gm
-//			pos		Î»ÖÃÊ¸Á¿	meter
-/// @Output	accel	¼ÓËÙ¶È		meter/s^2
+//			pos		ä½ç½®çŸ¢é‡	meter
+/// @Output	accel	åŠ é€Ÿåº¦		meter/s^2
 /// @Return		
 //********************************************************************
 void AsBasicGravAccel(double gm, const CCoord& pos, CCoord& accel)
@@ -117,8 +117,8 @@ void AsBasicGravAccel(double gm, const CCoord& pos, CCoord& accel)
 /// @Input	gm
 //			J2			J2 perturb
 //			refDist		reference distance (earth radius)	(meter)
-//			pos			position vector£¬µØ¹ÌÏµ»ò¹ßĞÔÏµ,	(meter)
-/// @Output	pertAccel	perturbing acceleration,µØ¹ÌÏµ»ò¹ßĞÔÏµ£¬ÓëÊäÈëÎ»ÖÃ×ø±êÏµÏàÍ¬(m/s^2)
+//			pos			position vectorï¼Œåœ°å›ºç³»æˆ–æƒ¯æ€§ç³»,	(meter)
+/// @Output	pertAccel	perturbing acceleration,åœ°å›ºç³»æˆ–æƒ¯æ€§ç³»ï¼Œä¸è¾“å…¥ä½ç½®åæ ‡ç³»ç›¸åŒ(m/s^2)
 /// @Return	
 //********************************************************************
 void AsJ2Accel (double gm, double J2, double refDist, const CCoord& pos, 
@@ -137,20 +137,20 @@ void AsJ2Accel (double gm, double J2, double refDist, const CCoord& pos,
 
 
 //*********************************************************************
-/// ¸ø¶¨³õÊ¼ºÍ×îÖÕµÄ×´Ì¬£¬¸ù¾İCW·½³Ì¼ÆËãËùĞèÊ©¼ÓµÄ³åÁ¿
-///   ²Î¿¼×ø±êÏµÎªVVLH×ø±êÏµ
+/// ç»™å®šåˆå§‹å’Œæœ€ç»ˆçš„çŠ¶æ€ï¼Œæ ¹æ®CWæ–¹ç¨‹è®¡ç®—æ‰€éœ€æ–½åŠ çš„å†²é‡
+///   å‚è€ƒåæ ‡ç³»ä¸ºVVLHåæ ‡ç³»
 /// @Author	Wang Hua
 /// @Date	2003.8 2004.9.6
 /// @Input
-/// @Param	iniPos		³õÊ¼Ïà¶ÔÎ»ÖÃ[m]
-/// @Param	iniVel		³õÊ¼Ïà¶ÔËÙ¶È[m/s]
-/// @Param	endPos		ÖÕ¶ËÏà¶ÔÎ»ÖÃ[m]
-/// @Param	endVel		ÖÕ¶ËÏà¶ÔËÙ¶È[m/s]
-/// @Param	t			Á½¸ö³åÁ¿Ö®¼äµÄ·ÉĞĞÊ±¼ä[s]
-/// @Param	orbAngVel	²Î¿¼·ÉĞĞÆ÷¹ìµÀ½ÇËÙ¶È[rad/s]
+/// @Param	iniPos		åˆå§‹ç›¸å¯¹ä½ç½®[m]
+/// @Param	iniVel		åˆå§‹ç›¸å¯¹é€Ÿåº¦[m/s]
+/// @Param	endPos		ç»ˆç«¯ç›¸å¯¹ä½ç½®[m]
+/// @Param	endVel		ç»ˆç«¯ç›¸å¯¹é€Ÿåº¦[m/s]
+/// @Param	t			ä¸¤ä¸ªå†²é‡ä¹‹é—´çš„é£è¡Œæ—¶é—´[s]
+/// @Param	orbAngVel	å‚è€ƒé£è¡Œå™¨è½¨é“è§’é€Ÿåº¦[rad/s]
 /// @Output
-/// @Param	impulse1	µÚÒ»¸ö³åÁ¿Öµ[m/s]
-/// @Param	impulse2	µÚ¶ş¸ö³åÁ¿Öµ[m/s]
+/// @Param	impulse1	ç¬¬ä¸€ä¸ªå†²é‡å€¼[m/s]
+/// @Param	impulse2	ç¬¬äºŒä¸ªå†²é‡å€¼[m/s]
 /// @Return	
 //*********************************************************************
 void    AsCWImpulse(
@@ -170,7 +170,7 @@ void    AsCWImpulse(
     double c = cos(tau);
     double s = sin(tau);
 
-    //×´Ì¬×ªÒÆ¾ØÕó¸³³õÖµ
+    //çŠ¶æ€è½¬ç§»çŸ©é˜µèµ‹åˆå€¼
     m1[0][0]=1.0;				m1[0][1]=0.0;			m1[0][2]=6.0*(tau-s);
     m1[1][0]=0.0;				m1[1][1]=c;				m1[1][2]=0.0;
     m1[2][0]=0.0;				m1[2][1]=0.0;			m1[2][2]=4.0-3.0*c;
@@ -187,7 +187,7 @@ void    AsCWImpulse(
     m4[1][0]=0;					m4[1][1]=c;				m4[1][2]=0;
     m4[2][0]=-2*s;				m4[2][1]=0;				m4[2][2]=c;
 
-    //¼ÆËãÁ½´Î³åÁ¿µÄ´óĞ¡
+    //è®¡ç®—ä¸¤æ¬¡å†²é‡çš„å¤§å°
     impulse1 = (m2.Inv())*(endPos-m1*iniPos)-iniVel;
     impulse2 = endVel-(m3*iniPos+m4*(iniVel+impulse1));
 }

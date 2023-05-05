@@ -35,11 +35,11 @@ class CMatrix;
 /// @Input
 /// @Param	x		the point of interpolation
 /// @Param	x0
-/// @Param	y0		x0´¦µÄº¯ÊıÖµ
+/// @Param	y0		x0å¤„çš„å‡½æ•°å€¼
 /// @Param	x1
-/// @Param	y1		x1´¦µÄº¯ÊıÖµ
-/// @Param	p0		x0´¦µÄµ¼Êı
-/// @Param	p1		x1´¦µÄµ¼Êı
+/// @Param	y1		x1å¤„çš„å‡½æ•°å€¼
+/// @Param	p0		x0å¤„çš„å¯¼æ•°
+/// @Param	p1		x1å¤„çš„å¯¼æ•°
 /// @Output
 /// @Param	y		the result of interpolation		
 //*********************************************************************
@@ -58,15 +58,15 @@ void	AsInterpHermite (
 ///   and (x1,y1). The input x is the point for which to 
 ///   interpolate, and the interpolated value is returned in the 
 ///   pointer to y.
-///   Ò»½×ÏßĞÔ²åÖµ
+///   ä¸€é˜¶çº¿æ€§æ’å€¼
 /// @Author	Wang Hua
 /// @Date	2006.1.22
 /// @Input
 /// @Param	x		the point of interpolation
 /// @Param	x0
-/// @Param	y0		x0´¦µÄº¯ÊıÖµ
+/// @Param	y0		x0å¤„çš„å‡½æ•°å€¼
 /// @Param	x1
-/// @Param	y1		x1´¦µÄº¯ÊıÖµ
+/// @Param	y1		x1å¤„çš„å‡½æ•°å€¼
 /// @Output
 /// @Param	y		the result of interpolation		
 //*********************************************************************
@@ -83,7 +83,7 @@ void	AsInterp1Ord (
 ///   points ((x0,y0),(x1,y1),(x2,y2)). The input x is the point 
 ///   for which to interpolate, and the output y is a pointer to 
 ///   the interpolated value.
-///   ¶ş½×²åÖµ
+///   äºŒé˜¶æ’å€¼
 /// @Author	Wang Hua
 /// @Date	2006.1.22
 /// @Output	

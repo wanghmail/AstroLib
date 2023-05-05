@@ -74,9 +74,9 @@ const double AsCLightSpeed        = 2.99792458e8;			///< speed of light (IAU 197
 const double AsCEarthAngVel	      = 7.2921157394331994078908023245342e-5;///< Nominal mean angular velocity of the Earth (AsCTwoPI/86164.0919) [rad/s]
 
 
-const double EARTH_J2             = 1.0826261e-3;			///< µØÇòÉã¶¯J2Ïî
-const double EARTH_J3             = -2.54e-6;				///< µØÇòÉã¶¯J3Ïî
-const double EARTH_J4             = -1.61e-6;				///< µØÇòÉã¶¯J4Ïî
+const double EARTH_J2             = 1.0826261e-3;			///< åœ°çƒæ‘„åŠ¨J2é¡¹
+const double EARTH_J3             = -2.54e-6;				///< åœ°çƒæ‘„åŠ¨J3é¡¹
+const double EARTH_J4             = -1.61e-6;				///< åœ°çƒæ‘„åŠ¨J4é¡¹
 
 
 //  
@@ -227,7 +227,7 @@ inline double AsRadToDeg(double rad)
 
 
 //********************************************************************
-/// ËÄÉáÎåÈëËã·¨
+/// å››èˆäº”å…¥ç®—æ³•
 /// @Author	Wang Hua
 /// @Date	2007.10.25
 //********************************************************************
@@ -252,7 +252,7 @@ inline double AsRound (double num, int order)
 }
 
 
-//¿ª·½
+//å¼€æ–¹
 inline double AsSqrt(double x)
 {
     if (x<0)

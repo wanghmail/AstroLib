@@ -40,64 +40,64 @@ public:
 	virtual ~CCoord();
 
 	//
-	//×ø±êĞı×ªº¯Êı
+	//åæ ‡æ—‹è½¬å‡½æ•°
 	//
 
 	//********************************************************************
-	/// ¸ù¾İÒ»ÏµÁĞEuler½Ç½øĞĞ×Ô×ªÒÆ
+	/// æ ¹æ®ä¸€ç³»åˆ—Eulerè§’è¿›è¡Œè‡ªè½¬ç§»
 	/// @author	Wang Hua
 	/// @date	2004.3
 	/// @Version	1.0
 	/// @Input
-	/// @param	angle	×ªÒÆ½ÇÊı×é
-	/// @param	flag	×ø±êÖá±êÖ¾Êı×é(1,2,3-X,Y,Z)
+	/// @param	angle	è½¬ç§»è§’æ•°ç»„
+	/// @param	flag	åæ ‡è½´æ ‡å¿—æ•°ç»„(1,2,3-X,Y,Z)
 	//********************************************************************
 	void			Rotate  (const CVector<double>& angle, const CVector<int>& seqFlag);
 
 	//********************************************************************
-	/// ¸ù¾İÒ»ÏµÁĞEuler½Ç½øĞĞ×Ô×ªÒÆ
+	/// æ ¹æ®ä¸€ç³»åˆ—Eulerè§’è¿›è¡Œè‡ªè½¬ç§»
 	/// @author	Wang Hua
 	/// @date	2007.4.20
 	/// @Version	1.0
 	/// @Input
-	/// @param	angle	×ªÒÆ½ÇÊı×é
-	/// @param	seqFlag	×ø±êÖá±êÖ¾Êı×é(1,2,3-X,Y,Z)
-	/// @param	n		×ÜµÄ×ª¶¯´ÎÊı
+	/// @param	angle	è½¬ç§»è§’æ•°ç»„
+	/// @param	seqFlag	åæ ‡è½´æ ‡å¿—æ•°ç»„(1,2,3-X,Y,Z)
+	/// @param	n		æ€»çš„è½¬åŠ¨æ¬¡æ•°
 	//********************************************************************
 	void			Rotate(const double angle[], const int seqFlag[], int n);
 
 	//********************************************************************
-	/// °´ËÄÔªÊı×Ô×ªÒÆ
+	/// æŒ‰å››å…ƒæ•°è‡ªè½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.4
 	/// @Input
-	/// @Param	quaternion	Ğı×ªËÄÔªÊı
+	/// @Param	quaternion	æ—‹è½¬å››å…ƒæ•°
 	//********************************************************************
 	void			Rotate  (const CQuaternion& quaternion);
 
 	//********************************************************************
-	/// µ¥Ò»½Ç¶ÈµÄ×Ô×ªÒÆ
+	/// å•ä¸€è§’åº¦çš„è‡ªè½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.3
 	/// @Version	1.0
 	/// @Input
-	/// @Param	angle	×ªÒÆ½Ç
-	/// @Param	flag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+	/// @Param	angle	è½¬ç§»è§’
+	/// @Param	flag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 	//********************************************************************
 	void			Rotate  (double angle, int axFlag);
 
 	//********************************************************************
-	/// ¸ù¾İEuler½Ç×ªÒÆ
+	/// æ ¹æ®Eulerè§’è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.12.16
 	/// @Input
-	/// @Param	angle	×ªÒÆ½Ç
-	/// @Param	seqFlag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+	/// @Param	angle	è½¬ç§»è§’
+	/// @Param	seqFlag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 	//********************************************************************
 	void			Rotate  (const CEuler& angle, int seqFlag);
 
 	//********************************************************************
-	/// ¸ù¾İÖáºÍ½Ç×ªÒÆ
+	/// æ ¹æ®è½´å’Œè§’è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.10.18
 	/// @Input
@@ -107,56 +107,56 @@ public:
 	void			Rotate  (const CCoord& axis, double angle);
 
 	//********************************************************************
-	/// ¸ù¾İ×ªÒÆ¾ØÕó×ªÒÆ
+	/// æ ¹æ®è½¬ç§»çŸ©é˜µè½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.11.10
 	/// @Input
-	/// @Param	mtx		Ğı×ª¾ØÕó
+	/// @Param	mtx		æ—‹è½¬çŸ©é˜µ
 	//********************************************************************
 	void			Rotate  (const CMatrix<double>& mtx);
 
 	//********************************************************************
-	/// ¸ø¶¨·½Ê½µÄ×ªÒÆ
+	/// ç»™å®šæ–¹å¼çš„è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.3
 	/// @Input
-	/// @Param	angle	×ªÒÆ½ÇÊı×é
-	/// @Param	flag	×ø±êÖá±êÖ¾Êı×é(1,2,3-X,Y,Z)
-	/// @Return	×ªÒÆºóµÄ×ø±ê
+	/// @Param	angle	è½¬ç§»è§’æ•°ç»„
+	/// @Param	flag	åæ ‡è½´æ ‡å¿—æ•°ç»„(1,2,3-X,Y,Z)
+	/// @Return	è½¬ç§»åçš„åæ ‡
 	//********************************************************************
 	const CCoord	RotateTo(const CVector<double>& angle, const CVector<int>& flag) const;
 
 	//********************************************************************
-	/// °´ËÄÔªÊı×ªÒÆ
+	/// æŒ‰å››å…ƒæ•°è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.4
 	/// @Input
-	/// @Param	quaternion		Ğı×ªËÄÔªÊı
+	/// @Param	quaternion		æ—‹è½¬å››å…ƒæ•°
 	//********************************************************************
 	const CCoord	RotateTo(const CQuaternion& quaternion) const;
 
 	//********************************************************************
-	/// µ¥Ò»½Ç¶ÈµÄ×ªÒÆ
+	/// å•ä¸€è§’åº¦çš„è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.3
 	/// @Input
-	/// @Param	angle	×ªÒÆ½Ç
-	/// @Param	axFlag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+	/// @Param	angle	è½¬ç§»è§’
+	/// @Param	axFlag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 	//********************************************************************
 	const CCoord	RotateTo(double angle, int axFlag) const;
 
 	//********************************************************************
-	/// ¸ù¾İEuler½Ç×ªÒÆ
+	/// æ ¹æ®Eulerè§’è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.12.16
 	/// @Input
-	/// @Param	angle	×ªÒÆ½Ç
-	/// @Param	seqFlag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+	/// @Param	angle	è½¬ç§»è§’
+	/// @Param	seqFlag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 	//********************************************************************
 	const CCoord	RotateTo(const CEuler& angle, int seqFlag) const;
 
 	//********************************************************************
-	/// ¸ù¾İÖáºÍ½Ç×ªÒÆ
+	/// æ ¹æ®è½´å’Œè§’è½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.11.10
 	/// @Input
@@ -166,11 +166,11 @@ public:
 	const CCoord	RotateTo(const CCoord& axis, double angle) const;
 
 	//********************************************************************
-	/// ¸ù¾İ×ªÒÆ¾ØÕó×ªÒÆ
+	/// æ ¹æ®è½¬ç§»çŸ©é˜µè½¬ç§»
 	/// @Author	Wang Hua
 	/// @Date	2004.11.10
 	/// @Input
-	/// @Param	quaternion		Ğı×ªËÄÔªÊı
+	/// @Param	quaternion		æ—‹è½¬å››å…ƒæ•°
 	//********************************************************************
 	const CCoord	RotateTo(const CMatrix<double>& mtx) const;
 	
@@ -190,9 +190,9 @@ public:
 	CLatLonRad(double lat, double lon, double rad);
 
 public:
-	double	m_Lat;		///< declination(inertial)/latitude(fixed), ³àÎ³
-	double	m_Lon;		///< right ascension/longitude(fixed), ³à¾­
-	double	m_Rad;		///< radius, Çò°ë¾¶
+	double	m_Lat;		///< declination(inertial)/latitude(fixed), èµ¤çº¬
+	double	m_Lon;		///< right ascension/longitude(fixed), èµ¤ç»
+	double	m_Rad;		///< radius, çƒåŠå¾„
 };
 
 
@@ -206,9 +206,9 @@ public:
 	CLatLonAlt(double lat, double lon, double alt);
 
 public:
-	double	m_Lat;		///< ´óµØÎ³¶Èplanetodetic latitude(rad)
-	double	m_Lon;		///< ´óµØ¾­¶Èplanetodetic longitude(rad)
-	double	m_Alt;		///< ´óµØ¸ßplanetodetic altitude
+	double	m_Lat;		///< å¤§åœ°çº¬åº¦planetodetic latitude(rad)
+	double	m_Lon;		///< å¤§åœ°ç»åº¦planetodetic longitude(rad)
+	double	m_Alt;		///< å¤§åœ°é«˜planetodetic altitude
 };
 
 
@@ -222,9 +222,9 @@ public:
 	CPolar3(double radius, double theta, double z);
 
 public:
-	double	m_Radius;	///< °ë¾¶
-	double	m_Theta;	///< ·ù½Ç, angle in x-y plane from x towards y (rad)
-	double	m_Z;		///< Z×ø±ê
+	double	m_Radius;	///< åŠå¾„
+	double	m_Theta;	///< å¹…è§’, angle in x-y plane from x towards y (rad)
+	double	m_Z;		///< Zåæ ‡
 };
 
 
@@ -242,9 +242,9 @@ public:
 	CAziElevRng(double azi, double elev, double rng);
 
 public:
-    double	m_Azi;		///< ·½Î»½Ç
-    double  m_Elev;		///< Ñö½Ç
-    double  m_Rng;		///< ¾àÀë
+    double	m_Azi;		///< æ–¹ä½è§’
+    double  m_Elev;		///< ä»°è§’
+    double  m_Rng;		///< è·ç¦»
 };
 
 
@@ -257,7 +257,7 @@ public:
 //////////////////////////////////////////////////////////////////////
 
 //***********************************************************
-/// Ö±½Ç×ø±ê×ª»»ÎªÖù×ø±ê
+/// ç›´è§’åæ ‡è½¬æ¢ä¸ºæŸ±åæ ‡
 /// @Author	Wang Hua
 /// @Date	2005.7.21
 /// @Input	
@@ -270,7 +270,7 @@ void	AsCartToPolar(
 			CPolar3& polar);
 
 //***********************************************************
-/// Öù×ø±ê×ª»»ÎªÖ±½Ç×ø±ê
+/// æŸ±åæ ‡è½¬æ¢ä¸ºç›´è§’åæ ‡
 /// @Author	Wang Hua
 /// @Date	2005.7.21
 /// @Input	
@@ -314,20 +314,20 @@ void	AsLLRToCart (
 			CCoord& cart);
 
 //***********************************************************
-/// Ö±½Ç×ø±ê×ª»»Îª¾­¶È¡¢µØĞÄÎ³¶ÈºÍ°ë¾¶
+/// ç›´è§’åæ ‡è½¬æ¢ä¸ºç»åº¦ã€åœ°å¿ƒçº¬åº¦å’ŒåŠå¾„
 /// determines the "centric" latitude, longitude, and 
 ///   radius and rates given the cartesian position and velocity.  The input 
 ///   cartesian vectors can be in any coordinate system and the output will 
 ///   represent the corresponding spherical coordinates. 
 /// @Author	Wang Hua
 /// @Date	2004.9.12 10.11 2006.8.10
-//			2006.12.26±±¾©ĞŞ¸Ä£¬ºÃÏñ¼ÆËãllrRate.m_LatµÄ¹«Ê½Ô­À´²»¶Ô£¡£¡£¡
+//			2006.12.26åŒ—äº¬ä¿®æ”¹ï¼Œå¥½åƒè®¡ç®—llrRate.m_Latçš„å…¬å¼åŸæ¥ä¸å¯¹ï¼ï¼ï¼
 /// @Input	
 /// @Param	cartPos
 /// @Param	cartVel
 /// @Output	
-/// @Param	llrPos	llr.m_Lat´ÓxyÆ½Ãæ×ªµ½zÖáÎªÕı,[-pi/2, pi/2]
-///					llr.m_Lon´ÓxÖá×ªµ½yÖáÎªÕı,[-pi,pi]
+/// @Param	llrPos	llr.m_Latä»xyå¹³é¢è½¬åˆ°zè½´ä¸ºæ­£,[-pi/2, pi/2]
+///					llr.m_Lonä»xè½´è½¬åˆ°yè½´ä¸ºæ­£,[-pi,pi]
 /// @Param	llrRate	
 //***********************************************************
 void	AsCartToLLR (
@@ -344,8 +344,8 @@ void	AsCartToLLR (
 /// @Author	Wang Hua
 /// @Date	2004.9.12 10.11
 /// @Input	
-/// @Param	llrPos	llr.m_Lat´ÓxyÆ½Ãæ×ªµ½zÖáÎªÕı
-///					llr.m_Lon´ÓxÖá×ªµ½yÖáÎªÕı
+/// @Param	llrPos	llr.m_Latä»xyå¹³é¢è½¬åˆ°zè½´ä¸ºæ­£
+///					llr.m_Lonä»xè½´è½¬åˆ°yè½´ä¸ºæ­£
 /// @Param	llrRate	
 /// @Output	
 /// @Param	cartPos
@@ -483,7 +483,7 @@ void	AsOblLLRToLLA  (
 /// @Input	
 /// @Param	lla			latitude, longitude and altitude
 /// @Param	radius		long radius of central body
-/// @Param	flatFact	±âÂÊ
+/// @Param	flatFact	æ‰ç‡
 /// @Output	
 /// @Param	cart		cartesian coordinate
 //********************************************************************
@@ -494,17 +494,17 @@ void	AsOblLLAToLLR  (
 			CLatLonRad& llr);
 
 //********************************************************************
-/// ¼ÆËã´ÓÊäÈëÖ±½Ç×ø±êÏµ£¨µØĞÄ¹ßĞÔÏµ»òµØ¹ÌÏµ£©µ½VVLH×ø±êÏµµÄ×ª»»¾ØÕó
-///  VVLH¶¨ÒåÎª£ºzÖáÖ¸ÏòµØĞÄ£¬xÖáÓëzÖá´¹Ö±Ö¸ÏòËÙ¶È·½Ïò£¬yÖáÓëÆäËüÁ½Öá³ÉÓÒÊÖ×ø±êÏµ.
+/// è®¡ç®—ä»è¾“å…¥ç›´è§’åæ ‡ç³»ï¼ˆåœ°å¿ƒæƒ¯æ€§ç³»æˆ–åœ°å›ºç³»ï¼‰åˆ°VVLHåæ ‡ç³»çš„è½¬æ¢çŸ©é˜µ
+///  VVLHå®šä¹‰ä¸ºï¼šzè½´æŒ‡å‘åœ°å¿ƒï¼Œxè½´ä¸zè½´å‚ç›´æŒ‡å‘é€Ÿåº¦æ–¹å‘ï¼Œyè½´ä¸å…¶å®ƒä¸¤è½´æˆå³æ‰‹åæ ‡ç³».
 /// @Author	Wang Hua
 /// @Date	2004.10.19
 /// @Input	
-/// @Param	pos		the position of vehicle µØĞÄ¹ßĞÔÏµ»òµØ¹ÌÏµÖĞµÄ·ÉĞĞÆ÷Î»ÖÃ[m]
-/// @Param	vel		velocity of vehicle µØĞÄ¹ßĞÔÏµ»òµØ¹ÌÏµÖĞµÄ·ÉĞĞÆ÷ËÙ¶È[m/s]
+/// @Param	pos		the position of vehicle åœ°å¿ƒæƒ¯æ€§ç³»æˆ–åœ°å›ºç³»ä¸­çš„é£è¡Œå™¨ä½ç½®[m]
+/// @Param	vel		velocity of vehicle åœ°å¿ƒæƒ¯æ€§ç³»æˆ–åœ°å›ºç³»ä¸­çš„é£è¡Œå™¨é€Ÿåº¦[m/s]
 /// @Output	
-/// @Param	mtx		ICSÖÁVVLH×ªÒÆ¾ØÕó
-///					posÎª0£¬velÎª0£¬posÓëvel·½ÏòÏàÍ¬Ê±£¬¾ùÎŞ·¨¼ÆËã×ª»»¾ØÕó£¬´ËÊ±mtxÊä³öµ¥Î»¾ØÕó
-/// @Return			true=¼ÆËãÕıÈ·; false=ÊäÈëÊı¾İÒì³£
+/// @Param	mtx		ICSè‡³VVLHè½¬ç§»çŸ©é˜µ
+///					posä¸º0ï¼Œvelä¸º0ï¼Œposä¸velæ–¹å‘ç›¸åŒæ—¶ï¼Œå‡æ— æ³•è®¡ç®—è½¬æ¢çŸ©é˜µï¼Œæ­¤æ—¶mtxè¾“å‡ºå•ä½çŸ©é˜µ
+/// @Return			true=è®¡ç®—æ­£ç¡®; false=è¾“å…¥æ•°æ®å¼‚å¸¸
 //********************************************************************
 bool	AsICSToVVLHMtx (
 			const CCoord& pos, 
@@ -512,18 +512,18 @@ bool	AsICSToVVLHMtx (
 			CMatrix<double>& mtx);
 
 //********************************************************************
-/// ¼ÆËã´ÓVVLH×ø±êÏµµ½ÊäÈëÖ±½Ç×ø±êÏµ£¨µØĞÄ¹ßĞÔÏµ»òµØ¹ÌÏµ£©µÄ×ª»»¾ØÕó
-///  VVLH¶¨ÒåÎª£ºzÖáÖ¸ÏòµØĞÄ£¬xÖáÓëzÖá´¹Ö±Ö¸ÏòËÙ¶È·½Ïò£¬yÖáÓëÆäËüÁ½Öá³ÉÓÒÊÖ×ø±êÏµ.
+/// è®¡ç®—ä»VVLHåæ ‡ç³»åˆ°è¾“å…¥ç›´è§’åæ ‡ç³»ï¼ˆåœ°å¿ƒæƒ¯æ€§ç³»æˆ–åœ°å›ºç³»ï¼‰çš„è½¬æ¢çŸ©é˜µ
+///  VVLHå®šä¹‰ä¸ºï¼šzè½´æŒ‡å‘åœ°å¿ƒï¼Œxè½´ä¸zè½´å‚ç›´æŒ‡å‘é€Ÿåº¦æ–¹å‘ï¼Œyè½´ä¸å…¶å®ƒä¸¤è½´æˆå³æ‰‹åæ ‡ç³».
 /// Return transformation matrix from VVLH(Vehicle Velocity Local Horizontal) to ICS.
 /// @Author	Wang Hua
 /// @Date	2004.10.19
 /// @Input	
-/// @Param	pos		the position of vehicle µØĞÄ¹ßĞÔÏµ»òµØ¹ÌÏµÖĞµÄ·ÉĞĞÆ÷Î»ÖÃ[m]
-/// @Param	vel		velocity of vehicle µØĞÄ¹ßĞÔÏµ»òµØ¹ÌÏµÖĞµÄ·ÉĞĞÆ÷ËÙ¶È[m/s]
+/// @Param	pos		the position of vehicle åœ°å¿ƒæƒ¯æ€§ç³»æˆ–åœ°å›ºç³»ä¸­çš„é£è¡Œå™¨ä½ç½®[m]
+/// @Param	vel		velocity of vehicle åœ°å¿ƒæƒ¯æ€§ç³»æˆ–åœ°å›ºç³»ä¸­çš„é£è¡Œå™¨é€Ÿåº¦[m/s]
 /// @Output	
-/// @Param	mtx		VVLHµ½ICSµÄ×ªÒÆ¾ØÕó
-///					posÎª0£¬velÎª0£¬posÓëvel·½ÏòÏàÍ¬Ê±£¬¾ùÎŞ·¨¼ÆËã×ª»»¾ØÕó£¬´ËÊ±mtxÊä³öµ¥Î»¾ØÕó
-/// @Return			true=¼ÆËãÕıÈ·; false=ÊäÈëÊı¾İÒì³£
+/// @Param	mtx		VVLHåˆ°ICSçš„è½¬ç§»çŸ©é˜µ
+///					posä¸º0ï¼Œvelä¸º0ï¼Œposä¸velæ–¹å‘ç›¸åŒæ—¶ï¼Œå‡æ— æ³•è®¡ç®—è½¬æ¢çŸ©é˜µï¼Œæ­¤æ—¶mtxè¾“å‡ºå•ä½çŸ©é˜µ
+/// @Return			true=è®¡ç®—æ­£ç¡®; false=è¾“å…¥æ•°æ®å¼‚å¸¸
 //********************************************************************
 bool	AsVVLHToICSMtx (
 			const CCoord& pos, 

@@ -23,7 +23,7 @@ using namespace std;
 
 
 //********************************************************************
-/// ¼ÆËãµØĞÄ³àµÀ×ø±êÏµÖĞµÄÌ«ÑôÎ»ÖÃ
+/// è®¡ç®—åœ°å¿ƒèµ¤é“åæ ‡ç³»ä¸­çš„å¤ªé˜³ä½ç½®
 /// calcuLates the Geocentric Equatorial position for the SUN given the Julian Date.
 /// @Author	Wang Hua
 /// @Date	2004.11.15

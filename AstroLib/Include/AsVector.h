@@ -9,7 +9,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 /// @file
-/// @brief	Ê¸Á¿ÀàCVectorÍ·ÎÄ¼ş
+/// @brief	çŸ¢é‡ç±»CVectorå¤´æ–‡ä»¶
 
 
 #if !defined(_ASVECTOR_H_)
@@ -32,49 +32,49 @@ class CVector
 	typedef CVector<_Type> _MyT;
 
 public:
-	//¹¹Ôìº¯Êı£¬Ä¬ÈÏÊÇÈıÎ¬ÏòÁ¿
+	//æ„é€ å‡½æ•°ï¼Œé»˜è®¤æ˜¯ä¸‰ç»´å‘é‡
 	explicit CVector(int n=3);
 	CVector(const _Type& x, const _Type& y, const _Type& z);
 	CVector(const _MyT& vec);
 	virtual ~CVector();
 
-	inline int			GetSize () const;					///< µÈÍ¬ÓÚSize()
-	inline int			Size () const;						///< µÃµ½Ê¸Á¿µÄÎ¬Êı
-	void				Resize  (int nDim);					///< ÖØĞÂÉèÖÃÎ¬Êı
+	inline int			GetSize () const;					///< ç­‰åŒäºSize()
+	inline int			Size () const;						///< å¾—åˆ°çŸ¢é‡çš„ç»´æ•°
+	void				Resize  (int nDim);					///< é‡æ–°è®¾ç½®ç»´æ•°
 
-	void				SetData (int n, const _Type *value);///< ÓÃÒ»Î¬Êı×éÉèÖÃÊ¸Á¿µÄÊı¾İ
-	void				GetData (int n, _Type *value) const;///< ½«Ê¸Á¿Êı¾İĞ´ÈëÒ»Î¬Êı×é
-	void				SetDataAll(const _Type& value);		///< ÉèÖÃËùÓĞÊ¸Á¿ÔªËØÖµ
+	void				SetData (int n, const _Type *value);///< ç”¨ä¸€ç»´æ•°ç»„è®¾ç½®çŸ¢é‡çš„æ•°æ®
+	void				GetData (int n, _Type *value) const;///< å°†çŸ¢é‡æ•°æ®å†™å…¥ä¸€ç»´æ•°ç»„
+	void				SetDataAll(const _Type& value);		///< è®¾ç½®æ‰€æœ‰çŸ¢é‡å…ƒç´ å€¼
 
-	inline _Type*		Data  ();							///< µÃµ½Êı¾İÖ¸Õë
-	inline const _Type*	Data  () const;					///< µÃµ½Êı¾İÖ¸Õë
-	inline   operator _Type*();								///< ×ª»»ÀàĞÍÎªÖ¸ÕëĞÍ
-	inline   operator const _Type*() const;					///< ×ª»»ÀàĞÍÎªÖ¸ÕëĞÍ
+	inline _Type*		Data  ();							///< å¾—åˆ°æ•°æ®æŒ‡é’ˆ
+	inline const _Type*	Data  () const;					///< å¾—åˆ°æ•°æ®æŒ‡é’ˆ
+	inline   operator _Type*();								///< è½¬æ¢ç±»å‹ä¸ºæŒ‡é’ˆå‹
+	inline   operator const _Type*() const;					///< è½¬æ¢ç±»å‹ä¸ºæŒ‡é’ˆå‹
 
-	inline _Type&		operator[](int i);					///< ÖØÔØ[]ÔËËã·û
-	inline const _Type&	operator[](int i) const;			///< ÖØÔØ[]ÔËËã·û
+	inline _Type&		operator[](int i);					///< é‡è½½[]è¿ç®—ç¬¦
+	inline const _Type&	operator[](int i) const;			///< é‡è½½[]è¿ç®—ç¬¦
 
-	bool	operator==(const _MyT &vec) const;				///< Á½Ê¸Á¿ÊÇ·ñÏàµÈ
-	bool	operator!=(const _MyT &vec) const;				///< Á½Ê¸Á¿ÊÇ·ñ²»ÏàµÈ
-	bool	operator >(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñ´óÓÚµÚ¶ş¸öÊ¸Á¿
-	bool	operator>=(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñ´óÓÚµÈÓÚµÚ¶ş¸öÊ¸Á¿
-	bool	operator <(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñĞ¡ÓÚÓÚµÚ¶ş¸öÊ¸Á¿
-	bool	operator<=(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñĞ¡ÓÚµÈÓÚµÚ¶ş¸öÊ¸Á¿
+	bool	operator==(const _MyT &vec) const;				///< ä¸¤çŸ¢é‡æ˜¯å¦ç›¸ç­‰
+	bool	operator!=(const _MyT &vec) const;				///< ä¸¤çŸ¢é‡æ˜¯å¦ä¸ç›¸ç­‰
+	bool	operator >(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å¤§äºç¬¬äºŒä¸ªçŸ¢é‡
+	bool	operator>=(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å¤§äºç­‰äºç¬¬äºŒä¸ªçŸ¢é‡
+	bool	operator <(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å°äºäºç¬¬äºŒä¸ªçŸ¢é‡
+	bool	operator<=(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å°äºç­‰äºç¬¬äºŒä¸ªçŸ¢é‡
 
-	_MyT&	operator =(const _MyT& vec);					///< Ê¸Á¿¸³Öµ
+	_MyT&	operator =(const _MyT& vec);					///< çŸ¢é‡èµ‹å€¼
 
-	inline const _MyT	operator +() const;					///< Ê¸Á¿Ç°ÎªÕıºÅ
-	inline const _MyT	operator -() const;					///< Ê¸Á¿Ç°Îª¸ººÅ
-	inline const _MyT&	operator+=(const _MyT& vec);		///< Ê¸Á¿Ïà¼Ó
-	inline const _MyT	operator +(const _MyT& vec) const;	///< Ê¸Á¿Ïà¼Ó
-	inline const _MyT&	operator-=(const _MyT& vec);		///< Ê¸Á¿Ïà¼õ
-	inline const _MyT	operator -(const _MyT& vec) const;	///< Ê¸Á¿Ïà¼õ
-	inline const _MyT&	operator*=(const _MyT& vec);		///< Ê¸Á¿²æ³Ë
-	inline const _MyT	operator *(const _MyT& vec) const;	///< Ê¸Á¿²æ³Ë
-	inline const _MyT	operator *(const _Type& num) const;	///< Ê¸Á¿³ËÊı
-	inline const _MyT&	operator*=(const _Type&  num);		///< Ê¸Á¿³ËÊı
-	inline const _MyT&	operator/=(const _Type&  num);		///< Ê¸Á¿³ıÊı
-	inline const _MyT	operator /(const _Type&  num) const;///< Ê¸Á¿³ıÊı
+	inline const _MyT	operator +() const;					///< çŸ¢é‡å‰ä¸ºæ­£å·
+	inline const _MyT	operator -() const;					///< çŸ¢é‡å‰ä¸ºè´Ÿå·
+	inline const _MyT&	operator+=(const _MyT& vec);		///< çŸ¢é‡ç›¸åŠ 
+	inline const _MyT	operator +(const _MyT& vec) const;	///< çŸ¢é‡ç›¸åŠ 
+	inline const _MyT&	operator-=(const _MyT& vec);		///< çŸ¢é‡ç›¸å‡
+	inline const _MyT	operator -(const _MyT& vec) const;	///< çŸ¢é‡ç›¸å‡
+	inline const _MyT&	operator*=(const _MyT& vec);		///< çŸ¢é‡å‰ä¹˜
+	inline const _MyT	operator *(const _MyT& vec) const;	///< çŸ¢é‡å‰ä¹˜
+	inline const _MyT	operator *(const _Type& num) const;	///< çŸ¢é‡ä¹˜æ•°
+	inline const _MyT&	operator*=(const _Type&  num);		///< çŸ¢é‡ä¹˜æ•°
+	inline const _MyT&	operator/=(const _Type&  num);		///< çŸ¢é‡é™¤æ•°
+	inline const _MyT	operator /(const _Type&  num) const;///< çŸ¢é‡é™¤æ•°
 
 protected:
 	void	Construct(int n);
@@ -105,50 +105,50 @@ public:
 	CVector(const _MyT& vec);
 	virtual ~CVector();
 
-	inline int			GetSize () const;					///< µÈÍ¬ÓÚSize()
-	inline int			Size () const;						///< µÃµ½Ê¸Á¿µÄÎ¬Êı
-	void				Resize(int n);						///< ÖØĞÂÉèÖÃÎ¬Êı
+	inline int			GetSize () const;					///< ç­‰åŒäºSize()
+	inline int			Size () const;						///< å¾—åˆ°çŸ¢é‡çš„ç»´æ•°
+	void				Resize(int n);						///< é‡æ–°è®¾ç½®ç»´æ•°
 
-	void				SetData (int n, const _Type *value);///< ÓÃÒ»Î¬Êı×éÉèÖÃÊ¸Á¿µÄÊı¾İ
-	void				GetData (int n, _Type *value) const;///< ½«Ê¸Á¿Êı¾İĞ´ÈëÒ»Î¬Êı×é
-	void				SetDataAll(const _Type& value);		///< ÉèÖÃËùÓĞÊ¸Á¿ÔªËØÖµ
+	void				SetData (int n, const _Type *value);///< ç”¨ä¸€ç»´æ•°ç»„è®¾ç½®çŸ¢é‡çš„æ•°æ®
+	void				GetData (int n, _Type *value) const;///< å°†çŸ¢é‡æ•°æ®å†™å…¥ä¸€ç»´æ•°ç»„
+	void				SetDataAll(const _Type& value);		///< è®¾ç½®æ‰€æœ‰çŸ¢é‡å…ƒç´ å€¼
 
-	inline _Type*		Data  ();							///< µÃµ½Êı¾İÖ¸Õë
-	inline const _Type*	Data  () const;					    ///< µÃµ½Êı¾İÖ¸Õë103645259
-	inline   operator _Type*();								///< ×ª»»ÀàĞÍÎªÖ¸ÕëĞÍ
-	inline   operator const _Type*() const;					///< ×ª»»ÀàĞÍÎªÖ¸ÕëĞÍ
+	inline _Type*		Data  ();							///< å¾—åˆ°æ•°æ®æŒ‡é’ˆ
+	inline const _Type*	Data  () const;					    ///< å¾—åˆ°æ•°æ®æŒ‡é’ˆ103645259
+	inline   operator _Type*();								///< è½¬æ¢ç±»å‹ä¸ºæŒ‡é’ˆå‹
+	inline   operator const _Type*() const;					///< è½¬æ¢ç±»å‹ä¸ºæŒ‡é’ˆå‹
 
-	inline _Type&		operator[](int i);					///< ÖØÔØ[]ÔËËã·û
-	inline const _Type&	operator[](int i) const;			///< ÖØÔØ[]ÔËËã·û
+	inline _Type&		operator[](int i);					///< é‡è½½[]è¿ç®—ç¬¦
+	inline const _Type&	operator[](int i) const;			///< é‡è½½[]è¿ç®—ç¬¦
 
-	bool	operator==(const _MyT &vec) const;				///< Á½Ê¸Á¿ÊÇ·ñÏàµÈ
-	bool	operator!=(const _MyT &vec) const;				///< Á½Ê¸Á¿ÊÇ·ñ²»ÏàµÈ
-	bool	operator >(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñ´óÓÚµÚ¶ş¸öÊ¸Á¿
-	bool	operator>=(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñ´óÓÚµÈÓÚµÚ¶ş¸öÊ¸Á¿
-	bool	operator <(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñĞ¡ÓÚÓÚµÚ¶ş¸öÊ¸Á¿
-	bool	operator<=(const _MyT &vec) const;				///< µÚÒ»¸öÊ¸Á¿ÊÇ·ñĞ¡ÓÚµÈÓÚµÚ¶ş¸öÊ¸Á¿
+	bool	operator==(const _MyT &vec) const;				///< ä¸¤çŸ¢é‡æ˜¯å¦ç›¸ç­‰
+	bool	operator!=(const _MyT &vec) const;				///< ä¸¤çŸ¢é‡æ˜¯å¦ä¸ç›¸ç­‰
+	bool	operator >(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å¤§äºç¬¬äºŒä¸ªçŸ¢é‡
+	bool	operator>=(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å¤§äºç­‰äºç¬¬äºŒä¸ªçŸ¢é‡
+	bool	operator <(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å°äºäºç¬¬äºŒä¸ªçŸ¢é‡
+	bool	operator<=(const _MyT &vec) const;				///< ç¬¬ä¸€ä¸ªçŸ¢é‡æ˜¯å¦å°äºç­‰äºç¬¬äºŒä¸ªçŸ¢é‡
 
-	_MyT&	operator =(const _MyT& vec);					///< Ê¸Á¿¸³Öµ
+	_MyT&	operator =(const _MyT& vec);					///< çŸ¢é‡èµ‹å€¼
 
-	inline const _MyT	operator +() const;					///< Ê¸Á¿Ç°ÎªÕıºÅ
-	inline const _MyT	operator -() const;					///< Ê¸Á¿Ç°Îª¸ººÅ
-	inline const _MyT&	operator+=(const _MyT& vec);		///< Ê¸Á¿Ïà¼Ó
-	inline const _MyT	operator +(const _MyT& vec) const;	///< Ê¸Á¿Ïà¼Ó
-	inline const _MyT&	operator-=(const _MyT& vec);		///< Ê¸Á¿Ïà¼õ
-	inline const _MyT	operator -(const _MyT& vec) const;	///< Ê¸Á¿Ïà¼õ
-	inline const _MyT&	operator*=(const _MyT& vec);		///< Ê¸Á¿²æ³Ë
-	inline const _MyT	operator *(const _MyT& vec) const;	///< Ê¸Á¿²æ³Ë
-	inline const _MyT	operator *(_Type num) const;		///< Ê¸Á¿³ËÊı
-	inline const _MyT&	operator*=(_Type num);				///< Ê¸Á¿³ËÊı
-	inline const _MyT&	operator/=(_Type num);				///< Ê¸Á¿³ıÊı
-	inline const _MyT	operator /(_Type num) const;		///< Ê¸Á¿³ıÊı
+	inline const _MyT	operator +() const;					///< çŸ¢é‡å‰ä¸ºæ­£å·
+	inline const _MyT	operator -() const;					///< çŸ¢é‡å‰ä¸ºè´Ÿå·
+	inline const _MyT&	operator+=(const _MyT& vec);		///< çŸ¢é‡ç›¸åŠ 
+	inline const _MyT	operator +(const _MyT& vec) const;	///< çŸ¢é‡ç›¸åŠ 
+	inline const _MyT&	operator-=(const _MyT& vec);		///< çŸ¢é‡ç›¸å‡
+	inline const _MyT	operator -(const _MyT& vec) const;	///< çŸ¢é‡ç›¸å‡
+	inline const _MyT&	operator*=(const _MyT& vec);		///< çŸ¢é‡å‰ä¹˜
+	inline const _MyT	operator *(const _MyT& vec) const;	///< çŸ¢é‡å‰ä¹˜
+	inline const _MyT	operator *(_Type num) const;		///< çŸ¢é‡ä¹˜æ•°
+	inline const _MyT&	operator*=(_Type num);				///< çŸ¢é‡ä¹˜æ•°
+	inline const _MyT&	operator/=(_Type num);				///< çŸ¢é‡é™¤æ•°
+	inline const _MyT	operator /(_Type num) const;		///< çŸ¢é‡é™¤æ•°
 
-	double		Norm() const;								///< Ê¸Á¿·¶Êı£¬Ò²¾ÍÊÇÊ¸Á¿Ä£
-	double		SqrNorm() const;							///< Ê¸Á¿·¶ÊıµÄÆ½·½
-	void		Unit();										///< µ¥Î»»¯Ê¸Á¿
-	double		Dot(const CVector<double>& vec) const;			///< µã³Ë
-	const _MyT	Cross(const CVector<double>& vec) const;		///< ²æ³Ë
-	double		AngBetween(const CVector<double>& vec) const;	///< Á½¸öÊ¸Á¿µÄ¼Ğ½Ç[0,PI]
+	double		Norm() const;								///< çŸ¢é‡èŒƒæ•°ï¼Œä¹Ÿå°±æ˜¯çŸ¢é‡æ¨¡
+	double		SqrNorm() const;							///< çŸ¢é‡èŒƒæ•°çš„å¹³æ–¹
+	void		Unit();										///< å•ä½åŒ–çŸ¢é‡
+	double		Dot(const CVector<double>& vec) const;			///< ç‚¹ä¹˜
+	const _MyT	Cross(const CVector<double>& vec) const;		///< å‰ä¹˜
+	double		AngBetween(const CVector<double>& vec) const;	///< ä¸¤ä¸ªçŸ¢é‡çš„å¤¹è§’[0,PI]
 
 protected:
 	void	Construct(int n);
@@ -167,12 +167,12 @@ protected:
 //
 //Global function.
 //
-const CVector<double> operator *  (double num, const CVector<double>& vec);			///< Êı³ËÊ¸Á¿
-double	AsAngBetween(const CVector<double>& vec1, const CVector<double>& vec2);	///< Á½¸öÊ¸Á¿µÄ¼Ğ½Ç[0,PI]
+const CVector<double> operator *  (double num, const CVector<double>& vec);			///< æ•°ä¹˜çŸ¢é‡
+double	AsAngBetween(const CVector<double>& vec1, const CVector<double>& vec2);	///< ä¸¤ä¸ªçŸ¢é‡çš„å¤¹è§’[0,PI]
 template <class _Type>
-std::ostream& operator<<(std::ostream &s, const CVector<_Type> &v);		///< Êä³ö
+std::ostream& operator<<(std::ostream &s, const CVector<_Type> &v);		///< è¾“å‡º
 template <class _Type>
-std::istream & operator>>(std::istream &s, CVector<_Type> &v);			///< ÊäÈë
+std::istream & operator>>(std::istream &s, CVector<_Type> &v);			///< è¾“å…¥
 
 
 
@@ -180,21 +180,21 @@ std::istream & operator>>(std::istream &s, CVector<_Type> &v);			///< ÊäÈë
 
 
 //
-//ÏÂÃæÎª¾ßÌåÊµÏÖ´úÂë
+//ä¸‹é¢ä¸ºå…·ä½“å®ç°ä»£ç 
 //
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 //TEMPLATE CLASS CVector<_Type>
 
-//¹¹Ôìº¯Êı£¬Ä¬ÈÏÊÇÈıÎ¬ÏòÁ¿
+//æ„é€ å‡½æ•°ï¼Œé»˜è®¤æ˜¯ä¸‰ç»´å‘é‡
 template <class _Type>
 CVector<_Type>::CVector(int n)
 {
 	Construct(n);
 }
 
-//ÓÃÈı¸öÊıÖµÀ´³õÊ¼»¯µÄ¹¹Ôìº¯Êı£¬ÈıÎ¬ÏòÁ¿
+//ç”¨ä¸‰ä¸ªæ•°å€¼æ¥åˆå§‹åŒ–çš„æ„é€ å‡½æ•°ï¼Œä¸‰ç»´å‘é‡
 template <class _Type>
 CVector<_Type>::CVector(const _Type& x, const _Type& y, const _Type& z)
 {
@@ -205,7 +205,7 @@ CVector<_Type>::CVector(const _Type& x, const _Type& y, const _Type& z)
 }
 
 
-//¿½±´¹¹Ôìº¯Êı
+//æ‹·è´æ„é€ å‡½æ•°
 template <class _Type>
 CVector<_Type>::CVector(const CVector<_Type>& vec)
 {
@@ -214,7 +214,7 @@ CVector<_Type>::CVector(const CVector<_Type>& vec)
 		m_p[i] = vec.m_p[i];
 }
 
-//Îö¹¹º¯Êı
+//ææ„å‡½æ•°
 template <class _Type>
 CVector<_Type>::~CVector()
 {
@@ -251,7 +251,7 @@ void CVector<_Type>::Destroy()
 	}
 }
 
-//µ÷ÕûÊ¸Á¿³ß´ç
+//è°ƒæ•´çŸ¢é‡å°ºå¯¸
 template <class _Type>
 void CVector<_Type>::Resize(int nDim)
 {
@@ -270,7 +270,7 @@ void CVector<_Type>::Resize(int nDim)
 		m_p[i] = v.m_p[i];
 }
 
-//µÃµ½Ê¸Á¿µÄÎ¬Êı
+//å¾—åˆ°çŸ¢é‡çš„ç»´æ•°
 template <class _Type>
 inline int CVector<_Type>::GetSize() const
 {
@@ -278,7 +278,7 @@ inline int CVector<_Type>::GetSize() const
 };
 
 
-//µÃµ½Ê¸Á¿µÄÎ¬Êı
+//å¾—åˆ°çŸ¢é‡çš„ç»´æ•°
 template <class _Type>
 inline int CVector<_Type>::Size() const
 {
@@ -316,8 +316,8 @@ inline CVector<_Type>::operator const _Type*() const
 }
 
 
-//ÉèÖÃÊ¸Á¿µÄÖµ
-//Input  parameter:	value	´æ´¢Ê¸Á¿ÔªËØÖµµÄÒ»Î¬Êı×é£¬³¤¶ÈÎªm_Size
+//è®¾ç½®çŸ¢é‡çš„å€¼
+//Input  parameter:	value	å­˜å‚¨çŸ¢é‡å…ƒç´ å€¼çš„ä¸€ç»´æ•°ç»„ï¼Œé•¿åº¦ä¸ºm_Size
 template <class _Type>
 void CVector<_Type>::SetData(int n, const _Type *value)
 {
@@ -327,8 +327,8 @@ void CVector<_Type>::SetData(int n, const _Type *value)
 		m_p[i] = value[i];
 }
 
-//µÃµ½Ê¸Á¿µÄÖµ
-//Output parameter:	value	·µ»ØÊ¸Á¿ÔªËØÖµµÄÒ»Î¬Êı×é£¬³¤¶ÈÎªm_Size
+//å¾—åˆ°çŸ¢é‡çš„å€¼
+//Output parameter:	value	è¿”å›çŸ¢é‡å…ƒç´ å€¼çš„ä¸€ç»´æ•°ç»„ï¼Œé•¿åº¦ä¸ºm_Size
 template <class _Type>
 void CVector<_Type>::GetData(int n, _Type *value) const
 {
@@ -338,7 +338,7 @@ void CVector<_Type>::GetData(int n, _Type *value) const
 		value[i] = m_p[i];
 }
 
-//ÉèÖÃÊ¸Á¿µÄÖµ
+//è®¾ç½®çŸ¢é‡çš„å€¼
 template <class _Type>
 void CVector<_Type>::SetDataAll(const _Type& value)
 {
@@ -346,7 +346,7 @@ void CVector<_Type>::SetDataAll(const _Type& value)
 		m_p[i] = value;
 }
 
-//ÒıÓÃÊ¸Á¿µÄÔªËØ£¬´Ó0¿ªÊ¼
+//å¼•ç”¨çŸ¢é‡çš„å…ƒç´ ï¼Œä»0å¼€å§‹
 template <class _Type>
 inline _Type & CVector<_Type>::operator[](int i)
 {
@@ -439,7 +439,7 @@ bool CVector<_Type>::operator <=(const CVector<_Type> &v) const
 	return true;
 }
 
-//ÓÃÊ¸Á¿¸³Öµ
+//ç”¨çŸ¢é‡èµ‹å€¼
 template <class _Type>
 CVector<_Type> & CVector<_Type>::operator =(const CVector<_Type>& vec)
 {
@@ -463,7 +463,7 @@ CVector<_Type> & CVector<_Type>::operator =(const CVector<_Type>& vec)
 }
 
 
-//ÖØÔØÊ¸Á¿ÇóÕıÔËËã
+//é‡è½½çŸ¢é‡æ±‚æ­£è¿ç®—
 template<class _Type>
 inline const CVector<_Type> CVector<_Type>::operator +() const
 {
@@ -471,7 +471,7 @@ inline const CVector<_Type> CVector<_Type>::operator +() const
 }
 
 
-//Ê¸Á¿ÀÛ¼Ó
+//çŸ¢é‡ç´¯åŠ 
 template<class _Type>
 inline const CVector<_Type>& CVector<_Type>::operator +=(const CVector<_Type> &v)
 {
@@ -481,7 +481,7 @@ inline const CVector<_Type>& CVector<_Type>::operator +=(const CVector<_Type> &v
 	return *this;
 }
 
-//Ê¸Á¿¼Ó
+//çŸ¢é‡åŠ 
 template<class _Type>
 inline const CVector<_Type> CVector<_Type>::operator +(const CVector<_Type>& v2) const
 {
@@ -491,7 +491,7 @@ inline const CVector<_Type> CVector<_Type>::operator +(const CVector<_Type>& v2)
 	return v;
 }
 
-//Ê¸Á¿ÀÛ²î
+//çŸ¢é‡ç´¯å·®
 template<class _Type>
 inline const CVector<_Type>& CVector<_Type>::operator-=(const CVector<_Type>& v)
 {
@@ -501,7 +501,7 @@ inline const CVector<_Type>& CVector<_Type>::operator-=(const CVector<_Type>& v)
 	return *this;
 }
 
-//Ê¸Á¿²î
+//çŸ¢é‡å·®
 template<class _Type>
 inline const CVector<_Type> CVector<_Type>::operator -(const CVector<_Type>& v2) const
 {
@@ -511,7 +511,7 @@ inline const CVector<_Type> CVector<_Type>::operator -(const CVector<_Type>& v2)
 	return v;
 }
 
-//ÖØÔØÊ¸Á¿Çó¸ºÔËËã
+//é‡è½½çŸ¢é‡æ±‚è´Ÿè¿ç®—
 template<class _Type>
 inline const CVector<_Type> CVector<_Type>::operator -() const
 {
@@ -535,7 +535,7 @@ inline const CVector<_Type>& CVector<_Type>::operator *=(const CVector<_Type>& v
 	return *this;
 }
 
-//ÈıÎ¬Ê¸Á¿²æ»ı
+//ä¸‰ç»´çŸ¢é‡å‰ç§¯
 template<class _Type>
 inline const CVector<_Type> CVector<_Type>::operator *(const CVector<_Type>& v2) const
 {
@@ -545,7 +545,7 @@ inline const CVector<_Type> CVector<_Type>::operator *(const CVector<_Type>& v2)
 	return Out;
 }
 
-//Ê¸Á¿Êı³Ë
+//çŸ¢é‡æ•°ä¹˜
 template<class _Type>
 inline const CVector<_Type> CVector<_Type>::operator *(const _Type& Num) const
 {
@@ -554,7 +554,7 @@ inline const CVector<_Type> CVector<_Type>::operator *(const _Type& Num) const
 	return Out;
 }
 
-//Ê¸Á¿ÀÛ³ËÊı
+//çŸ¢é‡ç´¯ä¹˜æ•°
 template<class _Type>
 inline const CVector<_Type>& CVector<_Type>::operator*=(const _Type& Num)
 {
@@ -585,14 +585,14 @@ inline const CVector<_Type>  CVector<_Type>::operator /(const _Type& dNum) const
 //////////////////////////////////////////////////////////////////////
 //TEMPLATE CLASS CVector<double>
 
-//µÃµ½Ê¸Á¿µÄÎ¬Êı
+//å¾—åˆ°çŸ¢é‡çš„ç»´æ•°
 inline int CVector<double>::GetSize() const
 {
 	return m_Size;
 };
 
 
-//µÃµ½Ê¸Á¿µÄÎ¬Êı
+//å¾—åˆ°çŸ¢é‡çš„ç»´æ•°
 inline int CVector<double>::Size() const
 {
 	return m_Size;
@@ -624,7 +624,7 @@ inline CVector<double>::operator const double*() const
 	return m_p;
 }
 
-//ÒıÓÃÊ¸Á¿µÄÔªËØ£¬´Ó0¿ªÊ¼
+//å¼•ç”¨çŸ¢é‡çš„å…ƒç´ ï¼Œä»0å¼€å§‹
 inline double & CVector<double>::operator[](int i)
 {
 	assert(i>=0 && i<m_Size); //Exceed the size of vector.
@@ -637,13 +637,13 @@ inline const double& CVector<double>::operator[](int i) const
 	return m_p[i];
 }
 
-//ÖØÔØÊ¸Á¿ÇóÕıÔËËã
+//é‡è½½çŸ¢é‡æ±‚æ­£è¿ç®—
 inline const CVector<double> CVector<double>::operator +() const
 {
 	return *this;
 }
 
-//Ê¸Á¿ÀÛ¼Ó
+//çŸ¢é‡ç´¯åŠ 
 inline const CVector<double>& CVector<double>::operator +=(const CVector<double> &v)
 {
 	assert(v.m_Size==m_Size);
@@ -652,7 +652,7 @@ inline const CVector<double>& CVector<double>::operator +=(const CVector<double>
 	return *this;
 }
 
-//Ê¸Á¿¼Ó
+//çŸ¢é‡åŠ 
 inline const CVector<double> CVector<double>::operator +(const CVector<double>& v2) const
 {
 	assert(m_Size==v2.m_Size);
@@ -661,7 +661,7 @@ inline const CVector<double> CVector<double>::operator +(const CVector<double>& 
 	return v;
 }
 
-//Ê¸Á¿ÀÛ²î
+//çŸ¢é‡ç´¯å·®
 inline const CVector<double>& CVector<double>::operator-=(const CVector<double>& v)
 {
 	assert(v.m_Size==m_Size);
@@ -670,7 +670,7 @@ inline const CVector<double>& CVector<double>::operator-=(const CVector<double>&
 	return *this;
 }
 
-//Ê¸Á¿²î
+//çŸ¢é‡å·®
 inline const CVector<double> CVector<double>::operator -(const CVector<double>& v2) const
 {
 	assert(m_Size==v2.m_Size);
@@ -679,7 +679,7 @@ inline const CVector<double> CVector<double>::operator -(const CVector<double>& 
 	return v;
 }
 
-//ÖØÔØÊ¸Á¿Çó¸ºÔËËã
+//é‡è½½çŸ¢é‡æ±‚è´Ÿè¿ç®—
 inline const CVector<double> CVector<double>::operator -() const
 {
 	CVector<double> v = *this;
@@ -699,7 +699,7 @@ inline const CVector<double>& CVector<double>::operator *=(const CVector<double>
 	return *this;
 }
 
-//ÈıÎ¬Ê¸Á¿²æ»ı
+//ä¸‰ç»´çŸ¢é‡å‰ç§¯
 inline const CVector<double> CVector<double>::operator *(const CVector<double>& v2) const
 {
 	assert(m_Size==3 && 3==v2.m_Size);
@@ -708,7 +708,7 @@ inline const CVector<double> CVector<double>::operator *(const CVector<double>& 
 	return Out;
 }
 
-//Ê¸Á¿Êı³Ë
+//çŸ¢é‡æ•°ä¹˜
 inline const CVector<double> CVector<double>::operator *(double Num) const
 {
 	CVector<double> Out = *this;
@@ -716,7 +716,7 @@ inline const CVector<double> CVector<double>::operator *(double Num) const
 	return Out;
 }
 
-//Ê¸Á¿ÀÛ³ËÊı
+//çŸ¢é‡ç´¯ä¹˜æ•°
 inline const CVector<double>& CVector<double>::operator*=(double Num)
 {
 	for(int i=0; i<m_Size; i++)

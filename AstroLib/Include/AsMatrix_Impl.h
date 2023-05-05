@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////
 //TEMPLATE CLASS _CMatrix_base<_Type>
 
-// Ä¬ÈÏµÄ¹¹Ôìº¯Êı£¬Èı½×¾ØÕó
+// é»˜è®¤çš„æ„é€ å‡½æ•°ï¼Œä¸‰é˜¶çŸ©é˜µ
 template <class _Type>
 _CMatrix_base<_Type>::_CMatrix_base()
 {
@@ -41,7 +41,7 @@ _CMatrix_base<_Type>::_CMatrix_base(const _Type& d11, const _Type& d12, const _T
 }
 
 
-// Ö¸¶¨ĞĞÁĞ¹¹Ôìº¯Êı
+// æŒ‡å®šè¡Œåˆ—æ„é€ å‡½æ•°
 template <class _Type>
 _CMatrix_base<_Type>::_CMatrix_base(int nRow, int nCol)
 {
@@ -49,7 +49,7 @@ _CMatrix_base<_Type>::_CMatrix_base(int nRow, int nCol)
 }
 
 
-// ¿½±´¹¹Ôìº¯Êı
+// æ‹·è´æ„é€ å‡½æ•°
 template <class _Type>
 _CMatrix_base<_Type>::_CMatrix_base(const _CMatrix_base<_Type>& other)
 {
@@ -128,7 +128,7 @@ inline int	_CMatrix_base<_Type>::GetSizeRow() const
 	return m_Row;
 }
 
-//ÖØÔØ[]ÔËËã·û£¬µÃµ½¾ØÕóÏàÓ¦Î»ÖÃµÄÖµ
+//é‡è½½[]è¿ç®—ç¬¦ï¼Œå¾—åˆ°çŸ©é˜µç›¸åº”ä½ç½®çš„å€¼
 template <class _Type>
 inline const _Type* _CMatrix_base<_Type>::operator [](int n)const
 {
@@ -161,17 +161,17 @@ inline _Type& _CMatrix_base<_Type>::operator ()(int nRow,int nCol)
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û==£¬ÅĞ¶Ï¾ØÕóÊÇ·ñÏàµÈ
+// é‡è½½è¿ç®—ç¬¦==ï¼Œåˆ¤æ–­çŸ©é˜µæ˜¯å¦ç›¸ç­‰
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓÃÓÚ±È½ÏµÄ¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ç”¨äºæ¯”è¾ƒçš„çŸ©é˜µ
 //
-// ·µ»ØÖµ£ºBOOL ĞÍ£¬Á½¸ö¾ØÕóÏàµÈÔòÎªTRUE£¬·ñÔòÎªFALSE
+// è¿”å›å€¼ï¼šBOOL å‹ï¼Œä¸¤ä¸ªçŸ©é˜µç›¸ç­‰åˆ™ä¸ºTRUEï¼Œå¦åˆ™ä¸ºFALSE
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 inline bool _CMatrix_base<_Type>::operator==(const _CMatrix_base<_Type>& other) const
 {
-	// Ê×ÏÈ¼ì²éĞĞÁĞÊıÊÇ·ñÏàµÈ
+	// é¦–å…ˆæ£€æŸ¥è¡Œåˆ—æ•°æ˜¯å¦ç›¸ç­‰
 	if (m_Col != other.GetSizeCol() || m_Row != other.GetSizeRow())
 		return false;
 
@@ -188,17 +188,17 @@ inline bool _CMatrix_base<_Type>::operator==(const _CMatrix_base<_Type>& other) 
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û!=£¬ÅĞ¶Ï¾ØÕóÊÇ·ñ²»ÏàµÈ
+// é‡è½½è¿ç®—ç¬¦!=ï¼Œåˆ¤æ–­çŸ©é˜µæ˜¯å¦ä¸ç›¸ç­‰
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓÃÓÚ±È½ÏµÄ¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ç”¨äºæ¯”è¾ƒçš„çŸ©é˜µ
 //
-// ·µ»ØÖµ£ºBOOL ĞÍ£¬Á½¸ö²»¾ØÕóÏàµÈÔòÎªTRUE£¬·ñÔòÎªFALSE
+// è¿”å›å€¼ï¼šBOOL å‹ï¼Œä¸¤ä¸ªä¸çŸ©é˜µç›¸ç­‰åˆ™ä¸ºTRUEï¼Œå¦åˆ™ä¸ºFALSE
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 inline bool _CMatrix_base<_Type>::operator!=(const _CMatrix_base<_Type>& other) const
 {
-	// Ê×ÏÈ¼ì²éĞĞÁĞÊıÊÇ·ñÏàµÈ
+	// é¦–å…ˆæ£€æŸ¥è¡Œåˆ—æ•°æ˜¯å¦ç›¸ç­‰
 	if (m_Col == other.GetSizeCol() || m_Row == other.GetSizeRow())
 		return false;
 
@@ -262,12 +262,12 @@ inline const _Type* const* _CMatrix_base<_Type>::Data() const
 
 
 //////////////////////////////////////////////////////////////////////
-// ÉèÖÃ¾ØÕó¸÷ÔªËØµÄÖµ
+// è®¾ç½®çŸ©é˜µå„å…ƒç´ çš„å€¼
 //
-//Input  parameter:	value	Ò»Î¬Êı×é£¬³¤¶ÈÎªm_Col*m_Row£¬´æ´¢
-//                     ¾ØÕó¸÷ÔªËØµÄÖµ
+//Input  parameter:	value	ä¸€ç»´æ•°ç»„ï¼Œé•¿åº¦ä¸ºm_Col*m_Rowï¼Œå­˜å‚¨
+//                     çŸ©é˜µå„å…ƒç´ çš„å€¼
 //
-// ·µ»ØÖµ£ºÎŞ
+// è¿”å›å€¼ï¼šæ— 
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 void _CMatrix_base<_Type>::SetData(int n, const _Type *value)
@@ -283,8 +283,8 @@ void _CMatrix_base<_Type>::SetData(int n, const _Type *value)
 
 
 //********************************************************************
-//µÃµ½¾ØÕóµÄÖµ
-//Output parameter:	value	Ò»Î¬Êı×é£¬³¤¶ÈÎªm_Col*m_Row£¬ÒÔÒ»Î¬Êı×é±íÊ¾µÄ¾ØÕóÖµ
+//å¾—åˆ°çŸ©é˜µçš„å€¼
+//Output parameter:	value	ä¸€ç»´æ•°ç»„ï¼Œé•¿åº¦ä¸ºm_Col*m_Rowï¼Œä»¥ä¸€ç»´æ•°ç»„è¡¨ç¤ºçš„çŸ©é˜µå€¼
 //********************************************************************
 template <class _Type>
 void _CMatrix_base<_Type>::GetData(int n, _Type *value) const
@@ -334,13 +334,13 @@ void _CMatrix_base<_Type>::SetDataAll(const _Type& value)
 
 
 //********************************************************************
-/// »ñÈ¡Ö¸¶¨ĞĞµÄÏòÁ¿
+/// è·å–æŒ‡å®šè¡Œçš„å‘é‡
 /// @Author	Wang Hua
 /// @Date	2008.4.17
 /// @Input
-/// @Param  nRow    »ñÈ¡µÄĞĞÊı   
+/// @Param  nRow    è·å–çš„è¡Œæ•°   
 /// @In/Out
-/// @Param	pVector	·µ»Ø»ñÈ¡µÄÏòÁ¿£¬ĞèÒªÊÂÏÈ·ÖÅäºÃÄÚ´æ
+/// @Param	pVector	è¿”å›è·å–çš„å‘é‡ï¼Œéœ€è¦äº‹å…ˆåˆ†é…å¥½å†…å­˜
 //********************************************************************
 template <class _Type>
 void _CMatrix_base<_Type>::GetRowVector(int nRow, _Type* pVector) const
@@ -353,13 +353,13 @@ void _CMatrix_base<_Type>::GetRowVector(int nRow, _Type* pVector) const
 
 
 //********************************************************************
-/// »ñÈ¡Ö¸¶¨ÁĞµÄÏòÁ¿
+/// è·å–æŒ‡å®šåˆ—çš„å‘é‡
 /// @Author	Wang Hua
 /// @Date	2008.4.17
 /// @Input
-/// @Param  nRow    »ñÈ¡µÄÁĞÊı   
+/// @Param  nRow    è·å–çš„åˆ—æ•°   
 /// @In/Out
-/// @Param	pVector	·µ»Ø»ñÈ¡µÄÏòÁ¿£¬ĞèÒªÊÂÏÈ·ÖÅäºÃÄÚ´æ
+/// @Param	pVector	è¿”å›è·å–çš„å‘é‡ï¼Œéœ€è¦äº‹å…ˆåˆ†é…å¥½å†…å­˜
 //********************************************************************
 template <class _Type>
 void _CMatrix_base<_Type>::GetColVector(int nCol, _Type* pVector) const
@@ -392,16 +392,16 @@ void _CMatrix_base<_Type>::GetColVector(int nCol, CVector<_Type> &vec) const
 
 
 //********************************************************************
-/// »ñÈ¡Ö¸¶¨×Ó¾ØÕó
+/// è·å–æŒ‡å®šå­çŸ©é˜µ
 /// @Author	Wang Hua
 /// @Date	2008.4.23
 /// @Input
-/// @Param  begRow      ¿ªÊ¼È¡×Ó¾ØÕóµÄĞĞÊı
-/// @Param  begCol      ¿ªÊ¼È¡×Ó¾ØÕóµÄÁĞÊı
-/// @Param  sizeRow     ×Ó¾ØÕóµÄĞĞÊı
-/// @Param  sizeCol     ×Ó¾ØÕóµÄÁĞÊı
+/// @Param  begRow      å¼€å§‹å–å­çŸ©é˜µçš„è¡Œæ•°
+/// @Param  begCol      å¼€å§‹å–å­çŸ©é˜µçš„åˆ—æ•°
+/// @Param  sizeRow     å­çŸ©é˜µçš„è¡Œæ•°
+/// @Param  sizeCol     å­çŸ©é˜µçš„åˆ—æ•°
 /// @In/Out
-/// @Param	pVector	·µ»Ø»ñÈ¡µÄÏòÁ¿£¬ĞèÒªÊÂÏÈ·ÖÅäºÃÄÚ´æ
+/// @Param	pVector	è¿”å›è·å–çš„å‘é‡ï¼Œéœ€è¦äº‹å…ˆåˆ†é…å¥½å†…å­˜
 //********************************************************************
 template <class _Type>
 void _CMatrix_base<_Type>::GetSubMatrix(int begRow, int begCol, int sizeRow, int sizeCol, _Type** pp) const
@@ -453,12 +453,12 @@ CMatrix<_Type>::~CMatrix()
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û=£¬¸ø¾ØÕó¸³Öµ
+// é‡è½½è¿ç®—ç¬¦=ï¼Œç»™çŸ©é˜µèµ‹å€¼
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓÃÓÚ¸ø¾ØÕó¸³ÖµµÄÔ´¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ç”¨äºç»™çŸ©é˜µèµ‹å€¼çš„æºçŸ©é˜µ
 //
-// ·µ»ØÖµ£ºCMatrixĞÍµÄÒıÓÃ£¬ËùÒıÓÃµÄ¾ØÕóÓëotherÏàµÈ
+// è¿”å›å€¼ï¼šCMatrixå‹çš„å¼•ç”¨ï¼Œæ‰€å¼•ç”¨çš„çŸ©é˜µä¸otherç›¸ç­‰
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 CMatrix<_Type>& CMatrix<_Type>::operator=(const CMatrix<_Type>& other)
@@ -478,14 +478,14 @@ CMatrix<_Type>& CMatrix<_Type>::operator=(const CMatrix<_Type>& other)
 }
 
 
-// ¾ØÕóµÄ×ªÖÃ
+// çŸ©é˜µçš„è½¬ç½®
 template <class _Type>
 const CMatrix<_Type> CMatrix<_Type>::Transpose() const
 {
-	// ¹¹ÔìÄ¿±ê¾ØÕó
+	// æ„é€ ç›®æ ‡çŸ©é˜µ
 	CMatrix<_Type> Trans(m_Col, m_Row);
 
-	// ×ªÖÃ¸÷ÔªËØ
+	// è½¬ç½®å„å…ƒç´ 
 	for (int i = 0 ; i < m_Row ; ++i)
 	{
 		for (int j = 0 ; j < m_Col ; ++j)
@@ -511,12 +511,12 @@ inline const CMatrix<_Type>& CMatrix<_Type>::operator+=(const CMatrix<_Type>& ot
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û+£¬ÊµÏÖ¾ØÕóµÄ¼Ó·¨
+// é‡è½½è¿ç®—ç¬¦+ï¼Œå®ç°çŸ©é˜µçš„åŠ æ³•
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓëÖ¸¶¨¾ØÕóÏà¼ÓµÄ¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ä¸æŒ‡å®šçŸ©é˜µç›¸åŠ çš„çŸ©é˜µ
 //
-// ·µ»ØÖµ£ºCMatrixĞÍ£¬Ö¸¶¨¾ØÕóÓëotherÏà¼ÓÖ®ºÍ
+// è¿”å›å€¼ï¼šCMatrixå‹ï¼ŒæŒ‡å®šçŸ©é˜µä¸otherç›¸åŠ ä¹‹å’Œ
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 inline const CMatrix<_Type> CMatrix<_Type>::operator+(const CMatrix<_Type>& other) const
@@ -543,12 +543,12 @@ inline const CMatrix<_Type>& CMatrix<_Type>::operator-=(const CMatrix<_Type>& ot
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û-£¬ÊµÏÖ¾ØÕóµÄ¼õ·¨
+// é‡è½½è¿ç®—ç¬¦-ï¼Œå®ç°çŸ©é˜µçš„å‡æ³•
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓëÖ¸¶¨¾ØÕóÏà¼õµÄ¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ä¸æŒ‡å®šçŸ©é˜µç›¸å‡çš„çŸ©é˜µ
 //
-// ·µ»ØÖµ£ºCMatrixĞÍ£¬Ö¸¶¨¾ØÕóÓëotherÏà¼õÖ®²î
+// è¿”å›å€¼ï¼šCMatrixå‹ï¼ŒæŒ‡å®šçŸ©é˜µä¸otherç›¸å‡ä¹‹å·®
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 inline const CMatrix<_Type> CMatrix<_Type>::operator-(const CMatrix<_Type>& other) const
@@ -560,7 +560,7 @@ inline const CMatrix<_Type> CMatrix<_Type>::operator-(const CMatrix<_Type>& othe
 	return result ;
 }
 
-//ÖØÔØÔËËã·û-£¬ÊµÏÖÇó¾ØÕóµÄ¸º
+//é‡è½½è¿ç®—ç¬¦-ï¼Œå®ç°æ±‚çŸ©é˜µçš„è´Ÿ
 template <class _Type>
 inline const CMatrix<_Type> CMatrix<_Type>::operator-() const
 {
@@ -574,12 +574,12 @@ inline const CMatrix<_Type> CMatrix<_Type>::operator-() const
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û*£¬ÊµÏÖ¾ØÕóµÄ³Ë·¨
+// é‡è½½è¿ç®—ç¬¦*ï¼Œå®ç°çŸ©é˜µçš„ä¹˜æ³•
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓëÖ¸¶¨¾ØÕóÏà³ËµÄ¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ä¸æŒ‡å®šçŸ©é˜µç›¸ä¹˜çš„çŸ©é˜µ
 //
-// ·µ»ØÖµ£ºCMatrixĞÍ£¬Ö¸¶¨¾ØÕóÓëotherÏà³ËÖ®»ı
+// è¿”å›å€¼ï¼šCMatrixå‹ï¼ŒæŒ‡å®šçŸ©é˜µä¸otherç›¸ä¹˜ä¹‹ç§¯
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 inline const CMatrix<_Type> CMatrix<_Type>::operator*(const CMatrix<_Type>& other) const
@@ -608,12 +608,12 @@ inline const CMatrix<_Type> CMatrix<_Type>::operator*(const CMatrix<_Type>& othe
 
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û*£¬ÊµÏÖ¾ØÕóºÍÊ¸Á¿µÄ³Ë·¨
+// é‡è½½è¿ç®—ç¬¦*ï¼Œå®ç°çŸ©é˜µå’ŒçŸ¢é‡çš„ä¹˜æ³•
 //
-// ²ÎÊı£º
-// 1. const double& vec - ÓëÖ¸¶¨¾ØÕóÏà³ËµÄÊ¸Á¿
+// å‚æ•°ï¼š
+// 1. const double& vec - ä¸æŒ‡å®šçŸ©é˜µç›¸ä¹˜çš„çŸ¢é‡
 //
-// ·µ»ØÖµ£ºÏà³ËÖ®»ı
+// è¿”å›å€¼ï¼šç›¸ä¹˜ä¹‹ç§¯
 //////////////////////////////////////////////////////////////////////
 template <class _Type>
 inline const CVector<_Type>	CMatrix<_Type>::operator*(const CVector<_Type>& vec) const
@@ -646,7 +646,7 @@ inline const CMatrix<_Type>& CMatrix<_Type>::operator*=(const _Type& other)
 	return *this ;
 }
 
-//¾ØÕó³ËÊı
+//çŸ©é˜µä¹˜æ•°
 template <class _Type>
 inline const CMatrix<_Type>  CMatrix<_Type>::operator*(const _Type& dNum) const
 {
@@ -655,7 +655,7 @@ inline const CMatrix<_Type>  CMatrix<_Type>::operator*(const _Type& dNum) const
 	return result;
 }
 
-//Êı³Ë¾ØÕó
+//æ•°ä¹˜çŸ©é˜µ
 template <class _Type>
 inline const CMatrix<_Type> operator*(const _Type& dNum, const CMatrix<_Type>& m)	
 {
@@ -674,7 +674,7 @@ inline const CMatrix<_Type>&  CMatrix<_Type>::operator/=(const _Type& dNum)
 
 }
 
-//¾ØÕó³ıÊı
+//çŸ©é˜µé™¤æ•°
 template <class _Type>
 inline const CMatrix<_Type>  CMatrix<_Type>::operator/(const _Type& dNum) const						
 {
@@ -721,12 +721,12 @@ inline const CMatrix<double>& CMatrix<double>::operator+=(const CMatrix<double>&
 }
 
 //////////////////////////////////////////////////////////////////////
-// ÖØÔØÔËËã·û+£¬ÊµÏÖ¾ØÕóµÄ¼Ó·¨
+// é‡è½½è¿ç®—ç¬¦+ï¼Œå®ç°çŸ©é˜µçš„åŠ æ³•
 //
-// ²ÎÊı£º
-// 1. const CMatrix& other - ÓëÖ¸¶¨¾ØÕóÏà¼ÓµÄ¾ØÕó
+// å‚æ•°ï¼š
+// 1. const CMatrix& other - ä¸æŒ‡å®šçŸ©é˜µç›¸åŠ çš„çŸ©é˜µ
 //
-// ·µ»ØÖµ£ºCMatrixĞÍ£¬Ö¸¶¨¾ØÕóÓëotherÏà¼ÓÖ®ºÍ
+// è¿”å›å€¼ï¼šCMatrixå‹ï¼ŒæŒ‡å®šçŸ©é˜µä¸otherç›¸åŠ ä¹‹å’Œ
 //////////////////////////////////////////////////////////////////////
 inline const CMatrix<double> CMatrix<double>::operator+(const CMatrix<double>& other) const
 {
@@ -750,7 +750,7 @@ inline const CMatrix<double>& CMatrix<double>::operator-=(const CMatrix<double>&
 	return *this ;
 }
 
-// ÖØÔØÔËËã·û-£¬ÊµÏÖ¾ØÕóµÄ¼õ·¨
+// é‡è½½è¿ç®—ç¬¦-ï¼Œå®ç°çŸ©é˜µçš„å‡æ³•
 inline const CMatrix<double> CMatrix<double>::operator-(const CMatrix<double>& other) const
 {
 	assert (m_Col == other.GetSizeCol() && m_Row == other.GetSizeRow());
@@ -761,7 +761,7 @@ inline const CMatrix<double> CMatrix<double>::operator-(const CMatrix<double>& o
 }
 
 //********************************************************************
-//ÖØÔØÔËËã·û-£¬ÊµÏÖÇó¾ØÕóµÄ¸º
+//é‡è½½è¿ç®—ç¬¦-ï¼Œå®ç°æ±‚çŸ©é˜µçš„è´Ÿ
 //********************************************************************
 inline const CMatrix<double> CMatrix<double>::operator-() const
 {
@@ -798,7 +798,7 @@ inline const CMatrix<double>& CMatrix<double>::operator*=(const _MyT& other)
 }
 
 
-// ÖØÔØÔËËã·û*£¬ÊµÏÖ¾ØÕóµÄ³Ë·¨
+// é‡è½½è¿ç®—ç¬¦*ï¼Œå®ç°çŸ©é˜µçš„ä¹˜æ³•
 inline const CMatrix<double> CMatrix<double>::operator*(const CMatrix<double>& other) const
 {
 	assert (m_Col == other.GetSizeRow());
@@ -822,7 +822,7 @@ inline const CMatrix<double> CMatrix<double>::operator*(const CMatrix<double>& o
 }
 
 
-// ÖØÔØÔËËã·û*£¬ÊµÏÖ¾ØÕóºÍÊ¸Á¿µÄ³Ë·¨
+// é‡è½½è¿ç®—ç¬¦*ï¼Œå®ç°çŸ©é˜µå’ŒçŸ¢é‡çš„ä¹˜æ³•
 inline const CVector<double> CMatrix<double>::operator*(const CVector<double>& vec) const
 {
 	assert (m_Col == vec.GetSize());
@@ -853,7 +853,7 @@ inline const CMatrix<double>& CMatrix<double>::operator*=(double other)
 }
 
 
-//¾ØÕó³ËÊı
+//çŸ©é˜µä¹˜æ•°
 inline const CMatrix<double>  CMatrix<double>::operator*(double dNum) const
 {
 	CMatrix<double> result = *this;
@@ -871,7 +871,7 @@ inline const CMatrix<double>&  CMatrix<double>::operator/=(double dNum)
 
 }
 
-//¾ØÕó³ıÊı
+//çŸ©é˜µé™¤æ•°
 inline const CMatrix<double>  CMatrix<double>::operator/(double dNum) const						
 {
 	CMatrix<double> result = *this;
@@ -896,7 +896,7 @@ inline const CMatrix<double> CMatrix<double>::operator/(CMatrix<double> m) const
 
 
 //********************************************************************
-/// °´ĞĞºÏ²¢Á½¸ö¾ØÕó
+/// æŒ‰è¡Œåˆå¹¶ä¸¤ä¸ªçŸ©é˜µ
 ///  |1 2|  and  |5 6|  to |1 2 5 6|
 ///  |3 4|       |7 8|     |3 4 7 8|
 /// Author	Wang Hua
@@ -929,7 +929,7 @@ void  AsMtxMergeRow(const CMatrix<_Type>& mtxA, const CMatrix<_Type>& mtxB,
 
 
 //********************************************************************
-///°´ÁĞºÏ²¢Á½¸ö¾ØÕó
+///æŒ‰åˆ—åˆå¹¶ä¸¤ä¸ªçŸ©é˜µ
 ///  |1 2|  and  |5 6|  
 ///  |3 4|       |7 8|  
 ///  to |1 2|

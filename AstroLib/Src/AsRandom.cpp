@@ -41,7 +41,7 @@ CRandom::~CRandom()
 
 
 //********************************************************************
-//生成[0,1]区间的随机数
+//鐢熸垚[0,1]鍖洪棿鐨勯殢鏈烘暟
 //Return a uniform random deviate between 0.0 to 1.0.
 //Author:	Wang Hua
 //Input:	m_Seed	Set or reset m_Seed to any integer value(except the unlikely

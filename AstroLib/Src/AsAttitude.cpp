@@ -28,13 +28,13 @@ CAttitude::CFuncAtt::~CFuncAtt()
 }
 
 //********************************************************************
-//¼ÆËã¹ìµÀºÍ×ËÌ¬µÄÓÒº¯Êı£¬ÓÃÓÚR-K»ı·Ö£¬ÖØÔØ¸¸ÀàµÄ´¿Ğéº¯Êı
+//è®¡ç®—è½¨é“å’Œå§¿æ€çš„å³å‡½æ•°ï¼Œç”¨äºR-Kç§¯åˆ†ï¼Œé‡è½½çˆ¶ç±»çš„çº¯è™šå‡½æ•°
 ///@author	Wang Hua
 //Date:		2004.12.9
 //Version:	1.0
-//Input:	t			×Ô±äÁ¿µÄÖµ
-//			x			³õÊ¼º¯ÊıÖµ
-//Output:	result		¼ÆËãµÃµ½µÄº¯ÊıÖµ
+//Input:	t			è‡ªå˜é‡çš„å€¼
+//			x			åˆå§‹å‡½æ•°å€¼
+//Output:	result		è®¡ç®—å¾—åˆ°çš„å‡½æ•°å€¼
 //Return:	
 //********************************************************************
 void CAttitude::CFuncAtt::operator()(double t, const CVector<double> &x, CVector<double> &result) const
@@ -52,13 +52,13 @@ void CAttitude::CFuncAtt::operator()(double t, const CVector<double> &x, CVector
     quat.m_Qy = x[5];
     quat.m_Qz = x[6];
 
-	//×ËÌ¬ËÄÔªÊıÔË¶¯Ñ§·½³ÌÓÒº¯Êı
+	//å§¿æ€å››å…ƒæ•°è¿åŠ¨å­¦æ–¹ç¨‹å³å‡½æ•°
 	result[0] = 0.5*(-quat.m_Qx*angVel[0]-quat.m_Qy*angVel[1]-quat.m_Qz*angVel[2]);
     result[1] = 0.5*(quat.m_Qs*angVel[0]-quat.m_Qz*angVel[1]+quat.m_Qy*angVel[2]);
     result[2] = 0.5*(quat.m_Qz*angVel[0]+quat.m_Qs*angVel[1]-quat.m_Qx*angVel[2]);
     result[3] = 0.5*(-quat.m_Qy*angVel[0]+quat.m_Qx*angVel[1]+quat.m_Qs*angVel[2]);
 
-	//×ËÌ¬¶¯Á¦Ñ§·½³ÌÓÒº¯Êı
+	//å§¿æ€åŠ¨åŠ›å­¦æ–¹ç¨‹å³å‡½æ•°
 	angVel = (m_Inertia.Inv())*(m_Torque-angVel*(m_Inertia*angVel));
 	for (i=0; i<3; i++)
 		result[i+4] = angVel[i];
@@ -82,16 +82,16 @@ CAttitude::~CAttitude()
 
 
 //***********************************************************************
-/// ¼ÆËã×ËÌ¬
+/// è®¡ç®—å§¿æ€
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 /// @Input	
-/// @Param	step		·ÂÕæ²½³¤								sec
-/// @Param	torque		ËùÊÜ¿ØÖÆÁ¦¾Ø(ÌåÏµ)
-/// @Param	inertia		×ª¶¯¹ßÁ¿
+/// @Param	step		ä»¿çœŸæ­¥é•¿								sec
+/// @Param	torque		æ‰€å—æ§åˆ¶åŠ›çŸ©(ä½“ç³»)
+/// @Param	inertia		è½¬åŠ¨æƒ¯é‡
 /// @In/Out
-/// @Param	quat		ÖÊĞÄ×ø±êÏµÏà¶Ô¹ßĞÔÏµµÄËÄÔªÊı
-/// @Param	angVel		ÖÊĞÄ×ø±êÏµÖĞ±íÊ¾µÄÏà¶Ô¹ßĞÔÏµµÄ½ÇËÙ¶È
+/// @Param	quat		è´¨å¿ƒåæ ‡ç³»ç›¸å¯¹æƒ¯æ€§ç³»çš„å››å…ƒæ•°
+/// @Param	angVel		è´¨å¿ƒåæ ‡ç³»ä¸­è¡¨ç¤ºçš„ç›¸å¯¹æƒ¯æ€§ç³»çš„è§’é€Ÿåº¦
 //***********************************************************************
 void CAttitude::AttitudeStep(double step,
 			const CMatrix<double>& inertia, const CCoord& torque, 
@@ -100,7 +100,7 @@ void CAttitude::AttitudeStep(double step,
 	int i;
 	CVector<double> x(7);
 
-	//ÉèÖÃÓÒº¯ÊıÖĞµÄ²ÎÊı
+	//è®¾ç½®å³å‡½æ•°ä¸­çš„å‚æ•°
 	m_FuncAtt.m_Torque      = torque;
 	m_FuncAtt.m_Inertia     = inertia;
 
@@ -113,7 +113,7 @@ void CAttitude::AttitudeStep(double step,
 	x[5] = quat.m_Qy;
 	x[6] = quat.m_Qz;
 
-	//ÀûÓÃRK4·½·¨Çó½â×ËÌ¬Ä£ĞÍ
+	//åˆ©ç”¨RK4æ–¹æ³•æ±‚è§£å§¿æ€æ¨¡å‹
 	double t=0;
 	AsODERungeKutta4(m_FuncAtt, step, t, x);
 

@@ -26,7 +26,7 @@ using namespace std;
 //********************************************************************
 // CCoord Construction/Destruction
 //********************************************************************
-//Ä¬ÈÏ¹¹Ôìº¯Êı£¬ÈıÎ¬Ê¸Á¿
+//é»˜è®¤æ„é€ å‡½æ•°ï¼Œä¸‰ç»´çŸ¢é‡
 CCoord::CCoord() : CVector<double>(3)
 {
 }
@@ -45,13 +45,13 @@ CCoord::~CCoord()
 }
 
 //********************************************************************
-/// ¸ù¾İÒ»ÏµÁĞEuler½Ç½øĞĞ×Ô×ªÒÆ
+/// æ ¹æ®ä¸€ç³»åˆ—Eulerè§’è¿›è¡Œè‡ªè½¬ç§»
 /// @author	Wang Hua
 /// @date	2004.3
 /// @Version	1.0
 /// @Input
-/// @param	angle	×ªÒÆ½ÇÊı×é
-/// @param	flag	×ø±êÖá±êÖ¾Êı×é(1,2,3-X,Y,Z)
+/// @param	angle	è½¬ç§»è§’æ•°ç»„
+/// @param	flag	åæ ‡è½´æ ‡å¿—æ•°ç»„(1,2,3-X,Y,Z)
 //********************************************************************
 void CCoord::Rotate(const CVector<double>& angle,const CVector<int>& Flag)
 {
@@ -82,13 +82,13 @@ void CCoord::Rotate(
 
 
 //********************************************************************
-/// ¸ø¶¨·½Ê½µÄ×ªÒÆ
+/// ç»™å®šæ–¹å¼çš„è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.3
 /// @Input
-/// @Param	angle	×ªÒÆ½ÇÊı×é
-/// @Param	flag	×ø±êÖá±êÖ¾Êı×é(1,2,3-X,Y,Z)
-/// @Return	×ªÒÆºóµÄ×ø±ê
+/// @Param	angle	è½¬ç§»è§’æ•°ç»„
+/// @Param	flag	åæ ‡è½´æ ‡å¿—æ•°ç»„(1,2,3-X,Y,Z)
+/// @Return	è½¬ç§»åçš„åæ ‡
 //********************************************************************
 const CCoord CCoord::RotateTo(
 			const CVector<double>& angle,const CVector<int>& Flag) const
@@ -114,11 +114,11 @@ const CCoord CCoord::RotateTo(
 
 
 //********************************************************************
-/// °´ËÄÔªÊı×Ô×ªÒÆ
+/// æŒ‰å››å…ƒæ•°è‡ªè½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.4
 /// @Input
-/// @Param	quaternion	Ğı×ªËÄÔªÊı
+/// @Param	quaternion	æ—‹è½¬å››å…ƒæ•°
 //********************************************************************
 void CCoord::Rotate(const CQuaternion& q)
 {
@@ -135,11 +135,11 @@ void CCoord::Rotate(const CQuaternion& q)
 
 
 //********************************************************************
-/// °´ËÄÔªÊı×ªÒÆ
+/// æŒ‰å››å…ƒæ•°è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.4
 /// @Input
-/// @Param	quaternion		Ğı×ªËÄÔªÊı
+/// @Param	quaternion		æ—‹è½¬å››å…ƒæ•°
 //********************************************************************
 const CCoord CCoord::RotateTo(const CQuaternion& q) const
 {
@@ -150,13 +150,13 @@ const CCoord CCoord::RotateTo(const CQuaternion& q) const
 
 
 //********************************************************************
-/// µ¥Ò»½Ç¶ÈµÄ×Ô×ªÒÆ
+/// å•ä¸€è§’åº¦çš„è‡ªè½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.3
 /// @Version	1.0
 /// @Input
-/// @Param	angle	×ªÒÆ½Ç
-/// @Param	flag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+/// @Param	angle	è½¬ç§»è§’
+/// @Param	flag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 //********************************************************************
 void CCoord::Rotate(double Theta, int Flag)
 {
@@ -170,12 +170,12 @@ void CCoord::Rotate(double Theta, int Flag)
 
 
 //********************************************************************
-/// µ¥Ò»½Ç¶ÈµÄ×ªÒÆ
+/// å•ä¸€è§’åº¦çš„è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.3
 /// @Input
-/// @Param	angle	×ªÒÆ½Ç
-/// @Param	axFlag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+/// @Param	angle	è½¬ç§»è§’
+/// @Param	axFlag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 //********************************************************************
 const CCoord CCoord::RotateTo(double Theta,int Flag) const
 {
@@ -192,12 +192,12 @@ const CCoord CCoord::RotateTo(double Theta,int Flag) const
 
 
 //********************************************************************
-/// ¸ù¾İEuler½Ç×ªÒÆ
+/// æ ¹æ®Eulerè§’è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.12.16
 /// @Input
-/// @Param	angle	×ªÒÆ½Ç
-/// @Param	seqFlag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+/// @Param	angle	è½¬ç§»è§’
+/// @Param	seqFlag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 //********************************************************************
 void CCoord::Rotate(const CEuler& Theta, int Flag)
 {
@@ -209,12 +209,12 @@ void CCoord::Rotate(const CEuler& Theta, int Flag)
 
 
 //********************************************************************
-/// ¸ù¾İEuler½Ç×ªÒÆ
+/// æ ¹æ®Eulerè§’è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.12.16
 /// @Input
-/// @Param	angle	×ªÒÆ½Ç
-/// @Param	seqFlag	×ø±êÖá±êÖ¾(1,2,3-X,Y,Z)
+/// @Param	angle	è½¬ç§»è§’
+/// @Param	seqFlag	åæ ‡è½´æ ‡å¿—(1,2,3-X,Y,Z)
 //********************************************************************
 const CCoord CCoord::RotateTo(const CEuler& Theta, int Flag) const
 {
@@ -226,7 +226,7 @@ const CCoord CCoord::RotateTo(const CEuler& Theta, int Flag) const
 
 
 //********************************************************************
-/// ¸ù¾İÖáºÍ½Ç×ªÒÆ
+/// æ ¹æ®è½´å’Œè§’è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.10.18
 /// @Input
@@ -243,7 +243,7 @@ void CCoord::Rotate(const CCoord& axis, double angle)
 
 
 //********************************************************************
-/// ¸ù¾İÖáºÍ½Ç×ªÒÆ
+/// æ ¹æ®è½´å’Œè§’è½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.11.10
 /// @Input
@@ -260,11 +260,11 @@ const CCoord CCoord::RotateTo(const CCoord& axis, double angle) const
 
 
 //********************************************************************
-/// ¸ù¾İ×ªÒÆ¾ØÕó×ªÒÆ
+/// æ ¹æ®è½¬ç§»çŸ©é˜µè½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.11.10
 /// @Input
-/// @Param	mtx		Ğı×ª¾ØÕó
+/// @Param	mtx		æ—‹è½¬çŸ©é˜µ
 //********************************************************************
 void CCoord::Rotate(const CMatrix<double>& mtx)
 {
@@ -273,11 +273,11 @@ void CCoord::Rotate(const CMatrix<double>& mtx)
 
 
 //********************************************************************
-/// ¸ù¾İ×ªÒÆ¾ØÕó×ªÒÆ
+/// æ ¹æ®è½¬ç§»çŸ©é˜µè½¬ç§»
 /// @Author	Wang Hua
 /// @Date	2004.11.10
 /// @Input
-/// @Param	quaternion		Ğı×ªËÄÔªÊı
+/// @Param	quaternion		æ—‹è½¬å››å…ƒæ•°
 //********************************************************************
 const CCoord CCoord::RotateTo(const CMatrix<double>& mtx) const
 {
@@ -344,7 +344,7 @@ CAziElevRng::CAziElevRng(double azi, double elev, double rng)
 
 
 //***********************************************************
-//Öù×ø±ê×ª»»ÎªÖ±½Ç×ø±ê
+//æŸ±åæ ‡è½¬æ¢ä¸ºç›´è§’åæ ‡
 //Author:	Wang Hua
 //Date:		2005.7.21
 //Input:	polar
@@ -359,7 +359,7 @@ void  AsPolarToCart(const CPolar3& polar, CCoord& cart)
 
 
 //***********************************************************
-//Ö±½Ç×ø±ê×ª»»ÎªÖù×ø±ê
+//ç›´è§’åæ ‡è½¬æ¢ä¸ºæŸ±åæ ‡
 //Author:	Wang Hua
 //Date:		2005.7.21
 //Input:	cart
@@ -412,7 +412,7 @@ void AsLLRToCart(const CLatLonRad& llr, CCoord& cart)
 //  represent the corresponding spherical coordinates. 
 /// @Author	Wang Hua
 /// @Date	2004.9.12 10.11 2006.8.10
-//			2006.12.26±±¾©ĞŞ¸Ä£¬ºÃÏñ¼ÆËãllrRate.m_LatµÄ¹«Ê½Ô­À´²»¶Ô£¡£¡£¡
+//			2006.12.26åŒ—äº¬ä¿®æ”¹ï¼Œå¥½åƒè®¡ç®—llrRate.m_Latçš„å…¬å¼åŸæ¥ä¸å¯¹ï¼ï¼ï¼
 /// @Input	cartPos
 //			cartVel
 /// @Output	llrPos	llrPos.m_Lat [-pi/2, pi/2]
@@ -639,7 +639,7 @@ void  AsOblLLRToLLA(const CLatLonRad& llr, double radius, double flatFact, CLatL
 //Date:		2004.10.14
 //Input:	lla			latitude, longitude and altitude
 //			radius		long radius of central body
-//			flatFact	±âÂÊ
+//			flatFact	æ‰ç‡
 //Output:	cart		cartesian coordinate
 //********************************************************************
 void  AsOblLLAToLLR(const CLatLonAlt& lla, double radius, double flatFact, CLatLonRad& llr)
@@ -672,7 +672,7 @@ bool  AsICSToVVLHMtx(const CCoord& pos, const CCoord& vel,
 {
 	CCoord vy = vel.Cross(pos);
 
-	//posºÍvel·½Ïò²»ÄÜÏàÍ¬
+	//poså’Œvelæ–¹å‘ä¸èƒ½ç›¸åŒ
 	if (vy.SqrNorm()!=0)
 	{
 		CCoord vx = pos.Cross(vy);
@@ -686,7 +686,7 @@ bool  AsICSToVVLHMtx(const CCoord& pos, const CCoord& vel,
 		mtx[2][0] = -pos[0]/r;	mtx[2][1] = -pos[1]/r;	mtx[2][2] = -pos[2]/r;
 		return true;
 	}
-	//posÎª0£¬velÎª0£¬»òÕßposºÍvel·½ÏòÏàÍ¬
+	//posä¸º0ï¼Œvelä¸º0ï¼Œæˆ–è€…poså’Œvelæ–¹å‘ç›¸åŒ
 	else
 	{
 		mtx[0][0] = 1;	mtx[0][1] = 0;	mtx[0][2] = 0;

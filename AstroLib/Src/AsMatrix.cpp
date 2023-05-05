@@ -47,7 +47,7 @@ CMatrix<double>::~CMatrix()
 }
 
 
-// ÖØÔØÔËËã·û=£¬¸ø¾ØÕó¸³Öµ
+// é‡è½½è¿ç®—ç¬¦=ï¼Œç»™çŸ©é˜µèµ‹å€¼
 CMatrix<double>& CMatrix<double>::operator=(const CMatrix<double>& other)
 {
 	assert(m_Row==other.GetSizeRow() && m_Col==other.GetSizeCol());
@@ -70,13 +70,13 @@ void CMatrix<double>::Resize(int nRow, int nCol)
 }
 
 
-// ¾ØÕóµÄ×ªÖÃ
+// çŸ©é˜µçš„è½¬ç½®
 const CMatrix<double> CMatrix<double>::Transpose() const
 {
-	// ¹¹ÔìÄ¿±ê¾ØÕó
+	// æ„é€ ç›®æ ‡çŸ©é˜µ
 	CMatrix<double> Trans(m_Col, m_Row);
 
-	// ×ªÖÃ¸÷ÔªËØ
+	// è½¬ç½®å„å…ƒç´ 
 	for (int i = 0 ; i < m_Row ; ++i)
 	{
 		for (int j = 0 ; j < m_Col ; ++j)
@@ -117,7 +117,7 @@ int CMatrix<double>::Pivot (int row)
 }
 
 // calculate the determinant of a matrix
-// ¼ÆËãĞĞÁĞÊ½µÄÖµ
+// è®¡ç®—è¡Œåˆ—å¼çš„å€¼
 double CMatrix<double>::Det () const
 {
 	assert(m_Row == m_Col);
@@ -158,7 +158,7 @@ double CMatrix<double>::NormF () const
 	return retVal;
 }
 
-//µÃµ½¾ØÕóµÄÄ££¬¼´¾ø¶ÔÖµ×î´óµÄÔªËØµÄ¾ø¶ÔÖµ,m norm
+//å¾—åˆ°çŸ©é˜µçš„æ¨¡ï¼Œå³ç»å¯¹å€¼æœ€å¤§çš„å…ƒç´ çš„ç»å¯¹å€¼,m norm
 double	CMatrix<double>::NormM() const
 {
 	double a=0;
@@ -182,7 +182,7 @@ double	CMatrix<double>::NormM() const
 */
 
 // calculate the cofactor of a matrix for a given element
-// ¼ÆËã´úÊıÓà×ÓÊ½
+// è®¡ç®—ä»£æ•°ä½™å­å¼
 double CMatrix<double>::Cofactor (int row, int col) const
 {
 	assert(m_Row == m_Col && row<m_Row && col<m_Col);
@@ -212,7 +212,7 @@ double CMatrix<double>::Cofactor (int row, int col) const
 }
 
 // calculate adjoin of a matrix
-// ¼ÆËã°éËæ¾ØÕó
+// è®¡ç®—ä¼´éšçŸ©é˜µ
 const CMatrix<double> CMatrix<double>::Adj () const
 {
 	assert (m_Row == m_Col);
@@ -276,7 +276,7 @@ bool CMatrix<double>::IsNull () const
 }
 
 // Determine if the matrix is symmetric
-//return parameter:	true ¶Ô³Æ£¬false²»¶Ô³Æ
+//return parameter:	true å¯¹ç§°ï¼Œfalseä¸å¯¹ç§°
 bool CMatrix<double>::IsSymmetric() const
 {
 	if (m_Row != m_Col)
@@ -327,7 +327,7 @@ bool CMatrix<double>::IsLowerTriangular () const
 }
 
 //////////////////////////////////////////////////////////////////////
-// ½«·½Õó³õÊ¼»¯Îªµ¥Î»¾ØÕó
+// å°†æ–¹é˜µåˆå§‹åŒ–ä¸ºå•ä½çŸ©é˜µ
 //////////////////////////////////////////////////////////////////////
 void CMatrix<double>::MakeUnit()
 {
