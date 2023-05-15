@@ -170,7 +170,7 @@ int main()
 {
 	printf("*****************************************************************\n");
 	printf("*                                                               *\n");
-	printf("*          <<Aerospace Vehicle System Simulation>>              *\n");         
+	printf("*        <<Aerospace System Modeling and Simulation>>           *\n");         
 	printf("*          Six Degrees of Freedom Motion Simulation             *\n");
 	printf("*                                                               *\n");
 	printf("*****************************************************************\n\n");

@@ -43,7 +43,7 @@ void CRendezvous::Main()
 void CRendezvous::MainMonteCarlo()
 {
     ofstream oss(".\\Output\\MonteCarlo.txt");
-    for (int i=0; i<500; i++)
+    for (int i=0; i<50; i++)
     {
         bool isEnd=false;
 
@@ -178,8 +178,8 @@ int main()
 {
     printf("*****************************************************************\n");
     printf("*                                                               *\n");
-    printf("*          <<Aerospace Vehicle System Simulation>>              *\n");
-    printf("*                   Rendezvous Simulation                       *\n");
+	printf("*        <<Aerospace System Modeling and Simulation>>           *\n");
+	printf("*                   Rendezvous Simulation                       *\n");
     printf("*                                                               *\n");
     printf("*****************************************************************\n\n");
 

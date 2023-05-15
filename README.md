@@ -9,13 +9,20 @@
 AstroLib是其他工程的基础，使用时需要将AstroLib.h文件和Include、Lib目录拷贝到其他Project项目目录下。
 注意，这是一个静态库，不能运行，不能运行，不能运行！
 
+2. Example录
+AstroLib使用例子，包括轨道参数转换，数学，轨道外推，姿态等。
+可执行程序，依赖AstroLib静态库。
+![image](docs/resources/Example_Ui.png)
+
 2. SimDoF6目录
 Chapter 5 飞行器六自由度仿真实例。
 可执行程序，依赖AstroLib静态库。
+![image](docs/resources/SimDoF6_Ui.png)
 
 3. Rendezvous目录
 Chapter 9 交会对接接近段仿真实例。
 可执行程序，依赖AstroLib静态库。
+![image](docs/resources/Rendezvous_Ui.png)
 
 #### 软件架构
 
