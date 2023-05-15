@@ -24,7 +24,7 @@ Chapter 9 交会对接接近段仿真实例。
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/Rendezvous_Ui.png)
 ![image](docs/resources/Rendezvous_pos.png)
-![image](docs/resources/Rendezvous_xy.png)
+![image](docs/resources/Rendezvous_xz.png)
 ![image](docs/resources/Rendezvous_xyz.png)
 
 #### 软件架构
