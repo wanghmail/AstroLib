@@ -28,7 +28,7 @@ CChCtrl::~CChCtrl()
 
 
 //*********************************************************************
-/// åˆå§‹åŒ–
+/// ³õÊ¼»¯
 /// @author	Wang Hua
 /// @Date	2005.11.16
 //*********************************************************************
@@ -37,7 +37,7 @@ void CChCtrl::Init()
 	m_FlyTime  = 0;
 	m_PulseNum = 0;
 
-    //éšæœºæ•°åˆå§‹åŒ–
+    //Ëæ»úÊı³õÊ¼»¯
     int seed = AsRandomSeed();
     for (int i=0; i<3; i++)
     {
@@ -49,26 +49,26 @@ void CChCtrl::Init()
 
 
 //********************************************************************
-/// æµ‹é‡è®¡ç®—ï¼ŒåŒ…å«æµ‹é‡è¯¯å·®
+/// ²âÁ¿¼ÆËã£¬°üº¬²âÁ¿Îó²î
 /// @author	Wang Hua
 /// @Date	2022-6-29
 /// @Input
-/// @Param	chPos			è¿½è¸ªä½ç½®
-/// @Param	chVel			è¿½è¸ªé€Ÿåº¦
-/// @Param	tgPos			ç›®æ ‡ä½ç½®
-/// @Param	tgVel			ç›®æ ‡é€Ÿåº¦
+/// @Param	chPos			×·×ÙÎ»ÖÃ
+/// @Param	chVel			×·×ÙËÙ¶È
+/// @Param	tgPos			Ä¿±êÎ»ÖÃ
+/// @Param	tgVel			Ä¿±êËÙ¶È
 /// @Output
-/// @Param	relPos			ç›¸å¯¹ä½ç½®
-/// @Param	relVel			ç›¸å¯¹é€Ÿåº¦
+/// @Param	relPos			Ïà¶ÔÎ»ÖÃ
+/// @Param	relVel			Ïà¶ÔËÙ¶È
 //********************************************************************
 void CChCtrl::Measure(const CCoord& chPos, const CCoord& chVel,
             const CCoord& tgPos, const CCoord& tgVel,
             CCoord& relPos, CCoord& relVel)
 {
-    //è®¡ç®—ç›¸å¯¹ä½ç½®é€Ÿåº¦
+    //¼ÆËãÏà¶ÔÎ»ÖÃËÙ¶È
     AsStateToVVLHRelState(chPos, chVel, tgPos, tgVel, relPos, relVel);
 
-    //å¢åŠ æµ‹é‡åå·®
+    //Ôö¼Ó²âÁ¿Æ«²î
     if (m_UseMeasureRandom==0)
     {
         return;
@@ -87,15 +87,15 @@ void CChCtrl::Measure(const CCoord& chPos, const CCoord& chVel,
 
 
 //********************************************************************
-/// è®¡ç®—æ‰§è¡Œç»“æ„æ‰§è¡Œåçš„è„‰å†²
+/// ¼ÆËãÖ´ĞĞ½á¹¹Ö´ĞĞºóµÄÂö³å
 /// @author	Wang Hua
 /// @Date	2022-6-29
 /// @In/Out
-/// @Param	impulse			ç›¸å¯¹ä½ç½®
+/// @Param	impulse			Ïà¶ÔÎ»ÖÃ
 //********************************************************************
 void CChCtrl::Engine(CCoord& impulse)
 {
-    //å¢åŠ æµ‹é‡åå·®
+    //Ôö¼Ó²âÁ¿Æ«²î
     if (m_UseEngineRandom==0)
     {
         return;
@@ -111,18 +111,18 @@ void CChCtrl::Engine(CCoord& impulse)
 
 
 //********************************************************************
-/// æ ¹æ®CWæ–¹ç¨‹å¤–æ¨è®¡ç®—ä¸‹ä¸€æ­¥éœ€è¦æ–½åŠ çš„å†²é‡
+/// ¸ù¾İCW·½³ÌÍâÍÆ¼ÆËãÏÂÒ»²½ĞèÒªÊ©¼ÓµÄ³åÁ¿
 /// @Author	Wang Hua
 /// @Date	2005.11.17
 /// @Input
-/// @Param	chPos			è¿½è¸ªä½ç½®(m)
-/// @Param	chVel			è¿½è¸ªé€Ÿåº¦(m/s)
-/// @Param	tgPos			ç›®æ ‡ä½ç½®(m)
-/// @Param	tgVel			ç›®æ ‡é€Ÿåº¦(m/s)
-/// @Param	endRelPos		åˆ¶å¯¼ç»ˆç‚¹æ‰€éœ€ç›¸å¯¹ä½ç½®(m)
-/// @Param	flyTime			åˆ¶å¯¼é£è¡Œæ—¶é—´
+/// @Param	chPos			×·×ÙÎ»ÖÃ(m)
+/// @Param	chVel			×·×ÙËÙ¶È(m/s)
+/// @Param	tgPos			Ä¿±êÎ»ÖÃ(m)
+/// @Param	tgVel			Ä¿±êËÙ¶È(m/s)
+/// @Param	endRelPos		ÖÆµ¼ÖÕµãËùĞèÏà¶ÔÎ»ÖÃ(m)
+/// @Param	flyTime			ÖÆµ¼·ÉĞĞÊ±¼ä
 /// @Output
-/// @Param	impulse			è®¡ç®—å¾—åˆ°çš„å†²é‡
+/// @Param	impulse			¼ÆËãµÃµ½µÄ³åÁ¿
 //********************************************************************
 void CChCtrl::GuidanceImpulse1(
 			const CCoord& chPos, const CCoord& chVel, 
@@ -147,17 +147,17 @@ void CChCtrl::GuidanceImpulse1(
 
 
 //********************************************************************
-//æ ¹æ®CWæ–¹ç¨‹å¤–æ¨è®¡ç®—ä¸‹ä¸€æ­¥éœ€è¦æ–½åŠ çš„å†²é‡ï¼Œå‡†å¤‡å¼€å§‹è°ƒå§¿
+//¸ù¾İCW·½³ÌÍâÍÆ¼ÆËãÏÂÒ»²½ĞèÒªÊ©¼ÓµÄ³åÁ¿£¬×¼±¸¿ªÊ¼µ÷×Ë
 /// @Author	Wang Hua
 /// @Date	2005.11.17
 /// @Input
-/// @Param	chPos			è¿½è¸ªä½ç½®(m)
-/// @Param	chVel			è¿½è¸ªé€Ÿåº¦(m/s)
-/// @Param	tgPos			ç›®æ ‡ä½ç½®(m)
-/// @Param	tgVel			ç›®æ ‡é€Ÿåº¦(m/s)
-/// @Param	endRelPos		åˆ¶å¯¼ç»ˆç‚¹æ‰€éœ€ç›¸å¯¹é€Ÿåº¦(m/s)
+/// @Param	chPos			×·×ÙÎ»ÖÃ(m)
+/// @Param	chVel			×·×ÙËÙ¶È(m/s)
+/// @Param	tgPos			Ä¿±êÎ»ÖÃ(m)
+/// @Param	tgVel			Ä¿±êËÙ¶È(m/s)
+/// @Param	endRelPos		ÖÆµ¼ÖÕµãËùĞèÏà¶ÔËÙ¶È(m/s)
 /// @Output
-/// @Param	impulse			è®¡ç®—å¾—åˆ°çš„å†²é‡
+/// @Param	impulse			¼ÆËãµÃµ½µÄ³åÁ¿
 //********************************************************************
 void CChCtrl::GuidanceImpulse2(const CCoord& chPos, const CCoord& chVel, 
             const CCoord& tgPos, const CCoord& tgVel,
@@ -171,18 +171,18 @@ void CChCtrl::GuidanceImpulse2(const CCoord& chPos, const CCoord& chVel,
 
 
 //*********************************************************************
-/// è®¡ç®—æ§åˆ¶,ç›´æ¥åŠ å†²é‡
+/// ¼ÆËã¿ØÖÆ,Ö±½Ó¼Ó³åÁ¿
 /// @author	Wang Hua
 /// @Date	2006.8.12
-/// @Param	step			æ—¶é—´æ­¥é•¿
-/// @Param	chPos			æƒ¯æ€§ç³»ä¸­çš„è¿½è¸ªå™¨ä½ç½®(m)
-/// @Param	chVel			æƒ¯æ€§ç³»ä¸­çš„è¿½è¸ªå™¨é€Ÿåº¦(m/s)
-/// @Param	tgPos			æƒ¯æ€§ç³»ä¸­çš„ç›®æ ‡å™¨ä½ç½®(m)
-/// @Param	tgVel			æƒ¯æ€§ç³»ä¸­çš„ç›®æ ‡å™¨é€Ÿåº¦(m/s)
-/// @Param	flyTimeApproach	æ¥è¿‘æ®µé£è¡Œæ—¶é—´
+/// @Param	step			Ê±¼ä²½³¤
+/// @Param	chPos			¹ßĞÔÏµÖĞµÄ×·×ÙÆ÷Î»ÖÃ(m)
+/// @Param	chVel			¹ßĞÔÏµÖĞµÄ×·×ÙÆ÷ËÙ¶È(m/s)
+/// @Param	tgPos			¹ßĞÔÏµÖĞµÄÄ¿±êÆ÷Î»ÖÃ(m)
+/// @Param	tgVel			¹ßĞÔÏµÖĞµÄÄ¿±êÆ÷ËÙ¶È(m/s)
+/// @Param	flyTimeApproach	½Ó½ü¶Î·ÉĞĞÊ±¼ä
 /// @Output
-/// @Param	isEnd			æ˜¯å¦æœ¬é˜¶æ®µç»“æŸ
-/// @Param	impulse			VVLHç³»ä¸­çš„è„‰å†²
+/// @Param	isEnd			ÊÇ·ñ±¾½×¶Î½áÊø
+/// @Param	impulse			VVLHÏµÖĞµÄÂö³å
 /// @Return	
 //*********************************************************************
 void CChCtrl::TimeAdvance(double step,
@@ -194,7 +194,7 @@ void CChCtrl::TimeAdvance(double step,
 	isEnd = false;
 	impulse.SetDataAll(0);
 
-	//è‡³ç»ˆç«¯
+	//ÖÁÖÕ¶Ë
 	if (m_PulseNum==0)
 	{
 		m_PulseNum = 1;
@@ -202,7 +202,7 @@ void CChCtrl::TimeAdvance(double step,
 
         GuidanceImpulse1(chPos, chVel, tgPos, tgVel, endPos, flyTimeApproach, impulse);
 	}
-	//ç»ˆç«¯å†²é‡
+	//ÖÕ¶Ë³åÁ¿
 	else if (m_PulseNum==1 && m_FlyTime>=flyTimeApproach)
 	{
 		m_PulseNum = 2;
@@ -215,7 +215,7 @@ void CChCtrl::TimeAdvance(double step,
 		isEnd = true;
 	}
 
-	//è„‰å†²æ–½åŠ åæ—¶é—´ç´¯ç§¯
+	//Âö³åÊ©¼ÓºóÊ±¼äÀÛ»ı
 	m_FlyTime += step;
 }
 

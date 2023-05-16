@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "AsOrbitParam.h"
 #include "AsCoordinate.h"
 #include "AsMath.h"
