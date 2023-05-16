@@ -1,4 +1,4 @@
-// ExampleMath.h: interface for the ExampleMath class.
+﻿// ExampleMath.h: interface for the ExampleMath class.
 //
 //////////////////////////////////////////////////////////////////////
 

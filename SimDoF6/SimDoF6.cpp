@@ -1,4 +1,4 @@
-// Sim.cpp : Defines the entry point for the console application.
+ï»¿// Sim.cpp : Defines the entry point for the console application.
 //
 
 #include "SimDoF6.h"
@@ -12,42 +12,42 @@ using namespace std;
 
 
 //***********************************************************************
-/// ·ÂÕæÖ÷³ÌĞò
+/// ä»¿çœŸä¸»ç¨‹åº
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
 void CSimDoF6::Main()
 {
-	//²½³¤
+	//æ­¥é•¿
 	double step = 0.01;
 
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	Initialization();
 
-	//Ñ­»·µ½Ê±¼ä½áÊø
+	//å¾ªç¯åˆ°æ—¶é—´ç»“æŸ
 	while (m_Time<10.0)
 	{
 		TimeAdvance(step);
 		m_Time += step;
 	}
 
-	//½á¹û±¨¸æÉú³É
+	//ç»“æœæŠ¥å‘Šç”Ÿæˆ
 	ReportGeneration();
 
 }
 
 
 //***********************************************************************
-/// ³õÊ¼»¯
+/// åˆå§‹åŒ–
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
 void CSimDoF6::Initialization()		
 {
-	//³õÊ¼»¯Ê±¼ä
+	//åˆå§‹åŒ–æ—¶é—´
 	m_Time = 0;
 
-	//³õÊ¼»¯Î»ÖÃËÙ¶È
+	//åˆå§‹åŒ–ä½ç½®é€Ÿåº¦
 	m_Pos[0] = 0;
 	m_Pos[1] = 0;
 	m_Pos[2] = 0;
@@ -55,20 +55,20 @@ void CSimDoF6::Initialization()
 	m_Vel[1] = 0;
 	m_Vel[2] = 0;
 
-	//³õÊ¼»¯ËÄÔªÊı
+	//åˆå§‹åŒ–å››å…ƒæ•°
 	CEuler euler(0,0,0);
 	AsEulerToQuat(euler, 321, m_Quat);
 
-	//³õÊ¼»¯½ÇËÙ¶È
+	//åˆå§‹åŒ–è§’é€Ÿåº¦
 	m_AngVel[0] = 0;
 	m_AngVel[1] = 0;
 	m_AngVel[2] = 0;
 
-	//³õÊ¼»¯ÖÊÁ¿ºÍ×ª¶¯¹ßÁ¿
+	//åˆå§‹åŒ–è´¨é‡å’Œè½¬åŠ¨æƒ¯é‡
 	m_Mass = 1;
 	m_Inertia.MakeUnit();
 
-	//Çå¿Õ»º´æ
+	//æ¸…ç©ºç¼“å­˜
 	m_TimeList.resize(0);
 	m_PosList.resize(0);
 	m_VelList.resize(0);
@@ -78,13 +78,13 @@ void CSimDoF6::Initialization()
 
 
 //***********************************************************************
-/// Ê±¼äÍÆ½ø
+/// æ—¶é—´æ¨è¿›
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
 void CSimDoF6::TimeAdvance(double step)
 {
-	//Á¦¾Ø
+	//åŠ›çŸ©
 	double mxList[2][6]={
 			      0,       1,      1.1,             2, 2.1, 10,
 			3.144/2, 3.144/2, -3.144/2, -.998*3.144/2,   0,  0};
@@ -98,7 +98,7 @@ void CSimDoF6::TimeAdvance(double step)
 	int i;
 	CCoord force(1,0,0), torque;
 
-	//²åÖµµÃµ½µ±Ç°Ê±¿Ì×÷ÓÃÔÚ·ÉĞĞÆ÷ÉÏµÄÁ¦¾Ø
+	//æ’å€¼å¾—åˆ°å½“å‰æ—¶åˆ»ä½œç”¨åœ¨é£è¡Œå™¨ä¸Šçš„åŠ›çŸ©
 	for (i=0; i<5; i++)
 	{
 		if (m_Time<mxList[0][i])
@@ -121,7 +121,7 @@ void CSimDoF6::TimeAdvance(double step)
 	CDoF6 dof6;
 	dof6.DoF6(step, m_Mass, m_Inertia, force, torque, m_Pos, m_Vel, m_Quat, m_AngVel);
 
-	//±£´æÖĞ¼äÊı¾İ
+	//ä¿å­˜ä¸­é—´æ•°æ®
 	m_TimeList.push_back(m_Time);
 	m_PosList.push_back(m_Pos);
 	m_VelList.push_back(m_Vel);
@@ -131,7 +131,7 @@ void CSimDoF6::TimeAdvance(double step)
 
 
 //***********************************************************************
-/// ½á¹û±¨¸æÉú³É
+/// ç»“æœæŠ¥å‘Šç”Ÿæˆ
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
@@ -175,7 +175,7 @@ int main()
 	printf("*                                                               *\n");
 	printf("*****************************************************************\n\n");
 
-	//Ö´ĞĞ·ÉĞĞÆ÷Áù×ÔÓÉ¶È·ÂÕæ
+	//æ‰§è¡Œé£è¡Œå™¨å…­è‡ªç”±åº¦ä»¿çœŸ
 	CSimDoF6 sim;
 	sim.Main();
 

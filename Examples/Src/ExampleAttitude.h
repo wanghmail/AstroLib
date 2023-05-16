@@ -1,4 +1,4 @@
-// ExampleAttitude.h: interface for the ExampleAttitude class.
+﻿// ExampleAttitude.h: interface for the ExampleAttitude class.
 //
 //////////////////////////////////////////////////////////////////////
 

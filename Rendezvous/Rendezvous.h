@@ -1,4 +1,4 @@
-
+ï»¿
 #if !defined(_RENDEZVOUS_H__INCLUDED_)
 #define _RENDEZVOUS_H__INCLUDED_
 
@@ -11,40 +11,40 @@
 
 
 //
-//º½ÌìÆ÷½»»á¶Ô½Ó×Ü¿Ø
+//èˆªå¤©å™¨äº¤ä¼šå¯¹æ¥æ€»æ§
 //
 class CRendezvous
 {
 public:
-	void Main();						    // ·ÂÕæÖ÷³ÌĞò
-    void MainMonteCarlo();                  // MonteCarlo·ÂÕæÖ÷³ÌĞò
+	void Main();						    // ä»¿çœŸä¸»ç¨‹åº
+    void MainMonteCarlo();                  // MonteCarloä»¿çœŸä¸»ç¨‹åº
 
 private:
-	void Initialization();				    // ³õÊ¼»¯
-	bool TimeAdvance(double step);		    // Ê±¼äÍÆ½ø
-	void ReportGeneration();			    // ½á¹û±¨¸æÉú³É
+	void Initialization();				    // åˆå§‹åŒ–
+	bool TimeAdvance(double step);		    // æ—¶é—´æ¨è¿›
+	void ReportGeneration();			    // ç»“æœæŠ¥å‘Šç”Ÿæˆ
 
 
 public:
-	double          m_Time;					// ·ÂÕæÊ±¼ä
+	double          m_Time;					// ä»¿çœŸæ—¶é—´
 
-    CCoord          m_RelPos;               // Ïà¶ÔËÙ¶È
-    CCoord          m_RelVel;               // Ïà¶ÔËÙ¶È
+    CCoord          m_RelPos;               // ç›¸å¯¹é€Ÿåº¦
+    CCoord          m_RelVel;               // ç›¸å¯¹é€Ÿåº¦
 
 public:
-	//±£´æ·ÂÕæÖĞ¼äÊı¾İ
+	//ä¿å­˜ä»¿çœŸä¸­é—´æ•°æ®
     struct CHistoryData
     {
-	    std::vector<double>	m_TimeList;			// ·ÂÕæ×Ü¹²ÏûºÄÊ±¼ä[s]
-	    std::vector<CCoord> m_RelPosList;		// Ïà¶ÔÎ»ÖÃ×´Ì¬[m]
-	    std::vector<CCoord> m_RelVelList;		// Ïà¶ÔËÙ¶È×´Ì¬[m/s]
+	    std::vector<double>	m_TimeList;			// ä»¿çœŸæ€»å…±æ¶ˆè€—æ—¶é—´[s]
+	    std::vector<CCoord> m_RelPosList;		// ç›¸å¯¹ä½ç½®çŠ¶æ€[m]
+	    std::vector<CCoord> m_RelVelList;		// ç›¸å¯¹é€Ÿåº¦çŠ¶æ€[m/s]
     };
-    CHistoryData	m_HistoryData;	    // ÀúÊ·Êı¾İ
+    CHistoryData	m_HistoryData;	    // å†å²æ•°æ®
 
 private:
-    CChCtrl         m_ChCtrl;               // ×·×ÙÆ÷¿ØÖÆ
-    CSpacecraft     m_ChDyn;                // ×·×ÙÆ÷¶¯Á¦Ñ§
-    CSpacecraft     m_TgDyn;                // Ä¿±êÆ÷¶¯Á¦Ñ§
+    CChCtrl         m_ChCtrl;               // è¿½è¸ªå™¨æ§åˆ¶
+    CSpacecraft     m_ChDyn;                // è¿½è¸ªå™¨åŠ¨åŠ›å­¦
+    CSpacecraft     m_TgDyn;                // ç›®æ ‡å™¨åŠ¨åŠ›å­¦
 
 };
 

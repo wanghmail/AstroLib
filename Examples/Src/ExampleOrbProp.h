@@ -1,4 +1,4 @@
-// ExampleOrbProp.h: interface for the ExampleOrbProp class.
+﻿// ExampleOrbProp.h: interface for the ExampleOrbProp class.
 //
 //////////////////////////////////////////////////////////////////////
 

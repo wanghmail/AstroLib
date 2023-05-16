@@ -1,4 +1,4 @@
-// ExampleOrbElemConv.cpp: implementation of the ExampleOrbElemConv class.
+ï»¿// ExampleOrbElemConv.cpp: implementation of the ExampleOrbElemConv class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -8,7 +8,7 @@
 
 
 //********************************************************************
-/// ¹ìµÀ²ÎÊı¼¯×ª»»Àı×Ó.
+/// è½¨é“å‚æ•°é›†è½¬æ¢ä¾‹å­.
 /// @Author	Wang Hua
 /// @Date	2008.8.8
 //********************************************************************

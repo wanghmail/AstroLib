@@ -1,4 +1,4 @@
-// ExampleAttitude.cpp: implementation of the ExampleAttitude class.
+ï»¿// ExampleAttitude.cpp: implementation of the ExampleAttitude class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -7,7 +7,7 @@
 
 
 //********************************************************************
-/// ×ËÌ¬²ÎÊıÑİÊ¾Àı×Ó.
+/// å§¿æ€å‚æ•°æ¼”ç¤ºä¾‹å­.
 /// @Author Wang Hua
 /// @Date   2008.10.16
 //********************************************************************
@@ -17,13 +17,13 @@ void ExampleAttitude()
 	CQuaternion q;
 	CMatrix<double> mtx(3,3);
 
-	//½«°´ÕÕ321Ë³ĞòĞı×ªµÄEuler½Ç×ª»»Îª×ªÒÆ¾ØÕó
+	//å°†æŒ‰ç…§321é¡ºåºæ—‹è½¬çš„Eulerè§’è½¬æ¢ä¸ºè½¬ç§»çŸ©é˜µ
 	AsEulerToMtx(euler, 321, mtx);
 
-	//½«×ªÒÆ¾ØÕó×ª»»ÎªËÄÔªÊı
+	//å°†è½¬ç§»çŸ©é˜µè½¬æ¢ä¸ºå››å…ƒæ•°
 	AsMtxToQuat(mtx, q);
 
-	//Êä³ö½á¹û
+	//è¾“å‡ºç»“æœ
     printf("The euler angle is: \n");
     printf("angle1 = %10.6f rad\n", euler.m_Angle1);
     printf("angle2 = %10.6f rad\n", euler.m_Angle2);

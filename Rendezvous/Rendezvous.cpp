@@ -1,4 +1,4 @@
-// Rendezvous.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+ï»¿// Rendezvous.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "Rendezvous.h"
@@ -8,7 +8,7 @@ using namespace std;
 
 
 //***********************************************************************
-/// ·ÂÕæÖ÷³ÌĞò
+/// ä»¿çœŸä¸»ç¨‹åº
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
@@ -16,27 +16,27 @@ void CRendezvous::Main()
 {
     bool isEnd=false;
 
-    //²½³¤
+    //æ­¥é•¿
     double step = 0.2;
 
-    //³õÊ¼»¯
+    //åˆå§‹åŒ–
     Initialization();
 
-    //Ñ­»·µ½·ÂÕæ½áÊø
+    //å¾ªç¯åˆ°ä»¿çœŸç»“æŸ
     while (!isEnd)
     {
         isEnd = TimeAdvance(step);
         m_Time += step;
     }
 
-    //½á¹û±¨¸æÉú³É
+    //ç»“æœæŠ¥å‘Šç”Ÿæˆ
     ReportGeneration();
 
 }
 
 
 //***********************************************************************
-/// MonteCarlo·ÂÕæÖ÷³ÌĞò
+/// MonteCarloä»¿çœŸä¸»ç¨‹åº
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
@@ -47,30 +47,30 @@ void CRendezvous::MainMonteCarlo()
     {
         bool isEnd=false;
 
-        //²½³¤
+        //æ­¥é•¿
         double step = 0.2;
 
-        //³õÊ¼»¯
+        //åˆå§‹åŒ–
         Initialization();
 
-        //Æ«²î·ÂÕæ
+        //åå·®ä»¿çœŸ
         m_ChCtrl.m_UseMeasureRandom = 1;
         m_ChCtrl.m_UseEngineRandom = 1;
 
-        //Ñ­»·µ½·ÂÕæ½áÊø
+        //å¾ªç¯åˆ°ä»¿çœŸç»“æŸ
         while (!isEnd)
         {
             isEnd = TimeAdvance(step);
             m_Time += step;
         }
 
-        //½á¹û±¨¸æÉú³É
+        //ç»“æœæŠ¥å‘Šç”Ÿæˆ
         ReportGeneration();
 
         oss <<m_HistoryData.m_RelPosList.back()[0]<<"	"
             <<m_HistoryData.m_RelPosList.back()[1]<<"	"
             <<m_HistoryData.m_RelPosList.back()[2]<<endl;
-        cout<<"µÚ"<<i<<"´Î·ÂÕæ½áÊø"<<endl;
+        cout<<"ç¬¬"<<i<<"æ¬¡ä»¿çœŸç»“æŸ"<<endl;
     }
 
     oss.close();
@@ -79,16 +79,16 @@ void CRendezvous::MainMonteCarlo()
 
 
 //***********************************************************************
-/// ³õÊ¼»¯
+/// åˆå§‹åŒ–
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
 void CRendezvous::Initialization()
 {
-    //³õÊ¼»¯Ê±¼ä
+    //åˆå§‹åŒ–æ—¶é—´
     m_Time = 0;
 
-    //³õÊ¼»¯×·×ÙÆ÷ºÍÄ¿±êÆ÷
+    //åˆå§‹åŒ–è¿½è¸ªå™¨å’Œç›®æ ‡å™¨
     CCoord tgPos(6758137,0,0), tgVel(0, 5707.28, 5138.85);
     CCoord chPos, chVel;
     AsVVLHRelStateToState(CCoord(-3000, 0, 0), CCoord(0, 0, 0),
@@ -100,19 +100,19 @@ void CRendezvous::Initialization()
     m_TgDyn.SetPos(tgPos);
     m_TgDyn.SetVel(tgVel);
 
-    //³õÊ¼»¯¿ØÖÆÎó²î
+    //åˆå§‹åŒ–æ§åˆ¶è¯¯å·®
     m_ChCtrl.m_UseMeasureRandom = 0;
     m_ChCtrl.m_UseEngineRandom = 0;
     m_ChCtrl.m_PosStdDev = 0.1;
     m_ChCtrl.m_VelStdDev = 0.002;
     m_ChCtrl.m_EngStdDev = 0.002;
     
-    //³õÊ¼»¯¶¯Á¦Ñ§ºÍ¿ØÖÆ
+    //åˆå§‹åŒ–åŠ¨åŠ›å­¦å’Œæ§åˆ¶
     m_TgDyn.Init();
     m_ChDyn.Init();
     m_ChCtrl.Init();
 
-    //Çå¿Õ»º´æ
+    //æ¸…ç©ºç¼“å­˜
     m_HistoryData.m_TimeList.resize(0);
     m_HistoryData.m_RelPosList.resize(0);
     m_HistoryData.m_RelVelList.resize(0);
@@ -120,23 +120,23 @@ void CRendezvous::Initialization()
 
 
 //***********************************************************************
-/// Ê±¼äÍÆ½ø
+/// æ—¶é—´æ¨è¿›
 /// @Author	Wang Hua
 /// @Date	2010-4-15
-/// @Return	true=·ÂÕæ½áÊø
+/// @Return	true=ä»¿çœŸç»“æŸ
 //***********************************************************************
 bool CRendezvous::TimeAdvance(double step)
 {
     bool    isEnd=false;
     CCoord  impulse;
    
-    //×·×ÙÆ÷ºÍÄ¿±êÆ÷ÍÆ½ø
+    //è¿½è¸ªå™¨å’Œç›®æ ‡å™¨æ¨è¿›
     m_ChCtrl.TimeAdvance(step, m_ChDyn.GetPos(), m_ChDyn.GetVel(), m_TgDyn.GetPos(), m_TgDyn.GetVel(), 
         2300, CCoord(-400, 0, 0), isEnd, impulse);
     m_ChDyn.TimeAdvance(step, 1, impulse);
     m_TgDyn.TimeAdvance(step, 0, CCoord(0, 0, 0));
 
-    //±£´æÖĞ¼äÊı¾İ
+    //ä¿å­˜ä¸­é—´æ•°æ®
     AsStateToVVLHRelState(m_ChDyn.GetPos(), m_ChDyn.GetVel(), m_TgDyn.GetPos(), m_TgDyn.GetVel(),
         m_RelPos, m_RelVel);
     m_HistoryData.m_TimeList.push_back(m_Time);
@@ -148,7 +148,7 @@ bool CRendezvous::TimeAdvance(double step)
 
 
 //***********************************************************************
-/// ½á¹û±¨¸æÉú³É
+/// ç»“æœæŠ¥å‘Šç”Ÿæˆ
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
@@ -183,10 +183,10 @@ int main()
     printf("*                                                               *\n");
     printf("*****************************************************************\n\n");
 
-    //Ö´ĞĞ½»»á¶Ô½Ó·ÂÕæ
+    //æ‰§è¡Œäº¤ä¼šå¯¹æ¥ä»¿çœŸ
     CRendezvous sim;
-    //sim.Main();           //±ê³Æ·ÂÕæ
-    sim.MainMonteCarlo();   //MonteCarlo·ÂÕæ
+    //sim.Main();           //æ ‡ç§°ä»¿çœŸ
+    sim.MainMonteCarlo();   //MonteCarloä»¿çœŸ
     
     return 0;
 }

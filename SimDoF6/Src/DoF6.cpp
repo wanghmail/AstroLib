@@ -1,4 +1,4 @@
-// DoF6.cpp: implementation of the CDoF6 class.
+﻿// DoF6.cpp: implementation of the CDoF6 class.
 //
 //////////////////////////////////////////////////////////////////////
 

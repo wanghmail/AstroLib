@@ -1,4 +1,4 @@
-// ExampleOrbProp.cpp: implementation of the ExampleOrbProp class.
+ï»¿// ExampleOrbProp.cpp: implementation of the ExampleOrbProp class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -10,7 +10,7 @@
 
 
 //********************************************************************
-/// ¸ß¾«¶È¹ìµÀ¼ÆËãÀı×Ó.
+/// é«˜ç²¾åº¦è½¨é“è®¡ç®—ä¾‹å­.
 /// @Author Wang Hua
 /// @Date   2008.8.8
 //********************************************************************
@@ -24,7 +24,7 @@ void ExampleOrbProp()
 	vector<CCoord>	posVec, velVec;
 
 	//
-	//ÉèÖÃ²ÎÊı
+	//è®¾ç½®å‚æ•°
 	//
 	step=20;
 	duration = 86400;
@@ -33,12 +33,12 @@ void ExampleOrbProp()
     vel = CCoord(-4385.611,       -4846.083,        4125.976);
 
 	//
-	//¹ìµÀ¼ÆËã
+	//è½¨é“è®¡ç®—
 	//
 	t2 = duration;
 	for (t1 = 0; t1<t2; t1+=step)
 	{
-		//¶¨²½³¤·½·¨
+		//å®šæ­¥é•¿æ–¹æ³•
 		orb.OrbitStep(step, pos, vel);
 
 		timeVec.push_back(t1);
@@ -57,10 +57,10 @@ void ExampleOrbProp()
         velVec[n-1][0], velVec[n-1][1], velVec[n-1][2]);
 
 	//
-	//Êä³ö½á¹û,²åÖµºó½á¹û
+	//è¾“å‡ºç»“æœ,æ’å€¼åç»“æœ
 	//
 	FILE* fp;
-	if ((fp=fopen("·ÉĞĞÆ÷ĞÇÀú.txt", "w")) == NULL)
+	if ((fp=fopen("é£è¡Œå™¨æ˜Ÿå†.txt", "w")) == NULL)
 		cerr<<"Can't open!";
 
 	fprintf(fp, "Time Elapsed (s)            Time (UTCG)              x (m)     \

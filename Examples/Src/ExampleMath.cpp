@@ -1,4 +1,4 @@
-// ExampleMath.cpp: implementation of the ExampleMath class.
+﻿// ExampleMath.cpp: implementation of the ExampleMath class.
 //
 //////////////////////////////////////////////////////////////////////
 

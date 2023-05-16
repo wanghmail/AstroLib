@@ -1,4 +1,4 @@
-// ExampleODEResolve.h: interface for the CExampleODEResolve class.
+﻿// ExampleODEResolve.h: interface for the CExampleODEResolve class.
 //
 //////////////////////////////////////////////////////////////////////
 

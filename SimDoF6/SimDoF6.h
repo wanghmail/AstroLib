@@ -1,4 +1,4 @@
-
+ï»¿
 #if !defined(AFX_SIM_H__B0B3B510_F9D9_4417_84A3_59D66930CEE9__INCLUDED_)
 #define AFX_SIM_H__B0B3B510_F9D9_4417_84A3_59D66930CEE9__INCLUDED_
 
@@ -11,21 +11,21 @@
 
 
 //
-//·ÉÐÐÆ÷Áù×ÔÓÉ¶È·ÂÕæÊµÏÖ
+//é£žè¡Œå™¨å…­è‡ªç”±åº¦ä»¿çœŸå®žçŽ°
 //
 class CSimDoF6
 {
 public:
-	void Main();						///< ·ÂÕæÖ÷³ÌÐò
+	void Main();						///< ä»¿çœŸä¸»ç¨‹åº
 
 private:
-	void Initialization();				///< ³õÊ¼»¯
-	void TimeAdvance(double step);		///< Ê±¼äÍÆ½ø
-	void ReportGeneration();			///< ½á¹û±¨¸æÉú³É
+	void Initialization();				///< åˆå§‹åŒ–
+	void TimeAdvance(double step);		///< æ—¶é—´æŽ¨è¿›
+	void ReportGeneration();			///< ç»“æžœæŠ¥å‘Šç”Ÿæˆ
 
 
 public:
-	//±£´æ·ÂÕæÖÐ¼äÊý¾Ý
+	//ä¿å­˜ä»¿çœŸä¸­é—´æ•°æ®
 	std::vector<double>	m_TimeList;
 	std::vector<CCoord> m_PosList;
 	std::vector<CCoord> m_VelList;
@@ -34,14 +34,14 @@ public:
 
 
 public:
-	double      m_Time;					///< ·ÉÐÐÆ÷Ê±¼ä
-	CCoord      m_Pos;					///< ·ÉÐÐÆ÷Î»ÖÃ
-	CCoord      m_Vel;					///< ·ÉÐÐÆ÷ËÙ¶È
-	CQuaternion m_Quat;					///< ·ÉÐÐÆ÷ËÄÔªÊý
-	CCoord      m_AngVel;				///< ·ÉÐÐÆ÷½ÇËÙ¶È
+	double      m_Time;					///< é£žè¡Œå™¨æ—¶é—´
+	CCoord      m_Pos;					///< é£žè¡Œå™¨ä½ç½®
+	CCoord      m_Vel;					///< é£žè¡Œå™¨é€Ÿåº¦
+	CQuaternion m_Quat;					///< é£žè¡Œå™¨å››å…ƒæ•°
+	CCoord      m_AngVel;				///< é£žè¡Œå™¨è§’é€Ÿåº¦
 
-	double      m_Mass;					///< ·ÉÐÐÆ÷ÖÊÁ¿
-	CMatrix<double> m_Inertia;			///< ·ÉÐÐÆ÷×ª¶¯¹ßÁ¿
+	double      m_Mass;					///< é£žè¡Œå™¨è´¨é‡
+	CMatrix<double> m_Inertia;			///< é£žè¡Œå™¨è½¬åŠ¨æƒ¯é‡
 };
 
 

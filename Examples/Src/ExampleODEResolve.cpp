@@ -1,4 +1,4 @@
-// ExampleODEResolve.cpp: implementation of the CExampleODEResolve class.
+ï»¿// ExampleODEResolve.cpp: implementation of the CExampleODEResolve class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -8,14 +8,14 @@
 
 
 //********************************************************************
-/// ³£Î¢·Ö·½³Ì×é³õÖµÎÊÌâÇó½âÀı×Ó.
+/// å¸¸å¾®åˆ†æ–¹ç¨‹ç»„åˆå€¼é—®é¢˜æ±‚è§£ä¾‹å­.
 /// @Author	Wang Hua
 /// @Date	2009.4.9
 //********************************************************************
 void ExampleODEResolve()
 {
-	//¶¨ÒåÃèÊö³£Î¢·Ö·½³Ì×éµÄÓÒº¯ÊıÀà
-	//ÕâÀïµÄ³£Î¢·Ö·½³ÌÎªÃèÊöÎïÌå×ÔÓÉÏÂÂäº¯Êı
+	//å®šä¹‰æè¿°å¸¸å¾®åˆ†æ–¹ç¨‹ç»„çš„å³å‡½æ•°ç±»
+	//è¿™é‡Œçš„å¸¸å¾®åˆ†æ–¹ç¨‹ä¸ºæè¿°ç‰©ä½“è‡ªç”±ä¸‹è½å‡½æ•°
 	// dx/dt=v
 	// dv/dt=a
 	// a=9.8
@@ -23,10 +23,10 @@ void ExampleODEResolve()
 	{
 	public:
 		/// @Input
-		/// @Param	t		×Ô±äÁ¿µÄÖµ
-		/// @Param	x		³õÊ¼º¯ÊıÖµ,x[0]ÎªÎ»ÖÃ,x[1]ÎªËÙ¶È
+		/// @Param	t		è‡ªå˜é‡çš„å€¼
+		/// @Param	x		åˆå§‹å‡½æ•°å€¼,x[0]ä¸ºä½ç½®,x[1]ä¸ºé€Ÿåº¦
 		/// @Output
-		/// @Param	result	¼ÆËãµÃµ½µÄº¯ÊıÖµ
+		/// @Param	result	è®¡ç®—å¾—åˆ°çš„å‡½æ•°å€¼
 		virtual	void operator() (double t, const CVector<double>& x, CVector<double>& result) const
 		{
 			result[0] = x[1];
@@ -37,10 +37,10 @@ void ExampleODEResolve()
 	CMyRightFunc func;
 	CVector<double> x(2);
 
-	x[0]=1000;	//³õÊ¼Î»ÖÃ1000m
-	x[1]=0;		//³õÊ¼ËÙ¶È0m/s
+	x[0]=1000;	//åˆå§‹ä½ç½®1000m
+	x[1]=0;		//åˆå§‹é€Ÿåº¦0m/s
 
-	//Çó½â³£Î¢·Ö·½³Ì£¬»ı·Ö²½³¤È¡1s£¬»ı·Ö×ÜÊ±¼äÎª10s
+	//æ±‚è§£å¸¸å¾®åˆ†æ–¹ç¨‹ï¼Œç§¯åˆ†æ­¥é•¿å–1sï¼Œç§¯åˆ†æ€»æ—¶é—´ä¸º10s
 	for (int i=0; i<10; i++)
 		AsODERungeKutta4 (func, 1, 0, x);
 

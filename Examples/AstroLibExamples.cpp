@@ -1,4 +1,4 @@
-// AstroLibExamples.cpp : Defines the entry point for the console application.
+﻿// AstroLibExamples.cpp : Defines the entry point for the console application.
 //
 
 #include <fstream>
