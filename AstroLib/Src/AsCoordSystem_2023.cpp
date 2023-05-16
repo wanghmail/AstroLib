@@ -1,4 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //                       Copyright (c) 2003-2006                          //
 //                              Wang Hua                                  //
@@ -28,7 +28,7 @@ using namespace std;
 /// @Output
 /// @Param	mtx			地固系到发射坐标系的转换矩阵
 //********************************************************************
-void	AsCBFToLCMtx(double A0,double Lon,double Lat,CMatrix<double>& mtx)
+void AsCBFToLCMtx(double A0,double Lon,double Lat,CMatrix<double>& mtx)
 {
 	double a, b, c;
 	a = Lon - AsCHalfPI;
