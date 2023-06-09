@@ -6,10 +6,19 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AstroLib", "AstroLib\AstroLib.vcxproj", "{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rendezvous", "Rendezvous\Rendezvous.vcxproj", "{F37F360E-93F8-4B96-9EE2-118E9C45FB75}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimDoF6", "SimDoF6\SimDoF6.vcxproj", "{3806E78E-1C97-4A77-AD13-2934BC5C145A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examples", "Examples\Examples.vcxproj", "{A7D8ACAF-18B7-469D-8C34-77D155E87118}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
