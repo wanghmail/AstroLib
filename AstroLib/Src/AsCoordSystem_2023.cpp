@@ -189,3 +189,32 @@ void AsPolarToCart(const CPolar3 & ppolar, const CPolar3 & vpolar, CCoord& pcart
 	vcart[1] = vpolar.m_Radius*sin(ppolar.m_Theta) + ppolar.m_Radius*vpolar.m_Theta*cos(ppolar.m_Theta);
 	vcart[2] = vpolar.m_Z;
 }
+
+//********************************************************************
+/// 直角坐标位置速度转换为柱坐标位置速度
+/// @Author	Hou Xinyu
+/// @Date	2023/6/13
+/// @Input :
+/// @Param	cart        直角坐标位置 
+/// @Param	vcart       直角坐标速度
+/// @Output :
+/// @Param	polar		柱坐标位置
+/// @Param	vpolar		柱坐标速度
+//********************************************************************
+void AsCartToPolar(const CCoord& cart, const CCoord& vcart,	CPolar3& polar, CPolar3& vpolar)
+{
+	polar.m_Theta = atan2(cart[1], cart[0]);
+	polar.m_Radius = sqrt(cart[0] * cart[0] + cart[1] * cart[1]);
+	polar.m_Z = cart[2];
+	if (sqrt(cart[0] * cart[0] + cart[1] * cart[1]) == 0)
+	{
+		vpolar.m_Theta = 0;
+		vpolar.m_Radius = 0;
+	}
+	else
+	{
+		vpolar.m_Theta = (cart[0] * vcart[1] - cart[1] * vcart[0]) / sqrt(cart[0] * cart[0] + cart[1] * cart[1]);
+		vpolar.m_Radius = (cart[0] * vcart[0] + cart[1] * vcart[1]) / sqrt(cart[0] * cart[0] + cart[1] * cart[1]);
+	}
+	vpolar.m_Z = vcart[2];
+}
