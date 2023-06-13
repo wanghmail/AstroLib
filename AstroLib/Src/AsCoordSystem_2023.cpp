@@ -169,4 +169,23 @@ void AsLVLHtoICS(const CCoord3& rSr, const CCoord3& rSv,
 	S1r = RefSr + S1pos;
 	S1v = RefSv + mtx * rSv + angle.Cross(S1pos);
 }
-
+//********************************************************************
+///柱坐标系到直角坐标系的位置速度转换
+/// @Author	liuzhongbo
+/// @Date	2023/6/13
+/// @Input :
+/// @Param	ppolar      柱坐标系航天器位置
+/// @Param	vpolar         柱坐标系航天器速度
+/// @Output :
+/// @Param	pcart		   直角坐标系航天器位置
+/// @Param	vcart		   直角坐标系航天器速度
+//********************************************************************
+void AsPolarToCart(const CPolar3 & ppolar, const CPolar3 & vpolar, CCoord& pcart, CCoord& vcart)
+{
+	pcart[0] = ppolar.m_Radius*cos(ppolar.m_Theta);
+	pcart[1] = ppolar.m_Radius*sin(ppolar.m_Theta);
+	pcart[2] = ppolar.m_Z;
+	vcart[0] = vpolar.m_Radius*cos(ppolar.m_Theta) - ppolar.m_Radius*vpolar.m_Theta*sin(ppolar.m_Theta);
+	vcart[1] = vpolar.m_Radius*sin(ppolar.m_Theta) + ppolar.m_Radius*vpolar.m_Theta*cos(ppolar.m_Theta);
+	vcart[2] = vpolar.m_Z;
+}
