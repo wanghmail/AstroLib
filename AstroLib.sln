@@ -20,6 +20,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examples", "Examples\Exampl
 		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParallelSim", "ParallelSim\ParallelSim.vcxproj", "{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -56,6 +58,14 @@ Global
 		{A7D8ACAF-18B7-469D-8C34-77D155E87118}.Release|Win32.Build.0 = Release|Win32
 		{A7D8ACAF-18B7-469D-8C34-77D155E87118}.Release|x64.ActiveCfg = Release|x64
 		{A7D8ACAF-18B7-469D-8C34-77D155E87118}.Release|x64.Build.0 = Release|x64
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Debug|Win32.Build.0 = Debug|Win32
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Debug|x64.ActiveCfg = Debug|x64
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Debug|x64.Build.0 = Debug|x64
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|Win32.ActiveCfg = Release|Win32
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|Win32.Build.0 = Release|Win32
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|x64.ActiveCfg = Release|x64
+		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

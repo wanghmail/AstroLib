@@ -21,7 +21,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AstroLib.h" />
     <ClInclude Include="Src\ExampleAttitude.h">
       <Filter>Header Files</Filter>
     </ClInclude>

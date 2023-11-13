@@ -277,7 +277,6 @@
     <ClCompile Include="Src\ExampleOrbElemConv.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AstroLib.h" />
     <ClInclude Include="AstroLibExamples.h" />
     <ClInclude Include="Src\ExampleAttitude.h" />
     <ClInclude Include="Src\ExampleOrbProp.h" />
