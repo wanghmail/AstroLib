@@ -2,7 +2,7 @@
 
 #### 介绍
 航天仿真库AstroLib
-该程序包是《航天系统仿真与推演》的一个教学程序
+该程序包是《航天系统建模与仿真》的一个配套程序
 
 1. AstroLib目录
 提供了矢量、矩阵、姿态、轨道、插值、积分算法等航天仿真需要的基本程序。
@@ -14,18 +14,26 @@ AstroLib使用例子，包括轨道参数转换，数学，轨道外推，姿态
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/Example_Ui.png)
 
-2. SimDoF6目录
+3. SimDoF6目录
 Chapter 5 飞行器六自由度仿真实例。
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/SimDoF6_Ui.png)
 
-3. Rendezvous目录
+4. ParallelSim目录
+Chapter 8 并行仿真实例。
+可执行程序，依赖AstroLib静态库。
+
+5. Rendezvous目录
 Chapter 9 交会对接接近段仿真实例。
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/Rendezvous_Ui.png)
 ![image](docs/resources/Rendezvous_pos.png)
 ![image](docs/resources/Rendezvous_xz.png)
 ![image](docs/resources/Rendezvous_xyz.png)
+
+6. Matlab目录
+SimDoF6_Mablab    Chapter 5 飞行器六自由度仿真实例Simulink模型。
+MonteCarlo_Matlab Chapter 6 Monte Carlo仿真实例。
 
 #### 软件架构
 
@@ -39,7 +47,8 @@ Chapter 9 交会对接接近段仿真实例。
 7.  轨道动力学;
 8.  空间环境;
 9.  飞行器六自由度仿真实例;
-10. 交会对接接近段仿真实例.
+10. 并行仿真实例;
+11. 交会对接接近段仿真实例.
 
 #### 安装教程
 
