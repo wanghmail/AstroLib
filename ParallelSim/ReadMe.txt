@@ -12,4 +12,5 @@ Chapter 8 并行仿真实例。
                   航天仿真库 AstroLib 
 		     《航天系统建模与仿真》配套代码
        <<Aerospace System Modeling and Simulation>>
+	   源码地址:https://gitee.com/wanghmail/AstroLib
 ========================================================================
