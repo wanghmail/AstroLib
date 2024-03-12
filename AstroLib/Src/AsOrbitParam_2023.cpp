@@ -1,4 +1,4 @@
-﻿////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //                       Copyright (c) 2003-2006                          //
 //                              Wang Hua                                  //
@@ -418,6 +418,8 @@ bool AsOrbElemToCart(const COrbElem& Orb, double gm, CCoord& cartPos, CCoord & c
 				Orb.m_Ecc*cos(Orb.m_ArgPeri))*cos(Orb.m_I))*sqrt(gm / p) * (-1);
 		cartVel[2] = ((cos(Orb.m_ArgPeri + Orb.m_TrueA) +
 			Orb.m_Ecc*cos(Orb.m_ArgPeri))*sin(Orb.m_I))*sqrt(gm / p) * (-1);
+        cartPos = -cartPos;
+		cartVel = -cartVel;
 		return	true;
 	}
 }
