@@ -45,7 +45,7 @@ void ExampleOrbProp()
 		posVec.push_back(pos);
 		velVec.push_back(vel);
 	}
-	orb.OrbitStep(step, pos, vel);
+	orb.OrbitStep(t2-t1, pos, vel);
 	timeVec.push_back(t2);
 	posVec.push_back(pos);
 	velVec.push_back(vel);
