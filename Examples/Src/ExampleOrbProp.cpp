@@ -41,7 +41,7 @@ void ExampleOrbProp()
 		//定步长方法
 		orb.OrbitStep(step, pos, vel);
 
-		timeVec.push_back(t1);
+		timeVec.push_back(t1+step);
 		posVec.push_back(pos);
 		velVec.push_back(vel);
 	}
