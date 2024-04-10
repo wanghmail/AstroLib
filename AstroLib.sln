@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AstroLib", "AstroLib\AstroLib.vcxproj", "{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}"
 EndProject
@@ -21,6 +21,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examples", "Examples\Exampl
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ParallelSim", "ParallelSim\ParallelSim.vcxproj", "{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiRendezvous", "MultiRendezvous\MultiRendezvous.vcxproj", "{BA8DF975-D3D0-4E76-B967-901368AFFE4D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,8 +71,19 @@ Global
 		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|Win32.Build.0 = Release|Win32
 		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|x64.ActiveCfg = Release|x64
 		{C5BD0DEB-8148-49C6-9000-5077C4A74E6D}.Release|x64.Build.0 = Release|x64
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Debug|Win32.Build.0 = Debug|Win32
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Debug|x64.ActiveCfg = Debug|x64
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Debug|x64.Build.0 = Debug|x64
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|Win32.ActiveCfg = Release|Win32
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|Win32.Build.0 = Release|Win32
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|x64.ActiveCfg = Release|x64
+		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C41E03FF-4D0A-44DF-AA4B-52A8CED3E8A7}
 	EndGlobalSection
 EndGlobal
