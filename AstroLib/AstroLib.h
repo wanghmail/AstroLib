@@ -73,7 +73,7 @@
 #include "./Include/AsCoordinate_2023.h"
 #include "./Include/AsCoordSystem_2023.h"
 #include "./Include/AsOrbitParam_2023.h"
-
+#include "./Include/IzzoLam.h"
 
 using namespace std;
 

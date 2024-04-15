@@ -1,7 +1,7 @@
 #ifndef LAMBERT_PROBLEM_H
 #define LAMBERT_PROBLEM_H
 
-#include "myvector_t.hpp"
+#include "MyvectorT.hpp"
 
 #define _USE_MATH_DEFINES
 #include <math.h>

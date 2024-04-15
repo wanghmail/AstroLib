@@ -1,4 +1,4 @@
-// Spacecraft.h: interface for the CSpacecraft class.
+// Spacecraft.h: interface for the CMulSpacecraft class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -15,14 +15,14 @@
 //
 //航天器动力学类,定义了航天器的参数和操作
 //
-class CSpacecraft
+class CMulSpacecraft
 {
     //
     // Operation.
     //
 public:
-    CSpacecraft();
-    virtual ~CSpacecraft();
+    CMulSpacecraft();
+    virtual ~CMulSpacecraft();
 
 
     //
@@ -81,47 +81,47 @@ protected:
 //
 
 // 设置航天器名称
-void		CSpacecraft::SetName(const std::string& name)
+void		CMulSpacecraft::SetName(const std::string& name)
 {
     m_Name = name;
 }
 
 // 设置航天器状态
-inline void		CSpacecraft::SetPos(const CCoord& pos)
+inline void		CMulSpacecraft::SetPos(const CCoord& pos)
 {
     m_Pos = pos;
 }
 
-inline void		CSpacecraft::SetVel(const CCoord& vel)
+inline void		CMulSpacecraft::SetVel(const CCoord& vel)
 {
     m_Vel = vel;
 }
 
 // 设置累计时间
-inline void		CSpacecraft::SetElapsedSec(double sec)
+inline void		CMulSpacecraft::SetElapsedSec(double sec)
 {
     m_ElapsedSec = sec;
 }
 
 // 得到航天器名称
-inline const std::string& CSpacecraft::GetName() const
+inline const std::string& CMulSpacecraft::GetName() const
 {
     return m_Name;
 }
 
 // 得到航天器状态
-inline const CCoord& CSpacecraft::GetPos() const
+inline const CCoord& CMulSpacecraft::GetPos() const
 {
     return m_Pos;
 }
 
-inline const CCoord& CSpacecraft::GetVel() const
+inline const CCoord& CMulSpacecraft::GetVel() const
 {
     return m_Vel;
 }
 
 // 得到累计时间
-inline double					CSpacecraft::GetElapsedSec() const
+inline double					CMulSpacecraft::GetElapsedSec() const
 {
     return m_ElapsedSec;
 }

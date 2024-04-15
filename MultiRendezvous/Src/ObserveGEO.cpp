@@ -11,7 +11,7 @@ using namespace std;
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
-void CRendezvous::Main()
+void CMulRendezvous::Main()
 {
 
     bool isEnd = false;
@@ -42,7 +42,7 @@ void CRendezvous::Main()
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
-void CRendezvous::Initialization()
+void CMulRendezvous::Initialization()
 {
     //初始化时间
     m_Time = 0;
@@ -94,6 +94,7 @@ void CRendezvous::Initialization()
     m_HistoryData.m_tg1_vList.resize(0);
     m_HistoryData.m_tg2List.resize(0);
     m_HistoryData.m_tg2_vList.resize(0);
+    m_HistoryData.m_aimList.resize(0);
 }
 
 
@@ -103,7 +104,7 @@ void CRendezvous::Initialization()
 /// @Date	2010-4-15
 /// @Return	true=仿真结束
 //***********************************************************************
-bool CRendezvous::TimeAdvance(double step)
+bool CMulRendezvous::TimeAdvance(double step)
 {
     bool    isEnd = false;
     CCoord  impulse;
@@ -126,11 +127,14 @@ bool CRendezvous::TimeAdvance(double step)
         m_RelPos, m_RelVel);
     m_HistoryData.m_chList.push_back(m_RelPos);
     m_HistoryData.m_ch_vList.push_back(m_RelVel);
+    int aim_flag = -1;
     if (m_aim == 0)
     {
         if (m_RelPos.Norm() < 5000)
         {
             cout << m_Time << "秒，可以看见目标1"<< endl;
+            m_HistoryData.m_aimList.push_back(1);
+            aim_flag = 1;
         }
     }
 
@@ -144,6 +148,8 @@ bool CRendezvous::TimeAdvance(double step)
         if ((m_TgDyn.at(1).GetPos() - m_ChDyn.GetPos()).Norm() < 5000)
         {
             cout << m_Time << "秒，可以看见目标2" << endl;
+            m_HistoryData.m_aimList.push_back(2);
+            aim_flag = 1;
         }
     }
 
@@ -156,9 +162,16 @@ bool CRendezvous::TimeAdvance(double step)
         if ((m_TgDyn.at(2).GetPos() - m_ChDyn.GetPos()).Norm() < 5000)
         {
             cout << m_Time << "秒，可以看见目标3" << endl;
+            m_HistoryData.m_aimList.push_back(3);
+            aim_flag = 1;
         }
     }
+    if (aim_flag < 0)
+    {
+        m_HistoryData.m_aimList.push_back(0);
+    }
     
+
     if (isEnd == true)
     {
         m_aim += 1;
@@ -177,7 +190,7 @@ bool CRendezvous::TimeAdvance(double step)
 /// @Author	Wang Hua
 /// @Date	2010-4-15
 //***********************************************************************
-void CRendezvous::ReportGeneration()
+void CMulRendezvous::ReportGeneration()
 {
     ofstream oss(".\\Output\\RelPosVel.txt");
     int n = m_HistoryData.m_TimeList.size();
@@ -192,7 +205,8 @@ void CRendezvous::ReportGeneration()
             << m_HistoryData.m_tg1List[i][2] << "	"
             << m_HistoryData.m_tg2List[i][0] << "	"
             << m_HistoryData.m_tg2List[i][1] << "	"
-            << m_HistoryData.m_tg2List[i][2] << endl;
+            << m_HistoryData.m_tg2List[i][2] << "	"
+            << m_HistoryData.m_aimList[i] << endl;
     }
     oss.close();
 
@@ -210,7 +224,7 @@ int main()
 
 
     //执行交会对接仿真
-    CRendezvous sim;
+    CMulRendezvous sim;
     sim.Main();           //标称仿真
     //sim.MainMonteCarlo();   //MonteCarlo仿真
 

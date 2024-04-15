@@ -1,17 +1,16 @@
-﻿// ChCtrl.cpp: implementation of the CChCtrl class.
+﻿// ChCtrl.cpp: implementation of the CMulChCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
 
-#include "ChCtrl.h"
-#include "izzoLam.h"
+#include "MulChCtrl.h"
 
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-CChCtrl::CChCtrl()
+CMulChCtrl::CMulChCtrl()
 {
     m_UseMeasureRandom = 0;
     m_UseEngineRandom = 0;
@@ -24,7 +23,7 @@ CChCtrl::CChCtrl()
     m_PulseNum = 0;
 }
 
-CChCtrl::~CChCtrl()
+CMulChCtrl::~CMulChCtrl()
 {
 
 }
@@ -35,7 +34,7 @@ CChCtrl::~CChCtrl()
 /// @author	Wang Hua
 /// @Date	2005.11.16
 //*********************************************************************
-void CChCtrl::Init()
+void CMulChCtrl::Init()
 {
     for (int i = 0; i < 100; i++)
     {
@@ -67,7 +66,7 @@ void CChCtrl::Init()
 /// @Param	relPos			相对位置
 /// @Param	relVel			相对速度
 //********************************************************************
-void CChCtrl::Measure(const CCoord& chPos, const CCoord& chVel,
+void CMulChCtrl::Measure(const CCoord& chPos, const CCoord& chVel,
             const CCoord& tgPos, const CCoord& tgVel,
             CCoord& relPos, CCoord& relVel)
 {
@@ -99,7 +98,7 @@ void CChCtrl::Measure(const CCoord& chPos, const CCoord& chVel,
 /// @In/Out
 /// @Param	impulse			相对位置
 //********************************************************************
-void CChCtrl::Engine(CCoord& impulse)
+void CMulChCtrl::Engine(CCoord& impulse)
 {
     //增加测量偏差
     if (m_UseEngineRandom==0)
@@ -130,7 +129,7 @@ void CChCtrl::Engine(CCoord& impulse)
 /// @Output
 /// @Param	impulse			计算得到的冲量
 //********************************************************************
-void CChCtrl::GuidanceImpulse1(
+void CMulChCtrl::GuidanceImpulse1(
     const CCoord& chPos, const CCoord& chVel,
     const CCoord& tgPos, const CCoord& tgVel,
     const CCoord& endRelPos,
@@ -184,7 +183,7 @@ void CChCtrl::GuidanceImpulse1(
 /// @Output
 /// @Param	impulse			计算得到的冲量
 //********************************************************************
-void CChCtrl::GuidanceImpulse2(const CCoord& chPos, const CCoord& chVel, 
+void CMulChCtrl::GuidanceImpulse2(const CCoord& chPos, const CCoord& chVel, 
             const CCoord& tgPos, const CCoord& tgVel,
 			const CCoord& endRelVel, CCoord& impulse)
 {
@@ -210,7 +209,7 @@ void CChCtrl::GuidanceImpulse2(const CCoord& chPos, const CCoord& chVel,
 /// @Param	impulse			VVLH系中的脉冲
 /// @Return	
 //*********************************************************************
-void CChCtrl::TimeAdvance(double step,
+void CMulChCtrl::TimeAdvance(double step,
 			const CCoord& chPos, const CCoord& chVel, 
 			const CCoord& tgPos, const CCoord& tgVel, 
 			double flyTimeApproach, const CCoord& endPos,

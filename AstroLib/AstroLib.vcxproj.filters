@@ -80,6 +80,18 @@
     <ClInclude Include="Include\AsOrbitParam_2023.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\IzzoLam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LambertProblem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LambertProblemT.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\MyvectorT.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AsAtmosphere.cpp">
@@ -140,6 +152,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\AsOrbitParam_2023.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\IzzoLam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

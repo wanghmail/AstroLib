@@ -1,4 +1,4 @@
-﻿// ChCtrl.h: interface for the CChCtrl class.
+﻿// ChCtrl.h: interface for the CMulChCtrl class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -12,11 +12,11 @@
 //
 //追踪器制导控制类
 //
-class CChCtrl  
+class CMulChCtrl  
 {
 public:
-	CChCtrl();
-	virtual ~CChCtrl();
+	CMulChCtrl();
+	virtual ~CMulChCtrl();
 
 	void	Init();
 	void	TimeAdvance(double step,
