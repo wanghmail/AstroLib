@@ -1,6 +1,6 @@
-#include "izzoLam.h"
 #include <iostream>
-#include "lambert_problem_t.hpp"
+#include "LambertProblemT.hpp"
+#include "IzzoLam.h"
 
 int solve_lambert_izzo(double r1[3], double r2[3], double tof, double mu, int way, int multi_revs,
                        double v1[][3], double v2[][3]) {

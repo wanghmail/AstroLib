@@ -1,8 +1,8 @@
-// Spacecraft.cpp: implementation of the CSpacecraft class.
+// Spacecraft.cpp: implementation of the CMulSpacecraft class.
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "Spacecraft.h"
+#include "MulSpacecraft.h"
 
 using namespace std;
 
@@ -12,7 +12,7 @@ using namespace std;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-CSpacecraft::CSpacecraft()
+CMulSpacecraft::CMulSpacecraft()
 {
     // 初始化数据
     m_Name = "Vehicle";
@@ -23,7 +23,7 @@ CSpacecraft::CSpacecraft()
 }
 
 
-CSpacecraft::~CSpacecraft()
+CMulSpacecraft::~CMulSpacecraft()
 {
 
 }
@@ -35,7 +35,7 @@ CSpacecraft::~CSpacecraft()
 //Date:		2005.10.22
 //Input:	fileName	要载入的航天器数据文件名称
 //********************************************************************
-void CSpacecraft::Init()
+void CMulSpacecraft::Init()
 {
     //变量赋初值
     m_ElapsedSec = 0.0;		//Epoch second set to zero.
@@ -58,7 +58,7 @@ void CSpacecraft::Init()
 /// @Output	
 /// @Return									
 //********************************************************************
-void CSpacecraft::TimeAdvance(double step, int burnCoordSys,
+void CMulSpacecraft::TimeAdvance(double step, int burnCoordSys,
     const CCoord& burnValue)
 {
     CCoord			burnValueInertial, burnValueBody, momentVCF, sunPos;
@@ -91,7 +91,7 @@ void CSpacecraft::TimeAdvance(double step, int burnCoordSys,
 //Author:	Wang Hua
 //Date:		2005.10.22
 //********************************************************************
-void CSpacecraft::UpdateBuffer()
+void CMulSpacecraft::UpdateBuffer()
 {
     m_HistoryData.m_ElapsedSec.push_back(m_ElapsedSec);
     m_HistoryData.m_Pos.push_back(m_Pos);
@@ -104,7 +104,7 @@ void CSpacecraft::UpdateBuffer()
 /// @Author	Wang Hua
 /// @Date	2022-6-30
 //***********************************************************************
-void CSpacecraft::ReportGeneration()
+void CMulSpacecraft::ReportGeneration()
 {
     ofstream oss(".\\Output\\" + m_Name + ".txt");
     int n = m_HistoryData.m_ElapsedSec.size();

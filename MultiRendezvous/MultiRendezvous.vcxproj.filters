@@ -15,22 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\ChCtrl.h">
+    <ClInclude Include="Src\MulChCtrl.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Src\IzzoLam.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Spacecraft.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\lambert_problem.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\lambert_problem_t.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\myvector_t.hpp">
+    <ClInclude Include="Src\MulSpacecraft.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Src\ObserveGEO.h">
@@ -38,13 +26,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\ChCtrl.cpp">
+    <ClCompile Include="Src\MulChCtrl.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Src\izzoLam.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Spacecraft.cpp">
+    <ClCompile Include="Src\MulSpacecraft.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\ObserveGEO.cpp">

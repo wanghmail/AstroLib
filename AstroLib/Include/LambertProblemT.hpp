@@ -4,7 +4,7 @@
 
 #include <iomanip>
 
-#include "lambert_problem.hpp"
+#include "LambertProblem.hpp"
 #include <algorithm>
 
 template <typename T>

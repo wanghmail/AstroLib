@@ -229,6 +229,10 @@
     <ClInclude Include="Include\AsRightFunction.h" />
     <ClInclude Include="Include\AsTimeSystem.h" />
     <ClInclude Include="Include\AsVector.h" />
+    <ClInclude Include="Include\IzzoLam.h" />
+    <ClInclude Include="Include\LambertProblem.hpp" />
+    <ClInclude Include="Include\LambertProblemT.hpp" />
+    <ClInclude Include="Include\MyvectorT.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="AstroLib_ReadMe.txt" />
@@ -254,6 +258,7 @@
     <ClCompile Include="Src\AsRightFunction.cpp" />
     <ClCompile Include="Src\AsTimeSystem.cpp" />
     <ClCompile Include="Src\AsVector.cpp" />
+    <ClCompile Include="Src\IzzoLam.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

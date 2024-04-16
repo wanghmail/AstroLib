@@ -5,14 +5,14 @@
 #pragma once
 
 #include "AstroLib.h"
-#include "Spacecraft.h"
-#include "ChCtrl.h"
+#include "MulSpacecraft.h"
+#include "MulChCtrl.h"
 
 
 //
 //航天器交会对接总控
 //
-class CRendezvous
+class CMulRendezvous
 {
 public:
     void Main();						    // 仿真主程序
@@ -45,13 +45,15 @@ public:
         std::vector<CCoord> m_sun0List;		// 阳光角[弧度]
         std::vector<CCoord> m_sun1List;		// 阳光角[弧度]
         std::vector<CCoord> m_sun2List;		// 阳光角[弧度]
+
+        std::vector<double>	m_aimList;		// 可观测时刻[s]
     };
     CHistoryData	m_HistoryData;	    // 历史数据
 
 private:
-    CChCtrl         m_ChCtrl;               // 追踪器控制
-    CSpacecraft     m_ChDyn;                // 追踪器动力学
-    std::vector <CSpacecraft>     m_TgDyn;  // 目标器动力学
+    CMulChCtrl         m_ChCtrl;               // 追踪器控制
+    CMulSpacecraft     m_ChDyn;                // 追踪器动力学
+    std::vector <CMulSpacecraft>     m_TgDyn;  // 目标器动力学
 
 };
 
