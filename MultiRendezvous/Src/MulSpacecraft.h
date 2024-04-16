@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#if !defined(_Spacecraft_H__INCLUDED_)
-#define _Spacecraft_H__INCLUDED_
+#if !defined(_MulSpacecraft_H__INCLUDED_)
+#define _MulSpacecraft_H__INCLUDED_
 
 #pragma once
 
@@ -129,4 +129,4 @@ inline double					CMulSpacecraft::GetElapsedSec() const
 
 
 
-#endif // !defined(_Spacecraft_H__INCLUDED_)
+#endif // !defined(_MulSpacecraft_H__INCLUDED_)

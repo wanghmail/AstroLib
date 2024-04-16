@@ -1,6 +1,6 @@
 ﻿
-#if !defined(AFX_ASTROLIBEXAMPLES_H__A94E219F_5EC1_4DF2_973D_CFEB16259FBE__INCLUDED_)
-#define AFX_ASTROLIBEXAMPLES_H__A94E219F_5EC1_4DF2_973D_CFEB16259FBE__INCLUDED_
+#if !defined(_MulRendezvous_H__INCLUDED_)
+#define _MulRendezvous_H__INCLUDED_
 
 #pragma once
 
@@ -10,7 +10,7 @@
 
 
 //
-//航天器交会对接总控
+//航天器多次交会对接总控
 //
 class CMulRendezvous
 {
@@ -59,4 +59,4 @@ private:
 
 
 
-#endif // !defined(AFX_ASTROLIBEXAMPLES_H__A94E219F_5EC1_4DF2_973D_CFEB16259FBE__INCLUDED_)
+#endif // !defined(_MulRendezvous_H__INCLUDED_)

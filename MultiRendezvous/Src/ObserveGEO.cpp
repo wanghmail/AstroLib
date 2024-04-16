@@ -8,8 +8,8 @@ using namespace std;
 
 //***********************************************************************
 /// 仿真主程序
-/// @Author	Wang Hua
-/// @Date	2010-4-15
+/// @Author	Wang Hanwei
+/// @Date	2024-4-15
 //***********************************************************************
 void CMulRendezvous::Main()
 {
@@ -39,8 +39,8 @@ void CMulRendezvous::Main()
 
 //***********************************************************************
 /// 初始化
-/// @Author	Wang Hua
-/// @Date	2010-4-15
+/// @Author	Wang Hanwei
+/// @Date	2024-4-15
 //***********************************************************************
 void CMulRendezvous::Initialization()
 {
@@ -100,8 +100,8 @@ void CMulRendezvous::Initialization()
 
 //***********************************************************************
 /// 时间推进
-/// @Author	Wang Hua
-/// @Date	2010-4-15
+/// @Author	Wang Hanwei
+/// @Date	2024-4-15
 /// @Return	true=仿真结束
 //***********************************************************************
 bool CMulRendezvous::TimeAdvance(double step)
@@ -188,7 +188,7 @@ bool CMulRendezvous::TimeAdvance(double step)
 //***********************************************************************
 /// 结果报告生成
 /// @Author	Wang Hua
-/// @Date	2010-4-15
+/// @Date	2024-4-15
 //***********************************************************************
 void CMulRendezvous::ReportGeneration()
 {
@@ -226,7 +226,6 @@ int main()
     //执行交会对接仿真
     CMulRendezvous sim;
     sim.Main();           //标称仿真
-    //sim.MainMonteCarlo();   //MonteCarlo仿真
 
     return 0;
 }

@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#if !defined(_CHCTRL_H__)
-#define _CHCTRL_H__
+#if !defined(_MulChCtrl_H__)
+#define _MulChCtrl_H__
 
 
 #include "AstroLib.h"
@@ -60,4 +60,4 @@ private:
 };
 
 
-#endif // !defined(_CHCTRL_H__)
+#endif // !defined(_MulChCtrl_H__)
