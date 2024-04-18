@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.6.33829.357
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AstroLib", "AstroLib\AstroLib.vcxproj", "{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}"
 EndProject
@@ -26,6 +26,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiRendezvous", "MultiRen
 	ProjectSection(ProjectDependencies) = postProject
 		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowOrbitConstellation1", "LowOrbitConstellation1\LowOrbitConstellation1.vcxproj", "{D5554C65-F679-4164-9B19-430A62B1D707}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,14 @@ Global
 		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|Win32.Build.0 = Release|Win32
 		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|x64.ActiveCfg = Release|x64
 		{BA8DF975-D3D0-4E76-B967-901368AFFE4D}.Release|x64.Build.0 = Release|x64
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Debug|Win32.Build.0 = Debug|Win32
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Debug|x64.ActiveCfg = Debug|x64
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Debug|x64.Build.0 = Debug|x64
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Release|Win32.ActiveCfg = Release|Win32
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Release|Win32.Build.0 = Release|Win32
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Release|x64.ActiveCfg = Release|x64
+		{D5554C65-F679-4164-9B19-430A62B1D707}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
