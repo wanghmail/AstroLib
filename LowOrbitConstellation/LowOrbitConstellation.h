@@ -1,6 +1,6 @@
 ﻿
-#if !defined(AFX_ASTROLIBEXAMPLES_H__A94E219F_5EC1_4DF2_973D_CFEB16259FBE__INCLUDED_)
-#define AFX_ASTROLIBEXAMPLES_H__A94E219F_5EC1_4DF2_973D_CFEB16259FBE__INCLUDED_
+#if !defined(_CEx01_H__INCLUDED_)
+#define _CEx01_H__INCLUDED_
 
 #pragma once
 
@@ -8,7 +8,6 @@
 #include "AstroLib.h"
 
 
-#endif // !defined(AFX_ASTROLIBEXAMPLES_H__A94E219F_5EC1_4DF2_973D_CFEB16259FBE__INCLUDED_)
 class CEx01
 {
 public:
@@ -34,3 +33,6 @@ public:
 	CCoord      m_Vel;					///< 飞行器速度
 	string      m_Name;					///< 飞行器名称
 };
+
+
+#endif // !defined(_CEx01_H__INCLUDED_)

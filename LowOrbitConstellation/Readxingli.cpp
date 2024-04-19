@@ -5,7 +5,7 @@
 //***********************************************************************
 
 
-#include "LowOrbitConstellation1.h"
+#include "LowOrbitConstellation.h"
 #include <fstream>
 
 using namespace std;

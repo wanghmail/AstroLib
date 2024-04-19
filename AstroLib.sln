@@ -27,7 +27,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiRendezvous", "MultiRen
 		{7EACEEBD-39A5-4708-8D6C-2AF7275FF08B} = {7EACEEBD-39A5-4708-8D6C-2AF7275FF08B}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowOrbitConstellation1", "LowOrbitConstellation1\LowOrbitConstellation1.vcxproj", "{D5554C65-F679-4164-9B19-430A62B1D707}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowOrbitConstellation", "LowOrbitConstellation\LowOrbitConstellation.vcxproj", "{D5554C65-F679-4164-9B19-430A62B1D707}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

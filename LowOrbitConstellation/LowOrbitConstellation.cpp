@@ -3,7 +3,7 @@
 
 #include <fstream>
 #include <iostream>
-#include "LowOrbitConstellation1.h"
+#include "LowOrbitConstellation.h"
 
 //***********************************************************************
 /// 仿真主程序
