@@ -530,7 +530,20 @@ bool	AsVVLHToICSMtx (
 			const CCoord& vel, 
 			CMatrix<double>& mtx);
 
-
+//********************************************************************
+/// 计算从ICRF惯性系到ECF地固系转移矩阵.
+/// @Author	Wang Hua
+/// @Date	2024-5-13
+/// @Input	
+/// @Param	pos		the position of vehicle 地心惯性系或地固系中的飞行器位置[m]
+/// @Param	vel		velocity of vehicle 地心惯性系或地固系中的飞行器速度[m/s]
+/// @Output	
+/// @Param	mtx		VVLH到ICS的转移矩阵
+///					pos为0，vel为0，pos与vel方向相同时，均无法计算转换矩阵，此时mtx输出单位矩阵
+/// @Return			true=计算正确; false=输入数据异常
+//********************************************************************
+void  AsICRFToECFMtx(double jd, CMatrix<double>& mtx);
+void  AsECFToICRFMtx(double jd, CMatrix<double>& mtx);
 
 
 

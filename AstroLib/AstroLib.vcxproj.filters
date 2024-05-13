@@ -12,6 +12,9 @@
     <Filter Include="源文件">
       <UniqueIdentifier>{d67e5173-e6b6-4afe-9c15-f55de9aad894}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sofa">
+      <UniqueIdentifier>{07ee9d17-a363-4229-807b-7ed4c19004cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\AsAttitudeParam.h">
@@ -48,9 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\AsTimeSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AstroLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\AsVector.h">
@@ -92,6 +92,13 @@
     <ClInclude Include="Include\MyvectorT.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\sofa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\sofam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AstroLib.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AsAtmosphere.cpp">
@@ -157,8 +164,757 @@
     <ClCompile Include="Src\IzzoLam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Sofa\a2af.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\a2tf.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ab.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ae2hd.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\af2a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\anp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\anpm.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apcg.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apcg13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apci.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apci13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apco.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apco13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apcs.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apcs13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\aper.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\aper13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apio.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\apio13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atcc13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atccq.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atci13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atciq.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atciqn.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atciqz.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atco13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atic13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\aticq.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\aticqn.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atio13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atioq.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atoc13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atoi13.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\atoiq.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\bi00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\bp00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\bp06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\bpn2xy.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2i00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2i00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2i06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2ibpn.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2ixy.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2ixys.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2s.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2t00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2t00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2t06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2tcio.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2teqx.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2tpe.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\c2txy.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\cal2jd.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\cp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\cpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\cr.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\d2dtf.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\d2tf.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\dat.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\dtdb.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\dtf2d.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eceq06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ecm06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ee00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ee00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ee00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ee06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eect00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eform.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eo06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eors.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\epb.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\epb2jd.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\epj.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\epj2jd.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\epv00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eqec06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\eqeq94.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\era00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fad03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fae03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\faf03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\faju03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fal03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\falp03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fama03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fame03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fane03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\faom03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fapa03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fasa03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\faur03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fave03.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk5hip.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk5hz.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk45z.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk52h.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk54z.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk425.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fk524.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fw2m.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\fw2xy.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\g2icrs.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gc2gd.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gc2gde.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gd2gc.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gd2gce.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gmst00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gmst06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gmst82.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gst00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gst00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gst06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gst06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\gst94.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\h2fk5.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\hd2ae.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\hd2pa.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\hfk5z.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\icrs2g.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ir.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\jd2cal.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\jdcalf.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ld.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ldn.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ldsun.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\lteceq.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ltecm.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\lteqec.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ltp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ltpb.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ltpecl.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ltpequ.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\moon98.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\num00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\num00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\num06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\numat.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\nut00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\nut00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\nut06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\nut80.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\nutm80.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\obl06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\obl80.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\p2pv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\p2s.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\p06e.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pap.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pas.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pb06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pdp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pfw06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\plan94.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pm.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pmat00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pmat06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pmat76.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pmp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pmpx.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pmsafe.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pn.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pn00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pn00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pn00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pn06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pn06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pnm00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pnm00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pnm06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pnm80.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pom00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ppp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ppsp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pr00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\prec76.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pv2p.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pv2s.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvdpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvm.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvmpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvppv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvstar.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvtob.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvu.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvup.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pvxpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\pxp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\refco.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rm2v.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rv2m.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rx.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rxp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rxpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rxr.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ry.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\rz.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s2c.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s2p.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s2pv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s2xpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\s06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\sepp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\seps.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\sp00.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\starpm.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\starpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\sxp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\sxpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\t_sofa_c.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\taitt.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\taiut1.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\taiutc.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tcbtdb.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tcgtt.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tdbtcb.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tdbtt.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tf2a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tf2d.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tpors.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tporv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tpsts.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tpstv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tpxes.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tpxev.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tr.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\trxp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\trxpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tttai.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tttcg.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\tttdb.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ttut1.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ut1tai.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ut1tt.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\ut1utc.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\utctai.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\utcut1.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\xy06.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\xys00a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\xys00b.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\xys06a.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\zp.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\zpv.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Sofa\zr.c">
+      <Filter>Source Files\Sofa</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="AstroLib_ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Src\Sofa\makefile">
+      <Filter>Source Files\Sofa</Filter>
+    </None>
   </ItemGroup>
 </Project>

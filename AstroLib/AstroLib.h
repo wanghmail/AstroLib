@@ -75,6 +75,10 @@
 #include "./Include/AsOrbitParam_2023.h"
 #include "./Include/IzzoLam.h"
 
+#include "./Include/sofa.h"
+#include "./Include/sofam.h"
+
+
 using namespace std;
 
 

@@ -15,6 +15,7 @@
 #include "AsAttitudeParam.h"
 #include "AsTimeSystem.h"
 #include "AsOrbitParam.h"
+#include "sofa.h"
 #include <cassert>
 
 
@@ -698,11 +699,18 @@ bool  AsICSToVVLHMtx(const CCoord& pos, const CCoord& vel,
 
 
 //********************************************************************
-//Return transformation matrix from VVLH(Vehicle Velocity Local Horizontal) to ICS.
+/// 计算从VVLH坐标系到输入直角坐标系（地心惯性系或地固系）的转换矩阵
+///  VVLH定义为：z轴指向地心，x轴与z轴垂直指向速度方向，y轴与其它两轴成右手坐标系.
+/// Return transformation matrix from VVLH(Vehicle Velocity Local Horizontal) to ICS.
 /// @Author	Wang Hua
 /// @Date	2004.10.19
-/// @Input	pos		the position of vehicle
-//			vel		velocity of vehicle
+/// @Input	
+/// @Param	pos		the position of vehicle 地心惯性系或地固系中的飞行器位置[m]
+/// @Param	vel		velocity of vehicle 地心惯性系或地固系中的飞行器速度[m/s]
+/// @Output	
+/// @Param	mtx		VVLH到ICS的转移矩阵
+///					pos为0，vel为0，pos与vel方向相同时，均无法计算转换矩阵，此时mtx输出单位矩阵
+/// @Return			true=计算正确; false=输入数据异常
 //********************************************************************
 bool  AsVVLHToICSMtx(const CCoord& pos, const CCoord& vel, 
 								 CMatrix<double>& mtx)
@@ -715,3 +723,45 @@ bool  AsVVLHToICSMtx(const CCoord& pos, const CCoord& vel,
     else
         return false;
 }
+
+
+//********************************************************************
+/// 计算从ICRF惯性系到ECF地固系转移矩阵.
+/// @Author	Wang Hua
+/// @Date	2024-5-13
+/// @Input	
+/// @Param	pos		the position of vehicle 地心惯性系或地固系中的飞行器位置[m]
+/// @Param	vel		velocity of vehicle 地心惯性系或地固系中的飞行器速度[m/s]
+/// @Output	
+/// @Param	mtx		VVLH到ICS的转移矩阵
+///					pos为0，vel为0，pos与vel方向相同时，均无法计算转换矩阵，此时mtx输出单位矩阵
+/// @Return			true=计算正确; false=输入数据异常
+//********************************************************************
+void  AsICRFToECFMtx(double jd, CMatrix<double>& mtx)
+{
+    double W[3][3],R[3][3],Q[3][3];
+    iauIr(W);
+    iauIr(R);
+    iauIr(Q);
+
+    double x, y, s;
+    iauXys06a(jd, 0, &x, &y, &s);
+    iauC2ixys(x, y, s, Q);
+    double era = iauEra00(jd,0);
+    iauRz(era, R);
+    iauRxr(R,Q,W);
+    for (int i=0; i<3; i++)
+    {
+        for (int j=0; j<3; j++)
+            mtx[i][j]=W[i][j];
+    }
+}
+
+
+void  AsECFToICRFMtx(double jd, CMatrix<double>& mtx)
+{
+    AsICRFToECFMtx(jd, mtx);
+    mtx = mtx.Transpose();
+}
+
+
