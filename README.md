@@ -35,6 +35,13 @@ Chapter 9 交会对接接近段仿真实例。
 SimDoF6_Mablab    Chapter 5 飞行器六自由度仿真实例Simulink模型。
 MonteCarlo_Matlab Chapter 6 Monte Carlo仿真实例。
 
+7. LowOrbitConstellation目录 :high_brightness: 
+LEO星座观测仿真
+
+8. MultiRendezvous目录 :high_brightness: 
+GEO多星交会巡查
+
+
 #### 软件架构
 
 软件实现了航天仿真核心模型算法，包括：
@@ -53,20 +60,19 @@ MonteCarlo_Matlab Chapter 6 Monte Carlo仿真实例。
 #### 安装教程
 
 项目使用说明：
-1. 用VS2015直接打开。
+1. 用VS2015及以上版本直接打开。
 
 #### 使用说明
 
 AstroLib使用说明：
 1. 将AstroLib.h文件和Include、Lib目录拷贝到自己的项目目录下;
 2. 在需要用到库中函数的文件中包含"AstroLib.h"文件即可.
+3. 项目中各工程已经配置目录，可自动包含AstroLib头文件和库文件，不需要以上拷贝过程，但其他新建工程可能需要。
 
 #### 参与贡献
 
-1.  王华Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+1.  2023年春所有学生。
+2.  2024年春所有学生。
 
 
 #### 特技
