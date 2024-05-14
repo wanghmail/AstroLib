@@ -220,7 +220,6 @@
     <ClInclude Include="Include\AsInterpolation.h" />
     <ClInclude Include="Include\AsMath.h" />
     <ClInclude Include="Include\AsMatrix.h" />
-    <ClInclude Include="Include\AsMatrix_Impl.h" />
     <ClInclude Include="Include\AsOrbit.h" />
     <ClInclude Include="Include\AsOrbitParam.h" />
     <ClInclude Include="Include\AsOrbitParam_2023.h" />

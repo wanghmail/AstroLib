@@ -38,9 +38,6 @@
     <ClInclude Include="Include\AsMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\AsMatrix_Impl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Include\AsOrbitParam.h">
       <Filter>Header Files</Filter>
     </ClInclude>

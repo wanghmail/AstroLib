@@ -242,8 +242,8 @@ public:
 	CAziElevRng(double azi, double elev, double rng);
 
 public:
-    double	m_Azi;		///< 方位角
-    double  m_Elev;		///< 仰角
+    double	m_Azi;		///< 方位角. 绕z轴转动，x轴处为0度，从x到y为正
+    double  m_Elev;		///< 仰角. 绕y轴转动，xy平面处为0度，从xy平面转到-z轴为正
     double  m_Rng;		///< 距离
 };
 
