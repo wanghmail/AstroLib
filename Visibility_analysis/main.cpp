@@ -223,83 +223,90 @@ int main()
 	int row = Window_all.size();
 	vector<int> obs;
 
-	// 前后时间 不一致 ，故分为两段
-	for (int i = 0; i < row - 1; i++)
+	if (row == 0)
 	{
-		if (Window_all[i + 1][0] - Window_all[i][0] != dT)
+		printf("卫星未能侦测到指定地点\n");//判断是否能侦测到
+	}
+	else
+	{
+
+		// 前后时间 不一致 ，故分为两段
+		for (int i = 0; i < row - 1; i++)
 		{
-			int obsp = i;
-			obs.insert(obs.end(), obsp);
+			if (Window_all[i + 1][0] - Window_all[i][0] != dT)
+			{
+				int obsp = i;
+				obs.insert(obs.end(), obsp);
+			}
 		}
+
+
+		// 观测段数
+		int pic = obs.size() + 1;
+
+		// 具体观测时间分布
+		vector<vector<double>> Timeperiod(2);
+		Timeperiod[0].resize(pic);
+		Timeperiod[1].resize(pic);
+
+		Timeperiod[0][0] = Window_all[0][0];
+		Timeperiod[1][0] = Window_all[obs[0]][0];
+
+		for (int i = 1; i < pic - 1; i++)
+		{
+			Timeperiod[0][i] = Window_all[obs[i - 1] + 1][0];
+			Timeperiod[1][i] = Window_all[obs[i]][0];
+		}
+
+		Timeperiod[0][pic - 1] = Window_all[obs[pic - 2] + 1][0];
+		Timeperiod[1][pic - 1] = Window_all[row - 1][0];
+
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// 输出 UTCG 观测时间
+		vector<vector<string>> All_Timeperiod(2);
+		All_Timeperiod[0].resize(pic);
+		All_Timeperiod[1].resize(pic);
+
+		vector<double> Duration(pic);
+
+		for (int i = 0; i < pic; i++)
+		{
+			double* UTCG0 = AddSec(Time0, Timeperiod[0][i]);
+			string UTCG0_str = UTCGTime(UTCG0);
+
+			double* UTCG1 = AddSec(Time0, Timeperiod[1][i]);
+			string UTCG1_str = UTCGTime(UTCG1);
+
+			All_Timeperiod[0][i] = UTCG0_str;
+			All_Timeperiod[1][i] = UTCG1_str;
+
+			Duration[i] = Timeperiod[1][i] - Timeperiod[0][i];
+		}
+
+
+
+		cout << endl;
+		cout << "显示结果，将结果储存于 -- 观测情况.txt" << endl;
+		cout << endl;
+		cout << "		  观测开始时间(UTCG)	    观测结束时间(UTCG)	  观测持续时间(sec)" << endl;
+		for (int i = 0; i < pic; i++)
+		{
+			cout << "第" << to_string(i + 1) << "次观测	" << All_Timeperiod[0][i] << "	  " << All_Timeperiod[1][i] << "	" << Duration[i] << endl;
+		}
+		cout << endl;
+
+
+		ofstream fwD;
+		fwD.open("../观测情况.txt");
+		fwD << "		  观测开始时间(UTCG)	    观测结束时间(UTCG)	  观测持续时间(sec)" << endl;
+		for (int i = 0; i < pic; i++)
+		{
+			fwD << "第" << to_string(i + 1) << "次观测	" << All_Timeperiod[0][i] << "	  "
+				<< All_Timeperiod[1][i] << "	" << Duration[i] << endl;
+		}
+		fwD.close();
 	}
-
-
-	// 观测段数
-	int pic = obs.size() + 1;
-
-	// 具体观测时间分布
-	vector<vector<double>> Timeperiod(2);
-	Timeperiod[0].resize(pic);
-	Timeperiod[1].resize(pic);
-
-	Timeperiod[0][0] = Window_all[0][0];
-	Timeperiod[1][0] = Window_all[obs[0]][0];
-
-	for (int i = 1; i < pic - 1; i++)
-	{
-		Timeperiod[0][i] = Window_all[obs[i - 1] + 1][0];
-		Timeperiod[1][i] = Window_all[obs[i]][0];
-	}
-
-	Timeperiod[0][pic - 1] = Window_all[obs[pic - 2] + 1][0];
-	Timeperiod[1][pic - 1] = Window_all[row - 1][0];
-
-
-	/////////////////////////////////////////////////////////////////////////////////////////////////
-
-	// 输出 UTCG 观测时间
-	vector<vector<string>> All_Timeperiod(2);
-	All_Timeperiod[0].resize(pic);
-	All_Timeperiod[1].resize(pic);
-
-	vector<double> Duration(pic);
-
-	for (int i = 0; i < pic; i++)
-	{
-		double* UTCG0 = AddSec(Time0, Timeperiod[0][i]);
-		string UTCG0_str = UTCGTime(UTCG0);
-
-		double* UTCG1 = AddSec(Time0, Timeperiod[1][i]);
-		string UTCG1_str = UTCGTime(UTCG1);
-
-		All_Timeperiod[0][i] = UTCG0_str;
-		All_Timeperiod[1][i] = UTCG1_str;
-
-		Duration[i] = Timeperiod[1][i] - Timeperiod[0][i];	
-	}
-
-
-
-	cout << endl;
-	cout << "显示结果，将结果储存于 -- C++_Visibility_analysis/观测情况.txt" << endl;
-	cout << endl;
-	cout << "		  观测开始时间(UTCG)	    观测结束时间(UTCG)	  观测持续时间(sec)" << endl;
-	for (int i = 0; i < pic; i++)
-	{
-		cout << "第"<< to_string(i+1) << "次观测	" << All_Timeperiod[0][i] << "	  " << All_Timeperiod[1][i] << "	" << Duration[i] << endl;
-	}
-	cout << endl;
-	
-
-	ofstream fwD;
-	fwD.open("../../观测情况.txt");
-	fwD << "		  观测开始时间(UTCG)	    观测结束时间(UTCG)	  观测持续时间(sec)" << endl;
-	for (int i = 0; i < pic; i++)
-	{
-		fwD << "第" << to_string(i + 1) << "次观测	" << All_Timeperiod[0][i] << "	  " 
-			<< All_Timeperiod[1][i] << "	" << Duration[i] << endl;
-	}
-	fwD.close();
-	
 
 }
