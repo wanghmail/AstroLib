@@ -17,7 +17,7 @@ class Csatobs
 {
 public:
 	void Main();						    // 仿真主程序
-   
+ 
 
 private:
 	void Initialization();				    // 初始化
@@ -30,7 +30,7 @@ public:
 	double Time0[6];//初始时间
 	double Vel[3]; //卫星地心惯性系速度
 	double Pos[3]; //卫星地心惯性式位置
-	double theta;           //地面可观测卫星的最小仰角
+	double theta;  //地面可观测卫星的最小仰角
 	double lla[3]; //地面站经纬高数组
 	double step;
 	vector<vector<double>> Window_all; // 窗口时间
