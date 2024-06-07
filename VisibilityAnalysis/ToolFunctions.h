@@ -1,7 +1,7 @@
-#pragma once
+ï»¿#pragma once
 #include "Parameter.h"
 
-// »ù´¡º¯Êı
+// åŸºç¡€å‡½æ•°
 double fix(double x);
 long double modulo(long double x);
 double sign(double x);
@@ -37,6 +37,6 @@ double* AddSec(double Time[6], double addsec);
 
 string UTCGTime(double* UTCG0);
 
-// ¹ìµÀ¶¯Á¦Ñ§
+// è½¨é“åŠ¨åŠ›å­¦
 void OrbitDynamics(double t, double y[6], double f[3], double ydot[6]);
 void orb_rkf78(double x[], double h, double ti, double tf, double f_c[], double* xoutAdr, int neq);

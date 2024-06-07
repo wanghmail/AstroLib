@@ -24,6 +24,7 @@
     <ProjectGuid>{55ac4cf8-905f-49a5-802f-bd03dd2f889c}</ProjectGuid>
     <RootNamespace>Visibilityanalysis</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>VisibilityAnalysis</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <iostream>
 #include <string>
@@ -18,16 +18,16 @@
 
 using namespace std;
 
-// ³£Á¿ÉùÃ÷
+// å¸¸é‡å£°æ˜
 #define pi 3.141592653589793
 #define mu 3.98600441e5
 #define we 7.2921158553e-5
 #define omega 7.2921158553e-5
 #define Re 6378.136
-#define flat  0.00335281317789691 //µØÇò±âÂÊ
-#define aunit 149597870.0   //// ÌìÎÄµ¥Î»
-#define mu_sun 1.32712440018e11  //// Ì«ÑôÒıÁ¦ÏµÊı
-#define mu_moon  4.902801e4   //// ÔÂÇòÒıÁ¦ÏµÊı
+#define flat  0.00335281317789691 //åœ°çƒæ‰ç‡
+#define aunit 149597870.0   //// å¤©æ–‡å•ä½
+#define mu_sun 1.32712440018e11  //// å¤ªé˜³å¼•åŠ›ç³»æ•°
+#define mu_moon  4.902801e4   //// æœˆçƒå¼•åŠ›ç³»æ•°
 #define J2 0.00108264
 #define J3 -2.5356e-6
 #define J4 -1.62336e-6

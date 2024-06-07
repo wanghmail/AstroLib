@@ -29,7 +29,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiRendezvous", "MultiRen
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowOrbitConstellation", "LowOrbitConstellation\LowOrbitConstellation.vcxproj", "{D5554C65-F679-4164-9B19-430A62B1D707}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Visibility_analysis", "Visibility_analysis\Visibility_analysis.vcxproj", "{55AC4CF8-905F-49A5-802F-BD03DD2F889C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisibilityAnalysis", "VisibilityAnalysis\VisibilityAnalysis.vcxproj", "{55AC4CF8-905F-49A5-802F-BD03DD2F889C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

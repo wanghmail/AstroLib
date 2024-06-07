@@ -1,4 +1,4 @@
-#include "ToolFunctions.h"
+ï»¿#include "ToolFunctions.h"
 
 double fix(double x)
 {
@@ -102,7 +102,7 @@ double r2r(double x)
 
 double dot(double a[3], double b[3])
 {
-    /// ÏòÁ¿µã³Ë
+    /// å‘é‡ç‚¹ä¹˜
     double output = 0;
     output = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
     return output;
@@ -111,7 +111,7 @@ double dot(double a[3], double b[3])
 
 double norm(double a[3])
 {
-    // ÏòÁ¿µÄ¶ş·¶Êı
+    // å‘é‡çš„äºŒèŒƒæ•°
     double output = 0;
     output = sqrt(dot(a, a));
     return output;
@@ -200,9 +200,9 @@ double * LLH2ECF(double Latitude, double longitude, double altitude)
 
     static double rt_ecf[3] = {0.0};
 
-    double esqr = 2 * flat - flat * flat; // µØÇòµÚÒ»Æ«ĞÄÂÊÆ½·½
+    double esqr = 2 * flat - flat * flat; // åœ°çƒç¬¬ä¸€åå¿ƒç‡å¹³æ–¹
 
-    double N = Re / sqrt(1 - esqr * sin(Latitude) * sin(Latitude)); // »ù×¼ÍÖÇòÌåµÄÇúÂÊ°ë¾¶
+    double N = Re / sqrt(1 - esqr * sin(Latitude) * sin(Latitude)); // åŸºå‡†æ¤­çƒä½“çš„æ›²ç‡åŠå¾„
 
     double X = (N + altitude) * cos(Latitude) * cos(longitude);
     double Y = (N + altitude) * cos(Latitude) * sin(longitude);
@@ -266,7 +266,7 @@ double gast(double x)
 
 double linemulti(double x[3], double y[3])
 {
-    ////ÏòÁ¿³Ë·¨
+    ////å‘é‡ä¹˜æ³•
     double res = 0;
     res = x[0] * y[0] + x[1] * y[1] + x[2] * y[2];
     return res;
@@ -274,7 +274,7 @@ double linemulti(double x[3], double y[3])
 
 double ** matmulti(double x[3][3], double y[3][3])
 {
-    ////¾ØÕó³Ë·¨
+    ////çŸ©é˜µä¹˜æ³•
     double** mat = 0;
     mat = new double* [3];
     for (int i = 0; i < 3; i++)
@@ -301,7 +301,7 @@ double ** matmulti(double x[3][3], double y[3][3])
 
 double** mattrans(double x[3][3])
 {
-    ///¾ØÕóµÄ×ªÖÃ
+    ///çŸ©é˜µçš„è½¬ç½®
     double** mat = 0;
     mat = new double* [3];
     for (int i = 0; i < 3; i++)
@@ -318,7 +318,7 @@ double** mattrans(double x[3][3])
 
 double* matm31(double x[3][3], double y[3])
 {
-    /// 3*3 ¾ØÕó  *   3*1 ¾ØÕó
+    /// 3*3 çŸ©é˜µ  *   3*1 çŸ©é˜µ
     static double mat[3];
     mat[0] = 0; mat[1] = 0; mat[2] = 0;
     double x1[3], x2[3], x3[3];
@@ -336,11 +336,11 @@ double* matm31(double x[3][3], double y[3])
 
 double ** R1(double x)
 {
-    double** r = 0;     //³õÊ¼»¯Ò»¸ö¶şÎ¬Êı×é
-    r = new double* [3];   //½¨Á¢°üº¬row¸öÖ¸ÕëµÄÖ¸ÕëÊı×é
+    double** r = 0;     //åˆå§‹åŒ–ä¸€ä¸ªäºŒç»´æ•°ç»„
+    r = new double* [3];   //å»ºç«‹åŒ…å«rowä¸ªæŒ‡é’ˆçš„æŒ‡é’ˆæ•°ç»„
     for (int i = 0; i < 3; i++)
     {
-        *(r + i) = new double[3];   //Ã¿¸öÒ»Î¬Ö¸ÕëÊı×éµÄ³¤¶È¶¼ÊÇcol
+        *(r + i) = new double[3];   //æ¯ä¸ªä¸€ç»´æŒ‡é’ˆæ•°ç»„çš„é•¿åº¦éƒ½æ˜¯col
     }
 
     r[0][0] = 1; r[0][1] = 0; r[0][2] = 0;
@@ -382,7 +382,7 @@ double** R3(double x)
 
 double** nutation(double x)
 {
-    ///ÕÂ¶¯
+    ///ç« åŠ¨
    // Nutation matrix
    //
    // Input:  o JD - Julian date
@@ -891,7 +891,7 @@ double* AddSec(double Time[6], double addsec)
 
 string UTCGTime(double* UTCG0)
 {
-    //// ÔÂ
+    //// æœˆ
     string UTCG0_mo = "";
     if (int(UTCG0[1]) < 10)
     {
@@ -902,7 +902,7 @@ string UTCGTime(double* UTCG0)
         UTCG0_mo = to_string(int(UTCG0[1]));
     }
 
-    //// ÈÕ
+    //// æ—¥
     string UTCG0_d = "";
     if (int(UTCG0[2]) < 10)
     {
@@ -913,7 +913,7 @@ string UTCGTime(double* UTCG0)
         UTCG0_d = to_string(int(UTCG0[2]));
     }
 
-    //// Ê±
+    //// æ—¶
     string UTCG0_h = "";
     if (int(UTCG0[3]) < 10)
     {
@@ -924,7 +924,7 @@ string UTCGTime(double* UTCG0)
         UTCG0_h = to_string(int(UTCG0[3]));
     }
 
-    //// ·Ö
+    //// åˆ†
     string UTCG0_m = "";
     if (int(UTCG0[4]) < 10)
     {
@@ -935,7 +935,7 @@ string UTCGTime(double* UTCG0)
         UTCG0_m = to_string(int(UTCG0[4]));
     }
 
-    //// Ãë
+    //// ç§’
     string UTCG0_s = "";
     stringstream UTCG0_sec;
     UTCG0_sec << std::setiosflags(std::ios::fixed) << std::setprecision(2) << UTCG0[5];
@@ -959,26 +959,26 @@ string UTCGTime(double* UTCG0)
 
 void OrbitDynamics(double t, double y[6], double f[3], double ydot[6])
 {
-    /*% ¹ìµÀ¶¯Á¦Ñ§º¯Êı
+    /*% è½¨é“åŠ¨åŠ›å­¦å‡½æ•°
 
-        % ÊäÈë
-        % Î»ÖÃ km
-        % ËÙ¶È km / s
-        % ¿ØÖÆÁ¦£¬ N
+        % è¾“å…¥
+        % ä½ç½® km
+        % é€Ÿåº¦ km / s
+        % æ§åˆ¶åŠ›ï¼Œ N
 
-        % Êä³ö
-        % ËÙ¶È km / s
-        % ¼ÓËÙ¶È km / s / s
+        % è¾“å‡º
+        % é€Ÿåº¦ km / s
+        % åŠ é€Ÿåº¦ km / s / s
     */
 
-    // Éã¶¯Ó°Ïì
+    // æ‘„åŠ¨å½±å“
     double agrav[3] = { 0 };
 
-    // Î»ÖÃ ËÙ¶È
+    // ä½ç½® é€Ÿåº¦
     double px = y[0]; double py = y[1]; double pz = y[2];
     double vx = y[3]; double vy = y[4]; double vz = y[5];
 
-    // µØĞÄ¾à
+    // åœ°å¿ƒè·
     double r = sqrt(pow(px, 2) + pow(py, 2) + pow(pz, 2));
 
     agrav[0] = -mu * px / pow(r, 3.0) * (3.0 / 2 * J2 * pow(Re / r, 2.0) * (1.0 - 5.0 * pow(pz / r, 2.0)));
