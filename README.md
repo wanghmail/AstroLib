@@ -1,7 +1,7 @@
-# 航天仿真库AstroLib
+# 航天仿真算法库AstroLib
 
 #### 介绍
-航天仿真库AstroLib
+航天仿真算法库AstroLib
 该程序包是《航天系统建模与仿真》的一个配套程序
 
 1. AstroLib目录 :high_brightness: 
@@ -19,11 +19,15 @@ Chapter 5 飞行器六自由度仿真实例。
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/SimDoF6_Ui.png)
 
-4. ParallelSim目录 :high_brightness: 
+4. Graphics3D目录 :high_brightness: 
+Chapter 7 航天系统仿真可视化实例。
+![image](docs/resources/Graphics3D_Ui.png)
+
+5. ParallelSim目录 :high_brightness: 
 Chapter 8 并行仿真实例。
 可执行程序，依赖AstroLib静态库。
 
-5. Rendezvous目录 :high_brightness: 
+6. Rendezvous目录 :high_brightness: 
 Chapter 9 交会对接接近段仿真实例。
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/Rendezvous_Ui.png)
@@ -31,15 +35,18 @@ Chapter 9 交会对接接近段仿真实例。
 ![image](docs/resources/Rendezvous_xz.png)
 ![image](docs/resources/Rendezvous_xyz.png)
 
-6. Matlab目录 :high_brightness: 
+7. Matlab目录 :high_brightness: 
 SimDoF6_Mablab    Chapter 5 飞行器六自由度仿真实例Simulink模型。
 MonteCarlo_Matlab Chapter 6 Monte Carlo仿真实例。
 
-7. LowOrbitConstellation目录 :high_brightness: 
+8. LowOrbitConstellation目录 :high_brightness: 
 LEO星座观测仿真
 
-8. MultiRendezvous目录 :high_brightness: 
+9. MultiRendezvous目录 :high_brightness: 
 GEO多星交会巡查
+
+10. VisibilityAnalysis目录 :high_brightness: 
+地面站观测卫星
 
 
 #### 软件架构
