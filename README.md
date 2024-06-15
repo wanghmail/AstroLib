@@ -19,6 +19,8 @@ AstroLib使用例子，包括轨道参数转换，数学，轨道外推，姿态
 Chapter 5 飞行器六自由度仿真实例。
 可执行程序，依赖AstroLib静态库。
 ![image](docs/resources/SimDoF6_Ui.png)
+![image](docs/resources/SimDoF6_PosVel.png)
+![image](docs/resources/SimDoF6_AngVel.png)
 
 4. Graphics3D目录 :high_brightness: 
 Chapter 7 航天系统仿真可视化实例。
