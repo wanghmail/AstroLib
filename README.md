@@ -8,6 +8,7 @@
 提供了矢量、矩阵、姿态、轨道、插值、积分算法等航天仿真需要的基本程序。
 AstroLib是其他工程的基础，使用时需要将AstroLib.h文件和Include、Lib目录拷贝到其他Project项目目录下。
 注意，这是一个静态库，不能运行，不能运行，不能运行！
+![image](docs/resources/AstroLib.png)
 
 2. Example目录 :high_brightness: 
 AstroLib使用例子，包括轨道参数转换，数学，轨道外推，姿态等。
