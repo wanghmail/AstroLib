@@ -228,6 +228,7 @@
     <ClInclude Include="Include\AsRightFunction.h" />
     <ClInclude Include="Include\AsTimeSystem.h" />
     <ClInclude Include="Include\AsVector.h" />
+    <ClInclude Include="Include\Eigen.h" />
     <ClInclude Include="Include\IzzoLam.h" />
     <ClInclude Include="Include\LambertProblem.hpp" />
     <ClInclude Include="Include\LambertProblemT.hpp" />
@@ -510,6 +511,36 @@
     <ClCompile Include="Src\Sofa\zr.c" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Include\Eigen\Cholesky" />
+    <None Include="Include\Eigen\CholmodSupport" />
+    <None Include="Include\Eigen\Core" />
+    <None Include="Include\Eigen\Dense" />
+    <None Include="Include\Eigen\Eigen" />
+    <None Include="Include\Eigen\Eigenvalues" />
+    <None Include="Include\Eigen\Geometry" />
+    <None Include="Include\Eigen\Householder" />
+    <None Include="Include\Eigen\IterativeLinearSolvers" />
+    <None Include="Include\Eigen\Jacobi" />
+    <None Include="Include\Eigen\KLUSupport" />
+    <None Include="Include\Eigen\LU" />
+    <None Include="Include\Eigen\MetisSupport" />
+    <None Include="Include\Eigen\OrderingMethods" />
+    <None Include="Include\Eigen\PardisoSupport" />
+    <None Include="Include\Eigen\PaStiXSupport" />
+    <None Include="Include\Eigen\QR" />
+    <None Include="Include\Eigen\QtAlignedMalloc" />
+    <None Include="Include\Eigen\Sparse" />
+    <None Include="Include\Eigen\SparseCholesky" />
+    <None Include="Include\Eigen\SparseCore" />
+    <None Include="Include\Eigen\SparseLU" />
+    <None Include="Include\Eigen\SparseQR" />
+    <None Include="Include\Eigen\SPQRSupport" />
+    <None Include="Include\Eigen\StdDeque" />
+    <None Include="Include\Eigen\StdList" />
+    <None Include="Include\Eigen\StdVector" />
+    <None Include="Include\Eigen\SuperLUSupport" />
+    <None Include="Include\Eigen\SVD" />
+    <None Include="Include\Eigen\UmfPackSupport" />
     <None Include="Src\Sofa\makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

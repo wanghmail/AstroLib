@@ -15,6 +15,9 @@
     <Filter Include="Source Files\Sofa">
       <UniqueIdentifier>{07ee9d17-a363-4229-807b-7ed4c19004cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Eigen">
+      <UniqueIdentifier>{5ad26675-356c-4e49-85c8-912caa794135}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\AsAttitudeParam.h">
@@ -77,8 +80,9 @@
     <ClInclude Include="Include\AsOrbitParam_2023.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\IzzoLam.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AstroLib.h" />
+    <ClInclude Include="Include\Eigen.h">
+      <Filter>Header Files\Eigen</Filter>
     </ClInclude>
     <ClInclude Include="Include\LambertProblem.hpp">
       <Filter>Header Files</Filter>
@@ -89,13 +93,15 @@
     <ClInclude Include="Include\MyvectorT.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\IzzoLam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Include\sofa.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\sofam.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AstroLib.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\AsAtmosphere.cpp">
@@ -912,6 +918,96 @@
   <ItemGroup>
     <None Include="Src\Sofa\makefile">
       <Filter>Source Files\Sofa</Filter>
+    </None>
+    <None Include="Include\Eigen\Cholesky">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\CholmodSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Core">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Dense">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Eigen">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Eigenvalues">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Geometry">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Householder">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\IterativeLinearSolvers">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Jacobi">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\KLUSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\LU">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\MetisSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\OrderingMethods">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\PardisoSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\PaStiXSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\QR">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\QtAlignedMalloc">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\Sparse">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SparseCholesky">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SparseCore">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SparseLU">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SparseQR">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SPQRSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\StdDeque">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\StdList">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\StdVector">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SuperLUSupport">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\SVD">
+      <Filter>Header Files\Eigen</Filter>
+    </None>
+    <None Include="Include\Eigen\UmfPackSupport">
+      <Filter>Header Files\Eigen</Filter>
     </None>
   </ItemGroup>
 </Project>

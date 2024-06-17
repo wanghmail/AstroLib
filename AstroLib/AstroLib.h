@@ -77,6 +77,7 @@
 
 #include "./Include/sofa.h"
 #include "./Include/sofam.h"
+#include "./Include/Eigen.h"
 
 
 using namespace std;
