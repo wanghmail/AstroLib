@@ -191,3 +191,27 @@ void    AsCWImpulse(
     impulse1 = (m2.Inv())*(endPos-m1*iniPos)-iniVel;
     impulse2 = endVel-(m3*iniPos+m4*(iniVel+impulse1));
 }
+
+
+void	AsCWImpulse(
+            const double iniPos[3],
+            const double iniVel[3],
+            const double endPos[3],
+            const double endVel[3],
+            double t,
+            double orbAngVel,
+            double impulse1[3],
+            double impulse2[3])
+{
+    CCoord v1, v2;
+    AsCWImpulse(
+        CCoord(iniPos),
+        CCoord(iniVel),
+        CCoord(endPos),
+        CCoord(endVel),
+        t,
+        orbAngVel,
+        v1, v2);
+    memcpy(impulse1, v1.Data(), 3*sizeof(double));
+    memcpy(impulse2, v2.Data(), 3*sizeof(double));
+}

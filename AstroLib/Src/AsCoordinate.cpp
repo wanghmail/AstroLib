@@ -41,6 +41,10 @@ CCoord::CCoord(const CVector<double> &v) : CVector<double>(v)
 	assert(v.GetSize()==3);
 }
 
+CCoord::CCoord(const double vec[3]) : CVector<double>(vec[0], vec[1], vec[2])
+{
+}
+
 CCoord::~CCoord()
 {
 }

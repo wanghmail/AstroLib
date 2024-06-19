@@ -98,6 +98,15 @@ void	AsCWImpulse (
 			double orbAngVel, 
 			CCoord& impulse1, 
 			CCoord& impulse2);
+void	AsCWImpulse (
+			const double iniPos[3], 
+			const double iniVel[3], 
+			const double endPos[3], 
+			const double endVel[3],
+			double t, 
+			double orbAngVel, 
+            double impulse1[3], 
+            double impulse2[3]);
 
 
 

@@ -37,6 +37,7 @@ public:
 	CCoord();
 	CCoord(double x, double y, double z);
 	CCoord(const CVector<double> &vec);
+    CCoord(const double vec[3]);
 	virtual ~CCoord();
 
 	//
