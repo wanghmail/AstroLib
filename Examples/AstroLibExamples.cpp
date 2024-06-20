@@ -10,6 +10,8 @@
 #include "ExampleAttitude.h"
 #include "ExampleODEResolve.h"
 
+#include "AstroLib.h"
+
 
 
 void main()
