@@ -215,3 +215,52 @@ void	AsCWImpulse(
     memcpy(impulse1, v1.Data(), 3*sizeof(double));
     memcpy(impulse2, v2.Data(), 3*sizeof(double));
 }
+
+
+//********************************************************************
+/// 用目标轨道简化为圆轨道的CW方程外推相对轨道,CW方程参考坐标系为VVLH坐标系
+/// @Author	Wang Hua
+/// @Date	2005.12.14
+/// @Input
+/// @Param	orbAngVel		参考飞行器轨道角速度
+/// @Param	propTime		时间步长
+/// @In/Out
+/// @Param	relPos			航天器相对参考飞行器的位置
+/// @Param	relVel			航天器相对参考飞行器的速度
+/// @Output
+//********************************************************************
+void AsCWOrbProp(double orbAngVel, double propTime, CCoord3& relPos, CCoord3& relVel)
+{
+    double angVel1 = 1.0/orbAngVel;
+    double tau  = propTime*orbAngVel;
+    double c = cos(tau);
+    double s = sin(tau);
+    CMatrix<double> xzm(4,4), ym(2,2);
+    CVector<double> xz(4),y(2);
+
+    xzm[0][0]=1;	xzm[0][1]=6.0*(tau-s);			xzm[0][2]=(4*s-3*tau)*angVel1;	xzm[0][3]=2*(1-c)*angVel1;	
+    xzm[1][0]=0;	xzm[1][1]=4.0-3.0*c;			xzm[1][2]=2.*(c-1.)*angVel1;	xzm[1][3]=s*angVel1;	
+    xzm[2][0]=0;	xzm[2][1]=6*orbAngVel*(1-c);	xzm[2][2]=4*c-3;				xzm[2][3]=s+s;	
+    xzm[3][0]=0;	xzm[3][1]=3*orbAngVel*s;		xzm[3][2]=-2*s;					xzm[3][3]=c;
+
+    ym[0][0]=c;				ym[0][1]=s*angVel1;
+    ym[1][0]=-orbAngVel*s;	ym[1][1]=c;
+
+    xz[0] = relPos[0];
+    xz[1] = relPos[2];
+    xz[2] = relVel[0];
+    xz[3] = relVel[2];
+    y[0]  = relPos[1];
+    y[1]  = relVel[1];
+
+    xz = xzm*xz;
+    y  = ym *y;
+
+    relPos[0] = xz[0];
+    relPos[2] = xz[1];
+    relVel[0] = xz[2];
+    relVel[2] = xz[3];
+    relPos[1] = y[0] ;
+    relVel[1] = y[1] ;
+
+}

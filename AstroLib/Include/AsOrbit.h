@@ -108,6 +108,23 @@ void	AsCWImpulse (
             double impulse1[3], 
             double impulse2[3]);
 
+//********************************************************************
+/// 用目标轨道简化为圆轨道的CW方程外推相对轨道,CW方程参考坐标系为VVLH坐标系
+/// @Author	Wang Hua
+/// @Date	2005.12.14
+/// @Input
+/// @Param	orbAngVel		参考飞行器轨道角速度
+/// @Param	propTime		时间步长
+/// @In/Out
+/// @Param	relPos			航天器相对参考飞行器的位置
+/// @Param	relVel			航天器相对参考飞行器的速度
+/// @Output
+//********************************************************************
+void	AsCWOrbProp (
+			double orbAngVel, 
+			double propTime, 
+			CCoord& relPos, 
+			CCoord& relVel);
 
 
 #endif // !defined(_ASORBIT_H__INCLUDED_)
